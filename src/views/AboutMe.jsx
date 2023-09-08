@@ -23,7 +23,6 @@ export default function AboutMe({displayHeading, headingTypedCallback, setTermin
 
   // COPONENT HOOKS
   const textSection = useRef();
-  const aboutMeTitle = useRef();
 
   const [headingTyped, setHeadingTyped] = useState(false);
   const [paragraphsTyped, setParagraphsTyped] = useState(0);
@@ -66,7 +65,7 @@ export default function AboutMe({displayHeading, headingTypedCallback, setTermin
         <Row className="about-me__row">
           <Col className="p-0">
             <AsciiPortrait visible={headingTyped} />
-            <h1 ref={aboutMeTitle} className='route-header about-me-margins'>
+            <h1 className='route-header padding-margins'>
               <TypingText text="/about_me" doneTypingCallback={handleHeadingTyped} />
             </h1>
             <div className="p-2">
@@ -78,7 +77,7 @@ export default function AboutMe({displayHeading, headingTypedCallback, setTermin
         </Row>
         <Row className="about-me__row">
           <Col className="p-0 bg-black bg-opacity-75">
-            <div className="about-me__text about-me-margins">
+            <div className="about-me__text padding-margins">
               <div ref={textSection}>
                 <p>
                   <TypingText

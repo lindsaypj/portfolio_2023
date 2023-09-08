@@ -1,28 +1,56 @@
 import './styles/App.css';
-import { loadSessionData } from './scripts/sessionInterface';
+import SESSION_KEYS, { getSessionValue, loadSessionPageData, saveSessionPageData, saveSessionValue } from './scripts/sessionInterface';
 
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import Terminal from './components/Terminal';
 import AboutMe from './views/AboutMe';
 import Foorter from './components/Footer';
+import Portfolio from './views/Portfolio';
 
 function App() {
-  const {currentPage} = loadSessionData();
-
   const [page, setPage] = useState();
   const [headingTyped, setHeadingTyped] = useState(false);
   const [terminalHero, setTerminalHero] = useState(true);
+
+  useEffect(() => {
+    const { currentPage } = loadSessionPageData();
+    setPage(currentPage);
+  }, []);
 
   const headingTypedCallback = () => {
     setHeadingTyped(true);
   }
 
-  const navChangeCallback = () => {
+  const navChangeCallback = (newPage) => {
+    setPage(newPage);
+    saveSessionValue(SESSION_KEYS.CURRENT_PAGE, newPage);
+  };
 
-  }
-
-  loadSessionData()
+  const getContent = useCallback(() => {
+    switch(page) {
+      case '/about_me':
+        return (
+          <AboutMe
+            displayHeading={true}
+            headingTypedCallback={headingTypedCallback}
+            setTerminalHero={setTerminalHero}
+          />
+        );
+      case '/portfolio':
+        return (
+          <Portfolio />
+        );
+      default:
+        return (
+          <AboutMe
+            displayHeading={true}
+            headingTypedCallback={headingTypedCallback}
+            setTerminalHero={setTerminalHero}
+          />
+        );
+    }
+  }, [page]);
 
   return (
     <div className='App app-dark'>
@@ -35,14 +63,12 @@ function App() {
           />
         </div>
       </header>
-      <main>
-        <AboutMe
-          displayHeading={true}
-          headingTypedCallback={headingTypedCallback}
-          setTerminalHero={setTerminalHero}
-        />
+      <main id='main-content'>
+        {getContent()}
       </main>
-      <Foorter />
+      <footer>
+        <Foorter />
+      </footer>
     </div>
   );
 }

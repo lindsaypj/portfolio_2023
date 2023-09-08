@@ -5,9 +5,13 @@ import TypingText from './TypingText';
 import '../styles/Terminal.css';
 import '../styles/Cursor.css';
 import Cursor from "./Cursor";
+import RouteTree from "../objects/RouteTree";
+
+const routes = ['/about_me', '/portfolio', '/terminal'];
 
 export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
   const MAX_CHAR_COUNT = 20;
+  const routeTree = new RouteTree(routes);
 
   const terminal = useRef();
   const commandLine = useRef();
@@ -15,6 +19,8 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
   const cursor = useRef();
 
   const [terminalText, setTerminalText] = useState('');
+  const [partialRoutes, setPartialRoutes] = useState([]);
+  const [validPath, setValidPath] = useState(false);
 
   // Initial load
   useEffect(() => {
@@ -38,6 +44,18 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
 
   const updateCursorPos = (nextCursorPos) => {
     cursor.current.style.marginLeft = -(terminal.current.value.length - nextCursorPos) + 'ch';
+  }
+
+  const checkForValidPath = (possiblePath) => {
+    const possibleRoutes = routeTree.getRoutes(possiblePath);
+    setPartialRoutes(possibleRoutes);
+    
+    if (possibleRoutes.includes(possiblePath)) {
+      setValidPath(true);
+    }
+    else {
+      setValidPath(false);
+    }
   }
 
   // Event handlers
@@ -65,6 +83,17 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
     }
   }
 
+  const handleKeyUp = (event) => {
+    handleTerminalCursorPosChange(event);
+    if (validPath) {
+      console.log("PATH IS VALID");
+      if (event.key === 'Enter' || event.key === 'Accept') {
+        console.log("NAVIGATING...");
+        navChangeCallback(terminalText);
+      }
+    }
+  }
+
   const handleOnChange = (event) => {
     handleTerminalCursorPosChange(event);
 
@@ -80,6 +109,7 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
       input.value = input.value.substr(0, MAX_CHAR_COUNT);
     }
     setTerminalText(input.value);
+    checkForValidPath(input.value);
   }
 
   const handleInputTextSelct = (event) => {
@@ -120,7 +150,7 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
             onFocus={() => {cursor.current.classList.remove('hide')}}
             onBlur={handleInputBlur}
             onSelect={handleInputTextSelct}
-            onKeyUp={handleTerminalCursorPosChange}
+            onKeyUp={handleKeyUp}
             onKeyDown={handleTerminalCursorPosChange}
             onClick={handleTerminalCursorPosChange}
             onChange={handleOnChange}
@@ -132,6 +162,9 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
           <Cursor cursorRef={cursor} />
         </p>
       </div>
+      <span className='terminal-execute terminal-ignore-blur'>
+        {'X'}
+      </span>
     </div>
   );
 }
