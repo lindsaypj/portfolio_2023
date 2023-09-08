@@ -1,2 +1,5 @@
+# Source: https://manytools.org/hacker-tools/convert-images-to-ascii-art/
 public/ascii-art.html linguist-vendored
 public/ascii-art.css linguist-vendored
+# Source: https://gwfh.mranftl.com/fonts/roboto-mono?subsets=latin
+src/styles/fonts/* linguist-vendored
