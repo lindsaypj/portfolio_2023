@@ -17,8 +17,8 @@ export default function TypingText({
           doneTypingCallback();
           clearInterval(interval);
         }
-        setRenderedText(text.substr(0, renderedText.length+1));
-        setHiddenText(text.substr(renderedText.length+1));
+        setRenderedText(text.slice(0, renderedText.length+1));
+        setHiddenText(text.slice(renderedText.length+1));
       }, charInterval);
       return () => clearInterval(interval);
     }

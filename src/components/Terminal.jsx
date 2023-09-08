@@ -106,7 +106,7 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
 
     // Update text content to match input
     if (nextWidth > MAX_CHAR_COUNT) {
-      input.value = input.value.substr(0, MAX_CHAR_COUNT);
+      input.value = input.value.slice(0, MAX_CHAR_COUNT);
     }
     setTerminalText(input.value);
     checkForValidPath(input.value);

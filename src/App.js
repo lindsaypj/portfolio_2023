@@ -1,5 +1,5 @@
 import './styles/App.css';
-import SESSION_KEYS, { getSessionValue, loadSessionPageData, saveSessionPageData, saveSessionValue } from './scripts/sessionInterface';
+import SESSION_KEYS, { loadSessionPageData, saveSessionValue } from './scripts/sessionInterface';
 
 import { useCallback, useEffect, useState } from 'react';
 

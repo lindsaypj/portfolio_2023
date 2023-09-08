@@ -26,10 +26,10 @@ class RouteTree {
     }
 
     if (currentNode.hasChild(nextChar)) {
-      this.addChars(currentNode.getChild(nextChar), route.substring(1));
+      this.addChars(currentNode.getChild(nextChar), route.slice(1));
     }
     else {
-      const newNode = this.addChars(new Node(nextChar), route.substring(1));
+      const newNode = this.addChars(new Node(nextChar), route.slice(1));
       currentNode.addChild(newNode);
     }
     return currentNode;
@@ -47,7 +47,7 @@ class RouteTree {
     if (possibleRoute !== "") {
       const childNode = currentNode.getChild(possibleRoute.charAt(0));
       if (childNode) {
-        return this.getMatches(childNode, possibleRoute.substring(1), sequence + currentNode.char);
+        return this.getMatches(childNode, possibleRoute.slice(1), sequence + currentNode.char);
       }
       return [];
     }
