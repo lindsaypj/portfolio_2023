@@ -1,0 +1,12 @@
+# Ascii-art
+./public/ascii-art.html -linguist-vendored
+
+# Bootstrap css and js
+- (^|/)bootstrap([^/.]*)(\..*)?\.(js|css|less|scss|styl)$
+- (^|/)custom\.bootstrap([^\s]*)(js|css|less|scss|styl)$
+
+# Node dependencies
+- (^|/)node_modules/
+
+# React
+- (^|/)react(-[^.]*)?\.js$
