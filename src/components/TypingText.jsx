@@ -1,0 +1,33 @@
+import React, { useState, useEffect } from "react"
+
+export default function TypingText({
+  text,                          // Text to be rendered
+  charInterval = 100,            // Interval to type each char
+  shouldType = true,             // Boolean to determine when to start typing
+  doneTypingCallback = () => {}, // Callback triggered when all chars rendered/typed
+  fillUnrenderedSpace = true     // Flag to make unrendered text take up the same space as when rendered
+}) {
+  const [renderedText, setRenderedText] = useState(" ");
+  const [hiddenText, setHiddenText] = useState(text);
+    
+  useEffect(() => {
+    if (shouldType) {
+      const interval = setInterval(() => {
+        if (text === renderedText) {
+          doneTypingCallback();
+          clearInterval(interval);
+        }
+        setRenderedText(text.substr(0, renderedText.length+1));
+        setHiddenText(text.substr(renderedText.length+1));
+      }, charInterval);
+      return () => clearInterval(interval);
+    }
+  }, [text, renderedText, shouldType, charInterval])
+  
+  if (fillUnrenderedSpace) {
+    return (
+      <>{renderedText}<span className="hidden">{hiddenText}</span></>
+    )
+  }
+  return <>{renderedText}</>
+}

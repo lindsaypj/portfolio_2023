@@ -1,0 +1,61 @@
+.app-header {
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.route-header {
+  margin: 0;
+  padding: 1.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.699);
+}
+
+.bottom-nav {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  position: fixed;
+  bottom: 0;
+}
+
+/*** ////////    SCROLLBAR    //////// ***/
+html::-webkit-scrollbar {
+  width: 0.9em;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #0a0b0d;
+}
+ 
+html::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 1rem;
+}
+
+html::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: rgb(112, 112, 112);
+}
+
+/*** ////////    THEMES    //////// ***/
+
+.app-dark {
+  color: white;
+}
+.app-light {
+  color: black;
+}
+
+.app-header-dark {
+  background-color: #00000063;
+}
+
+/*** ////////    GLOBAL STYLES    //////// ***/
+
+.hide {
+  display: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+

@@ -1,0 +1,61 @@
+.about-me__row {
+  height: 100vh;
+}
+
+.about-me-margins {
+  padding-left: clamp(0px, 5rem, 5vw);
+  padding-right: clamp(0px, 5rem, 5vw);
+}
+
+/* Hero styles */
+.hero-container {
+  display: flex;
+  height: 80%;
+  align-items: center;
+}
+.hero-terminal {
+  font-weight: 400;
+}
+
+/* About me text */
+.about-me__text {
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  height: 95%;
+  width: clamp(40%, 50rem, 90%);
+
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.text-size-placeholder {
+  position: absolute;
+  color: transparent;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: clamp(40%, 50rem, 90%);
+
+  font-size: 1.2rem;
+  line-height: 1.8;
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Job subtitle */
+.about-me__job-title {
+  position: absolute;
+  top: 50vh;
+  font-weight: 200;
+  font-size: clamp(23px, calc(25px + 1vw), 3vw);
+  padding-left: clamp(0px, 5rem, 5vw);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .about-me__job-title {
+    transition: font-size 0.4s ease-in, padding 0.4s ease-in;
+  }
+}

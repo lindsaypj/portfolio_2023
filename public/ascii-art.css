@@ -1,0 +1,337 @@
+html {
+    overflow: hidden;
+}
+
+.ascii {
+    color: white;
+    display:inline-block;
+    position: relative;
+    margin-top: -40rem;
+
+    white-space:pre;
+    letter-spacing:0;
+    line-height:1.4;
+    font-family:'Consolas','BitstreamVeraSansMono','CourierNew',Courier,monospace;
+    font-size:1rem;
+
+    /* Before load animation */
+    opacity: 0%;
+    right: clamp(-40vw, -40vw, 30vw);
+}
+
+/* Load animation */
+@media (prefers-reduced-motion: no-preference) {
+    .ascii {
+        animation: LoadAscii 3s ease-out 1s forwards;
+    }
+}
+
+@keyframes LoadAscii {
+    0% {opacity: 0%;}
+    100% {
+        opacity: 100%;
+        right: calc(500px - 53vw);
+    }
+}
+
+/* Opacity gradient left -> right */
+.ascii span:nth-child(200n + 21) {
+    opacity: 0;
+}
+.ascii span:nth-child(200n + 22) {
+    opacity: 1%;
+}
+.ascii span:nth-child(200n + 23) {
+    opacity: 2%;
+}
+.ascii span:nth-child(200n + 24) {
+    opacity: 3%;
+}
+.ascii span:nth-child(200n + 25) {
+    opacity: 4%;
+}
+.ascii span:nth-child(200n + 26) {
+    opacity: 5%;
+}
+.ascii span:nth-child(200n + 27) {
+    opacity: 6%;
+}
+.ascii span:nth-child(200n + 28) {
+    opacity: 7%;
+}
+.ascii span:nth-child(200n + 29) {
+    opacity: 8%;
+}
+.ascii span:nth-child(200n + 30) {
+    opacity: 9%;
+}
+.ascii span:nth-child(200n + 31) {
+    opacity: 10%;
+}
+.ascii span:nth-child(200n + 32) {
+    opacity: 11%;
+}
+.ascii span:nth-child(200n + 33) {
+    opacity: 12%;
+}
+.ascii span:nth-child(200n + 34) {
+    opacity: 13%;
+}
+.ascii span:nth-child(200n + 35) {
+    opacity: 14%;
+}
+.ascii span:nth-child(200n + 36) {
+    opacity: 15%;
+}
+.ascii span:nth-child(200n + 37) {
+    opacity: 16%;
+}
+.ascii span:nth-child(200n + 38) {
+    opacity: 17%;
+}
+.ascii span:nth-child(200n + 39) {
+    opacity: 18%;
+}
+.ascii span:nth-child(200n + 40) {
+    opacity: 19%;
+}
+.ascii span:nth-child(200n + 41) {
+    opacity: 20%;
+}
+.ascii span:nth-child(200n + 42) {
+    opacity: 21%;
+}
+.ascii span:nth-child(200n + 43) {
+    opacity: 22%;
+}
+.ascii span:nth-child(200n + 44) {
+    opacity: 23%;
+}
+.ascii span:nth-child(200n + 45) {
+    opacity: 24%;
+}
+.ascii span:nth-child(200n + 46) {
+    opacity: 25%;
+}
+.ascii span:nth-child(200n + 47) {
+    opacity: 26%;
+}
+.ascii span:nth-child(200n + 48) {
+    opacity: 27%;
+}
+.ascii span:nth-child(200n + 49) {
+    opacity: 28%;
+}
+.ascii span:nth-child(200n + 50) {
+    opacity: 29%;
+}
+.ascii span:nth-child(200n + 51) {
+    opacity: 30%;
+}
+.ascii span:nth-child(200n + 52) {
+    opacity: 31%;
+}
+.ascii span:nth-child(200n + 53) {
+    opacity: 32%;
+}
+.ascii span:nth-child(200n + 54) {
+    opacity: 33%;
+}
+.ascii span:nth-child(200n + 55) {
+    opacity: 34%;
+}
+.ascii span:nth-child(200n + 56) {
+    opacity: 35%;
+}
+.ascii span:nth-child(200n + 57) {
+    opacity: 36%;
+}
+.ascii span:nth-child(200n + 58) {
+    opacity: 37%;
+}
+.ascii span:nth-child(200n + 59) {
+    opacity: 38%;
+}
+.ascii span:nth-child(200n + 60) {
+    opacity: 39%;
+}
+.ascii span:nth-child(200n + 61) {
+    opacity: 40%;
+}
+.ascii span:nth-child(200n + 62) {
+    opacity: 41%;
+}
+.ascii span:nth-child(200n + 63) {
+    opacity: 42%;
+}
+.ascii span:nth-child(200n + 64) {
+    opacity: 43%;
+}
+.ascii span:nth-child(200n + 65) {
+    opacity: 44%;
+}
+.ascii span:nth-child(200n + 66) {
+    opacity: 45%;
+}
+.ascii span:nth-child(200n + 67) {
+    opacity: 46%;
+}
+.ascii span:nth-child(200n + 68) {
+    opacity: 47%;
+}
+.ascii span:nth-child(200n + 69) {
+    opacity: 48%;
+}
+.ascii span:nth-child(200n + 70) {
+    opacity: 49%;
+}
+.ascii span:nth-child(200n + 71) {
+    opacity: 50%;
+}
+.ascii span:nth-child(200n + 72) {
+    opacity: 51%;
+}
+.ascii span:nth-child(200n + 73) {
+    opacity: 52%;
+}
+.ascii span:nth-child(200n + 74) {
+    opacity: 53%;
+}
+.ascii span:nth-child(200n + 75) {
+    opacity: 54%;
+}
+.ascii span:nth-child(200n + 76) {
+    opacity: 55%;
+}
+.ascii span:nth-child(200n + 77) {
+    opacity: 56%;
+}
+.ascii span:nth-child(200n + 78) {
+    opacity: 57%;
+}
+.ascii span:nth-child(200n + 79) {
+    opacity: 58%;
+}
+.ascii span:nth-child(200n + 80) {
+    opacity: 59%;
+}
+.ascii span:nth-child(200n + 81) {
+    opacity: 60%;
+}
+.ascii span:nth-child(200n + 82) {
+    opacity: 61%;
+}
+.ascii span:nth-child(200n + 83) {
+    opacity: 62%;
+}
+.ascii span:nth-child(200n + 84) {
+    opacity: 63%;
+}
+.ascii span:nth-child(200n + 85) {
+    opacity: 64%;
+}
+.ascii span:nth-child(200n + 86) {
+    opacity: 65%;
+}
+.ascii span:nth-child(200n + 87) {
+    opacity: 66%;
+}
+.ascii span:nth-child(200n + 88) {
+    opacity: 67%;
+}
+.ascii span:nth-child(200n + 89) {
+    opacity: 68%;
+}
+.ascii span:nth-child(200n + 90) {
+    opacity: 69%;
+}
+.ascii span:nth-child(200n + 91) {
+    opacity: 70%;
+}
+.ascii span:nth-child(200n + 92) {
+    opacity: 71%;
+}
+.ascii span:nth-child(200n + 93) {
+    opacity: 72%;
+}
+.ascii span:nth-child(200n + 94) {
+    opacity: 73%;
+}
+.ascii span:nth-child(200n + 95) {
+    opacity: 74%;
+}
+.ascii span:nth-child(200n + 96) {
+    opacity: 75%;
+}
+.ascii span:nth-child(200n + 97) {
+    opacity: 76%;
+}
+.ascii span:nth-child(200n + 98) {
+    opacity: 77%;
+}
+.ascii span:nth-child(200n + 99) {
+    opacity: 78%;
+}
+.ascii span:nth-child(200n + 100) {
+    opacity: 79%;
+}
+.ascii span:nth-child(200n + 101) {
+    opacity: 80%;
+}
+.ascii span:nth-child(200n + 102) {
+    opacity: 81%;
+}
+.ascii span:nth-child(200n + 103) {
+    opacity: 82%;
+}
+.ascii span:nth-child(200n + 104) {
+    opacity: 83%;
+}
+.ascii span:nth-child(200n + 105) {
+    opacity: 84%;
+}
+.ascii span:nth-child(200n + 106) {
+    opacity: 85%;
+}
+.ascii span:nth-child(200n + 107) {
+    opacity: 86%;
+}
+.ascii span:nth-child(200n + 108) {
+    opacity: 87%;
+}
+.ascii span:nth-child(200n + 109) {
+    opacity: 88%;
+}
+.ascii span:nth-child(200n + 110) {
+    opacity: 89%;
+}
+.ascii span:nth-child(200n + 111) {
+    opacity: 90%;
+}
+.ascii span:nth-child(200n + 112) {
+    opacity: 91%;
+}
+.ascii span:nth-child(200n + 113) {
+    opacity: 92%;
+}
+.ascii span:nth-child(200n + 114) {
+    opacity: 93%;
+}
+.ascii span:nth-child(200n + 115) {
+    opacity: 94%;
+}
+.ascii span:nth-child(200n + 116) {
+    opacity: 95%;
+}
+.ascii span:nth-child(200n + 117) {
+    opacity: 96%;
+}
+.ascii span:nth-child(200n + 118) {
+    opacity: 97%;
+}
+.ascii span:nth-child(200n + 119) {
+    opacity: 98%;
+}
+.ascii span:nth-child(200n + 120) {
+    opacity: 99%;
+}

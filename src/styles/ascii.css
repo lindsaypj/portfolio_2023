@@ -1,0 +1,34 @@
+.ascii-frame {
+  font-size:5px;
+  width: 200ch;
+  height: 250ch;
+  border: none;
+  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 62%);
+}
+
+.ascii-frame2 {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  font-size:5px;
+  width: 100%;
+  height: 200vh;
+  border: none;
+  
+  pointer-events: none;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  z-index: -2;
+  height: 100vh;
+  width: 100%;
+
+  background: -webkit-linear-gradient(black, transparent);
+  background: -moz-linear-gradient(black, transparent);
+  background: -ms-linear-gradient(black, transparent);
+  background: -o-linear-gradient(black, transparent);
+  background: linear-gradient(black, transparent);
+  pointer-events: none;
+}

@@ -1,0 +1,24 @@
+.footer {
+  background-color: black;
+  padding: 2rem 0 5rem 0;
+}
+
+.footer h4 {
+  margin: 0;
+  padding: 1rem 0 2rem 0;
+}
+
+.footer h5 {
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.footer p {
+  font-weight: 200;
+}
+
+@media (min-width: 576px) {
+  .footer .left-center p, h5 {
+    text-indent: 35%;
+  }
+}
