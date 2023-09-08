@@ -1,10 +1,12 @@
 .cursor {
   text-shadow: none;
-  opacity: 0%;
+  mix-blend-mode:difference;
+  opacity: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .cursor {
+    opacity: 0%;
     animation: CursorBlink infinite 2s linear;
     position: relative;
   }
