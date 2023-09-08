@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useLayoutEffect, useCallback } from "react";
 
 import TypingText from '../components/TypingText';
-import AsciiPortrait from "../resources/images/ascii-portrait";
+import AsciiPortrait from "../components/ascii-portrait";
 import { Col, Container, Row } from "react-bootstrap";
 
 import '../styles/AboutMe.css';

@@ -5,13 +5,11 @@ import TypingText from './TypingText';
 import '../styles/Terminal.css';
 import '../styles/Cursor.css';
 import Cursor from "./Cursor";
-import RouteTree from "../objects/RouteTree";
-
-const routes = ['/about_me', '/portfolio', '/terminal'];
+import RouteTree from '../objects/RouteTree';
 
 export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
   const MAX_CHAR_COUNT = 20;
-  const routeTree = new RouteTree(routes);
+  const routeTree = new RouteTree();
 
   const terminal = useRef();
   const commandLine = useRef();
@@ -162,9 +160,6 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
           <Cursor cursorRef={cursor} />
         </p>
       </div>
-      <span className='terminal-execute terminal-ignore-blur'>
-        {'X'}
-      </span>
     </div>
   );
 }

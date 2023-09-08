@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-import '../../styles/ascii.css';
+import '../styles/ascii.css';
 
 export default function AsciiPortrait({ visible }) {
   const frame = useRef();

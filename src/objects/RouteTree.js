@@ -1,7 +1,9 @@
+import routes from '../resources/text/routes';
+
 class RouteTree {
-  constructor(routes = []) {
+  constructor(initialRoutes = routes) {
     this.root = new Node();
-    routes.forEach((route) => {
+    initialRoutes.forEach((route) => {
       this.addRoute(route);
     });
   }

@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import { Col, Container, Row } from "react-bootstrap";
 
+import { paths, methods, commands } from "../resources/text/routes";
 import '../styles/Footer.css'
 
 
 export default function Foorter() {
+
+  const getPaths = useCallback(() => {
+    return paths.map((path) => (
+      <p key={path}>{ path }</p>
+    ));
+  }, [paths]);
+
+  const getMethods = useCallback(() => {
+    return methods.map((method) => (
+      <p key={method}>{ method }</p>
+    ));
+  }, [paths]);
+
+  const getCommands = useCallback(() => {
+    return commands.map((command) => (
+      <p key={command}>{ command }</p>
+    ));
+  }, [paths]);
+
   return (
     <div className="footer">
     <Container>
@@ -18,20 +38,20 @@ export default function Foorter() {
         <Col className="px-5">
           <div className="left-center d-flex flex-column">
             <h5>/paths</h5>
-            <p>/about_me</p>
-            <p>/automotive</p>
-            <p>/portfolio</p>
-            <p>/sudoku</p>
-            <p>/terminal</p>
+            {getPaths()}
           </div>
         </Col>
         <Col className="px-5">
-          <h5>.methods()</h5>
-          <p></p>
+          <div className="left-center d-flex flex-column">
+            <h5>.methods()</h5>
+            {getMethods()}
+          </div>
         </Col>
         <Col className="px-5">
-          <h5>commands</h5>
-          <p></p>
+          <div className="left-center d-flex flex-column">
+            <h5>commands</h5>
+            {getCommands()}
+          </div>
         </Col>
       </Row>
     </Container>
