@@ -1,4 +1,4 @@
-# Portfolio
+# Portfolio (WIP)
 This is my latest portfolio. The design incorporates a terminal that is used to navigate and interact with the site.
 
 ## Terminal Commands
