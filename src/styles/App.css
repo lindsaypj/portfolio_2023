@@ -67,6 +67,10 @@ html::-webkit-scrollbar-thumb:vertical:hover {
   visibility: hidden;
 }
 
+.w-0 {
+  width: 0;
+}
+
 .padding-margins {
   padding-left: clamp(0px, 5rem, 5vw);
   padding-right: clamp(0px, 5rem, 5vw);

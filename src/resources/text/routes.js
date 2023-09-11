@@ -13,8 +13,9 @@ export const methods = [
 
 // Commands are like methods, but they are global
 export const commands = [
-  'theme dark',
-  'theme light'
+  ' theme dark',
+  ' theme light',
+  ' help <command>'
 ];
 
 // All routes

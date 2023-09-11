@@ -1,0 +1,22 @@
+.routes-popover-pos {
+  
+  visibility: hidden;
+  pointer-events: none;
+  
+  font-size: clamp(19px, calc(20px + 1vw), 3vw);
+  display: inline-block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: -2.5ch;
+}
+
+.autocomplete-menu {
+  background-color: black;
+  color: white;
+}
+
+.autocomplete-menu span {
+  color: white;
+  text-shadow: none;
+}

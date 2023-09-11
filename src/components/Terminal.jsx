@@ -1,13 +1,15 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 
+import Cursor from "./Cursor";
 import TypingText from './TypingText';
+import RoutesPopover from "./RoutesPopover";
 
 import '../styles/Terminal.css';
 import '../styles/Cursor.css';
-import Cursor from "./Cursor";
+
 import RouteTree from '../objects/RouteTree';
 
-export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
+export default function Terminal({ navChangeCallback, shouldType, currentRoute, heroMode }) {
   const MAX_CHAR_COUNT = 20;
   const routeTree = new RouteTree();
 
@@ -19,6 +21,7 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
   const [terminalText, setTerminalText] = useState('');
   const [partialRoutes, setPartialRoutes] = useState([]);
   const [validPath, setValidPath] = useState(false);
+  const [terminalHasFocus, setTerminalHasFocus] = useState(true);
 
   // Initial load
   useEffect(() => {
@@ -44,6 +47,7 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
     cursor.current.style.marginLeft = -(terminal.current.value.length - nextCursorPos) + 'ch';
   }
 
+  // Update autocmoplete routs
   const checkForValidPath = (possiblePath) => {
     const possibleRoutes = routeTree.getRoutes(possiblePath);
     setPartialRoutes(possibleRoutes);
@@ -56,9 +60,12 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
     }
   }
 
-  // Event handlers
+
+  // EVENT HANDLERS
+
   const setFocus = () => {
     terminal.current.focus();
+    setTerminalHasFocus(true);
   }
 
   const handleTerminalCursorPosChange = (event) => {
@@ -78,6 +85,7 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
   const handleInputBlur = (event) => {
     if (!event.target.classList.contains('terminal-ignore-blur')) {
       cursor.current.classList.add('hide');
+      setTerminalHasFocus(false);
     }
   }
 
@@ -114,6 +122,17 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
     event.target.selectionStart = event.target.selectionEnd;
   }
 
+  const handleAutocompleteSelection = useCallback((selection) => {
+    // Update input
+    terminal.current.value = selection;
+    // Update Overlay
+    setTerminalText(selection);
+    // Update RouteTree
+    checkForValidPath(selection);
+    // Execute route
+    navChangeCallback(selection);
+  }, [terminalText]);
+
   return (
     <div
       className='terminal terminal-dark terminal-ignore-blur'
@@ -127,12 +146,12 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
         className='command-line terminal-ignore-blur terminal-click'
         onClick={handleClickTerminal}
       >
-        <p
+        <div
           className="p-0 m-0 terminal-ignore-blur terminal-click"
           onClick={handleClickTerminal}
         >
-          
-          <span className='command-prefix terminal-ignore-blur'>
+          {/* Command Prefix: patrick_lindsay */}
+          <span className='command-prefix terminal-ignore-blur  command-line-text'>
             <TypingText
               text='patrick_lindsay'
               charInterval={50}
@@ -140,6 +159,15 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
               fillUnrenderedSpace={false}
             />
           </span>
+
+          {/* Autocomplete menu */}
+          <RoutesPopover
+            routes={partialRoutes}
+            override={terminalHasFocus}
+            selectionCallback={handleAutocompleteSelection}
+          />
+
+          {/* Terminal Input (Not visible) */}
           <input
             ref={terminal}
             className='terminal-input'
@@ -153,12 +181,15 @@ export default function Terminal({ navChangeCallback, shouldType, heroMode }) {
             onClick={handleTerminalCursorPosChange}
             onChange={handleOnChange}
           />
-          <span ref={terminalTextOverlay} className='terminal-text-overlay terminal-ignore-blur'>
+
+          {/* Terminal Text */}
+          <span ref={terminalTextOverlay} className='terminal-text-overlay terminal-ignore-blur command-line-text'>
             {terminalText}
           </span>
-          
-          <Cursor cursorRef={cursor} />
-        </p>
+
+          {/* Terminal Cursor */}
+          <Cursor cursorRef={cursor} className='command-line-text' />
+        </div>
       </div>
     </div>
   );
