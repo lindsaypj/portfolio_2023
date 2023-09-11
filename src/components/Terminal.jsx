@@ -50,14 +50,15 @@ export default function Terminal({ navChangeCallback, shouldType, currentRoute, 
   // Update autocmoplete routs
   const checkForValidPath = (possiblePath) => {
     const possibleRoutes = routeTree.getRoutes(possiblePath);
-    setPartialRoutes(possibleRoutes);
-    
+
     if (possibleRoutes.includes(possiblePath)) {
       setValidPath(true);
     }
     else {
       setValidPath(false);
     }
+
+    setPartialRoutes(possibleRoutes.filter((route) => route !== possiblePath));
   }
 
 
