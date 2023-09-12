@@ -6,7 +6,7 @@ import { Col, Container, Row } from "react-bootstrap";
 
 import '../styles/AboutMe.css';
 
-export default function AboutMe({displayHeading, headingTypedCallback, setTerminalHero}) {
+export default function AboutMe({ headingTypedCallback, setTerminalHero }) {
   // CUSTOM HOOKS //
   function useScrollPos() {
     const [yPos, setYPos] = useState(0);
@@ -21,7 +21,7 @@ export default function AboutMe({displayHeading, headingTypedCallback, setTermin
     return yPos;
   }
 
-  // COPONENT HOOKS
+  // HOOKS
   const textSection = useRef();
 
   const [headingTyped, setHeadingTyped] = useState(false);
@@ -48,6 +48,10 @@ export default function AboutMe({displayHeading, headingTypedCallback, setTermin
       }
     });
     textObserver.observe(textSection.current);
+
+    return () => {
+      setTerminalHero(false);
+    }
   }, []);
 
   useEffect(() => {
