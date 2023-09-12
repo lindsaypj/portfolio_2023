@@ -1,0 +1,9 @@
+.portfolio__header-row {
+  height: 100vh;
+
+  background: -webkit-linear-gradient(black, transparent);
+  background: -moz-linear-gradient(black, transparent);
+  background: -ms-linear-gradient(black, transparent);
+  background: -o-linear-gradient(black, transparent);
+  background: linear-gradient(black, transparent);
+}
