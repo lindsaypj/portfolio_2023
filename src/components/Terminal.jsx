@@ -9,7 +9,7 @@ import '../styles/Cursor.css';
 
 import RouteTree from '../objects/RouteTree';
 
-export default function Terminal({ navChangeCallback, shouldType, currentRoute, heroMode }) {
+export default function Terminal({ navChangeCallback, currentRoute, shouldTypePrefix, heroMode }) {
   const MAX_CHAR_COUNT = 20;
   const routeTree = new RouteTree();
 
@@ -24,15 +24,23 @@ export default function Terminal({ navChangeCallback, shouldType, currentRoute, 
   const [validPath, setValidPath] = useState(false);
   const [terminalHasFocus, setTerminalHasFocus] = useState(true);
 
-  // Initial load
+  // When Route updates
   useEffect(() => {
-    if (shouldType) {
+    if (currentRoute === '/about_me') {
+      terminal.current.value = '';
+      setTerminalText('');
+    }
+  }, [currentRoute]);
+
+  // Handle delayed prefix typing
+  useEffect(() => {
+    if (shouldTypePrefix) {
       setFocus();
     }
     else {
       cursor.current.classList.add('hide');
     }
-  }, [shouldType]);
+  }, [shouldTypePrefix]);
 
   // Handle heroMode transitions
   useEffect(() => {
@@ -165,7 +173,7 @@ export default function Terminal({ navChangeCallback, shouldType, currentRoute, 
             <TypingText
               text={getTerminalPrefix()}
               charInterval={50}
-              shouldType={shouldType}
+              shouldType={shouldTypePrefix}
               fillUnrenderedSpace={false}
             />
           </span>

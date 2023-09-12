@@ -30,21 +30,20 @@ function App() {
   const getContent = useCallback(() => {
     switch(page) {
       case '/about_me':
+
         return (
           <AboutMe
-            displayHeading={true}
             headingTypedCallback={headingTypedCallback}
             setTerminalHero={setTerminalHero}
           />
         );
       case '/portfolio':
         return (
-          <Portfolio />
+          <Portfolio headingTypedCallback={headingTypedCallback} />
         );
       default:
         return (
           <AboutMe
-            displayHeading={true}
             headingTypedCallback={headingTypedCallback}
             setTerminalHero={setTerminalHero}
           />
@@ -58,7 +57,8 @@ function App() {
         <div className='bottom-nav'>
           <Terminal
             navChangeCallback={navChangeCallback}
-            shouldType={headingTyped}
+            currentRoute={page}
+            shouldTypePrefix={headingTyped}
             heroMode={terminalHero}
           />
         </div>
