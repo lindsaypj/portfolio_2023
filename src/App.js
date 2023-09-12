@@ -7,6 +7,7 @@ import Terminal from './components/Terminal';
 import AboutMe from './views/AboutMe';
 import Foorter from './components/Footer';
 import Portfolio from './views/Portfolio';
+import scrollToTop from './scripts/scrollToTop';
 
 function App() {
   const [page, setPage] = useState();
@@ -23,14 +24,16 @@ function App() {
   }
 
   const navChangeCallback = (newPage) => {
+    // Update page/session state
     setPage(newPage);
     saveSessionValue(SESSION_KEYS.CURRENT_PAGE, newPage);
+
+    scrollToTop();
   };
 
   const getContent = useCallback(() => {
     switch(page) {
       case '/about_me':
-
         return (
           <AboutMe
             headingTypedCallback={headingTypedCallback}
