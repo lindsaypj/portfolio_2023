@@ -17,8 +17,18 @@ export default function TypingText({
           doneTypingCallback();
           clearInterval(interval);
         }
-        setRenderedText(text.slice(0, renderedText.length+1));
-        setHiddenText(text.slice(renderedText.length+1));
+
+        // Determine type direction (add or delete)
+        if (text.length > renderedText.length) {
+          setRenderedText(text.slice(0, renderedText.length+1));
+          setHiddenText(text.slice(renderedText.length+1));
+        }
+        else if (text.length < renderedText.length) {
+          setRenderedText(renderedText.slice(0, renderedText.length - 1));
+        }
+        else {
+          setRenderedText(text);
+        }
       }, charInterval);
       return () => clearInterval(interval);
     }
