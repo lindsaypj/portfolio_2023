@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState, useLayoutEffect, useCallback } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
+import useScrollPos from "../hooks/useScrollPos";
 
 import TypingText from '../components/TypingText';
 import AsciiPortrait from "../components/ascii-portrait";
@@ -6,21 +7,8 @@ import { Col, Container, Row } from "react-bootstrap";
 
 import '../styles/AboutMe.css';
 
-export default function AboutMe({ headingTypedCallback, setTerminalHero }) {
-  // CUSTOM HOOKS //
-  function useScrollPos() {
-    const [yPos, setYPos] = useState(0);
-    useLayoutEffect(() => {
-      function updateScrollPos() {
-        setYPos(window.scrollY);
-      }
-      window.addEventListener('scroll', updateScrollPos);
-      updateScrollPos();
-      return () => window.removeEventListener('scroll', updateScrollPos);
-    }, []);
-    return yPos;
-  }
 
+export default function AboutMe({ headingTypedCallback, setTerminalHero }) {
   // HOOKS
   const textSection = useRef();
 
