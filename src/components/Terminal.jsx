@@ -19,9 +19,11 @@ export default function Terminal({ navChangeCallback, shouldType, currentRoute, 
   const cursor = useRef();
 
   const [terminalText, setTerminalText] = useState('');
+  const [abbriviatePrefix, setAbbriviatePrefix] = useState(false);
   const [partialRoutes, setPartialRoutes] = useState([]);
   const [validPath, setValidPath] = useState(false);
   const [terminalHasFocus, setTerminalHasFocus] = useState(true);
+  const [heroOverride, setHeroOverride] = useState(true);
 
   // Initial load
   useEffect(() => {
@@ -35,13 +37,15 @@ export default function Terminal({ navChangeCallback, shouldType, currentRoute, 
 
   // Handle heroMode transitions
   useEffect(() => {
-    if (heroMode) {
+    if (heroMode && terminalText.length === 0) {
       commandLine.current.classList.add('command-line-hero');
+      setAbbriviatePrefix(true);
     }
     else {
       commandLine.current.classList.remove('command-line-hero');
+      setAbbriviatePrefix(false);
     }
-  }, [heroMode]);
+  }, [heroMode, terminalText]);
 
   const updateCursorPos = (nextCursorPos) => {
     cursor.current.style.marginLeft = -(terminal.current.value.length - nextCursorPos) + 'ch';
@@ -134,6 +138,12 @@ export default function Terminal({ navChangeCallback, shouldType, currentRoute, 
     navChangeCallback(selection);
   }, [terminalText]);
 
+
+  // RENDERING 
+  const getTerminalPrefix = useCallback(() => {
+    return abbriviatePrefix ? 'patrick_lindsay' : 'pl';
+  }, [abbriviatePrefix]);
+
   return (
     <div
       className='terminal terminal-dark terminal-ignore-blur'
@@ -151,10 +161,10 @@ export default function Terminal({ navChangeCallback, shouldType, currentRoute, 
           className="p-0 m-0 terminal-ignore-blur terminal-click"
           onClick={handleClickTerminal}
         >
-          {/* Command Prefix: patrick_lindsay */}
+          {/* Command Prefix: patrick_lindsay | pl */}
           <span className='command-prefix terminal-ignore-blur  command-line-text'>
             <TypingText
-              text='patrick_lindsay'
+              text={getTerminalPrefix()}
               charInterval={50}
               shouldType={shouldType}
               fillUnrenderedSpace={false}
