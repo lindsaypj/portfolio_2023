@@ -23,7 +23,6 @@ export default function Terminal({ navChangeCallback, shouldType, currentRoute, 
   const [partialRoutes, setPartialRoutes] = useState([]);
   const [validPath, setValidPath] = useState(false);
   const [terminalHasFocus, setTerminalHasFocus] = useState(true);
-  const [heroOverride, setHeroOverride] = useState(true);
 
   // Initial load
   useEffect(() => {
