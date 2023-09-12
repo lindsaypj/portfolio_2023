@@ -1,6 +1,5 @@
 import { useLayoutEffect, useState } from "react";
 
-
 export default function useScrollPos() {
   const [yPos, setYPos] = useState(0);
   useLayoutEffect(() => {

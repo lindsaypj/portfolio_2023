@@ -6,7 +6,7 @@ import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 
 import '../styles/RoutesPopover.css';
 
-export default function RoutesPopover({ routes, override, selectionCallback, preventTerminalBlur }) {
+export default function RoutesPopover({ routes, override, selectionCallback }) {
   const [showMenu, setShowMenu] = useState(false);
 
   useLayoutEffect(() => {
@@ -15,7 +15,7 @@ export default function RoutesPopover({ routes, override, selectionCallback, pre
     } else {
       setShowMenu(false);
     }
-  }, [routes, override])
+  }, [routes, override]);
 
 
   // EVENT HANDLERS
