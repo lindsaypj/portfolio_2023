@@ -71,6 +71,11 @@ html::-webkit-scrollbar-thumb:vertical:hover {
   width: 0;
 }
 
+.row {
+  max-width: 100vw;
+  margin: 0;
+}
+
 .padding-margins {
   padding-left: clamp(0px, 5rem, 5vw);
   padding-right: clamp(0px, 5rem, 5vw);
