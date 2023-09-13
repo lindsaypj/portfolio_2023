@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 
 import { Col, Container, Row } from "react-bootstrap";
 
@@ -8,23 +8,23 @@ import '../styles/Footer.css'
 
 export default function Foorter() {
 
-  const getPaths = useCallback(() => {
+  const getPaths = () => {
     return paths.map((path) => (
       <p key={path}>{ path }</p>
     ));
-  }, [paths]);
+  };
 
-  const getMethods = useCallback(() => {
+  const getMethods = () => {
     return methods.map((method) => (
       <p key={method}>{ method }</p>
     ));
-  }, [paths]);
+  };
 
-  const getCommands = useCallback(() => {
+  const getCommands = () => {
     return commands.map((command) => (
       <p key={command}>{ command }</p>
     ));
-  }, [paths]);
+  };
 
   return (
     <div className="footer">

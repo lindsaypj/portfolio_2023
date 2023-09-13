@@ -9,9 +9,10 @@ import '../styles/Cursor.css';
 
 import RouteTree from '../objects/RouteTree';
 
+const routeTree = new RouteTree();
+
 export default function Terminal({ navChangeCallback, currentRoute, shouldTypePrefix, heroMode }) {
   const MAX_CHAR_COUNT = 20;
-  const routeTree = new RouteTree();
 
   const terminal = useRef();
   const commandLine = useRef();
@@ -59,7 +60,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
   }
 
   // Update autocmoplete routs
-  const checkForValidPath = (possiblePath) => {
+  const checkForValidPath = useCallback((possiblePath) => {
     const possibleRoutes = routeTree.getRoutes(possiblePath);
 
     if (possibleRoutes.includes(possiblePath)) {
@@ -70,7 +71,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
     }
 
     setPartialRoutes(possibleRoutes.filter((route) => route !== possiblePath));
-  }
+  }, []);
 
 
   // EVENT HANDLERS
@@ -143,7 +144,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
     checkForValidPath(selection);
     // Execute route
     navChangeCallback(selection);
-  }, [terminalText]);
+  }, [checkForValidPath, navChangeCallback]);
 
 
   // RENDERING 

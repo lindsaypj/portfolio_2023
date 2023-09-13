@@ -40,7 +40,7 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero }) {
     return () => {
       setTerminalHero(false);
     }
-  }, []);
+  }, [setTerminalHero]);
 
   useEffect(() => {
     if (scrollPos > 0) {
