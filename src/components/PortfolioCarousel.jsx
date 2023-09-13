@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Carousel } from "react-bootstrap";
 
-export default function PortfolioCarousel({ desktopImages = [], mobileImages, showMobile }) {
+export default function PortfolioCarousel({ desktopImages = [], mobileImages, showMobile = false }) {
   const getImages = useCallback(() => {
     if (showMobile) {
       return mobileImages;
@@ -10,9 +10,9 @@ export default function PortfolioCarousel({ desktopImages = [], mobileImages, sh
   }, [showMobile, desktopImages, mobileImages]);
 
   return (
-    <Carousel fade data-bs-theme='dark'>
-      {getImages().map((image) => (
-        <Carousel.Item>
+    <Carousel fade data-bs-theme='dark' className='shadow'>
+      {getImages().map((image, index) => (
+        <Carousel.Item key={index}>
           <img
             src={image.src}
             alt={image.alt}

@@ -53,6 +53,13 @@ html::-webkit-scrollbar-thumb:vertical:hover {
   color: black;
 }
 
+.logo-dark {
+  fill: white;
+}
+.logo-light {
+  fill: black;
+}
+
 .app-header-dark {
   background-color: #00000063;
 }
