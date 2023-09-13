@@ -32,7 +32,8 @@ export default function TypingText({
       }, charInterval);
       return () => clearInterval(interval);
     }
-  }, [text, renderedText, shouldType, charInterval, doneTypingCallback]);
+    // eslint-disable-next-line
+  }, [text, renderedText, shouldType, charInterval]);
   
   if (fillUnrenderedSpace) {
     return (
