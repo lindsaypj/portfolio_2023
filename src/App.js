@@ -19,9 +19,9 @@ function App() {
     setPage(currentPage);
   }, []);
 
-  const headingTypedCallback = () => {
+  const headingTypedCallback = useCallback(() => {
     setHeadingTyped(true);
-  }
+  }, []);
 
   const navChangeCallback = (newPage) => {
     // Update page/session state
@@ -52,7 +52,7 @@ function App() {
           />
         );
     }
-  }, [page]);
+  }, [page, headingTypedCallback]);
 
   return (
     <div className='App app-dark'>

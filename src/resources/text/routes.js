@@ -19,4 +19,5 @@ export const commands = [
 ];
 
 // All routes
-export default [...paths, ...methods, ...commands];
+const allRoutes = [...paths, ...methods, ...commands];
+export default allRoutes;

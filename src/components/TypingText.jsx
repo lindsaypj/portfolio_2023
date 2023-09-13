@@ -32,7 +32,7 @@ export default function TypingText({
       }, charInterval);
       return () => clearInterval(interval);
     }
-  }, [text, renderedText, shouldType, charInterval])
+  }, [text, renderedText, shouldType, charInterval, doneTypingCallback]);
   
   if (fillUnrenderedSpace) {
     return (
