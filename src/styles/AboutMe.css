@@ -43,7 +43,7 @@
 /* Job subtitle */
 .about-me__job-title {
   position: absolute;
-  top: 50vh;
+  top: 50dvh;
   font-weight: 200;
   font-size: clamp(23px, calc(25px + 1vw), 3vw);
   padding-left: clamp(0px, 5rem, 5vw);
