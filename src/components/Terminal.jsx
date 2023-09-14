@@ -47,10 +47,13 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
   useEffect(() => {
     if (heroMode && terminalText.length === 0) {
       commandLine.current.classList.add('command-line-hero');
+      const newOffset = window.innerHeight / 2;
+      commandLine.current.style.bottom = newOffset+'px';
       setAbbriviatePrefix(true);
     }
     else {
       commandLine.current.classList.remove('command-line-hero');
+      commandLine.current.style.bottom = 0;
       setAbbriviatePrefix(false);
     }
   }, [heroMode, terminalText]);

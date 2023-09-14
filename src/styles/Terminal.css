@@ -73,13 +73,11 @@
 
 .command-line {
   position: relative;
-  bottom: 0;
   width: 90%;
   padding-left: clamp(0px, 4.5rem, calc(5vw - 0.5rem));
   line-height: 2.2rem;
 }
 .command-line-hero {
-  bottom: 50vh !important;
   padding-left: clamp(0px, 5rem, 5vw);
 }
 .command-line-hero .command-line-text, .command-line-hero input {
