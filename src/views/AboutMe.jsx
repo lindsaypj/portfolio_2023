@@ -16,15 +16,6 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero }) {
   const [paragraphsTyped, setParagraphsTyped] = useState(0);
   const scrollPos = useScrollPos();
 
-  const handleHeadingTyped = () => {
-    setHeadingTyped(true);
-    headingTypedCallback();
-  }
-
-  const handleParagraphTyped = useCallback(() => {
-    setParagraphsTyped(paragraphsTyped + 1);
-  }, [paragraphsTyped]);
-
   /* Observers for dynamic content */
   useEffect(() => {
     /* Observer to start typing about me text when visible */
@@ -50,6 +41,15 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero }) {
       setTerminalHero(true);
     }
   }, [scrollPos, setTerminalHero]);
+
+  const handleHeadingTyped = () => {
+    setHeadingTyped(true);
+    headingTypedCallback();
+  }
+
+  const handleParagraphTyped = useCallback(() => {
+    setParagraphsTyped(paragraphsTyped + 1);
+  }, [paragraphsTyped]);
 
     return (
       <>

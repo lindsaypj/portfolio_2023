@@ -1,5 +1,5 @@
 .about-me__row {
-  height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Hero styles */
