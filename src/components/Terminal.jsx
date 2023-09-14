@@ -8,6 +8,7 @@ import '../styles/Terminal.css';
 import '../styles/Cursor.css';
 
 import RouteTree from '../objects/RouteTree';
+import useWindowHeight from "../hooks/useWindowHeight";
 
 const routeTree = new RouteTree();
 
@@ -24,6 +25,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
   const [partialRoutes, setPartialRoutes] = useState([]);
   const [validPath, setValidPath] = useState(false);
   const [terminalHasFocus, setTerminalHasFocus] = useState(true);
+  const windowHeight = useWindowHeight();
 
   // When Route updates
   useEffect(() => {
@@ -47,16 +49,23 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
   useEffect(() => {
     if (heroMode && terminalText.length === 0) {
       commandLine.current.classList.add('command-line-hero');
-      const newOffset = window.innerHeight / 2;
-      commandLine.current.style.bottom = newOffset+'px';
       setAbbriviatePrefix(true);
     }
     else {
       commandLine.current.classList.remove('command-line-hero');
-      commandLine.current.style.bottom = 0;
       setAbbriviatePrefix(false);
     }
   }, [heroMode, terminalText]);
+
+  useEffect(() => {
+    if (heroMode && terminalText.length === 0) {
+      const newOffset = window.innerHeight / 2;
+      commandLine.current.style.bottom = newOffset+'px';
+    }
+    else {
+      commandLine.current.style.bottom = 0;
+    }
+  }, [windowHeight, heroMode, terminalText]);
 
   const updateCursorPos = (nextCursorPos) => {
     cursor.current.style.marginLeft = -(terminal.current.value.length - nextCursorPos) + 'ch';
