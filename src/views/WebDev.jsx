@@ -131,6 +131,12 @@ export default function WebDev({ mobileMode }) {
                 Advise IT serves to centralize plans in one place for easier maintence and data analytics.
               </p>
               <p>
+                I contributed to many aspects of the product; I advocated for an atomic data storage
+                solution using SQL; I used PHP to securely inerface with the database; I helped construct 
+                a custom router and controller; And I worked on injecting the data onto the page using
+                a combination of PHP templatng and Asyncronous JavaScript.
+              </p>
+              <p>
                 Demo: <a href='https://plindsay.greenriverdev.com/485/advise-it/' target='_blank' rel='noreferrer'>Advise IT</a>
               </p>
               <div className='text-center px-4'>
