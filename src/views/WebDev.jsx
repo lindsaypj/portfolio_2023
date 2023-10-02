@@ -19,7 +19,13 @@ import ColormindLogo from '../resources/images/ColormindLogo';
 import ReactLogo from '../resources/images/ReactLogo';
 import SpringLogo from '../resources/images/SpringLogo';
 import GoogleCloudLogo from '../resources/images/GoogleCloudLogo.png';
-
+import AdviseItHome from '../resources/images/AdviseItHome.png';
+import AdviseItAdmin from '../resources/images/AdviseItAdmin.png';
+import AdviseItPlan from '../resources/images/AdviseItPlan.png';
+import AdviseItFooterLinks from '../resources/images/AdviseItFooterLinks.png';
+import PHPLogo from '../resources/images/PHPLogo';
+import BootstrapLogo from '../resources/images/bootstrap-logo.png';
+import MySQLLogo from '../resources/images/MySQLLogo';
 
 export default function WebDev({ mobileMode }) {
   return (
@@ -91,7 +97,7 @@ export default function WebDev({ mobileMode }) {
                 <ColormindLogo />
                 <ReactLogo className='portfolio-logo' />
                 <SpringLogo className='portfolio-logo' />
-                <a href='https://cloud.google.com/' target='_blank' rel='noreferrer' >
+                <a href='https://cloud.google.com/' target='_blank' rel='noreferrer' title='Google Cloud Platform' >
                   <img src={GoogleCloudLogo} className='portfolio-logo h-100' alt='Google Cloud Platform' />
                 </a>
               </div>
@@ -110,7 +116,43 @@ export default function WebDev({ mobileMode }) {
           </Col>
         </Row>
         
-        {/* Neurian */}
+        {/* Advise It */}
+        <Row className='web-dev__row padding-margins'>
+          <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
+            <div>
+              <h4>Advise IT</h4>
+              <p>
+                Working with Green River Collage Advisors, I led a team of peers in the technical
+                design and implementation of Advise IT. Our tool allows advisors to acccelerate the
+                process of creating academic plans for current and prospective students.
+              </p>
+              <p>
+                Each advisor has their own methods of plan development and managment with the students.
+                Advise IT serves to centralize plans in one place for easier maintence and data analytics.
+              </p>
+              <p>
+                Demo: <a href='https://plindsay.greenriverdev.com/485/advise-it/' target='_blank'>Advise IT</a>
+              </p>
+              <div className='text-center p-4'>
+                <PHPLogo className='logo-dark portfolio-logo' />
+                <a href='https://getbootstrap.com/' target='_blank' rel='noreferrer' title='Bootstrap'>
+                  <img src={BootstrapLogo} className='portfolio-logo' alt='Bootstrap logo'/>
+                </a>
+                <MySQLLogo />
+              </div>
+            </div>
+          </Col>
+          <Col className='p-0 p-xl-4 pe-xl-0 col-12 col-xl-8 d-flex align-items-center'>
+          <PortfolioCarousel
+              desktopImages={[
+                {src: AdviseItHome, alt: 'Advise it new plan page. Create a blank, or standard plan.'},
+                {src: AdviseItPlan, alt: 'Blank advising plan with fall, winter, spring, and summer quarters. You can add additional school years, add an advisor, or save.'},
+                {src: AdviseItAdmin, alt: 'Table of academic schedules. Shows advisor, last saved date, and a URL to each plan.'},
+                {src: AdviseItFooterLinks, alt: 'Table of footer links that can be edited or deleted. New links can be added.'}
+              ]}
+            />
+          </Col>
+        </Row>
       </Col>
     </Row>
   );
