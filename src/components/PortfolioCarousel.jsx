@@ -10,7 +10,7 @@ export default function PortfolioCarousel({ desktopImages = [], mobileImages, sh
   }, [showMobile, desktopImages, mobileImages]);
 
   return (
-    <Carousel fade data-bs-theme='dark' className='shadow'>
+    <Carousel fade data-bs-theme='dark' className='shadow z-0'>
       {getImages().map((image, index) => (
         <Carousel.Item key={index}>
           <img

@@ -56,7 +56,10 @@ function App() {
 
   return (
     <div className='App app-dark'>
-      <header className='app-header app-header-dark'>
+      <main id='main-content'>
+        {getContent()}
+      </main>
+      <div className='app-header app-header-dark'>
         <div className='bottom-nav'>
           <Terminal
             navChangeCallback={navChangeCallback}
@@ -65,10 +68,7 @@ function App() {
             heroMode={terminalHero}
           />
         </div>
-      </header>
-      <main id='main-content'>
-        {getContent()}
-      </main>
+      </div>
       <footer>
         <Foorter />
       </footer>

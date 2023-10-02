@@ -34,7 +34,7 @@ export default function WebDev({ mobileMode }) {
         <h1 className='route-header padding-margins'>/web_development</h1>
 
         {/* REI Membership Dashboard */}
-        <Row className='web-dev__row padding-margins'>
+        <Row className='web-dev__row padding-margins d-block d-xl-flex'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
             <div>
               <h3>REI Membership Dashboard</h3>
@@ -76,8 +76,8 @@ export default function WebDev({ mobileMode }) {
         </Row>
 
         {/* Sudoku */}
-        <Row className='web-dev__row padding-margins'>
-          <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
+        <Row className='web-dev__row padding-margins d-flex'>
+          <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-end align-items-xl-center'>
             <div>
               <h4>Sudoku In the Clouds</h4>
               <p>
@@ -93,7 +93,7 @@ export default function WebDev({ mobileMode }) {
                 generates themes using color theory. These colors are used to style the
                 application and are stored in the user's preferences.
               </p>
-              <div className='text-center p-4'>
+              <div className='text-center px-4'>
                 <ColormindLogo />
                 <ReactLogo className='portfolio-logo' />
                 <SpringLogo className='portfolio-logo' />
@@ -117,7 +117,7 @@ export default function WebDev({ mobileMode }) {
         </Row>
         
         {/* Advise It */}
-        <Row className='web-dev__row padding-margins'>
+        <Row className='web-dev__row padding-margins d-block d-xl-flex'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
             <div>
               <h4>Advise IT</h4>
@@ -131,9 +131,9 @@ export default function WebDev({ mobileMode }) {
                 Advise IT serves to centralize plans in one place for easier maintence and data analytics.
               </p>
               <p>
-                Demo: <a href='https://plindsay.greenriverdev.com/485/advise-it/' target='_blank'>Advise IT</a>
+                Demo: <a href='https://plindsay.greenriverdev.com/485/advise-it/' target='_blank' rel='noreferrer'>Advise IT</a>
               </p>
-              <div className='text-center p-4'>
+              <div className='text-center px-4'>
                 <PHPLogo className='logo-dark portfolio-logo' />
                 <a href='https://getbootstrap.com/' target='_blank' rel='noreferrer' title='Bootstrap'>
                   <img src={BootstrapLogo} className='portfolio-logo' alt='Bootstrap logo'/>
