@@ -17,18 +17,3 @@
   
   pointer-events: none;
 }
-
-.gradient-overlay {
-  position: absolute;
-  top: 0;
-  z-index: -2;
-  height: 100vh;
-  width: 100%;
-
-  background: -webkit-linear-gradient(black 10%, transparent 100%);
-  background: -moz-linear-gradient(black 10%, transparent 100%);
-  background: -ms-linear-gradient(black 10%, transparent 100%);
-  background: -o-linear-gradient(black 10%, transparent 100%);
-  background: linear-gradient(black 10%, transparent 100%);
-  pointer-events: none;
-}

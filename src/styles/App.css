@@ -83,6 +83,16 @@ html::-webkit-scrollbar-thumb:vertical:hover {
   margin: 0;
 }
 
+.hero-row {
+  height: 100vh;
+
+  background: -webkit-linear-gradient(black 10%, transparent 100%);
+  background: -moz-linear-gradient(black 10%, transparent 100%);
+  background: -ms-linear-gradient(black 10%, transparent 100%);
+  background: -o-linear-gradient(black 10%, transparent 100%);
+  background: linear-gradient(black 10%, transparent 100%);
+}
+
 .padding-margins {
   padding-left: clamp(0px, 5rem, 5vw);
   padding-right: clamp(0px, 5rem, 5vw);

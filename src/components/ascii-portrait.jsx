@@ -15,14 +15,11 @@ export default function AsciiPortrait({ visible }) {
   }, [visible]);
 
   return (
-    <>
     <iframe
       ref={frame}
       src="ascii-art.html"
       className="ascii-frame2"
       title="Ascii self-portrait"
     ></iframe>
-    <div className="gradient-overlay" />
-    </>
   );
 }
