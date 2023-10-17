@@ -1,6 +1,7 @@
 // Paths are like navigation, and will change the rendered content of page
 export const paths = [
   '/about_me',
+  '/home',
   '/portfolio',
   '/resume',
   '/terminal'

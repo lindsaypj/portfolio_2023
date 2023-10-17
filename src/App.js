@@ -3,11 +3,11 @@ import SESSION_KEYS, { loadSessionPageData, saveSessionValue } from './scripts/s
 
 import { useCallback, useEffect, useState } from 'react';
 
-import Terminal from './components/Terminal';
 import AboutMe from './views/AboutMe';
 import Foorter from './components/Footer';
 import Portfolio from './views/Portfolio';
 import scrollToTop from './scripts/scrollToTop';
+import Terminal from './components/Terminal';
 
 function App() {
   const [page, setPage] = useState();
@@ -36,29 +36,54 @@ function App() {
       case '/about_me':
         return (
           <AboutMe
+            page={page}
             headingTypedCallback={headingTypedCallback}
             setTerminalHero={setTerminalHero}
+            navChangeCallback={navChangeCallback}
+            headingTyped={headingTyped}
+            terminalHero={terminalHero}
           />
         );
       case '/portfolio':
         return (
-          <Portfolio headingTypedCallback={headingTypedCallback} />
+          <Portfolio
+            page={page}
+            headingTypedCallback={headingTypedCallback}
+            navChangeCallback={navChangeCallback}
+            headingTyped={headingTyped}
+            terminalHero={terminalHero}
+          />
         );
       default:
         return (
+          <>
           <AboutMe
+            page={page}
             headingTypedCallback={headingTypedCallback}
             setTerminalHero={setTerminalHero}
+            navChangeCallback={navChangeCallback}
+            headingTyped={headingTyped}
+            terminalHero={terminalHero}
           />
+          <Portfolio
+            page={page}
+            headingTypedCallback={headingTypedCallback}
+            navChangeCallback={navChangeCallback}
+            headingTyped={headingTyped}
+            terminalHero={terminalHero}
+          />
+          </>
         );
     }
-  }, [page, headingTypedCallback]);
+  }, [page, headingTypedCallback, headingTyped, terminalHero]);
 
   return (
     <div className='App app-dark'>
       <main id='main-content'>
         {getContent()}
       </main>
+
+      {/* Terminal */}
       <div className='app-header app-header-dark'>
         <div className='bottom-nav'>
           <Terminal
@@ -69,6 +94,7 @@ function App() {
           />
         </div>
       </div>
+      
       <footer>
         <Foorter />
       </footer>

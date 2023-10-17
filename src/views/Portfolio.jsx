@@ -19,13 +19,11 @@ export default function Portfolio({ headingTypedCallback }) {
 
   return (
     <Container fluid className='p-0'>
-      <Row className="portfolio__header-row">
+      <Row className="hero-row">
         <Col className="p-0">
-            <h1 className='route-header padding-margins'>
-              <TypingText text="/portfolio" doneTypingCallback={headingTypedCallback} />
-            </h1>
-
-            <h2 className='text-center'>Hero section for portfolio</h2>
+          <h1 className='route-header padding-margins'>
+            <TypingText text="/portfolio" doneTypingCallback={headingTypedCallback} />
+          </h1>
         </Col>
       </Row>
 

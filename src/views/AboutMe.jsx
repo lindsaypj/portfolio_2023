@@ -7,12 +7,10 @@ import { Col, Container, Row } from "react-bootstrap";
 
 import '../styles/AboutMe.css';
 
-
-export default function AboutMe({ headingTypedCallback, setTerminalHero }) {
+export default function AboutMe({ headingTypedCallback, setTerminalHero, headingTyped }) {
   // HOOKS
   const textSection = useRef();
 
-  const [headingTyped, setHeadingTyped] = useState(false);
   const [paragraphsTyped, setParagraphsTyped] = useState(0);
   const scrollPos = useScrollPos();
 
@@ -42,11 +40,6 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero }) {
     }
   }, [scrollPos, setTerminalHero]);
 
-  const handleHeadingTyped = () => {
-    setHeadingTyped(true);
-    headingTypedCallback();
-  }
-
   const handleParagraphTyped = useCallback(() => {
     setParagraphsTyped(paragraphsTyped + 1);
   }, [paragraphsTyped]);
@@ -54,19 +47,25 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero }) {
     return (
       <>
       <Container fluid className='p-0'>
-        <Row className='about-me__row'>
+        {/* Hero Section */}
+        <Row className="hero-row">
           <Col className="p-0">
+          
             <AsciiPortrait visible={headingTyped} />
+
             <h1 className='route-header padding-margins'>
-              <TypingText text="/about_me" doneTypingCallback={handleHeadingTyped} />
+              <TypingText text="/about_me" doneTypingCallback={headingTypedCallback} />
             </h1>
+            
             <div className='p-2'>
-              <h3 className='about-me__job-title'>
+              <h3 className='about-me__title'>
                 Software Engineer
               </h3>
             </div>
           </Col>
         </Row>
+
+        {/* Brief Bio */}
         <Row className='about-me__row'>
           <Col className='p-0 bg-black bg-opacity-75'>
             <div className='about-me__text padding-margins'>
