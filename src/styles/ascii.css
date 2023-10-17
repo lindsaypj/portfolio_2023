@@ -1,7 +1,7 @@
 .ascii-frame {
   font-size:5px;
-  width: 200ch;
-  height: 250ch;
+  width: 100ch;
+  height: 125ch;
   border: none;
   background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 62%);
 }
@@ -9,7 +9,6 @@
 .ascii-frame2 {
   position: absolute;
   top: 0;
-  z-index: -1;
   font-size:5px;
   width: 100%;
   height: 200vh;
