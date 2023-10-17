@@ -27,7 +27,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
 
   // When Route updates
   useEffect(() => {
-    if (currentRoute === '/about_me') {
+    if (currentRoute === '/about_me' || currentRoute === '/home') {
       terminal.current.value = '';
       setTerminalText('');
     }
