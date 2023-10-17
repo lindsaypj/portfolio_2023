@@ -6,16 +6,16 @@ html {
   color: white;
   display:inline-block;
   position: relative;
-  margin-top: -40rem;
+  margin-top: -22rem;
 
   white-space:pre;
   letter-spacing:0;
   line-height:1.4;
   font-family:'Consolas','BitstreamVeraSansMono','CourierNew',Courier,monospace;
-  font-size:1rem;
+  font-size:0.7rem;
 
   opacity: 0%;
-  right: calc(500px - 53vw);
+  right: calc(500px - 62vw);
   animation: LoadAsciiReducedMotion 2s ease-out 1s forwards;
 }
 
@@ -33,7 +33,7 @@ html {
   }
   100% {
     opacity: 100%;
-    right: calc(500px - 53vw);
+    right: calc(500px - 62vw);
   }
 }
 
@@ -43,6 +43,69 @@ html {
 }
 
 /* Opacity gradient left -> right */
+.ascii span:nth-child(200n + 0) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 1) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 2) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 3) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 4) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 5) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 6) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 7) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 8) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 9) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 10) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 11) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 12) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 13) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 14) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 15) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 16) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 17) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 18) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 19) {
+  opacity: 0;
+}
+.ascii span:nth-child(200n + 20) {
+  opacity: 0;
+}
 .ascii span:nth-child(200n + 21) {
   opacity: 0;
 }
