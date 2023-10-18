@@ -5,6 +5,7 @@ import TypingText from "../components/TypingText";
 import '../styles/Portfolio.css';
 import WebDev from "./WebDev";
 import useWindowWidth from "../hooks/useWindowWidth";
+import SoftwareDev from "./SoftwareDev";
 
 const mobileBreakpoint = 768; // Aligns with Bootstrap MD breakpoint
 
@@ -31,6 +32,7 @@ export default function Portfolio({ headingTypedCallback }) {
       <WebDev mobileMode={mobileMode} />
 
       {/* Object oreineted programming */}
+      <SoftwareDev />
 
       {/* Open Source */}
 

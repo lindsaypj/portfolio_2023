@@ -3,7 +3,6 @@ import { Row, Col } from 'react-bootstrap';
 
 import PortfolioCarousel from '../components/PortfolioCarousel';
 
-import '../styles/WebDev.css';
 import MembershipInformationViewImg from '../resources/images/MembershipInformationView.png';
 import MembershipInformationViewMobileImg from '../resources/images/MembershipInformationViewMobile.png';
 import MembershipInformationEditImg from '../resources/images/MembershipInformationEdit.png';
@@ -29,12 +28,12 @@ import MySQLLogo from '../resources/images/MySQLLogo';
 
 export default function WebDev({ mobileMode }) {
   return (
-    <Row className='bg-black bg-opacity-75'>
+    <Row className='bg-black bg-opacity-75 pb-4'>
       <Col className='p-0'>
         <h1 className='route-header padding-margins'>/web_development</h1>
 
         {/* REI Membership Dashboard */}
-        <Row className='web-dev__row padding-margins d-block d-xl-flex'>
+        <Row className='portfolio__row padding-margins d-block d-xl-flex'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
             <div>
               <h3>REI Membership Dashboard</h3>
@@ -76,8 +75,8 @@ export default function WebDev({ mobileMode }) {
         </Row>
 
         {/* Sudoku */}
-        <Row className='web-dev__row padding-margins d-flex'>
-          <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-end align-items-xl-center'>
+        <Row className='portfolio__row padding-margins d-flex'>
+          <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-end align-items-xl-center order-1 order-xl-2'>
             <div>
               <h4>Sudoku In the Clouds</h4>
               <p>
@@ -103,7 +102,7 @@ export default function WebDev({ mobileMode }) {
               </div>
             </div>
           </Col>
-          <Col className='p-0 p-xl-4 pe-xl-0 col-12 col-xl-8 d-flex align-items-center'>
+          <Col className='p-0 p-xl-4 ps-xl-0 col-12 col-xl-8 d-flex align-items-center order-2 order-xl-1'>
           <PortfolioCarousel
               desktopImages={[
                 {src: SudokuHome, alt: 'Sudoku In the Clouds home page with Menu, Login, and Play buttons.'},
@@ -117,7 +116,7 @@ export default function WebDev({ mobileMode }) {
         </Row>
         
         {/* Advise It */}
-        <Row className='web-dev__row padding-margins d-block d-xl-flex'>
+        <Row className='portfolio__row padding-margins d-block d-xl-flex'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
             <div>
               <h4>Advise IT</h4>
