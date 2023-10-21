@@ -4,33 +4,33 @@ export default function IntelliJLogo({ className = '' }) {
     <a href='https://www.jetbrains.com/idea/' target='_blank' rel='noreferrer' title='IntelliJ IDEA'>
       <svg className={className} xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 0 105 105" width="50">
         <linearGradient id="a-idea" gradientUnits="userSpaceOnUse" x1="11.16" x2="58.94" y1="59.21" y2="56.78">
-          <stop offset=".09" stop-color="#fc801d"></stop>
-          <stop offset=".23" stop-color="#b07f61"></stop>
-          <stop offset=".41" stop-color="#577db3"></stop>
-          <stop offset=".53" stop-color="#1e7ce6"></stop>
-          <stop offset=".59" stop-color="#087cfa"></stop>
+          <stop offset=".09" stopColor="#fc801d"></stop>
+          <stop offset=".23" stopColor="#b07f61"></stop>
+          <stop offset=".41" stopColor="#577db3"></stop>
+          <stop offset=".53" stopColor="#1e7ce6"></stop>
+          <stop offset=".59" stopColor="#087cfa"></stop>
         </linearGradient>
         <linearGradient id="b-idea" gradientUnits="userSpaceOnUse" x1="89.05" x2="73.12" y1="54.12" y2="6.52">
-          <stop offset="0" stop-color="#fe2857"></stop>
-          <stop offset=".08" stop-color="#cb3979"></stop>
-          <stop offset=".16" stop-color="#9e4997"></stop>
-          <stop offset=".25" stop-color="#7557b2"></stop>
-          <stop offset=".34" stop-color="#5362c8"></stop>
-          <stop offset=".44" stop-color="#386cda"></stop>
-          <stop offset=".54" stop-color="#2373e8"></stop>
-          <stop offset=".66" stop-color="#1478f2"></stop>
-          <stop offset=".79" stop-color="#0b7bf8"></stop>
-          <stop offset="1" stop-color="#087cfa"></stop>
+          <stop offset="0" stopColor="#fe2857"></stop>
+          <stop offset=".08" stopColor="#cb3979"></stop>
+          <stop offset=".16" stopColor="#9e4997"></stop>
+          <stop offset=".25" stopColor="#7557b2"></stop>
+          <stop offset=".34" stopColor="#5362c8"></stop>
+          <stop offset=".44" stopColor="#386cda"></stop>
+          <stop offset=".54" stopColor="#2373e8"></stop>
+          <stop offset=".66" stopColor="#1478f2"></stop>
+          <stop offset=".79" stopColor="#0b7bf8"></stop>
+          <stop offset="1" stopColor="#087cfa"></stop>
         </linearGradient>
         <linearGradient id="c-idea" gradientUnits="userSpaceOnUse" x1="18.72" x2="78.8" y1="26.61" y2="125.99">
-          <stop offset="0" stop-color="#fe2857"></stop>
-          <stop offset=".08" stop-color="#fe295f"></stop>
-          <stop offset=".21" stop-color="#ff2d76"></stop>
-          <stop offset=".3" stop-color="#ff318c"></stop>
-          <stop offset=".38" stop-color="#ea3896"></stop>
-          <stop offset=".55" stop-color="#b248ae"></stop>
-          <stop offset=".79" stop-color="#5a63d6"></stop>
-          <stop offset="1" stop-color="#087cfa"></stop>
+          <stop offset="0" stopColor="#fe2857"></stop>
+          <stop offset=".08" stopColor="#fe295f"></stop>
+          <stop offset=".21" stopColor="#ff2d76"></stop>
+          <stop offset=".3" stopColor="#ff318c"></stop>
+          <stop offset=".38" stopColor="#ea3896"></stop>
+          <stop offset=".55" stopColor="#b248ae"></stop>
+          <stop offset=".79" stopColor="#5a63d6"></stop>
+          <stop offset="1" stopColor="#087cfa"></stop>
         </linearGradient>
         <path d="m19.27 72.21-14.12-11.15 8.31-15.39 12.49 4.18z" fill="url(#a-idea)"></path>
         <path d="m100.07 30.09-1.73 55.6-36.98 14.81-20.14-13z" fill="#087cfa"></path>
