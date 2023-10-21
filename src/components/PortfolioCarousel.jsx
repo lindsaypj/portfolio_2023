@@ -1,6 +1,8 @@
 import React, { useCallback } from "react";
 import { Carousel } from "react-bootstrap";
 
+import '../styles/PortfolioCarousel.css';
+
 export default function PortfolioCarousel({ desktopImages = [], mobileImages, showMobile = false }) {
   const getImages = useCallback(() => {
     if (showMobile) {
@@ -10,7 +12,7 @@ export default function PortfolioCarousel({ desktopImages = [], mobileImages, sh
   }, [showMobile, desktopImages, mobileImages]);
 
   return (
-    <Carousel fade data-bs-theme='dark' className='shadow z-0'>
+    <Carousel fade data-bs-theme='dark' className='shadow z-0 portfolio-carousel'>
       {getImages().map((image, index) => (
         <Carousel.Item key={index}>
           <img
