@@ -28,12 +28,12 @@ import MySQLLogo from '../resources/images/MySQLLogo';
 
 export default function WebDev({ mobileMode }) {
   return (
-    <Row className='bg-black bg-opacity-75 pb-4'>
+    <Row>
       <Col className='p-0'>
-        <h1 className='route-header padding-margins'>/web_development</h1>
+        <h1 className='route-header padding-margins bg-black'>/web_development</h1>
 
         {/* REI Membership Dashboard */}
-        <Row className='portfolio__row padding-margins d-block d-xl-flex'>
+        <Row className='portfolio__row padding-margins d-block d-xl-flex bg-gradient-down'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
             <div>
               <h3>REI Membership Dashboard</h3>
@@ -75,7 +75,7 @@ export default function WebDev({ mobileMode }) {
         </Row>
 
         {/* Sudoku */}
-        <Row className='portfolio__row padding-margins d-flex'>
+        <Row className='portfolio__row padding-margins d-flex bg-black bg-opacity-75'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-end align-items-xl-center order-1 order-xl-2'>
             <div>
               <h4>Sudoku In the Clouds</h4>
@@ -116,7 +116,7 @@ export default function WebDev({ mobileMode }) {
         </Row>
         
         {/* Advise It */}
-        <Row className='portfolio__row padding-margins d-block d-xl-flex'>
+        <Row className='portfolio__row padding-margins d-block d-xl-flex bg-gradient-up'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
             <div>
               <h4>Advise IT</h4>
