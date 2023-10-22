@@ -6,7 +6,7 @@ import AsciiPortrait from '../components/ascii-portrait';
 import { Badge, Col, Container, Row } from "react-bootstrap";
 
 import '../styles/AboutMe.css';
-import GRCLogo from '../resources/images/GRCLogo';
+import GRCLogo from '../resources/logos/GRCLogo';
 import { aboutMeSkills } from "../resources/text/skills";
 
 export default function AboutMe({ headingTypedCallback, setTerminalHero, headingTyped }) {

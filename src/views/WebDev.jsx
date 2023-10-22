@@ -3,28 +3,28 @@ import { Row, Col } from 'react-bootstrap';
 
 import PortfolioCarousel from '../components/PortfolioCarousel';
 
-import MembershipInformationViewImg from '../resources/images/MembershipInformationView.png';
-import MembershipInformationViewMobileImg from '../resources/images/MembershipInformationViewMobile.png';
-import MembershipInformationEditImg from '../resources/images/MembershipInformationEdit.png';
-import MembershipInformationEditMobileImg from '../resources/images/MembershipInformationEditMobile.png';
-import SudokuAccount from '../resources/images/SudokuAccount.png';
-import SudokuAccountThemed from '../resources/images/SudokuAccountThemed.png';
-import SudokuGame from '../resources/images/SudokuGame.png';
-import SudokuHome from '../resources/images/SudokuHome.png';
-import SudokuLogin from '../resources/images/SudokuLogin.png';
-import REILogo from '../resources/images/REILogo';
-import VueLogo from '../resources/images/VueLogo';
-import ColormindLogo from '../resources/images/ColormindLogo';
-import ReactLogo from '../resources/images/ReactLogo';
-import SpringLogo from '../resources/images/SpringLogo';
-import GoogleCloudLogo from '../resources/images/GoogleCloudLogo.png';
-import AdviseItHome from '../resources/images/AdviseItHome.png';
-import AdviseItAdmin from '../resources/images/AdviseItAdmin.png';
-import AdviseItPlan from '../resources/images/AdviseItPlan.png';
-import AdviseItFooterLinks from '../resources/images/AdviseItFooterLinks.png';
-import PHPLogo from '../resources/images/PHPLogo';
-import BootstrapLogo from '../resources/images/bootstrap-logo.png';
-import MySQLLogo from '../resources/images/MySQLLogo';
+import MembershipInformationViewImg from '../resources/images/REI/MembershipInformationView.png';
+import MembershipInformationViewMobileImg from '../resources/images/REI/MembershipInformationViewMobile.png';
+import MembershipInformationEditImg from '../resources/images/REI/MembershipInformationEdit.png';
+import MembershipInformationEditMobileImg from '../resources/images/REI/MembershipInformationEditMobile.png';
+import SudokuAccount from '../resources/images/Sudoku/SudokuAccount.png';
+import SudokuAccountThemed from '../resources/images/Sudoku/SudokuAccountThemed.png';
+import SudokuGame from '../resources/images/Sudoku/SudokuGame.png';
+import SudokuHome from '../resources/images/Sudoku/SudokuHome.png';
+import SudokuLogin from '../resources/images/Sudoku/SudokuLogin.png';
+import REILogo from '../resources/logos/REILogo';
+import VueLogo from '../resources/logos/VueLogo';
+import ColormindLogo from '../resources/logos/ColormindLogo';
+import ReactLogo from '../resources/logos/ReactLogo';
+import SpringLogo from '../resources/logos/SpringLogo';
+import GoogleCloudLogo from '../resources/logos/GoogleCloudLogo.png';
+import AdviseItHome from '../resources/images/AdviseIt/AdviseItHome.png';
+import AdviseItAdmin from '../resources/images/AdviseIt/AdviseItAdmin.png';
+import AdviseItPlan from '../resources/images/AdviseIt/AdviseItPlan.png';
+import AdviseItFooterLinks from '../resources/images/AdviseIt/AdviseItFooterLinks.png';
+import PHPLogo from '../resources/logos/PHPLogo';
+import BootstrapLogo from '../resources/logos/bootstrap-logo.png';
+import MySQLLogo from '../resources/logos/MySQLLogo';
 
 export default function WebDev({ mobileMode }) {
   return (
