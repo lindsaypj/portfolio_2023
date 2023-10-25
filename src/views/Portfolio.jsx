@@ -9,7 +9,7 @@ import SoftwareDev from "./SoftwareDev";
 
 const mobileBreakpoint = 768; // Aligns with Bootstrap MD breakpoint
 
-export default function Portfolio({ headingTypedCallback }) {
+export default function Portfolio({ scrollRef, headingTypedCallback }) {
   const [mobileMode, setMobileMode] = useState(true);
   const windowWidth = useWindowWidth();
 
@@ -19,7 +19,7 @@ export default function Portfolio({ headingTypedCallback }) {
   }, [windowWidth]);
 
   return (
-    <Container fluid className='p-0'>
+    <Container fluid className='p-0' ref={scrollRef}>
       <Row className="hero-row">
         <Col className="p-0">
           <h1 className='route-header padding-margins'>

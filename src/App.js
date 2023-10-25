@@ -1,18 +1,22 @@
 import './styles/App.css';
 import SESSION_KEYS, { loadSessionPageData, saveSessionValue } from './scripts/sessionInterface';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import AboutMe from './views/AboutMe';
 import Foorter from './components/Footer';
 import Portfolio from './views/Portfolio';
-import scrollToTop from './scripts/scrollToTop';
 import Terminal from './components/Terminal';
+
+import scrollToTop from './scripts/scrollToTop';
 
 function App() {
   const [page, setPage] = useState();
   const [headingTyped, setHeadingTyped] = useState(false);
   const [terminalHero, setTerminalHero] = useState(true);
+
+  // Scrollable References
+  const portfolio = useRef();
 
   useEffect(() => {
     const { currentPage } = loadSessionPageData();
@@ -28,49 +32,37 @@ function App() {
     setPage(newPage);
     saveSessionValue(SESSION_KEYS.CURRENT_PAGE, newPage);
 
-    scrollToTop();
+    switch(newPage) {
+      case '/portfolio':
+        portfolio.current.scrollIntoView({ behavior: "smooth" });
+        break;
+      default: 
+        scrollToTop();
+    }
   };
 
   const getContent = useCallback(() => {
     switch(page) {
-      case '/about_me':
+      case '/terminal':
         return (
-          <AboutMe
-            page={page}
-            headingTypedCallback={headingTypedCallback}
-            setTerminalHero={setTerminalHero}
-            navChangeCallback={navChangeCallback}
-            headingTyped={headingTyped}
-            terminalHero={terminalHero}
-          />
+          <></>
         );
-      case '/portfolio':
+      case '/resume':
         return (
-          <Portfolio
-            page={page}
-            headingTypedCallback={headingTypedCallback}
-            navChangeCallback={navChangeCallback}
-            headingTyped={headingTyped}
-            terminalHero={terminalHero}
-          />
+          <></>
         );
       default:
         return (
           <>
           <AboutMe
-            page={page}
             headingTypedCallback={headingTypedCallback}
             setTerminalHero={setTerminalHero}
-            navChangeCallback={navChangeCallback}
             headingTyped={headingTyped}
-            terminalHero={terminalHero}
+            
           />
           <Portfolio
-            page={page}
+            scrollRef={portfolio}
             headingTypedCallback={headingTypedCallback}
-            navChangeCallback={navChangeCallback}
-            headingTyped={headingTyped}
-            terminalHero={terminalHero}
           />
           </>
         );
