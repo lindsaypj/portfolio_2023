@@ -75,7 +75,7 @@ export default function WebDev({ mobileMode }) {
         </Row>
 
         {/* Sudoku */}
-        <Row className='portfolio__row padding-margins d-flex bg-black bg-opacity-75'>
+        <Row className='portfolio__row padding-margins d-flex bg-gradient-up'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-end align-items-xl-center order-1 order-xl-2'>
             <div>
               <h4>Sudoku In the Clouds</h4>
@@ -116,7 +116,7 @@ export default function WebDev({ mobileMode }) {
         </Row>
         
         {/* Advise It */}
-        <Row className='portfolio__row padding-margins d-block d-xl-flex bg-gradient-up'>
+        <Row className='portfolio__row padding-margins d-block d-xl-flex bg-gradient-down'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
             <div>
               <h4>Advise IT</h4>
