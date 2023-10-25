@@ -47,6 +47,7 @@ export default function RoutesPopover({ routes, override, selectionCallback }) {
       <DropdownMenu
         as='span'
         className='autocomplete-menu'
+        flip={false}
       >
         {routes.map((route) => (
           <DropdownItem
