@@ -25,6 +25,7 @@ import AdviseItFooterLinks from '../resources/images/AdviseIt/AdviseItFooterLink
 import PHPLogo from '../resources/logos/PHPLogo';
 import BootstrapLogo from '../resources/logos/bootstrap-logo.png';
 import MySQLLogo from '../resources/logos/MySQLLogo';
+import LinkIcon from '../resources/icons/LinkIcon';
 
 export default function WebDev({ mobileMode }) {
   return (
@@ -78,7 +79,7 @@ export default function WebDev({ mobileMode }) {
         <Row className='portfolio__row padding-margins d-flex bg-gradient-up'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-end align-items-xl-center order-1 order-xl-2'>
             <div>
-              <h4>Sudoku In the Clouds</h4>
+              <h3>Sudoku In the Clouds</h3>
               <p>
                 Powered by my own <a href='https://github.com/lindsaypj/Sudoku-API' target='_blank' rel='noreferrer'>Sudoku API</a>,
                 I designed a front-end application
@@ -103,7 +104,7 @@ export default function WebDev({ mobileMode }) {
             </div>
           </Col>
           <Col className='p-0 p-xl-4 ps-xl-0 col-12 col-xl-8 d-flex align-items-center order-2 order-xl-1'>
-          <PortfolioCarousel
+            <PortfolioCarousel
               desktopImages={[
                 {src: SudokuHome, alt: 'Sudoku In the Clouds home page with Menu, Login, and Play buttons.'},
                 {src: SudokuLogin, alt: 'Login page with an option to create a free account. With an account, you can track completed games and save game preferences.'},
@@ -119,15 +120,22 @@ export default function WebDev({ mobileMode }) {
         <Row className='portfolio__row padding-margins d-block d-xl-flex bg-gradient-down'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
             <div>
-              <h4>Advise IT</h4>
+              <h3>
+                Advise IT
+                <a href='https://github.com/lindsaypj/advise-it-capstone' target='_blank' rel='noreferrer' title='Advise IT Github repo' className='p-2'>
+                  <LinkIcon />
+                </a>
+              </h3>
+
               <p>
-                Working with Green River Collage Advisors, I led a team of peers in the technical
+                Working with Green River Collage Advisors, I led a team of 4 in the technical
                 design and implementation of Advise IT. Our tool allows advisors to acccelerate the
                 process of creating academic plans for current and prospective students.
               </p>
               <p>
                 Each advisor has their own methods of plan development and managment with the students.
-                Advise IT serves to centralize plans in one place for easier maintence and data analytics.
+                Advise IT serves to standardize and centralize plans in one place for easier maintence
+                and data analytics.
               </p>
               <p>
                 I contributed to many aspects of the product; I advocated for an atomic data storage
@@ -135,9 +143,11 @@ export default function WebDev({ mobileMode }) {
                 a custom router and controller; And I worked on injecting the data onto the page using
                 a combination of PHP templatng and Asyncronous JavaScript.
               </p>
+
               <p>
                 Demo: <a href='https://plindsay.greenriverdev.com/485/advise-it/' target='_blank' rel='noreferrer'>Advise IT</a>
               </p>
+
               <div className='text-center px-4'>
                 <PHPLogo className='logo-dark portfolio-logo' />
                 <a href='https://getbootstrap.com/' target='_blank' rel='noreferrer' title='Bootstrap'>
@@ -148,7 +158,7 @@ export default function WebDev({ mobileMode }) {
             </div>
           </Col>
           <Col className='p-0 p-xl-4 pe-xl-0 col-12 col-xl-8 d-flex align-items-center'>
-          <PortfolioCarousel
+            <PortfolioCarousel
               desktopImages={[
                 {src: AdviseItHome, alt: 'Advise it new plan page. Create a blank, or standard plan.'},
                 {src: AdviseItPlan, alt: 'Blank advising plan with fall, winter, spring, and summer quarters. You can add additional school years, add an advisor, or save.'},
