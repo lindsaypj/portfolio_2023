@@ -29,23 +29,23 @@ import LinkIcon from '../resources/icons/LinkIcon';
 
 export default function WebDev({ mobileMode }) {
   return (
-    <Row>
+    <Row className='bg-gradient-down'>
       <Col className='p-0'>
         <h1 className='route-header padding-margins bg-black'>/web_development</h1>
 
         {/* REI Membership Dashboard */}
-        <Row className='portfolio__row padding-margins d-block d-xl-flex bg-gradient-down'>
+        <Row className='portfolio__row padding-margins d-block d-xl-flex'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
             <div>
               <h3>REI Membership Dashboard</h3>
               <p>
                 As a Software Engineer Intern with the Membership team at REI, I enabled all 24.5
                 million members to edit their membership information. Jumping in with no Vue.js
-                experience, I learned by developing and examining the existing front-end applicaion.
+                experience, I learned by developing and examining the existing front-end application.
               </p>
               <p>
                 The proposed technical design would reuse existing form utilities, but this led to
-                unexpeced complexity. The new design had key differences which did not translate well.
+                unexpected complexity. The new design had key differences which did not translate well.
                 I took the initiative to rethink and advocate for a modified technical design with 
                 the team lead. They ultimately agreed and I completed the changes on schedule.
               </p>
@@ -76,7 +76,7 @@ export default function WebDev({ mobileMode }) {
         </Row>
 
         {/* Sudoku */}
-        <Row className='portfolio__row padding-margins d-flex bg-gradient-up'>
+        <Row className='portfolio__row padding-margins d-flex'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-end align-items-xl-center order-1 order-xl-2'>
             <div>
               <h3>Sudoku In the Clouds</h3>
@@ -117,7 +117,7 @@ export default function WebDev({ mobileMode }) {
         </Row>
         
         {/* Advise It */}
-        <Row className='portfolio__row padding-margins d-block d-xl-flex bg-gradient-down'>
+        <Row className='portfolio__row padding-margins d-block d-xl-flex'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
             <div>
               <h3>
@@ -128,20 +128,20 @@ export default function WebDev({ mobileMode }) {
               </h3>
 
               <p>
-                Working with Green River Collage Advisors, I led a team of 4 in the technical
-                design and implementation of Advise IT. Our tool allows advisors to acccelerate the
+                Working with Green River College Advisors, I led a team of 4 in the technical
+                design and implementation of Advise IT. Our tool allows advisors to accelerate the
                 process of creating academic plans for current and prospective students.
               </p>
               <p>
-                Each advisor has their own methods of plan development and managment with the students.
-                Advise IT serves to standardize and centralize plans in one place for easier maintence
+                Each advisor has their own methods of plan development and management with the students.
+                Advise IT serves to standardize and centralize plans in one place for easier maintenance
                 and data analytics.
               </p>
               <p>
                 I contributed to many aspects of the product; I advocated for an atomic data storage
-                solution using SQL; I used PHP to securely inerface with the database; I helped construct 
+                solution using SQL; I used PHP to securely interface with the database; I helped construct 
                 a custom router and controller; And I worked on injecting the data onto the page using
-                a combination of PHP templatng and Asyncronous JavaScript.
+                a combination of PHP templating and Asynchronous JavaScript.
               </p>
 
               <p>

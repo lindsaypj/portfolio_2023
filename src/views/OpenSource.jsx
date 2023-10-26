@@ -1,16 +1,63 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 
+import PortfolioCarousel from "../components/PortfolioCarousel";
+
+import DartLogo from '../resources/logos/DartLogo';
+import FlutterLogo from "../resources/logos/FlutterLogo";
+import FlutterCommit from '../resources/images/Flutter/FlutterCommit.png';
+import FlutterDesignDiscussion from '../resources/images/Flutter/FlutterDesignDiscussion.png';
+import LinkIcon from "../resources/icons/LinkIcon";
+
 export default function OpenSource() {
   return (
-    <Row className='bg-black bg-opacity-75'>
+    <Row className=''>
       <Col className='p-0'>
-        <h1 className='route-header padding-margins'>/open_source</h1>
+        <h1 className='route-header padding-margins bg-black'>/open_source</h1>
 
         {/* Flutter */}
-        <Row className='web-dev__row padding-margins d-block d-xl-flex'>
+        <Row className='portfolio__row padding-margins d-block d-xl-flex pb-4 bg-gradient-down'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
-
+            <div>
+              <h3>
+                Flutter
+                <a href='https://github.com/flutter/flutter' target='_blank' rel='noreferrer' title='Flutter Github repo' className='p-2'>
+                  <LinkIcon />
+                </a>
+              </h3>
+              <p>
+                During my coursework, I had the opportunity to learn about contributing to
+                open source projects. As a team of 4, we were paired with mentor who works at Google
+                on the Flutter Framework. Flutter is a cross platform app development framework that
+                allows you to create one app for all the major platforms. Flutter uses the dart
+                programming language, which we had to learn.
+              </p>
+              <p>
+                After getting our environments set up, reading all the documentation, and learning
+                about Dart, we started working on open issues. The issue I took on was a feature
+                request for a month/year mode to the Cupertino (Apple's design system) Date Picker.
+                I got to dive deep into the functionality and testing pipelines that exist for the
+                Date Picker and add in the new mode with its own tests.
+              </p>
+              <p>
+                Finally, as a group we started a design discussion to resolve some conflicting
+                issues regarding the Date Picker's functionality and how it differs from the
+                Native IOS functionallity. Our mentor presented our findings during a meeting
+                with other Googlers for feedback.
+              </p>
+              <div className='text-center p-4'>
+                <DartLogo className='portfolio-logo' />
+                <FlutterLogo className='portfolio-logo' />
+              </div>
+            </div>
+          </Col>
+          <Col className='p-0 p-xl-4 pe-xl-0 col-12 col-xl-8 d-flex align-items-center'>
+            <PortfolioCarousel
+              desktopImages={[
+                {src: FlutterCommit, alt: 'My merged pull request: Added Cupertino Date Picker month year mode.'},
+                {src: FlutterDesignDiscussion, alt: 'Cupertino Date Picker Refactor pubilc document.'}
+              ]}
+            />
           </Col>
         </Row>
       </Col>

@@ -6,6 +6,7 @@ import '../styles/Portfolio.css';
 import WebDev from "./WebDev";
 import useWindowWidth from "../hooks/useWindowWidth";
 import SoftwareDev from "./SoftwareDev";
+import OpenSource from "./OpenSource";
 
 const mobileBreakpoint = 768; // Aligns with Bootstrap MD breakpoint
 
@@ -35,6 +36,7 @@ export default function Portfolio({ scrollRef, headingTypedCallback }) {
       <SoftwareDev />
 
       {/* Open Source */}
+      <OpenSource />
 
       {/* Automotive */}
 

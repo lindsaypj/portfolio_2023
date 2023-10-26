@@ -18,12 +18,12 @@ import LinkIcon from '../resources/icons/LinkIcon';
 
 export default function SoftwareDev() {
   return (
-    <Row className=''>
+    <Row className='bg-gradient-down'>
       <Col className='p-0'>
         <h1 className='route-header padding-margins bg-black'>/software_development</h1>
 
         {/* Maze Solver */}
-        <Row className='portfolio__row padding-margins d-block d-xl-flex pb-4 bg-gradient-down'>
+        <Row className='portfolio__row padding-margins d-block d-xl-flex pb-4'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
             <div>
               <h3>
@@ -67,7 +67,7 @@ export default function SoftwareDev() {
         </Row>
 
         {/* Autocomplete */}
-        <Row className='portfolio__row padding-margins d-flex bg-gradient-up'>
+        <Row className='portfolio__row padding-margins d-flex'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-end align-items-xl-center order-1 order-xl-2'>
             <div>
               <h3>Autocomplete</h3>
