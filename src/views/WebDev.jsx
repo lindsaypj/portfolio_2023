@@ -27,9 +27,9 @@ import BootstrapLogo from '../resources/logos/bootstrap-logo.png';
 import MySQLLogo from '../resources/logos/MySQLLogo';
 import LinkIcon from '../resources/icons/LinkIcon';
 
-export default function WebDev({ mobileMode }) {
+export default function WebDev({ scrollRef, mobileMode }) {
   return (
-    <Row className='bg-gradient-down'>
+    <Row className='bg-gradient-down' ref={scrollRef}>
       <Col className='p-0'>
         <h1 className='route-header padding-margins bg-black'>/web_development</h1>
 

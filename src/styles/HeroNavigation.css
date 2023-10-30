@@ -1,0 +1,16 @@
+.nav-card {
+  text-decoration: none;
+  transition: box-shadow 0.5s;
+}
+/* .nav-card:hover {
+  box-shadow: 0 0 1rem white!important;;
+} */
+
+.hero-nav-col {
+  transition: padding 0.5s, margin 0.5s;
+}
+.hero-nav-col:hover {
+  padding: 0;
+  margin-top: -0.75rem;
+  margin-bottom: -0.75rem;
+}

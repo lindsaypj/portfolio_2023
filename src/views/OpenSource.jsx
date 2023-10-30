@@ -9,9 +9,9 @@ import FlutterCommit from '../resources/images/Flutter/FlutterCommit.png';
 import FlutterDesignDiscussion from '../resources/images/Flutter/FlutterDesignDiscussion.png';
 import LinkIcon from "../resources/icons/LinkIcon";
 
-export default function OpenSource() {
+export default function OpenSource({ scrollRef }) {
   return (
-    <Row className=''>
+    <Row ref={scrollRef}>
       <Col className='p-0'>
         <h1 className='route-header padding-margins bg-black'>/open_source</h1>
 

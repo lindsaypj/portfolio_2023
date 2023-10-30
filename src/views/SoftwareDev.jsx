@@ -16,9 +16,9 @@ import AutoComplete from '../resources/images/Autocomplete/auto-complete.png';
 import LinkIcon from '../resources/icons/LinkIcon';
 
 
-export default function SoftwareDev() {
+export default function SoftwareDev({ scrollRef }) {
   return (
-    <Row className='bg-gradient-down'>
+    <Row className='bg-gradient-down' ref={scrollRef}>
       <Col className='p-0'>
         <h1 className='route-header padding-margins bg-black'>/software_development</h1>
 

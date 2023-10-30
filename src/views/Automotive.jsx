@@ -1,9 +1,9 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 
-export default function Automotive() {
+export default function Automotive({ scrollRef }) {
   return (
-    <Row className='bg-black bg-opacity-75'>
+    <Row ref={scrollRef} className='bg-black bg-opacity-75'>
       <Col className='p-0'>
         <h1 className='route-header padding-margins'>/automotive</h1>
 
