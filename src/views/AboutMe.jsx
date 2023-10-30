@@ -77,8 +77,8 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero, heading
               <div ref={textSection}>
                 <p>
                   <TypingText
-                    text='I just received my Bachelor of Applied Science in Software Development from
-                          Green River College, but I am more eager than ever to keep learning.'
+                    text='I just received my Bachelor of Applied Science, but I am more eager than ever to
+                          keep learning.'
                     charInterval={10}
                     shouldType={paragraphsTyped >= 1}
                     doneTypingCallback={handleParagraphTyped}
