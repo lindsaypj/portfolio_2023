@@ -2,9 +2,9 @@
   text-decoration: none;
   transition: box-shadow 0.5s;
 }
-/* .nav-card:hover {
-  box-shadow: 0 0 1rem white!important;;
-} */
+.nav-card:hover {
+  cursor: pointer;
+}
 
 .hero-nav-col {
   transition: padding 0.5s, margin 0.5s;

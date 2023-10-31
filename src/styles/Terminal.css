@@ -80,7 +80,7 @@
   line-height: 2.2rem;
 }
 .command-line-hero {
-  top: 44vh !important;
+  top: 39vh !important;
   padding-left: clamp(0px, 5rem, 5vw);
 }
 .command-line-hero .command-line-text, .command-line-hero input {

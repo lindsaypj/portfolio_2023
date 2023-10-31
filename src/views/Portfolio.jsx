@@ -9,9 +9,11 @@ import SoftwareDev from './SoftwareDev';
 import OpenSource from './OpenSource';
 import HeroNavigation from '../components/HeroNavigaion';
 
-import WebDevNavImg from '../resources/images/PortfolioNav/WebDevNavImg.png';
-import SoftwareDevNavImg from '../resources/images/PortfolioNav/JavaNavImg.png';
+import WebDevNavImg from '../resources/images/PortfolioNav/WebDevNavImg.jpg';
+import SoftwareDevNavImg from '../resources/images/PortfolioNav/JavaNavImg.jpg';
 import OpenSourceNavImg from '../resources/images/PortfolioNav/OpenSourceNavImg.png';
+import AutomotiveNavImg from '../resources/images/PortfolioNav/AutomotiveNavImg.jpg';
+import PhotographyNavImg from '../resources/images/PortfolioNav/PhotographyNavImg.png';
 
 const mobileBreakpoint = 768; // Aligns with Bootstrap MD breakpoint
 
@@ -64,8 +66,8 @@ export default function Portfolio({ scrollRef, headingTypedCallback }) {
               {text: '/web', img: WebDevNavImg},
               {text: '/software', img: SoftwareDevNavImg},
               {text: '/open_source', img: OpenSourceNavImg},
-              {text: '/automotive', img: OpenSourceNavImg},
-              {text: '/photography', img: OpenSourceNavImg}
+              {text: '/automotive', img: AutomotiveNavImg},
+              {text: '/photography', img: PhotographyNavImg}
             ]}
             navLinkCallback={onNavSelect}
           />
