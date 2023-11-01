@@ -6,23 +6,45 @@ import { paths, methods, commands } from "../resources/text/routes";
 import '../styles/Footer.css'
 
 
-export default function Foorter() {
+export default function Foorter({ navChangeCallback }) {
+
+  const onClickFooterLink = (link) => {
+    navChangeCallback(link);
+  }
 
   const getPaths = () => {
     return paths.map((path) => (
-      <p key={path}>{ path }</p>
+      <a
+        key={path}
+        onClick={() => onClickFooterLink(path)}
+        className='footer__link'
+      >
+        <span>{ path }</span>
+      </a>
     ));
   };
 
   const getMethods = () => {
     return methods.map((method) => (
-      <p key={method}>{ method }</p>
+      <a
+        key={method}
+        onClick={() => onClickFooterLink(method)}
+        className='footer__link'
+      >
+        <span>{ method }</span>
+      </a>
     ));
   };
 
   const getCommands = () => {
     return commands.map((command) => (
-      <p key={command}>{ command }</p>
+      <a
+        key={command}
+        onClick={() => onClickFooterLink(command)}
+        className='footer__link'
+      >
+        <span>{ command }</span>
+      </a>
     ));
   };
 

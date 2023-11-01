@@ -88,7 +88,7 @@ function App() {
       </div>
       
       <footer>
-        <Foorter />
+        <Foorter navChangeCallback={navChangeCallback} />
       </footer>
     </div>
   );

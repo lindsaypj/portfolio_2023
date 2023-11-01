@@ -13,12 +13,19 @@
   padding: 1rem 0;
 }
 
-.footer p {
+.footer__link {
   font-weight: 200;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+.footer__link span:hover {
+  font-weight: 400;
+  color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
 }
 
 @media (min-width: 576px) {
-  .footer .left-center p, h5 {
+  .footer__link, h5 {
     text-indent: 35%;
   }
 }
