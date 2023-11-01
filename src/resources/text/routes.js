@@ -6,16 +6,25 @@ export const paths = [
   // '/terminal'
 ];
 
+// Paths that are valid when entered, but not officially displayed in Footer
+export const hiddenPaths = [
+  '/portfolio/web',
+  '/portfolio/web_development',
+  '/portfolio/software',
+  '/portfolio/software_development',
+  '/portfolio/open_source',
+]
+
 // Methods allow you to interact with the page. This means they are path specific
 export const methods = [
-  '.sudoku()'
+  // '.sudoku()'
 ];
 
 // Commands are like methods, but they are global
 export const commands = [
-  ' theme dark',
-  ' theme light',
-  ' help <command>'
+  // ' theme dark',
+  // ' theme light',
+  // ' help <command>'
 ];
 
 // All routes
