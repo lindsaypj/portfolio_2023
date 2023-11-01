@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 
 import { paths, methods, commands } from "../resources/text/routes";
 import '../styles/Footer.css'
@@ -14,37 +14,38 @@ export default function Foorter({ navChangeCallback }) {
 
   const getPaths = () => {
     return paths.map((path) => (
-      <a
+      <Button
+        variant={'link'}
         key={path}
         onClick={() => onClickFooterLink(path)}
         className='footer__link'
       >
         <span>{ path }</span>
-      </a>
+      </Button>
     ));
   };
 
   const getMethods = () => {
     return methods.map((method) => (
-      <a
+      <Button
         key={method}
         onClick={() => onClickFooterLink(method)}
         className='footer__link'
       >
         <span>{ method }</span>
-      </a>
+      </Button>
     ));
   };
 
   const getCommands = () => {
     return commands.map((command) => (
-      <a
+      <Button
         key={command}
         onClick={() => onClickFooterLink(command)}
         className='footer__link'
       >
         <span>{ command }</span>
-      </a>
+      </Button>
     ));
   };
 

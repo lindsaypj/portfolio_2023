@@ -15,10 +15,16 @@
 
 .footer__link {
   font-weight: 200;
+  text-align: start;
+  padding: 0;
   color: white;
   text-decoration: none;
   cursor: pointer;
 }
+.footer__link:hover {
+  color: white;
+}
+
 .footer__link span:hover {
   font-weight: 400;
   color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));

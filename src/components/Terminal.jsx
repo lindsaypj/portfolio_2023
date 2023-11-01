@@ -105,9 +105,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
   const handleKeyUp = (event) => {
     handleTerminalCursorPosChange(event);
     if (validPath) {
-      console.log("PATH IS VALID");
       if (event.key === 'Enter' || event.key === 'Accept') {
-        console.log("NAVIGATING...");
         navChangeCallback(terminalText);
       }
     }
