@@ -67,7 +67,7 @@ function App() {
           </>
         );
     }
-  }, [page, headingTypedCallback, headingTyped, terminalHero]);
+  }, [page, headingTypedCallback, headingTyped]);
 
   return (
     <div className='App app-dark'>
