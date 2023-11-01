@@ -29,7 +29,7 @@ import LinkIcon from '../resources/icons/LinkIcon';
 
 export default function WebDev({ scrollRef, mobileMode }) {
   return (
-    <Row className='bg-gradient-down' ref={scrollRef}>
+    <Row className='bg-gradient-down pb-10' ref={scrollRef}>
       <Col className='p-0'>
         <h1 className='route-header padding-margins bg-black'>/web_development</h1>
 

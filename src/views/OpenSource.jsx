@@ -11,12 +11,12 @@ import LinkIcon from "../resources/icons/LinkIcon";
 
 export default function OpenSource({ scrollRef }) {
   return (
-    <Row ref={scrollRef}>
+    <Row className='bg-gradient-down pb-10' ref={scrollRef}>
       <Col className='p-0'>
         <h1 className='route-header padding-margins bg-black'>/open_source</h1>
 
         {/* Flutter */}
-        <Row className='portfolio__row padding-margins d-block d-xl-flex pb-4 bg-gradient-down'>
+        <Row className='portfolio__row padding-margins d-block d-xl-flex pb-4'>
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
             <div>
               <h3>
