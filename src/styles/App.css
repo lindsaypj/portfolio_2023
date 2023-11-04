@@ -19,6 +19,11 @@
   bottom: 0;
 }
 
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 /*** ////////    MAIN CONTENT    //////// ***/
 #main-content {
   min-height: 100vh;
