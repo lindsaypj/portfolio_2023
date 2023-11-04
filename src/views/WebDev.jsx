@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import PortfolioCarousel from '../components/PortfolioCarousel';
+import TruncatedArticle from '../components/TruncatedArticle';
 
 import MembershipInformationViewImg from '../resources/images/REI/MembershipInformationView.png';
 import MembershipInformationViewMobileImg from '../resources/images/REI/MembershipInformationViewMobile.png';
@@ -38,21 +39,30 @@ export default function WebDev({ scrollRef, mobileMode }) {
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-center'>
             <div>
               <h3>REI Membership Dashboard</h3>
-              <p>
-                As a Software Engineer Intern with the Membership team at REI, I enabled all 24.5
-                million members to edit their membership information. Jumping in with no Vue.js
-                experience, I learned by developing and examining the existing front-end application.
-              </p>
-              <p>
-                The proposed technical design would reuse existing form utilities, but this led to
-                unexpected complexity. The new design had key differences which did not translate well.
-                I took the initiative to rethink and advocate for a modified technical design with 
-                the team lead. They ultimately agreed and I completed the changes on schedule.
-              </p>
-              <p>
-                If you have an REI Membership, visit the <a href='https://www.rei.com/membership/dashboard' target='_blank' rel='noreferrer'>Membership Dashboard</a> to
-                see my changes live in production!
-              </p>
+
+              <TruncatedArticle
+                uniqueID={'REIDescription'}
+                visibleParagraph={
+                  <p>
+                    As a Software Engineer Intern with the Membership team at REI, I enabled all 24.5
+                    million members to edit their membership information. Jumping in with no Vue.js
+                    experience, I learned by developing and examining the existing front-end application.
+                  </p>
+                }
+                truncatedParagraphs={
+                  <><p>
+                    The proposed technical design would reuse existing form utilities, but this led to
+                    unexpected complexity. The new design had key differences which did not translate well.
+                    I took the initiative to rethink and advocate for a modified technical design with 
+                    the team lead. They ultimately agreed and I completed the changes on schedule.
+                  </p>
+                  <p>
+                    If you have an REI Membership, visit the <a href='https://www.rei.com/membership/dashboard' target='_blank' rel='noreferrer'>Membership Dashboard</a> to
+                    see my changes live in production!
+                  </p></>
+                }
+              />
+
               <div className='text-center p-4'>
                 <REILogo className='logo-dark portfolio-logo' />
                 <VueLogo className='portfolio-logo' />
@@ -80,19 +90,28 @@ export default function WebDev({ scrollRef, mobileMode }) {
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-end align-items-xl-center order-1 order-xl-2'>
             <div>
               <h3>Sudoku In the Clouds</h3>
-              <p>
-                Powered by my own <a href='https://github.com/lindsaypj/Sudoku-API' target='_blank' rel='noreferrer'>Sudoku API</a>,
-                I designed a front-end application
-                called <a href='https://github.com/lindsaypj/Sudoku-in-the-Clouds' target='_blank' rel='noreferrer'>Sudoku In the Clouds</a>.
-                You can play 4x4, 9x9, or 16x16 board
-                sizes. With an account, you can also save your settings, preferences, and game progress.
-              </p>
-              <p>
-                In addition to the Sudoku API that enables the gameplay, I used an API
-                called <a href='http://colormind.io/' target='_blank' rel='noreferrer'>Colormind</a> that
-                generates themes using color theory. These colors are used to style the
-                application and are stored in the user's preferences.
-              </p>
+
+              <TruncatedArticle
+                uniqueID={'SudokuDescription'}
+                visibleParagraph={
+                  <p>
+                    Powered by my own <a href='https://github.com/lindsaypj/Sudoku-API' target='_blank' rel='noreferrer'>Sudoku API</a>,
+                    I designed a front-end application
+                    called <a href='https://github.com/lindsaypj/Sudoku-in-the-Clouds' target='_blank' rel='noreferrer'>Sudoku In the Clouds</a>.
+                    You can play 4x4, 9x9, or 16x16 board
+                    sizes. With an account, you can also save your settings, preferences, and game progress.
+                  </p>
+                }
+                truncatedParagraphs={
+                  <p>
+                    In addition to the Sudoku API that enables the gameplay, I used an API
+                    called <a href='http://colormind.io/' target='_blank' rel='noreferrer'>Colormind</a> that
+                    generates themes using color theory. These colors are used to style the
+                    application and are stored in the user's preferences.
+                  </p>
+                }
+              />
+
               <div className='text-center px-4'>
                 <ColormindLogo />
                 <ReactLogo className='portfolio-logo' />
@@ -126,25 +145,31 @@ export default function WebDev({ scrollRef, mobileMode }) {
                   <LinkIcon />
                 </a>
               </h3>
+              <TruncatedArticle
+                uniqueID={'AdviseITDescription'}
+                visibleParagraph={
+                  <p>
+                    Working with Green River College Advisors, I led a team of 4 in the technical
+                    design and implementation of Advise IT. Our tool allows advisors to accelerate the
+                    process of creating academic plans for current and prospective students.
+                  </p>
+                }
+                truncatedParagraphs={
+                  <><p>
+                    Each advisor has their own methods of plan development and management with their students.
+                    Advise IT serves to standardize and centralize plans in one place for easier maintenance
+                    and data analytics.
+                  </p>
+                  <p>
+                    I contributed to many aspects of the product; I advocated for an atomic data storage
+                    solution using SQL; I used PHP to securely interface with the database; I helped construct 
+                    a custom router and controller; And I worked on injecting the data onto the page using
+                    a combination of PHP templating and Asynchronous JavaScript.
+                  </p></>
+                }
+              />
 
-              <p>
-                Working with Green River College Advisors, I led a team of 4 in the technical
-                design and implementation of Advise IT. Our tool allows advisors to accelerate the
-                process of creating academic plans for current and prospective students.
-              </p>
-              <p>
-                Each advisor has their own methods of plan development and management with the students.
-                Advise IT serves to standardize and centralize plans in one place for easier maintenance
-                and data analytics.
-              </p>
-              <p>
-                I contributed to many aspects of the product; I advocated for an atomic data storage
-                solution using SQL; I used PHP to securely interface with the database; I helped construct 
-                a custom router and controller; And I worked on injecting the data onto the page using
-                a combination of PHP templating and Asynchronous JavaScript.
-              </p>
-
-              <p>
+              <p className='mt-3'>
                 Demo: <a href='https://plindsay.greenriverdev.com/485/advise-it/' target='_blank' rel='noreferrer'>Advise IT</a>
               </p>
 

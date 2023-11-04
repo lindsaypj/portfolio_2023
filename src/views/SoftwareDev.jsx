@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 import PortfolioCarousel from '../components/PortfolioCarousel';
+import TruncatedArticle from '../components/TruncatedArticle';
 
 import Gen16 from '../resources/images/MazeSolver/16x16-generation.png';
 import Solved16 from '../resources/images/MazeSolver/16x16-solved.png';
@@ -32,21 +33,30 @@ export default function SoftwareDev({ scrollRef }) {
                   <LinkIcon />
                 </a>
               </h3>
-              <p>
-                This program was developed as an assignment to practice using graphs and graph
-                traversal algorithms. The maze is randomly generated using an adjustable size from 4x4 to
-                1000x1000.
-              </p>
-              <p>
-                You can solve the maze using either Depth-First Search (DFS) or Breadth-First
-                Search (BFS). The time it takes to solve and render the resulting path is
-                displayed in the bottom right.
-              </p>
-              <p>
-                The maze generation is fast even for large mazes because it maintains disjoint
-                sets with the Union-Find algorithm. The resulting spanning tree has one solution,
-                and no cycles.
-              </p>
+
+              <TruncatedArticle
+                uniqueID={'mazeDescription'}
+                visibleParagraph={
+                  <p>
+                    This program was developed as an assignment to practice using graphs and graph
+                    traversal algorithms. The maze is randomly generated using an adjustable size from 4x4 to
+                    1000x1000.
+                  </p>
+                }
+                truncatedParagraphs={
+                  <><p>
+                    You can solve the maze using either Depth-First Search (DFS) or Breadth-First
+                    Search (BFS). The time it takes to solve and render the resulting path is
+                    displayed in the bottom right.
+                  </p>
+                  <p>
+                    The maze generation is fast even for large mazes because it maintains disjoint
+                    sets with the Union-Find algorithm. The resulting spanning tree has one solution,
+                    and no cycles.
+                  </p></>
+                }
+              />
+
               <div className='text-center p-4'>
                 <JavaLogo className='portfolio-logo' />
                 <IntelliJLogo className='portfolio-logo' />
@@ -71,20 +81,30 @@ export default function SoftwareDev({ scrollRef }) {
           <Col className='py-4 px-0 col-12 col-xl-4 d-flex align-items-end align-items-xl-center order-1 order-xl-2'>
             <div>
               <h3>Autocomplete</h3>
-              <p>
-                This small program was developed to practice working with a tree structure and
-                writing recursive methods. The program stores a dictionary of 80,000 words and
-                displays a definition when a word is entered.
-              </p>
-              <p>
-                When the user types in the text box, a list of words that start with the input
-                string are shown. If search is pressed and the word is found, the definition
-                will be shown.
-              </p>
-              <p>
-                You may or may not have noticed that a version of Autocomplete has been
-                implemented on the page as part of the terminal.
-              </p>
+
+              <TruncatedArticle
+                uniqueID={'AutocompleteDescription'}
+                visibleParagraph={
+                  <p>
+                    This small program was developed to practice working with a tree structure and
+                    writing recursive methods. The program stores a dictionary of 80,000 words and
+                    displays a definition when a word is entered.
+                  </p>
+                }
+                truncatedParagraphs={
+                  <><p>
+                    When the user types in the text box, a list of words that start with the input
+                    string are shown. If search is pressed and the word is found, the definition
+                    will be shown.
+                  </p>
+                  <p>
+                    You may or may not have noticed that a version of Autocomplete has been
+                    implemented on the page as part of the terminal.
+                  </p></>
+                }
+              />
+
+              {/* Logos */}
               <div className='text-center p-4'>
                 <JavaLogo className='portfolio-logo' />
                 <IntelliJLogo className='portfolio-logo' />

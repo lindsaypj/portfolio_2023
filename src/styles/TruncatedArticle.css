@@ -1,0 +1,7 @@
+.truncated-article > p:first-child {
+  display: inline;
+}
+
+.expanded-article div p:last-of-type {
+  display: inline;
+}
