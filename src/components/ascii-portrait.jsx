@@ -4,24 +4,31 @@ import '../styles/ascii.css';
 import AsciiImg from '../resources/images/AsciiPortrait/ascii-large.png';
 
 export default function AsciiPortrait({ visible }) {
-  const frame = useRef();
+  const ascii = useRef();
+
+  // Update loading class after animaion ends
+  useEffect(() => {
+    ascii.current.addEventListener('animationend', (event) => {
+      ascii.current.className = 'ascii';
+    });
+  }, []);
 
   useEffect(() => {
     if (visible) {
-      frame.current.style.visibility = 'visible';
+      ascii.current.style.visibility = 'visible';
     }
     else {
-      frame.current.style.visibility = 'hidden';
+      ascii.current.style.visibility = 'hidden';
     }
   }, [visible]);
 
   return (
     <div className='ascii-container'>
       <img
-        ref={frame}
+        ref={ascii}
         src={AsciiImg}
-        className='ascii'
-        alt='Ascii self-portrait'
+        className='ascii-loading'
+        alt='Ascii art self-portrait'
       />
     </div>
     
