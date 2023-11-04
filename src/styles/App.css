@@ -1,3 +1,31 @@
+/*** ////////    PAGE    //////// ***/
+
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.padding-margins {
+  padding-left: clamp(0px, 5rem, 5vw);
+  padding-right: clamp(0px, 5rem, 5vw);
+}
+.padding-margins-n2 {
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+
+@media screen and (min-width: 768px) {
+  .padding-margins {
+    padding-left: clamp(0px, 10rem, 10vw);
+    padding-right: clamp(0px, 10rem, 10vw);
+  }
+  .padding-margins-n2 {
+    padding-left: clamp(0px, 9.25rem, 9vw);
+    padding-right: clamp(0px, 9.25rem, 9vw);
+  }
+}
+
+
 /*** ////////    HEADER    //////// ***/
 
 .app-header {
@@ -7,9 +35,10 @@
   color: white;
 }
 
-.route-header {
+.route-header { 
   margin: 0;
-  padding: 2.5rem 1rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .bottom-nav {
@@ -19,10 +48,6 @@
   bottom: 0;
 }
 
-html {
-  overflow-x: hidden;
-  max-width: 100vw;
-}
 
 /*** ////////    MAIN CONTENT    //////// ***/
 #main-content {
@@ -68,6 +93,7 @@ html::-webkit-scrollbar-thumb:vertical:hover {
   background-color: #00000063;
 }
 
+
 /*** ////////    GLOBAL STYLES    //////// ***/
 
 .hide {
@@ -89,6 +115,37 @@ html::-webkit-scrollbar-thumb:vertical:hover {
 .row {
   max-width: 100vw;
   margin: 0;
+}
+
+@media screen and (min-width: 1400px) {
+  .col-xxl-2-4 {
+    width: 20%;
+  }
+}
+
+
+p {
+  font-size: 1.25rem;
+}
+
+.fs-md-4 {
+  font-size: 1rem;
+}
+@media screen and (min-width: 576px) {
+  .fs-md-4 {
+    font-size: 1.2rem!important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .fs-md-4 {
+    font-size: 1.5rem!important;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .fs-md-4 {
+    font-size: 1.7rem!important;
+  }
 }
 
 .hero-row {
@@ -115,9 +172,4 @@ html::-webkit-scrollbar-thumb:vertical:hover {
   background: -ms-linear-gradient(0deg,black 10%, rgba(0,0,0,0.3) 100%);
   background: -o-linear-gradient(0deg,black 10%, rgba(0,0,0,0.3) 100%);
   background: linear-gradient(0deg,black 10%, rgba(0,0,0,0.3) 100%);
-}
-
-.padding-margins {
-  padding-left: clamp(0px, 5rem, 5vw);
-  padding-right: clamp(0px, 5rem, 5vw);
 }

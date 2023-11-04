@@ -58,7 +58,6 @@
   top: 45vh;
   font-weight: 200;
   font-size: clamp(23px, calc(25px + 1vw), 3vw);
-  padding-left: clamp(0px, 5rem, 5vw);
 }
 
 @media (prefers-reduced-motion: no-preference) {

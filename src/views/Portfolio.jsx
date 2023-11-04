@@ -49,28 +49,36 @@ export default function Portfolio({ scrollRef, headingTypedCallback }) {
       case '/photography':
         photographyRef.current.scrollIntoView({ behavior: 'smooth' });
         break;
+      default: 
+        console.log('Link not recognized ['+link+']');
     }
   }
 
   return (
     <Container fluid className='p-0' ref={scrollRef}>
-      <Row className='portfolio__row justify-content-center p-0 bg-gradient-down'>
+      <Row className='portfolio__row bg-gradient-down'>
         <Col className='p-0 col-12'>
-          <h1 className='route-header padding-margins'>
-            <TypingText text='/portfolio' doneTypingCallback={headingTypedCallback} />
-          </h1>
-        </Col>
-        <Col className='p-3 p-xl-0 col-12 col-xl-9 col-xxl-8'>
-          <HeroNavigation
-            navLinks={[
-              {text: '/web', img: WebDevNavImg},
-              {text: '/software', img: SoftwareDevNavImg},
-              {text: '/open_source', img: OpenSourceNavImg},
-              {text: '/automotive', img: AutomotiveNavImg},
-              {text: '/photography', img: PhotographyNavImg}
-            ]}
-            navLinkCallback={onNavSelect}
-          />
+          <Row>
+            <Col className='p-0 col-12'>
+              <h1 className='route-header padding-margins mb-4'>
+                <TypingText text='/portfolio' doneTypingCallback={headingTypedCallback} />
+              </h1>
+            </Col>
+          </Row>
+          <Row>
+            <Col className='col-12 padding-margins-n2'>
+              <HeroNavigation
+                navLinks={[
+                  {text: '/web', img: WebDevNavImg},
+                  {text: '/software', img: SoftwareDevNavImg},
+                  {text: '/open_source', img: OpenSourceNavImg},
+                  {text: '/automotive', img: AutomotiveNavImg},
+                  {text: '/photography', img: PhotographyNavImg}
+                ]}
+                navLinkCallback={onNavSelect}
+              />
+            </Col>
+          </Row>
         </Col>
       </Row>
 

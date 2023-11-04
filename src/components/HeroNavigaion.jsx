@@ -8,7 +8,7 @@ export default function HeroNavigation({ navLinks, navLinkCallback }) {
     <Row className='text-center'>
       {navLinks.map((link) => (
         <Col
-          className='hero-nav-col'
+          className='hero-nav-col col-xxl-2-4'
           xs={6} lg={4} xl={3}
           key={link.text}
         >
@@ -18,7 +18,7 @@ export default function HeroNavigation({ navLinks, navLinkCallback }) {
             onClick={() => {navLinkCallback(link.text)}}
           >
             <CardImg src={link.img} />
-            <Card.Title className='my-2'>{link.text}</Card.Title>
+            <Card.Title className='my-2 fs-md-4'>{link.text}</Card.Title>
           </Card>
         </Col>
       ))}

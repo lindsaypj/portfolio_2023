@@ -36,7 +36,7 @@ export default function TruncatedArticle({ visibleParagraph, truncatedParagraphs
       {visibleParagraph}
       <span
         ref={readMore}
-        className='link-primary'
+        className='link-primary fs-5'
         onClick={handleTruncateToggle}
         role='button'
         aria-expanded={expanded}
@@ -50,7 +50,7 @@ export default function TruncatedArticle({ visibleParagraph, truncatedParagraphs
           {truncatedParagraphs}
           <span
             ref={showLess}
-            className='link-primary hide'
+            className='link-primary fs-5 hide'
             onClick={handleTruncateToggle}
             role='button'
             aria-expanded={expanded}

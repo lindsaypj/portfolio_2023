@@ -60,7 +60,7 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero, heading
             </h1>
             
             <div className='p-2'>
-              <h3 className='about-me__title'>
+              <h3 className='about-me__title padding-margins'>
                 Software Engineer
               </h3>
             </div>

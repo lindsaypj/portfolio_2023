@@ -14,3 +14,9 @@
   margin-top: -0.75rem;
   margin-bottom: -0.75rem;
 }
+
+@media screen and (min-width: 768) {
+  .hero-nav-col span {
+    font-size: 1.5rem;
+  }
+}
