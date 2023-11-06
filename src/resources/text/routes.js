@@ -24,7 +24,9 @@ export const methods = [
 export const commands = [
   // ' theme dark',
   // ' theme light',
-  // ' help <command>'
+  // ' help <command>,'
+  // ' top',
+  // ' bottom'
 ];
 
 // All routes

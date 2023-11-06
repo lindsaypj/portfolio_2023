@@ -8,6 +8,8 @@ import { Badge, Col, Container, Row } from "react-bootstrap";
 import '../styles/AboutMe.css';
 import GRCLogo from '../resources/logos/GRCLogo';
 import { aboutMeSkills } from "../resources/text/skills";
+import GitHubLogo from "../resources/logos/GitHubLogo";
+import LinkedInLogo from "../resources/logos/LinkedInLogo";
 
 export default function AboutMe({ headingTypedCallback, setTerminalHero, headingTyped }) {
   // HOOKS
@@ -59,11 +61,24 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero, heading
               <TypingText text="/about_me" doneTypingCallback={headingTypedCallback} />
             </h1>
             
-            <div className='p-2'>
-              <h3 className='about-me__title padding-margins'>
+            <div className='about-me__title padding-margins'>
+              <h3>
                 Software Engineer
               </h3>
+              <a className='about-me__link' href='https://github.com/lindsaypj' target='_blank' rel='noreferrer'>
+                <div className='d-inline-block pe-2'>
+                  GitHub
+                  <GitHubLogo className='ps-1' />
+                </div>
+              </a>
+              <a className='about-me__link' href='https://www.linkedin.com/in/lindsaypj/' target='_blank' rel='noreferrer'>
+                <div className='d-inline-block'>
+                  LinkedIn
+                  <LinkedInLogo className='ps-1' />
+                </div>
+              </a>
             </div>
+
           </Col>
         </Row>
 

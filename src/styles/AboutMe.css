@@ -55,9 +55,46 @@
 /* Job subtitle container */
 .about-me__title {
   position: absolute;
-  top: 45vh;
+  top: 44vh;
+}
+@media screen and (min-width: 768px) {
+  .about-me__title {
+    position: absolute;
+    top: 45vh;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .about-me__title {
+    position: absolute;
+    top: 45.5vh;
+  }
+}
+
+.about-me__title h3 {
   font-weight: 200;
   font-size: clamp(23px, calc(25px + 1vw), 3vw);
+}
+
+.about-me__link {
+  padding-left: 0.1rem;
+
+  color: white;
+  fill: white;
+  font-size: clamp(18px, 1.5rem, 2vw);
+  font-weight: 200;
+  text-decoration: none;
+}
+.about-me__link div {
+  vertical-align: middle;
+}
+.about-me__link svg {
+  vertical-align: sub;
+}
+.about-me__link:hover {
+  font-weight: 400;
+  color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
+  fill: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
 }
 
 @media (prefers-reduced-motion: no-preference) {
