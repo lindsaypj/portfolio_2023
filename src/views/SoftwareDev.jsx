@@ -63,7 +63,7 @@ export default function SoftwareDev({ scrollRef }) {
               </div>
             </div>
           </Col>
-          <Col className='p-0 p-xl-4 pe-xl-0 col-12 col-xl-8 d-flex align-items-center'>
+          <Col className='p-0 py-xl-4 ps-xl-5 col-12 col-xl-8 d-flex align-items-center'>
             <PortfolioCarousel
               desktopImages={[
                 {src: Gen16, alt: 'Unsolved maze that is 16 by 16 grid tiles. The maze generated in 0.0000 seconds.'},
@@ -111,7 +111,7 @@ export default function SoftwareDev({ scrollRef }) {
               </div>
             </div>
           </Col>
-          <Col className='p-0 p-xl-4 ps-xl-0 col-12 col-xl-8 d-flex align-items-center order-2 order-xl-1'>
+          <Col className='p-0 py-xl-4 pe-xl-5 col-12 col-xl-8 d-flex align-items-center order-2 order-xl-1'>
             <PortfolioCarousel
               desktopImages={[
                 {src: AutoCompleteBlank, alt: 'Autocomplete Search program showing empty text field and search button.'},

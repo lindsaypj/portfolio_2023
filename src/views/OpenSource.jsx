@@ -64,7 +64,7 @@ export default function OpenSource({ scrollRef }) {
               </div>
             </div>
           </Col>
-          <Col className='p-0 p-xl-4 pe-xl-0 col-12 col-xl-8 d-flex align-items-center'>
+          <Col className='p-0 py-xl-4 ps-xl-5 col-12 col-xl-8 d-flex align-items-center'>
             <PortfolioCarousel
               desktopImages={[
                 {src: FlutterCommit, alt: 'My merged pull request: Added Cupertino Date Picker month year mode.'},

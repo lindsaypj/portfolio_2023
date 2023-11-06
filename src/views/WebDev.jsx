@@ -70,7 +70,7 @@ export default function WebDev({ scrollRef, mobileMode }) {
               </div>
             </div>
           </Col>
-          <Col className='p-0 p-xl-4 pe-xl-0 col-12 col-xl-8 d-flex align-items-center'>
+          <Col className='p-0 py-xl-4 ps-xl-5 col-12 col-xl-8 d-flex align-items-center'>
             <PortfolioCarousel
               desktopImages={[
                 {src: MembershipInformationViewImg, alt: 'REI Membership dashboard showing membership Name, email, phone number, and address.'},
@@ -122,7 +122,7 @@ export default function WebDev({ scrollRef, mobileMode }) {
               </div>
             </div>
           </Col>
-          <Col className='p-0 p-xl-4 ps-xl-0 col-12 col-xl-8 d-flex align-items-center order-2 order-xl-1'>
+          <Col className='p-0 py-xl-4 pe-xl-5 col-12 col-xl-8 d-flex align-items-center order-2 order-xl-1'>
             <PortfolioCarousel
               desktopImages={[
                 {src: SudokuHome, alt: 'Sudoku In the Clouds home page with Menu, Login, and Play buttons.'},
@@ -182,7 +182,7 @@ export default function WebDev({ scrollRef, mobileMode }) {
               </div>
             </div>
           </Col>
-          <Col className='p-0 p-xl-4 pe-xl-0 col-12 col-xl-8 d-flex align-items-center'>
+          <Col className='p-0 py-xl-4 ps-xl-5 col-12 col-xl-8 d-flex align-items-center'>
             <PortfolioCarousel
               desktopImages={[
                 {src: AdviseItHome, alt: 'Advise it new plan page. Create a blank, or standard plan.'},
