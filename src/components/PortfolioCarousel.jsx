@@ -12,13 +12,13 @@ export default function PortfolioCarousel({ desktopImages = [], mobileImages, sh
   }, [showMobile, desktopImages, mobileImages]);
 
   return (<>
-    <Carousel fade data-bs-theme='dark' className='shadow z-0 portfolio-carousel'>
+    <Carousel fade className='z-0 portfolio-carousel rounded p-5'>
       {getImages().map((image, index) => (
         <Carousel.Item key={index}>
           <img
             src={image.src}
             alt={image.alt}
-            className='d-block w-100'
+            className='d-block shadow w-100 rounded'
           />
         </Carousel.Item>
       ))}

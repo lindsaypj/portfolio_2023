@@ -8,7 +8,18 @@
   -o-transition: background-color 1s linear;
   -ms-transition: background-color 1s linear;
   transition: background-color 1s linear;
+
+  border-radius: var(--bs-border-radius)!important;
 }
+
+.portfolio-carousel .carousel-control-next {
+  margin: 3rem 3rem 3rem 0;
+}
+
+.portfolio-carousel .carousel-control-prev {
+  margin: 3rem 0 3rem 3rem;
+}
+
 
 .portfolio-carousel .carousel-control-next:hover {
   background: rgb(0,0,0);
