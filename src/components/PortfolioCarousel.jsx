@@ -12,7 +12,7 @@ export default function PortfolioCarousel({ desktopImages = [], mobileImages, sh
   }, [showMobile, desktopImages, mobileImages]);
 
   return (<>
-    <Carousel fade className='z-0 portfolio-carousel rounded p-5'>
+    <Carousel fade className='z-0 portfolio-carousel rounded pb-5 p-md-5'>
       {getImages().map((image, index) => (
         <Carousel.Item key={index}>
           <img

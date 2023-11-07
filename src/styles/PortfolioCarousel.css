@@ -12,13 +12,20 @@
   border-radius: var(--bs-border-radius)!important;
 }
 
-.portfolio-carousel .carousel-control-next {
-  margin: 3rem 3rem 3rem 0;
+.portfolio-carousel .carousel-control-prev, .portfolio-carousel .carousel-control-next {
+  margin-bottom: 3rem;
 }
 
-.portfolio-carousel .carousel-control-prev {
-  margin: 3rem 0 3rem 3rem;
+@media screen and (min-width: 768px) {
+  .portfolio-carousel .carousel-control-next {
+    margin: 3rem 3rem 3rem 0;
+  }
+
+  .portfolio-carousel .carousel-control-prev {
+    margin: 3rem 0 3rem 3rem;
+  }
 }
+
 
 
 .portfolio-carousel .carousel-control-next:hover {
