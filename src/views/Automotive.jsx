@@ -53,7 +53,7 @@ export default function Automotive({ scrollRef }) {
                     I've been driving it for the 2 years, and I am extremely happy with my new
                     transmission. When I first got my car, I didn't think I was capable of something
                     as technical as swapping the transmission. But now I am confident I could do it 
-                    again. When facing challenges, I remind myself how my perspective changed before
+                    again. When facing new challenges, I remind myself how my perspective changed before
                     and after the transmission swap. What seems near impossible may not always be.
                   </p></>
                 }
