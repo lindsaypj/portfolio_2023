@@ -21,7 +21,7 @@ export default function SoftwareDev({ scrollRef }) {
   return (
     <Row className='bg-gradient-down pb-10' ref={scrollRef}>
       <Col className='p-0'>
-        <h1 className='route-header padding-margins bg-black'>/software_development</h1>
+        <h1 className='route-header padding-margins'>/software_development</h1>
 
         {/* Maze Solver */}
         <Row className='portfolio__row padding-margins d-block d-xl-flex pb-4'>

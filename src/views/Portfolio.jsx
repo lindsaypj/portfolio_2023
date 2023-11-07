@@ -14,6 +14,7 @@ import SoftwareDevNavImg from '../resources/images/PortfolioNav/JavaNavImg.jpg';
 import OpenSourceNavImg from '../resources/images/PortfolioNav/OpenSourceNavImg.png';
 import AutomotiveNavImg from '../resources/images/PortfolioNav/AutomotiveNavImg.jpg';
 import PhotographyNavImg from '../resources/images/PortfolioNav/PhotographyNavImg.png';
+import Automotive from './Automotive';
 
 const mobileBreakpoint = 768; // Aligns with Bootstrap MD breakpoint
 
@@ -92,6 +93,7 @@ export default function Portfolio({ scrollRef, headingTypedCallback }) {
       <OpenSource scrollRef={openSourceRef} />
 
       {/* Automotive */}
+      <Automotive scrollRef={automotiveRef} />
 
       {/* Photography */}
     </Container>
