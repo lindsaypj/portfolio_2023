@@ -81,7 +81,7 @@
 
   color: white;
   fill: white;
-  font-size: clamp(18px, 1.5rem, 2vw);
+  font-size: clamp(15px, 1.5rem, 2vw);
   font-weight: 200;
   text-decoration: none;
 }
