@@ -15,7 +15,7 @@ export default function Automotive({ scrollRef }) {
   return (
     <Row className='bg-gradient-down pb-10' ref={scrollRef}>
       <Col className='p-0'>
-        <h1 className='route-header padding-margins'>/automotive</h1>
+        <h1 className='route-header padding-margins mt-4'>/automotive</h1>
 
         {/* Transmission Swap */}
         <Row className='portfolio__row padding-margins d-block d-xl-flex pb-4'>
