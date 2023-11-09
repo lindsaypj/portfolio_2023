@@ -1,0 +1,42 @@
+.zoomed-out {
+  max-width: fit-content;
+  max-height: 90vh;
+}
+
+.modal-content {
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  border: none;
+  background-color: transparent !important;
+}
+
+.btn-close {
+  position: absolute;
+  top: 4vw;
+  right: 5vw;
+
+  width: 2vw;
+  height: 2vw;
+
+  padding: 10px;
+  border-radius: 100%;
+  background-color: white;
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 0.9em;
+}
+
+.modal-body-content::-webkit-scrollbar-track {
+  background-color: #0a0b0d;
+}
+ 
+.modal-body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 1rem;
+}
+
+.modal-body::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: rgb(112, 112, 112);
+}

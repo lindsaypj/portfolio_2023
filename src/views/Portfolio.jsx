@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import TypingText from '../components/TypingText';
 
 import '../styles/Portfolio.css';
+
 import WebDev from './WebDev';
 import useWindowWidth from '../hooks/useWindowWidth';
 import SoftwareDev from './SoftwareDev';
@@ -15,6 +16,7 @@ import OpenSourceNavImg from '../resources/images/PortfolioNav/OpenSourceNavImg.
 import AutomotiveNavImg from '../resources/images/PortfolioNav/AutomotiveNavImg.jpg';
 import PhotographyNavImg from '../resources/images/PortfolioNav/PhotographyNavImg.png';
 import Automotive from './Automotive';
+import Photography from './Photography';
 
 const mobileBreakpoint = 768; // Aligns with Bootstrap MD breakpoint
 
@@ -83,19 +85,15 @@ export default function Portfolio({ scrollRef, headingTypedCallback }) {
         </Col>
       </Row>
 
-      {/* Web Development */}
       <WebDev scrollRef={webDevRef} mobileMode={mobileMode} />
 
-      {/* Object oreineted programming */}
       <SoftwareDev scrollRef={softwareDevRef} />
 
-      {/* Open Source */}
       <OpenSource scrollRef={openSourceRef} />
 
-      {/* Automotive */}
       <Automotive scrollRef={automotiveRef} />
 
-      {/* Photography */}
+      <Photography scrollRef={photographyRef} />
     </Container>
   );
 };
