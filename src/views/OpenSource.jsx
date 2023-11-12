@@ -58,7 +58,7 @@ export default function OpenSource({ scrollRef }) {
                 }
               />  
               
-              <div className='text-center p-4'>
+              <div className='text-center m-4'>
                 <DartLogo className='portfolio-logo' />
                 <FlutterLogo className='portfolio-logo' />
               </div>

@@ -57,7 +57,7 @@ export default function SoftwareDev({ scrollRef }) {
                 }
               />
 
-              <div className='text-center p-4'>
+              <div className='text-center m-4'>
                 <JavaLogo className='portfolio-logo' />
                 <IntelliJLogo className='portfolio-logo' />
               </div>
@@ -105,7 +105,7 @@ export default function SoftwareDev({ scrollRef }) {
               />
 
               {/* Logos */}
-              <div className='text-center p-4'>
+              <div className='text-center m-4'>
                 <JavaLogo className='portfolio-logo' />
                 <IntelliJLogo className='portfolio-logo' />
               </div>

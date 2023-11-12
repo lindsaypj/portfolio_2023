@@ -63,7 +63,7 @@ export default function WebDev({ scrollRef, mobileMode }) {
                 }
               />
 
-              <div className='text-center p-4'>
+              <div className='text-center m-4'>
                 <REILogo className='logo-dark portfolio-logo' />
                 <VueLogo className='portfolio-logo' />
                 <SpringLogo className='portfolio-logo' />
@@ -112,7 +112,7 @@ export default function WebDev({ scrollRef, mobileMode }) {
                 }
               />
 
-              <div className='text-center px-4'>
+              <div className='text-center m-4'>
                 <ColormindLogo />
                 <ReactLogo className='portfolio-logo' />
                 <SpringLogo className='portfolio-logo' />
@@ -173,7 +173,7 @@ export default function WebDev({ scrollRef, mobileMode }) {
                 Demo: <a href='https://plindsay.greenriverdev.com/485/advise-it/' target='_blank' rel='noreferrer'>Advise IT</a>
               </p>
 
-              <div className='text-center px-4'>
+              <div className='text-center m-4'>
                 <PHPLogo className='logo-dark portfolio-logo' />
                 <a href='https://getbootstrap.com/' target='_blank' rel='noreferrer' title='Bootstrap'>
                   <img src={BootstrapLogo} className='portfolio-logo' alt='Bootstrap logo'/>

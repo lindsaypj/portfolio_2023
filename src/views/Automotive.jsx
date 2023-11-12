@@ -59,7 +59,7 @@ export default function Automotive({ scrollRef }) {
                 }
               />  
               
-              <div className='text-center p-4'>
+              <div className='text-center m-4'>
                 <BMWLogo />
               </div>
             </div>
