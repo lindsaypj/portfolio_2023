@@ -65,16 +65,16 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero, heading
               <h3>
                 Software Engineer
               </h3>
-              <a className='about-me__link' href='https://github.com/lindsaypj' target='_blank' rel='noreferrer'>
-                <div className='d-inline-block pe-2'>
+              <a className='about-me__link me-2 me-md-3' href='https://github.com/lindsaypj' target='_blank' rel='noreferrer'>
+                <div className='d-inline-block'>
                   GitHub
-                  <GitHubLogo className='ps-1' />
+                  <GitHubLogo className='ms-1' />
                 </div>
               </a>
               <a className='about-me__link' href='https://www.linkedin.com/in/lindsaypj/' target='_blank' rel='noreferrer'>
                 <div className='d-inline-block'>
                   LinkedIn
-                  <LinkedInLogo className='ps-1' />
+                  <LinkedInLogo className='ms-1' />
                 </div>
               </a>
             </div>
