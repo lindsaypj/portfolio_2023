@@ -1,5 +1,6 @@
 export default function BMWLogo({ className = '' }) {
   return (
+    <a href='https://www.bmw.com/' target='_blank' rel='noreferrer' title='BMW'>
     <svg className={className} id="svg2" version="1.1" viewBox="0 0 90.857143 90.857143" height="55" width="55" title='BMW'>
       <g style={{fill: 'none', fillRule: 'evenodd', stroke: 'none', strokeWidth: 1}} transform="scale(1.7142857,1.7142857)" id="BMW-logo-grey-fallback-53px">
         <g id="BMW-logo">
@@ -28,5 +29,6 @@ export default function BMWLogo({ className = '' }) {
         </g>
       </g>
     </svg>
+    </a>
   );
 }
