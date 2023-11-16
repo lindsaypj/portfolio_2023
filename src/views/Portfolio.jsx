@@ -77,13 +77,13 @@ export default function Portfolio({ scrollRef, headingTypedCallback, mobileMode 
 
       <WebDev scrollRef={webDevRef} mobileMode={mobileMode} />
 
-      {/* <SoftwareDev scrollRef={softwareDevRef} />
+      <SoftwareDev scrollRef={softwareDevRef} />
 
       <OpenSource scrollRef={openSourceRef} />
 
       <Automotive scrollRef={automotiveRef} />
 
-      <Photography scrollRef={photographyRef} /> */}
+      <Photography scrollRef={photographyRef} />
     </Container>
   );
 };

@@ -2,6 +2,8 @@ import React from "react";
 
 import '../styles/PhotoCard.css';
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 export default function PhotoCard({ image, modalCallback }) {
 
   const onClickImage = (event) => {
@@ -10,7 +12,12 @@ export default function PhotoCard({ image, modalCallback }) {
 
   return (
     <div className='photo-container' onClick={onClickImage}>
-      <img src={image.src} className='photo-card' alt={image.alt} />
+      <LazyLoadImage
+        src={image.src}
+        placeholderSrc={image.placeholder}
+        alt={image.alt}
+        className='photo-card'
+      />
     </div>
   );
 }

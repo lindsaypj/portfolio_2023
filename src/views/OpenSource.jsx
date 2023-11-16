@@ -7,7 +7,9 @@ import TruncatedArticle from "../components/TruncatedArticle";
 import DartLogo from '../resources/logos/DartLogo';
 import FlutterLogo from "../resources/logos/FlutterLogo";
 import FlutterCommit from '../resources/images/Flutter/FlutterCommit.png';
+import FlutterCommitPlaceholder from '../resources/images/Flutter/placeholders/FlutterCommit.png';
 import FlutterDesignDiscussion from '../resources/images/Flutter/FlutterDesignDiscussion.png';
+import FlutterDesignDiscussionPlaceholder from '../resources/images/Flutter/placeholders/FlutterDesignDiscussion.png';
 import LinkIcon from "../resources/icons/LinkIcon";
 
 export default function OpenSource({ scrollRef }) {
@@ -67,8 +69,14 @@ export default function OpenSource({ scrollRef }) {
           <Col className='p-0 py-xl-4 ps-xl-5 col-12 col-xl-8 d-flex align-items-center'>
             <PortfolioCarousel
               desktopImages={[
-                {src: FlutterCommit, alt: 'My merged pull request: Added Cupertino Date Picker month year mode.'},
-                {src: FlutterDesignDiscussion, alt: 'Cupertino Date Picker Refactor pubilc document.'}
+                {
+                  src: FlutterCommit, placeholder: FlutterCommitPlaceholder,
+                  alt: 'My merged pull request: Added Cupertino Date Picker month year mode.'
+                },
+                {
+                  src: FlutterDesignDiscussion, placeholder: FlutterDesignDiscussionPlaceholder,
+                  alt: 'Cupertino Date Picker Refactor pubilc document.'
+                }
               ]}
             />
           </Col>

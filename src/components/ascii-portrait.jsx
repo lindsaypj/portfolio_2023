@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 import '../styles/ascii.css';
+
 import AsciiImgLarge from '../resources/images/AsciiPortrait/ascii-large.png';
 import AsciiImgSmall from '../resources/images/AsciiPortrait/ascii-small.png';
 import { useCallback } from "react";

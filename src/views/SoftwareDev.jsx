@@ -5,15 +5,23 @@ import PortfolioCarousel from '../components/PortfolioCarousel';
 import TruncatedArticle from '../components/TruncatedArticle';
 
 import Gen16 from '../resources/images/MazeSolver/16x16-generation.png';
+import Gen16Placeholder from '../resources/images/MazeSolver/placeholders/16x16-generation.png';
 import Solved16 from '../resources/images/MazeSolver/16x16-solved.png';
+import Solved16Placeholder from '../resources/images/MazeSolver/placeholders/16x16-solved.png';
 import Gen300 from '../resources/images/MazeSolver/300x300-generation.png';
+import Gen300Placeholder from '../resources/images/MazeSolver/placeholders/300x300-generation.png';
 import Solved300 from '../resources/images/MazeSolver/300x300-solved.png';
+import Solved300Placeholder from '../resources/images/MazeSolver/placeholders/300x300-solved.png';
 import Solved1000 from '../resources/images/MazeSolver/1000x1000-solved.png';
+import Solved1000Placeholder from '../resources/images/MazeSolver/placeholders/1000x1000-solved.png';
 import JavaLogo from '../resources/logos/JavaLogo';
 import IntelliJLogo from '../resources/logos/IntelliJLogo';
 import AutoCompleteBlank from '../resources/images/Autocomplete/auto-complete-blank.png';
+import AutoCompleteBlankPlaceholder from '../resources/images/Autocomplete/placeholders/auto-complete-blank.png';
 import AutoCompleteSearch from '../resources/images/Autocomplete/auto-complete-search.png';
+import AutoCompleteSearchPlaceholder from '../resources/images/Autocomplete/placeholders/auto-complete-search.png';
 import AutoComplete from '../resources/images/Autocomplete/auto-complete.png';
+import AutoCompletePlaceholder from '../resources/images/Autocomplete/placeholders/auto-complete.png';
 import LinkIcon from '../resources/icons/LinkIcon';
 
 
@@ -66,11 +74,26 @@ export default function SoftwareDev({ scrollRef }) {
           <Col className='p-0 py-xl-4 ps-xl-5 col-12 col-xl-8 d-flex align-items-center'>
             <PortfolioCarousel
               desktopImages={[
-                {src: Gen16, alt: 'Unsolved maze that is 16 by 16 grid tiles. The maze generated in 0.0000 seconds.'},
-                {src: Solved16, alt: 'Solved 16 by 16 maze with the path highlighted. The maze was solved using DFS in 0.0000 seconds.'},
-                {src: Gen300, alt: 'Unsolved maze that is 302 by 302 grid tiles. The maze generated in 0.0529 seconds.'},
-                {src: Solved300, alt: 'Solved 302 by 302 maze with the path highlighted. The maze was solved using BFS in 0.0120 seconds.'},
-                {src: Solved1000, alt: 'Solved 1000 by 1000 maze with the path highlighted. The maze was solved using DFS in 0.0466 seconds.'}
+                {
+                  src: Gen16, placeholder: Gen16Placeholder,
+                  alt: 'Unsolved maze that is 16 by 16 grid tiles. The maze generated in 0.0000 seconds.'
+                },
+                {
+                  src: Solved16, placeholder: Solved16Placeholder,
+                  alt: 'Solved 16 by 16 maze with the path highlighted. The maze was solved using DFS in 0.0000 seconds.'
+                },
+                {
+                  src: Gen300, placeholder: Gen300Placeholder,
+                  alt: 'Unsolved maze that is 302 by 302 grid tiles. The maze generated in 0.0529 seconds.'
+                },
+                {
+                  src: Solved300, placeholder: Solved300Placeholder,
+                  alt: 'Solved 302 by 302 maze with the path highlighted. The maze was solved using BFS in 0.0120 seconds.'
+                },
+                {
+                  src: Solved1000, placeholder: Solved1000Placeholder,
+                  alt: 'Solved 1000 by 1000 maze with the path highlighted. The maze was solved using DFS in 0.0466 seconds.'
+                }
               ]}
             />
           </Col>
@@ -114,9 +137,18 @@ export default function SoftwareDev({ scrollRef }) {
           <Col className='p-0 py-xl-4 pe-xl-5 col-12 col-xl-8 d-flex align-items-center order-2 order-xl-1'>
             <PortfolioCarousel
               desktopImages={[
-                {src: AutoCompleteBlank, alt: 'Autocomplete Search program showing empty text field and search button.'},
-                {src: AutoComplete, alt: 'Autocomplete Search program with e a g in text field. Autocomplete options are displayed. Eager, eagerly, eagle, etc.'},
-                {src: AutoCompleteSearch, alt: 'Autocomplete Search program with "Eagle" in the text input. The definition is displayed under the search button.'}
+                {
+                  src: AutoCompleteBlank, placeholder: AutoCompleteBlankPlaceholder,
+                  alt: 'Autocomplete Search program showing empty text field and search button.'
+                },
+                {
+                  src: AutoComplete, placeholder: AutoCompletePlaceholder,
+                  alt: 'Autocomplete Search program with e a g in text field. Autocomplete options are displayed. Eager, eagerly, eagle, etc.'
+                },
+                {
+                  src: AutoCompleteSearch, placeholder: AutoCompleteSearchPlaceholder,
+                  alt: 'Autocomplete Search program with "Eagle" in the text input. The definition is displayed under the search button.'
+                }
               ]}
             />
           </Col>

@@ -4,25 +4,58 @@ import { Col, Row } from 'react-bootstrap';
 
 import '../styles/Photography.css'
 
-import MothImg from '../resources/images/Photogrophy/moth.png';
-import SkylineImg from '../resources/images/Photogrophy/high-contrast-skyline.jpg';
-import DandelionImg from '../resources/images/Photogrophy/dandelion.png';
-import OceanSkyImg from '../resources/images/Photogrophy/high-contrast-ocean-sky.jpg';
-import CandleImg from '../resources/images/Photogrophy/candle-vingette.jpg';
-import FenceImg from '../resources/images/Photogrophy/white-fence.png';
-import TreeImg from '../resources/images/Photogrophy/organic-tree-corrected.jpg';
-import LeafImg from '../resources/images/Photogrophy/leaf.png';
 import PhotoCard from '../components/PhotoCard';
 
+import MothImg from '../resources/images/Photogrophy/moth.png';
+import MothImgPlaceholder from '../resources/images/Photogrophy/placeholders/moth.png';
+import SkylineImg from '../resources/images/Photogrophy/high-contrast-skyline.jpg';
+import SkylineImgPlaceholder from '../resources/images/Photogrophy/placeholders/high-contrast-skyline.jpg';
+import DandelionImg from '../resources/images/Photogrophy/dandelion.png';
+import DandelionImgPlaceholder from '../resources/images/Photogrophy/placeholders/dandelion.png';
+import OceanSkyImg from '../resources/images/Photogrophy/high-contrast-ocean-sky.jpg';
+import OceanSkyImgPlaceholder from '../resources/images/Photogrophy/placeholders/high-contrast-ocean-sky.jpg';
+import CandleImg from '../resources/images/Photogrophy/candle-vingette.jpg';
+import CandleImgPlaceholder from '../resources/images/Photogrophy/placeholders/candle-vingette.jpg';
+import FenceImg from '../resources/images/Photogrophy/white-fence.png';
+import FenceImgPlaceholder from '../resources/images/Photogrophy/placeholders/white-fence.png';
+import TreeImg from '../resources/images/Photogrophy/organic-tree-corrected.jpg';
+import TreeImgPlaceholder from '../resources/images/Photogrophy/placeholders/organic-tree-corrected.jpg';
+import LeafImg from '../resources/images/Photogrophy/leaf.png';
+import LeafImgPlaceholder from '../resources/images/Photogrophy/placeholders/leaf.png';
+
 const images = [
-  {src: MothImg, alt: 'Black and white moth on a textured wall.'},
-  {src: DandelionImg, alt: 'Black and white dandelion surrouded by grass and weeds.'},
-  {src: TreeImg, alt: 'Black and white tree trunks growing out over water.'},
-  {src: SkylineImg, alt: 'Black and white sunset contrasting the dark silhoette of trees and horizon against the bright sky and the reflection on a body of water'},
-  {src: CandleImg, alt: 'Black and white candle surrouded by a circle of melted wax with the light fading to black as you move away.'},
-  {src: OceanSkyImg, alt: 'Black and white sunset at the beach. The sand is black, contrasting with the bright sky and complemented by dark cloud puffs.'},
-  {src: FenceImg, alt: 'Rustic white fence under a big tree with half its leaves on the ground. In black and white.'},
-  {src: LeafImg, alt: 'Dark leaf seamingly floating in a moody sky with light shining through its veins.'}
+  {
+    src: MothImg, placeholder: MothImgPlaceholder,
+    alt: 'Black and white moth on a textured wall.'
+  },
+  {
+    src: DandelionImg, placeholder: DandelionImgPlaceholder,
+    alt: 'Black and white dandelion surrouded by grass and weeds.'
+  },
+  {
+    src: TreeImg, placeholder: TreeImgPlaceholder,
+    alt: 'Black and white tree trunks growing out over water.'
+  },
+  {
+    src: SkylineImg, placeholder: SkylineImgPlaceholder,
+    alt: 'Black and white sunset contrasting the dark silhoette of trees and horizon against the bright sky and the reflection on a body of water'
+  },
+  {
+    src: CandleImg, placeholder: CandleImgPlaceholder,
+    alt: 'Black and white candle surrouded by a circle of melted wax with the light fading to black as you move away.'
+  },
+  {
+    src: OceanSkyImg, placeholder: OceanSkyImgPlaceholder,
+    alt: 'Black and white sunset at the beach. The sand is black, contrasting with the bright sky and complemented by dark cloud puffs.'
+  },
+  {
+    src: FenceImg, placeholder: FenceImgPlaceholder,
+    alt: 'Rustic white fence under a big tree with half its leaves on the ground. In black and white.'
+  },
+  {
+    src: LeafImg, placeholder: LeafImgPlaceholder,
+    alt: 'Dark leaf seamingly floating in a moody sky with light shining through its veins.'
+  }
 ];
 
 export default function Photography({ scrollRef }) {

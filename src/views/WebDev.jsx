@@ -5,14 +5,23 @@ import PortfolioCarousel from '../components/PortfolioCarousel';
 import TruncatedArticle from '../components/TruncatedArticle';
 
 import MembershipInformationViewImg from '../resources/images/REI/MembershipInformationView.png';
+import MembershipInformationViewImgPlaceholder from '../resources/images/REI/placeholders/MembershipInformationView.png';
 import MembershipInformationViewMobileImg from '../resources/images/REI/MembershipInformationViewMobile.png';
+import MembershipInformationViewMobileImgPlaceholder from '../resources/images/REI/placeholders/MembershipInformationViewMobile.png';
 import MembershipInformationEditImg from '../resources/images/REI/MembershipInformationEdit.png';
+import MembershipInformationEditImgPlaceholder from '../resources/images/REI/placeholders/MembershipInformationEdit.png';
 import MembershipInformationEditMobileImg from '../resources/images/REI/MembershipInformationEditMobile.png';
+import MembershipInformationEditMobileImgPlaceholder from '../resources/images/REI/placeholders/MembershipInformationEditMobile.png';
 import SudokuAccount from '../resources/images/Sudoku/SudokuAccount.png';
+import SudokuAccountPlaceholder from '../resources/images/Sudoku/placeholders/SudokuAccount.png';
 import SudokuAccountThemed from '../resources/images/Sudoku/SudokuAccountThemed.png';
+import SudokuAccountThemedPlaceholder from '../resources/images/Sudoku/placeholders/SudokuAccountThemed.png';
 import SudokuGame from '../resources/images/Sudoku/SudokuGame.png';
+import SudokuGamePlaceholder from '../resources/images/Sudoku/placeholders/SudokuGame.png';
 import SudokuHome from '../resources/images/Sudoku/SudokuHome.png';
+import SudokuHomePlaceholder from '../resources/images/Sudoku/placeholders/SudokuHome.png';
 import SudokuLogin from '../resources/images/Sudoku/SudokuLogin.png';
+import SudokuLoginPlaceholder from '../resources/images/Sudoku/placeholders/SudokuLogin.png';
 import REILogo from '../resources/logos/REILogo';
 import VueLogo from '../resources/logos/VueLogo';
 import ColormindLogo from '../resources/logos/ColormindLogo';
@@ -20,9 +29,13 @@ import ReactLogo from '../resources/logos/ReactLogo';
 import SpringLogo from '../resources/logos/SpringLogo';
 import GoogleCloudLogo from '../resources/logos/GoogleCloudLogo.png';
 import AdviseItHome from '../resources/images/AdviseIt/AdviseItHome.png';
+import AdviseItHomePlaceholder from '../resources/images/AdviseIt//placeholders/AdviseItHome.png';
 import AdviseItAdmin from '../resources/images/AdviseIt/AdviseItAdmin.png';
+import AdviseItAdminPlaceholder from '../resources/images/AdviseIt//placeholders/AdviseItAdmin.png';
 import AdviseItPlan from '../resources/images/AdviseIt/AdviseItPlan.png';
+import AdviseItPlanPlaceholder from '../resources/images/AdviseIt//placeholders/AdviseItPlan.png';
 import AdviseItFooterLinks from '../resources/images/AdviseIt/AdviseItFooterLinks.png';
+import AdviseItFooterLinksPlaceholder from '../resources/images/AdviseIt//placeholders/AdviseItFooterLinks.png';
 import PHPLogo from '../resources/logos/PHPLogo';
 import BootstrapLogo from '../resources/logos/bootstrap-logo.png';
 import MySQLLogo from '../resources/logos/MySQLLogo';
@@ -73,12 +86,24 @@ export default function WebDev({ scrollRef, mobileMode }) {
           <Col className='p-0 py-xl-4 ps-xl-5 col-12 col-xl-8 d-flex align-items-center'>
             <PortfolioCarousel
               desktopImages={[
-                {src: MembershipInformationViewImg, alt: 'REI Membership dashboard showing membership Name, email, phone number, and address.'},
-                {src: MembershipInformationEditImg, alt: 'REI Membership dashboard edit form with Name, email, phone number, and address.'}
+                {
+                  src: MembershipInformationViewImg, placeholder: MembershipInformationViewImgPlaceholder,
+                  alt: 'REI Membership dashboard showing membership Name, email, phone number, and address.'
+                },
+                {
+                  src: MembershipInformationEditImg, placeholder: MembershipInformationEditImgPlaceholder,
+                  alt: 'REI Membership dashboard edit form with Name, email, phone number, and address.'
+                }
               ]}
               mobileImages={[
-                {src: MembershipInformationViewMobileImg, alt: 'REI Membership dashboard showing membership Name, email, phone number, and address.'},
-                {src: MembershipInformationEditMobileImg, alt: 'REI Membership dashboard edit form with Name, email, phone number, and address.'}
+                {
+                  src: MembershipInformationViewMobileImg, placeholder: MembershipInformationViewMobileImgPlaceholder,
+                  alt: 'REI Membership dashboard showing membership Name, email, phone number, and address.'
+                },
+                {
+                  src: MembershipInformationEditMobileImg, placeholder: MembershipInformationEditMobileImgPlaceholder,
+                  alt: 'REI Membership dashboard edit form with Name, email, phone number, and address.'
+                }
               ]}
               showMobile={mobileMode}
             />
@@ -125,11 +150,26 @@ export default function WebDev({ scrollRef, mobileMode }) {
           <Col className='p-0 py-xl-4 pe-xl-5 col-12 col-xl-8 d-flex align-items-center order-2 order-xl-1'>
             <PortfolioCarousel
               desktopImages={[
-                {src: SudokuHome, alt: 'Sudoku In the Clouds home page with Menu, Login, and Play buttons.'},
-                {src: SudokuLogin, alt: 'Login page with an option to create a free account. With an account, you can track completed games and save game preferences.'},
-                {src: SudokuAccount, alt: 'Example account page. Review and edit player stats, settings, and preferences.'},
-                {src: SudokuAccountThemed, alt: 'Example accunt page with custom prefernces that change the colors of the page.'},
-                {src: SudokuGame, alt: 'An partially complete game of Sudoku. The page colors match the custom preferences.'}
+                {
+                  src: SudokuHome, placeholder: SudokuHomePlaceholder,
+                  alt: 'Sudoku In the Clouds home page with Menu, Login, and Play buttons.'
+                },
+                {
+                  src: SudokuLogin, placeholder: SudokuLoginPlaceholder,
+                  alt: 'Login page with an option to create a free account. With an account, you can track completed games and save game preferences.'
+                },
+                {
+                  src: SudokuAccount, placeholder: SudokuAccountPlaceholder,
+                  alt: 'Example account page. Review and edit player stats, settings, and preferences.'
+                },
+                {
+                  src: SudokuAccountThemed, placeholder: SudokuAccountThemedPlaceholder,
+                  alt: 'Example accunt page with custom prefernces that change the colors of the page.'
+                },
+                {
+                  src: SudokuGame, placeholder: SudokuGamePlaceholder,
+                  alt: 'An partially complete game of Sudoku. The page colors match the custom preferences.'
+                }
               ]}
             />
           </Col>
@@ -185,10 +225,22 @@ export default function WebDev({ scrollRef, mobileMode }) {
           <Col className='p-0 py-xl-4 ps-xl-5 col-12 col-xl-8 d-flex align-items-center'>
             <PortfolioCarousel
               desktopImages={[
-                {src: AdviseItHome, alt: 'Advise it new plan page. Create a blank, or standard plan.'},
-                {src: AdviseItPlan, alt: 'Blank advising plan with fall, winter, spring, and summer quarters. You can add additional school years, add an advisor, or save.'},
-                {src: AdviseItAdmin, alt: 'Table of academic schedules. Shows advisor, last saved date, and a URL to each plan.'},
-                {src: AdviseItFooterLinks, alt: 'Table of footer links that can be edited or deleted. New links can be added.'}
+                {
+                  src: AdviseItHome, placeholder: AdviseItHomePlaceholder,
+                  alt: 'Advise it new plan page. Create a blank, or standard plan.'
+                },
+                {
+                  src: AdviseItPlan, placeholder: AdviseItPlanPlaceholder,
+                  alt: 'Blank advising plan with fall, winter, spring, and summer quarters. You can add additional school years, add an advisor, or save.'
+                },
+                {
+                  src: AdviseItAdmin, placeholder: AdviseItAdminPlaceholder,
+                  alt: 'Table of academic schedules. Shows advisor, last saved date, and a URL to each plan.'
+                },
+                {
+                  src: AdviseItFooterLinks, placeholder: AdviseItFooterLinksPlaceholder,
+                  alt: 'Table of footer links that can be edited or deleted. New links can be added.'
+                }
               ]}
             />
           </Col>

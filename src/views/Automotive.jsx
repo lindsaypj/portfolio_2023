@@ -6,9 +6,13 @@ import PortfolioCarousel from "../components/PortfolioCarousel";
 
 import BMWLogo from "../resources/logos/BMWLogo";
 import ShifterImg from '../resources/images/TransSwap/shifter.jpg';
+import ShifterImgPlaceholder from '../resources/images/TransSwap/placeholders/shifter.jpg';
 import InteriorBeforeImg from '../resources/images/TransSwap/interiorBefore.jpg';
+import InteriorBeforeImgPlaceholder from '../resources/images/TransSwap/placeholders/interiorBefore.jpg';
 import InteriorAfterImg from '../resources/images/TransSwap/interiorAfter.jpg';
+import InteriorAfterImgPlaceholder from '../resources/images/TransSwap/placeholders/interiorAfter.jpg';
 import AutoAndManualImg from '../resources/images/TransSwap/autoAndManual.jpg';
+import AutoAndManualImgPlaceholder from '../resources/images/TransSwap/placeholders/autoAndManual.jpg';
 
 
 export default function Automotive({ scrollRef }) {
@@ -67,10 +71,22 @@ export default function Automotive({ scrollRef }) {
           <Col className='p-0 py-xl-4 ps-xl-5 col-12 col-xl-8 d-flex align-items-center'>
             <PortfolioCarousel
               desktopImages={[
-                {src: InteriorBeforeImg, alt: 'Vehicle interior before conversion. Has two pedals and an automatic gear selector.'},
-                {src: AutoAndManualImg, alt: 'Automatic and manual transmission on the ground next to eachother.'},
-                {src: ShifterImg, alt: 'Manual gear selector with and without the interior trim. With the trim, it looks like it came as a manual from the factory.'},
-                {src: InteriorAfterImg, alt: 'Vehicle interior after conversion. Has three pedals and a manual gear selector.'}
+                {
+                  src: InteriorBeforeImg, placeholder: InteriorBeforeImgPlaceholder,
+                  alt: 'Vehicle interior before conversion. Has two pedals and an automatic gear selector.'
+                },
+                {
+                  src: AutoAndManualImg, placeholder: AutoAndManualImgPlaceholder,
+                  alt: 'Automatic and manual transmission on the ground next to eachother.'
+                },
+                {
+                  src: ShifterImg, placeholder: ShifterImgPlaceholder,
+                  alt: 'Manual gear selector with and without the interior trim. With the trim, it looks like it came as a manual from the factory.'
+                },
+                {
+                  src: InteriorAfterImg, placeholder: InteriorAfterImgPlaceholder,
+                  alt: 'Vehicle interior after conversion. Has three pedals and a manual gear selector.'
+                }
               ]}
             />
           </Col>
