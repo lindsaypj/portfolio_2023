@@ -51,7 +51,7 @@ export default function Automotive({ scrollRef }) {
                     found many others online who completed the same conversion. With their detailed
                     videos and write-ups, I was able to learn everything I needed to about removing
                     the automatic, servicing the new transmission, and installing the manual
-                    accessories. After a few days of wrenching, and some minor wiring, it was done.
+                    accessories. After a few days of wrenching and some minor wiring, it was done.
                   </p>
                   <p>
                     I've been driving it for the 2 years, and I am extremely happy with my new
