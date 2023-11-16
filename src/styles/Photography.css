@@ -12,7 +12,7 @@
 }
 
 .btn-close {
-  position: absolute;
+  position: fixed;
   top: 4vw;
   right: 5vw;
 
