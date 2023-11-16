@@ -11,7 +11,7 @@ import { aboutMeSkills } from "../resources/text/skills";
 import GitHubLogo from "../resources/logos/GitHubLogo";
 import LinkedInLogo from "../resources/logos/LinkedInLogo";
 
-export default function AboutMe({ headingTypedCallback, setTerminalHero, headingTyped }) {
+export default function AboutMe({ headingTypedCallback, setTerminalHero, headingTyped, mobileMode }) {
   // HOOKS
   const textSection = useRef();
 
@@ -55,7 +55,7 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero, heading
         <Row className='hero-row'>
           <Col className="p-0">
           
-            <AsciiPortrait visible={headingTyped} />
+            <AsciiPortrait visible={headingTyped} mobileMode={mobileMode} />
 
             <h1 className='route-header padding-margins'>
               <TypingText text="/about_me" doneTypingCallback={headingTypedCallback} />

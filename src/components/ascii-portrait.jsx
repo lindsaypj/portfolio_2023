@@ -1,10 +1,19 @@
 import React, { useEffect, useRef } from "react";
 
 import '../styles/ascii.css';
-import AsciiImg from '../resources/images/AsciiPortrait/ascii-large.png';
+import AsciiImgLarge from '../resources/images/AsciiPortrait/ascii-large.png';
+import AsciiImgSmall from '../resources/images/AsciiPortrait/ascii-small.png';
+import { useCallback } from "react";
 
-export default function AsciiPortrait({ visible }) {
+export default function AsciiPortrait({ visible, mobileMode = true }) {
   const ascii = useRef();
+
+  const getAsciiSrc = useCallback(() => {
+    if (mobileMode) {
+      return AsciiImgSmall;
+    }
+    return AsciiImgLarge;
+  }, [mobileMode]);
 
   // Update loading class after animaion ends
   useEffect(() => {
@@ -26,7 +35,7 @@ export default function AsciiPortrait({ visible }) {
     <div className='ascii-container'>
       <img
         ref={ascii}
-        src={AsciiImg}
+        src={getAsciiSrc()}
         className='ascii-loading'
         alt='Ascii art self-portrait'
       />

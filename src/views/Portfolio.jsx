@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import TypingText from '../components/TypingText';
 
 import '../styles/Portfolio.css';
 
 import WebDev from './WebDev';
-import useWindowWidth from '../hooks/useWindowWidth';
 import SoftwareDev from './SoftwareDev';
 import OpenSource from './OpenSource';
 import HeroNavigation from '../components/HeroNavigaion';
@@ -18,22 +17,13 @@ import PhotographyNavImg from '../resources/images/PortfolioNav/PhotographyNavIm
 import Automotive from './Automotive';
 import Photography from './Photography';
 
-const mobileBreakpoint = 768; // Aligns with Bootstrap MD breakpoint
-
-export default function Portfolio({ scrollRef, headingTypedCallback }) {
-  const [mobileMode, setMobileMode] = useState(true);
-  const windowWidth = useWindowWidth();
-
+export default function Portfolio({ scrollRef, headingTypedCallback, mobileMode }) {
   const webDevRef = useRef();
   const softwareDevRef= useRef();
   const openSourceRef = useRef();
   const automotiveRef = useRef();
   const photographyRef = useRef();
 
-  useEffect(() => {
-    if (windowWidth > mobileBreakpoint) setMobileMode(false);
-    else setMobileMode(true);
-  }, [windowWidth]);
 
   const onNavSelect = (link) => {
     switch(link) {
@@ -87,13 +77,13 @@ export default function Portfolio({ scrollRef, headingTypedCallback }) {
 
       <WebDev scrollRef={webDevRef} mobileMode={mobileMode} />
 
-      <SoftwareDev scrollRef={softwareDevRef} />
+      {/* <SoftwareDev scrollRef={softwareDevRef} />
 
       <OpenSource scrollRef={openSourceRef} />
 
       <Automotive scrollRef={automotiveRef} />
 
-      <Photography scrollRef={photographyRef} />
+      <Photography scrollRef={photographyRef} /> */}
     </Container>
   );
 };

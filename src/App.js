@@ -9,11 +9,19 @@ import Portfolio from './views/Portfolio';
 import Terminal from './components/Terminal';
 
 import scrollToTop from './scripts/scrollToTop';
+import useWindowWidth from './hooks/useWindowWidth';
+
+// CONSTANTS
+const MOBILE_BREAKPOINT = 768; // Aligns with Bootstrap MD breakpoint
+
 
 function App() {
+  const windowWidth = useWindowWidth();
+
   const [page, setPage] = useState();
   const [headingTyped, setHeadingTyped] = useState(false);
   const [terminalHero, setTerminalHero] = useState(true);
+  const [mobileMode, setMobileMode] = useState(true);
 
   // Scrollable References
   const portfolio = useRef();
@@ -22,6 +30,11 @@ function App() {
     const { currentPage } = loadSessionPageData();
     setPage(currentPage);
   }, []);
+
+  useEffect(() => {
+    if (windowWidth > MOBILE_BREAKPOINT) setMobileMode(false);
+    else setMobileMode(true);
+  }, [windowWidth]);
 
   const headingTypedCallback = useCallback(() => {
     setHeadingTyped(true);
@@ -58,16 +71,17 @@ function App() {
             headingTypedCallback={headingTypedCallback}
             setTerminalHero={setTerminalHero}
             headingTyped={headingTyped}
-            
+            mobileMode={mobileMode}
           />
           <Portfolio
             scrollRef={portfolio}
+            mobileMode={mobileMode}
             headingTypedCallback={headingTypedCallback}
           />
           </>
         );
     }
-  }, [page, headingTypedCallback, headingTyped]);
+  }, [page, headingTypedCallback, headingTyped, mobileMode]);
 
   return (
     <div className='App app-dark'>
