@@ -28,6 +28,7 @@ export default function Foorter({ navChangeCallback }) {
   const getMethods = () => {
     return methods.map((method) => (
       <Button
+        variant={'link'}
         key={method}
         onClick={() => onClickFooterLink(method)}
         className='footer__link'
@@ -40,6 +41,7 @@ export default function Foorter({ navChangeCallback }) {
   const getCommands = () => {
     return commands.map((command) => (
       <Button
+        variant={'link'}
         key={command}
         onClick={() => onClickFooterLink(command)}
         className='footer__link'
