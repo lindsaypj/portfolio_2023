@@ -1,0 +1,217 @@
+input.cell {
+  text-align: center;
+  vertical-align: top;
+  caret-color: transparent;
+  background-color: transparent;
+}
+
+.cellContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.cellDisplay {
+  position: absolute;
+  display: inline-block;
+  margin: auto;
+
+  border: none!important;
+
+  font-weight: 700;
+      
+  pointer-events: none;
+}
+
+/* Cell Focused Styles */
+input.cell:focus {
+  box-shadow: 0px 0px 9px black;
+  position:relative;
+  z-index:200;
+}
+.size-4:focus {
+  outline: lightgray solid 5px;
+  outline-offset: -7px;
+}
+.size-9:focus {
+  outline: lightgray solid 4px;
+  outline-offset: -5px;
+}
+.size-16:focus {
+  outline: lightgray solid 3px;
+  outline-offset: -3px;
+}
+
+/* Cell Dimensions */
+/* Cell Font Size */
+/* Cell Border */
+.size-4 {
+  width: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 4);
+  height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 4);
+
+  line-height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 4);
+  font-size: min(15vh, 15vw);
+
+  border: min(0.5vh, 0.5vw) black solid;
+}
+.cell-height-4 {
+  height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 4);
+}
+
+.size-9 {
+  width: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 9);
+  height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 9);
+
+  line-height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 9);
+  font-size: min(6vh, 6vw);
+
+  border: min(0.2vh, 0.2vw) black solid;
+}
+.cell-height-9 {
+  height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 9);
+}
+
+.size-16 {
+  width: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 16);
+  height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 16);
+
+  line-height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 16);
+  font-size: min(2.8vh, 2.8vw);
+  font-stretch: extra-condensed;
+  font-weight: 700;
+  
+  border: 1px black solid;
+}
+.cell-height-16 {
+  height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 16);
+}
+
+
+/* Cell Background Color */
+.cell-bg-blue {
+  background-color: blue!important;
+}
+
+.cell-bg-red {
+  background-color: red!important;
+}
+
+.cell-bg-green {
+  background-color: darkgreen!important;
+}
+
+.cell-bg-yellow {
+  background-color: yellow!important;
+}
+
+.cell-bg-orange {
+  background-color: darkorange!important;
+}
+
+.cell-bg-magenta {
+  background-color: magenta!important;
+}
+
+.cell-bg-cyan {
+  background-color: cyan!important;
+}
+
+.cell-bg-lime {
+  background-color: lime!important;
+}
+
+.cell-bg-purple {
+  background-color: blueviolet!important;
+}
+
+.cell-bg-pink {
+  background-color: deeppink!important;
+}
+
+.cell-bg-crimson {
+  background-color: rgb(144, 0, 0)!important;
+}
+
+.cell-bg-dark-purple {
+  background-color: darkmagenta!important;
+}
+
+.cell-bg-dark-cyan {
+  background-color: darkcyan!important;
+}
+
+.cell-bg-gray {
+  background-color: gray!important;
+}
+
+.cell-bg-navy {
+  background-color: navy!important;
+}
+
+.cell-bg-fire {
+  background-color: rgb(93, 39, 0)!important;
+}
+.cell-bg-transparent {
+  background-color: transparent!important;
+}
+
+/* Cell Text Color */
+.cell-text-black {
+  color: black !important;
+}
+.cell-text-white {
+  color: white;
+}
+.cell-text-blue {
+  color: blue;
+}
+.cell-text-red {
+  color: red;
+}
+.cell-text-green {
+  color: darkgreen;
+}
+.cell-text-yellow {
+  color: yellow;
+}
+.cell-text-orange {
+  color: darkorange;
+}
+.cell-text-magenta {
+  color: magenta;
+}
+.cell-text-cyan {
+  color: cyan;
+}
+.cell-text-lime {
+  color: lime;
+}
+.cell-text-purple {
+  color: blueviolet;
+}
+.cell-text-pink {
+  color: deeppink;
+}
+.cell-text-crimson {
+  color: rgb(144, 0, 0);
+}
+.cell-text-dark-purple {
+  color: darkmagenta;
+}
+.cell-text-dark-cyan {
+  color: darkcyan;
+}
+.cell-text-gray {
+  color: gray;
+}
+.cell-text-navy {
+  color: navy;
+}
+.cell-text-fire {
+  color:rgb(93, 39, 0);
+}
+.cell-text-transparent {
+  color: transparent;
+}
+.cell-text-disabled {
+  opacity: 45%;
+}

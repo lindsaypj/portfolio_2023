@@ -1,0 +1,61 @@
+
+.board {
+  text-align: center;
+  display: inline-block;
+  max-width: min(75vh, 75vw);
+}
+
+/* Group Borders */
+/* Horazontal */
+.board-4 .cell-row:nth-child(2) {
+  border-bottom: min(2vh, 2vw) black solid;
+  height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 4 + min(2vh, 2vw) - 1px);
+}
+.board-9 .cell-row:nth-child(3), .board-9 .cell-row:nth-child(6) {
+  border-bottom: min(1.5vh, 1.5vw) black solid;
+  height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 9 + min(1.5vh, 1.5vw) - 1px);
+}
+.board-16 .cell-row:nth-child(4), .board-16 .cell-row:nth-child(8), .board-16 .cell-row:nth-child(12) {
+  border-bottom: min(1.2vh, 1.2vw) black solid;
+  height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 16 + min(1.2vh, 1.2vw) - 1px);
+}
+/* Vertical */
+.board-4 .cell-row .cellContainer:nth-child(2) {
+  border-right: min(2vh, 2vw) black solid;
+}
+.board-9 .cell-row .cellContainer:nth-child(3), .board-9 .cell-row .cellContainer:nth-child(6) {
+  border-right: min(1.5vh, 1.5vw) black solid;
+}
+.board-16 .cell-row .cellContainer:nth-child(4), .board-16 .cell-row .cellContainer:nth-child(8), .board-16 .cell-row .cellContainer:nth-child(12) {
+  border-right: min(1.2vh, 1.2vw) black solid;
+}
+
+
+/* Outer Border */
+.board-4 {
+  border: min(2vh, 2vw) black solid;
+}
+.board-9 {
+  border: min(1.5vh, 1.5vw) black solid;
+}
+.board-16 {
+  border: min(1.2vh, 1.2vw) black solid;
+}
+
+input {
+  border-radius: 0;
+  border-color: black;
+}
+
+.cell-row-4 {
+  display: block;
+  height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 4);
+}
+.cell-row-9 {
+  display: block;
+  height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 9);
+}
+.cell-row-16 {
+  display: block;
+  height: calc((min(75vh, 75vw) - min(10vh, 10vw)) / 16);
+}

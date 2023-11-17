@@ -17,7 +17,7 @@ export const hiddenPaths = [
 
 // Methods allow you to interact with the page. This means they are path specific
 export const methods = [
-  // '.sudoku()'
+  '.sudoku()'
 ];
 
 // Commands are like methods, but they are global

@@ -10,6 +10,7 @@ import Terminal from './components/Terminal';
 
 import scrollToTop from './scripts/scrollToTop';
 import useWindowWidth from './hooks/useWindowWidth';
+import SudokuGame from './views/SudokuGame';
 
 // CONSTANTS
 const MOBILE_BREAKPOINT = 768; // Aligns with Bootstrap MD breakpoint
@@ -63,6 +64,10 @@ function App() {
       case '/resume':
         return (
           <></>
+        );
+      case '.sudoku()':
+        return (
+          <SudokuGame />
         );
       default:
         return (

@@ -1,0 +1,38 @@
+
+.configurator-container > {
+    display: block;
+    border: none;
+}
+
+.configurator-container {
+  display: block;
+  margin-left: calc((100vw - min(75vh, 75vw)) / 2);
+}
+
+.configurator-header {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.min-w-200 {
+    min-width: 170px;
+}
+
+.btn:hover {
+    opacity: 60%;
+}
+
+.btn-theme-light {
+    background-color: white !important;
+}
+
+/* Highlight Selected boardsize button */
+.size-4-selected :nth-child(2) {
+    opacity: 60% !important;
+}
+.size-9-selected :nth-child(3) {
+    opacity: 60% !important;
+}
+.size-16-selected :nth-child(4) {
+    opacity: 60% !important;
+}

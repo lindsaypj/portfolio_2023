@@ -1,0 +1,36 @@
+
+.btn-cell {
+    font-size: .7rem;
+    font-weight: 800;
+    line-height: .7rem;
+    width: .7rem;
+    height: .7rem;
+    display: block;
+}
+
+.cell-1 {
+    border: black solid 3px !important;
+}
+.cell-2 {
+    border: black solid 3px !important;
+    border-left-width: 0 !important;
+}
+.cell-3 {
+    border: black solid 3px !important;
+    border-top-width: 0 !important;
+}
+.cell-4 {
+    border: black solid 3px !important;
+    border-left-width: 0 !important;
+    border-top-width: 0 !important;
+}
+
+.selected-true {
+    opacity: 60% !important;
+}
+.selected-false {
+    opacity: 100% !important;
+}
+.selected-false:hover {
+  opacity: 60%!important;
+}
