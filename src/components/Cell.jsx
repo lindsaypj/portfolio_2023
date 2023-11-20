@@ -19,7 +19,7 @@ function Cell({ cellIndex, size, value, cellUpdateCallback, boardIndex, textVisi
         setDisplayValue(value);
         setCellBGColor();
         setCellTextColor();
-    }, [value]);
+    }, [value, size]);
 
     // Hook to manage input pattern (prevents unwated input values)
     const [inputPattern, setInputPattern] = useState(INPUT_PATTERNS[size]);
@@ -44,7 +44,7 @@ function Cell({ cellIndex, size, value, cellUpdateCallback, boardIndex, textVisi
             return "default";
         }
         return COLORS[displayValue];
-    }, value);
+    }, displayValue);
     
 
     // Render display value on input update
