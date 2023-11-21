@@ -3,7 +3,7 @@ const SESSION_KEYS = {
 };
 
 export const loadSessionPageData = () => {
-  const defaultPage = '/home';
+  const defaultPage = '';
 
   const currentPageJson = sessionStorage.getItem(SESSION_KEYS.CURRENT_PAGE);
   const currentPage = JSON.parse(currentPageJson) || defaultPage;

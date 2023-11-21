@@ -19,7 +19,7 @@ const MOBILE_BREAKPOINT = 768; // Aligns with Bootstrap MD breakpoint
 function App() {
   const windowWidth = useWindowWidth();
 
-  const [page, setPage] = useState();
+  const [page, setPage] = useState('');
   const [headingTyped, setHeadingTyped] = useState(false);
   const [terminalHero, setTerminalHero] = useState(true);
   const [mobileMode, setMobileMode] = useState(true);
@@ -30,6 +30,10 @@ function App() {
   useEffect(() => {
     const { currentPage } = loadSessionPageData();
     setPage(currentPage);
+
+    if (currentPage !== '/about_me' && currentPage !== '') {
+      setHeadingTyped(true);
+    }
   }, []);
 
   useEffect(() => {

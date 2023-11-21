@@ -19,7 +19,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
   const terminalTextOverlay = useRef();
   const cursor = useRef();
 
-  const [terminalText, setTerminalText] = useState('');
+  const [terminalText, setTerminalText] = useState(currentRoute);
   const [abbriviatePrefix, setAbbriviatePrefix] = useState(false);
   const [partialRoutes, setPartialRoutes] = useState([]);
   const [validPath, setValidPath] = useState(false);
@@ -27,9 +27,13 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
 
   // When Route updates
   useEffect(() => {
-    if (currentRoute === '/about_me' || currentRoute === '/home') {
+    if (currentRoute === '/about_me') {
       terminal.current.value = '';
       setTerminalText('');
+    }
+    else {
+      terminal.current.value = currentRoute;
+      setTerminalText(currentRoute);
     }
   }, [currentRoute]);
 
