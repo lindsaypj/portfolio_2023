@@ -1,7 +1,7 @@
 import './styles/App.css';
 import SESSION_KEYS, { loadSessionPageData, saveSessionValue } from './scripts/sessionInterface';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import AboutMe from './views/AboutMe';
 import Foorter from './components/Footer';
@@ -23,7 +23,7 @@ function App() {
 
   const [page, setPage] = useState(currentPage);
   const [headingTyped, setHeadingTyped] = useState(false);
-  const [terminalHero, setTerminalHero] = useState(true);
+  const [terminalHero, setTerminalHero] = useState(false);
   const [mobileMode, setMobileMode] = useState(true);
   const [shouldScrollToRoute, setShouldScrollToRoute] = useState(true);
 
@@ -31,16 +31,16 @@ function App() {
     if (currentPage !== '/about_me' && currentPage !== '') {
       setHeadingTyped(true);
     }
-  }, []);
+  }, [currentPage]);
 
   useEffect(() => {
     if (windowWidth > MOBILE_BREAKPOINT) setMobileMode(false);
     else setMobileMode(true);
   }, [windowWidth]);
 
-  const headingTypedCallback = () => {
+  const headingTypedCallback = useCallback(() => {
     setHeadingTyped(true);
-  };
+  }, []);
 
   const navChangeCallback = (newPage) => {
     // Update page/session state
@@ -89,7 +89,7 @@ function App() {
           </>
         );
     }
-  }, [page, headingTypedCallback, headingTyped, mobileMode]);
+  }, [page, headingTypedCallback, headingTyped, mobileMode, shouldScrollToRoute]);
 
   return (
     <div className='App app-dark'>

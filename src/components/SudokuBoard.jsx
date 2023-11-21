@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useReducer } from "react";
+import React, { useState, useLayoutEffect, useReducer, useCallback } from "react";
 import Cell from "./Cell.jsx";
 
 import '../styles/board.css';
@@ -76,6 +76,14 @@ function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIn
   useLayoutEffect(() => {
     setCellRows();
   }, [size]);
+
+  // Determine cell editability
+  const canEditCell = useCallback((index) => {
+    if (initialBoard === undefined || initialBoard === null || initialBoard[index] === 0) {
+      return false;
+    }
+    return true;
+  }, [initialBoard]);
     
 
   return(
@@ -87,21 +95,16 @@ function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIn
           {row.map((cellValue, colIndex) => {
             const cellIndex = (rowIndex * size) + colIndex;
             
-            // Prevent editing initial values
-            let disabled = true;
-            if (initialBoard === undefined || initialBoard === null || initialBoard[cellIndex] === 0) {
-              disabled = false;
-            }
             return (
               <Cell
                 key={cellIndex}
                 cellIndex={cellIndex}
                 size={size}
-                value={cells[cellIndex]} 
+                value={cells[cellIndex]}
                 cellUpdateCallback={updateCellOnBoard}
                 textVisibility={!(hideNums)}
                 boardIndex={boardIndex + cellIndex}
-                disabled={disabled}
+                disabled={canEditCell(cellIndex)}
               />
             );
           })}

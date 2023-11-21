@@ -42,6 +42,11 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero, heading
     else {
       setTerminalHero(true);
     }
+
+    // On unmount
+    return () => {
+      setTerminalHero(false);
+    }
   }, [scrollPos, setTerminalHero]);
 
   const handleParagraphTyped = useCallback(() => {
@@ -91,7 +96,7 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero, heading
             <div className='about-me__bio padding-margins pe-xl-0'>
               <div ref={textSection}>
                 <p>
-                  <TypingText
+                  <         TypingText
                     text='I just received my Bachelor of Applied Science in Software Development,
                     but I am more eager than ever to keep learning.'
                     charInterval={10}

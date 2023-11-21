@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import TypingText from '../components/TypingText';
 
@@ -25,30 +25,22 @@ export default function Portfolio({ shouldScroll, setShouldScrollToRoute, headin
   const automotiveRef = useRef();
   const photographyRef = useRef();
 
-  const scrollToPortfolio = () => {
+  const scrollToPortfolio = useCallback(() => {
     const scrollDistance = portfolioRef.current.getBoundingClientRect().top + window.scrollY;
     window.scroll({
       top: scrollDistance,
       behavior: "smooth"
     });
     window.removeEventListener ('load', scrollToPortfolio);
-  }
+  }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (shouldScroll) {
       setTimeout(scrollToPortfolio, 50);
       
       setShouldScrollToRoute(false);
     }
-  }, [shouldScroll, setShouldScrollToRoute]);
-
-  useLayoutEffect(() => {
-    if (shouldScroll) {
-      window.addEventListener('load', scrollToPortfolio);
-      
-      setShouldScrollToRoute(false);
-    }
-  }, []);
+  }, [shouldScroll, setShouldScrollToRoute, scrollToPortfolio]);
 
   const onNavSelect = (link) => {
     switch(link) {

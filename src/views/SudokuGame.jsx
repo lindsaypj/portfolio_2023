@@ -4,19 +4,20 @@ import { Col, Container, Row } from "react-bootstrap";
 import SudokuBoard from "../components/SudokuBoard";
 import TestConfigurator from "../components/TestConfigurator";
 
-import { SudokuPreferences } from "../objects/SudokuPreferences";
+import { SudokuGameData } from "../objects/SudokuGameData";
 
 
 export default function SudokuGame() {
+
   ////    INITIALIZATION    ////
 
-  const savedSudokuPreferences = new SudokuPreferences();
-  const [sudokuPreferences, setSudokuPreferences] = useState(savedSudokuPreferences);
+  const savedSudokuGameData = new SudokuGameData();
+  const [sudokuGameData, setSudokuGameData] = useState(savedSudokuGameData);
 
-  const savedSize = savedSudokuPreferences.size;
-  const savedInitialBoard = savedSudokuPreferences.getSavedInitialBoard();
-  const savedBoard = savedSudokuPreferences.getSavedBoard();
-  const savedHideNums = savedSudokuPreferences.hideNums;
+  const savedSize = savedSudokuGameData.size;
+  const savedInitialBoard = savedSudokuGameData.getSavedInitialBoard();
+  const savedBoard = savedSudokuGameData.getSavedBoard();
+  const savedHideNums = savedSudokuGameData.hideNums;
 
   const [board, setBoard] = useState(savedBoard);
   const [initialBoard, setInitialBoard] = useState(savedInitialBoard);
@@ -27,48 +28,50 @@ export default function SudokuGame() {
   ////    STATE MANAGMENT    ////
 
   const updateBoardBySize = ({ boardSize, nextBoard }) => {
-    const updatedPreferences = sudokuPreferences;
+    const updatedGameData = sudokuGameData;
     switch(boardSize) {
       case 4:
-        updatedPreferences.board4 = nextBoard;
+        updatedGameData.board4 = nextBoard;
         break;
       case 9:
-        updatedPreferences.board9 = nextBoard;
+        updatedGameData.board9 = nextBoard;
         break;
       case 16:
-        updatedPreferences.board16 = nextBoard;
+        updatedGameData.board16 = nextBoard;
         break;
+      default:
+        console.log('Size ['+ boardSize +'] not recognized');
     }
-    setSudokuPreferences(updatedPreferences);
-    updatedPreferences.savePreferences();
+    setSudokuGameData(updatedGameData);
+    updatedGameData.saveGameData();
   }
 
   const handleBoardUpdate = (boardSize, nextBoard) => {
     // Update Local State
     setBoard(nextBoard);
 
-    // Update preferences (local and session)
+    // Update GameData (local and session)
     updateBoardBySize({boardSize, nextBoard});
   }
 
   const handleBoardSizeChange = (nextSize) => {
-    const updatedPreferences = sudokuPreferences;
-    updatedPreferences.size = nextSize;
+    const updatedGameData = sudokuGameData;
+    updatedGameData.size = nextSize;
     setSize(nextSize);
-    setBoard(sudokuPreferences.getSavedBoard(nextSize));
-    setInitialBoard(sudokuPreferences.getSavedInitialBoard(nextSize));
+    setBoard(updatedGameData.getSavedBoard(nextSize));
+    setInitialBoard(updatedGameData.getSavedInitialBoard(nextSize));
     
-    setSudokuPreferences(updatedPreferences);
-    updatedPreferences.savePreferences();
+    setSudokuGameData(updatedGameData);
+    updatedGameData.saveGameData();
   }
 
   const handleHideNumsChange = (nextHideNums) => {
-    const updatedPreferences = sudokuPreferences;
-    updatedPreferences.hideNums = nextHideNums;
+    const updatedGameData = sudokuGameData;
+    updatedGameData.hideNums = nextHideNums;
     setHideNums(nextHideNums);
     
-    setSudokuPreferences(updatedPreferences);
-    updatedPreferences.savePreferences();
+    setSudokuGameData(updatedGameData);
+    updatedGameData.saveGameData();
   }
 
 
@@ -77,7 +80,7 @@ export default function SudokuGame() {
   return (
     <Container fluid className='min-vh-100 p-0 m-0'>
       <Row>
-        <Col className='text-center mt-4'>
+        <Col className='text-center mt-4 p-0'>
           <SudokuBoard
             size={size}
             initialBoard={initialBoard}
