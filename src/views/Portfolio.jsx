@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import TypingText from '../components/TypingText';
 
@@ -17,13 +17,38 @@ import PhotographyNavImg from '../resources/images/PortfolioNav/PhotographyNavIm
 import Automotive from './Automotive';
 import Photography from './Photography';
 
-export default function Portfolio({ scrollRef, headingTypedCallback, mobileMode }) {
+export default function Portfolio({ shouldScroll, setShouldScrollToRoute, headingTypedCallback, mobileMode }) {
+  const portfolioRef = useRef();
   const webDevRef = useRef();
   const softwareDevRef= useRef();
   const openSourceRef = useRef();
   const automotiveRef = useRef();
   const photographyRef = useRef();
 
+  const scrollToPortfolio = () => {
+    const scrollDistance = portfolioRef.current.getBoundingClientRect().top + window.scrollY;
+    window.scroll({
+      top: scrollDistance,
+      behavior: "smooth"
+    });
+    window.removeEventListener ('load', scrollToPortfolio);
+  }
+
+  useLayoutEffect(() => {
+    if (shouldScroll) {
+      setTimeout(scrollToPortfolio, 50);
+      
+      setShouldScrollToRoute(false);
+    }
+  }, [shouldScroll, setShouldScrollToRoute]);
+
+  useLayoutEffect(() => {
+    if (shouldScroll) {
+      window.addEventListener('load', scrollToPortfolio);
+      
+      setShouldScrollToRoute(false);
+    }
+  }, []);
 
   const onNavSelect = (link) => {
     switch(link) {
@@ -48,7 +73,7 @@ export default function Portfolio({ scrollRef, headingTypedCallback, mobileMode 
   }
 
   return (
-    <Container fluid className='p-0' ref={scrollRef}>
+    <Container fluid className='p-0' ref={portfolioRef}>
       <Row className='portfolio__row bg-gradient-down'>
         <Col className='p-0 col-12'>
           <Row>

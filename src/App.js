@@ -19,18 +19,15 @@ const MOBILE_BREAKPOINT = 768; // Aligns with Bootstrap MD breakpoint
 function App() {
   const windowWidth = useWindowWidth();
 
-  const [page, setPage] = useState('');
+  const { currentPage } = loadSessionPageData();
+
+  const [page, setPage] = useState(currentPage);
   const [headingTyped, setHeadingTyped] = useState(false);
   const [terminalHero, setTerminalHero] = useState(true);
   const [mobileMode, setMobileMode] = useState(true);
-
-  // Scrollable References
-  const portfolio = useRef();
+  const [shouldScrollToRoute, setShouldScrollToRoute] = useState(true);
 
   useEffect(() => {
-    const { currentPage } = loadSessionPageData();
-    setPage(currentPage);
-
     if (currentPage !== '/about_me' && currentPage !== '') {
       setHeadingTyped(true);
     }
@@ -41,20 +38,21 @@ function App() {
     else setMobileMode(true);
   }, [windowWidth]);
 
-  const headingTypedCallback = useCallback(() => {
+  const headingTypedCallback = () => {
     setHeadingTyped(true);
-  }, []);
+  };
 
   const navChangeCallback = (newPage) => {
     // Update page/session state
     setPage(newPage);
     saveSessionValue(SESSION_KEYS.CURRENT_PAGE, newPage);
 
+    // Scroll to section
     switch(newPage) {
       case '/portfolio':
-        portfolio.current.scrollIntoView({ behavior: "smooth" });
+        setShouldScrollToRoute(true);
         break;
-      default: 
+      default:
         scrollToTop();
     }
   };
@@ -83,7 +81,8 @@ function App() {
             mobileMode={mobileMode}
           />
           <Portfolio
-            scrollRef={portfolio}
+            shouldScroll={shouldScrollToRoute && page === '/portfolio' }
+            setShouldScrollToRoute={setShouldScrollToRoute}
             mobileMode={mobileMode}
             headingTypedCallback={headingTypedCallback}
           />

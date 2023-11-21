@@ -35,10 +35,11 @@ export default function TypingText({
     // eslint-disable-next-line
   }, [text, renderedText, shouldType, charInterval]);
   
-  if (fillUnrenderedSpace) {
-    return (
-      <>{renderedText}<span className="hidden">{hiddenText}</span></>
-    )
+  if (!fillUnrenderedSpace) {
+    return <>{renderedText}</>
   }
-  return <>{renderedText}</>
+
+  return (
+    <>{renderedText}<span className="hidden">{hiddenText}</span></>
+  )
 }
