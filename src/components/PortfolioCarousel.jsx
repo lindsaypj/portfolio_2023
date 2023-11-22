@@ -21,7 +21,7 @@ export default function PortfolioCarousel({ desktopImages = [], mobileImages, sh
             placeholderSrc={image.placeholder}
             alt={image.alt}
             className='d-block shadow w-100 rounded'
-            threshold={300}
+            threshold={1000}
           />
         </Carousel.Item>
       ))}
