@@ -54,7 +54,7 @@ export default function Automotive({ scrollRef }) {
                     accessories. After a few days of wrenching and some minor wiring, it was done.
                   </p>
                   <p>
-                    I've been driving it for the 2 years, and I am extremely happy with my new
+                    I've been driving it for the last 2 years, and I am extremely happy with my new
                     transmission. When I first got my car, I didn't think I was capable of something
                     as technical as swapping the transmission. But now I am confident I could do it 
                     again. When facing new challenges, I remind myself how my perspective changed before
