@@ -15,8 +15,35 @@
   margin-bottom: -0.75rem;
 }
 
-@media screen and (min-width: 768) {
-  .hero-nav-col span {
-    font-size: 1.5rem;
+.card-title {
+  font-size: 1rem;
+  transition: font-size 0.5s;
+}
+.hero-nav-col:hover .card-title {
+  font-size: 1.2rem !important;
+}
+@media screen and (min-width: 576px) {
+  .card-title {
+    font-size: 1.2rem!important;
+  }
+  .hero-nav-col:hover .card-title {
+    font-size: 1.4rem !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .card-title {
+    font-size: 1.5rem!important;
+  }
+  .hero-nav-col:hover .card-title {
+    font-size: 1.7rem !important;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .card-title {
+    font-size: 1.7rem!important;
+  }
+  .hero-nav-col:hover .card-title {
+    font-size: 1.9rem !important;
   }
 }
