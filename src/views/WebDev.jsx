@@ -64,10 +64,11 @@ export default function WebDev({ scrollRef, mobileMode }) {
                 }
                 truncatedParagraphs={
                   <><p>
-                    The proposed technical design would reuse existing form utilities, but this led to
-                    unexpected complexity. The new design had key differences which did not translate well.
-                    I took the initiative to rethink and advocate for a modified technical design with 
-                    the team lead. They ultimately agreed and I completed the changes on schedule.
+                    The intial technical design would reuse existing form utilities, but this led to
+                    unexpected complexity. The existing utilities had key differences which did not
+                    translate well to the new design. I took the initiative to rethink and advocate for
+                    a modified technical design with the team lead. They ultimately agreed and I
+                    completed the changes on schedule.
                   </p>
                   <p>
                     If you have an REI Membership, visit the <a href='https://www.rei.com/membership/dashboard' target='_blank' rel='noreferrer'>Membership Dashboard</a> to
