@@ -1,4 +1,4 @@
-import logo from './GRC_Logo-Green.png';
+import logo from './GRC_Logo-Green.webp';
 import '../../styles/GRCLogo.css';
 
 export default function GRCLogo({ className = '' }) {

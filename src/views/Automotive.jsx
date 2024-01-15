@@ -5,14 +5,14 @@ import TruncatedArticle from "../components/TruncatedArticle";
 import PortfolioCarousel from "../components/PortfolioCarousel";
 
 import BMWLogo from "../resources/logos/BMWLogo";
-import ShifterImg from '../resources/images/TransSwap/shifter.jpg';
-import ShifterImgPlaceholder from '../resources/images/TransSwap/placeholders/shifter.jpg';
-import InteriorBeforeImg from '../resources/images/TransSwap/interiorBefore.jpg';
-import InteriorBeforeImgPlaceholder from '../resources/images/TransSwap/placeholders/interiorBefore.jpg';
-import InteriorAfterImg from '../resources/images/TransSwap/interiorAfter.jpg';
-import InteriorAfterImgPlaceholder from '../resources/images/TransSwap/placeholders/interiorAfter.jpg';
-import AutoAndManualImg from '../resources/images/TransSwap/autoAndManual.jpg';
-import AutoAndManualImgPlaceholder from '../resources/images/TransSwap/placeholders/autoAndManual.jpg';
+import ShifterImg from '../resources/images/TransSwap/shifter.webp';
+import ShifterImgPlaceholder from '../resources/images/TransSwap/placeholders/shifter.webp';
+import InteriorBeforeImg from '../resources/images/TransSwap/interiorBefore.webp';
+import InteriorBeforeImgPlaceholder from '../resources/images/TransSwap/placeholders/interiorBefore.webp';
+import InteriorAfterImg from '../resources/images/TransSwap/interiorAfter.webp';
+import InteriorAfterImgPlaceholder from '../resources/images/TransSwap/placeholders/interiorAfter.webp';
+import AutoAndManualImg from '../resources/images/TransSwap/autoAndManual.webp';
+import AutoAndManualImgPlaceholder from '../resources/images/TransSwap/placeholders/autoAndManual.webp';
 
 
 export default function Automotive({ scrollRef }) {
