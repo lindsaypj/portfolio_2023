@@ -74,6 +74,7 @@
 .about-me__title h3 {
   font-weight: 200;
   font-size: clamp(23px, calc(25px + 1vw), 3vw);
+  animation: LoadReducedMotion ease-out 0.5s forwards;
 }
 
 .about-me__link {
@@ -84,6 +85,7 @@
   font-size: clamp(15px, 1.5rem, 2vw);
   font-weight: 200;
   text-decoration: none;
+  animation: LoadReducedMotion ease-out 0.5s forwards;
 }
 .about-me__link div {
   vertical-align: middle;
@@ -101,4 +103,10 @@
   .about-me__job-title {
     transition: font-size 0.4s ease-in, padding 0.4s ease-in;
   }
+}
+
+/* Animations */
+@keyframes LoadReducedMotion {
+  0% {opacity: 0%;}
+  100% {opacity: 100%;}
 }
