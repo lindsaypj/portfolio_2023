@@ -79,11 +79,11 @@ export default function Portfolio({ shouldScroll, setShouldScrollToRoute, headin
             <Col className='col-12 padding-margins-n2'>
               <HeroNavigation
                 navLinks={[
-                  {text: '/web', img: WebDevNavImg},
-                  {text: '/software', img: SoftwareDevNavImg},
-                  {text: '/open_source', img: OpenSourceNavImg},
-                  {text: '/automotive', img: AutomotiveNavImg},
-                  {text: '/photography', img: PhotographyNavImg}
+                  {text: '/web', img: WebDevNavImg, imgAlt: 'Code'},
+                  {text: '/software', img: SoftwareDevNavImg, imgAlt: 'Gears'},
+                  {text: '/open_source', img: OpenSourceNavImg, imgAlt: 'Unlocked lock'},
+                  {text: '/automotive', img: AutomotiveNavImg, imgAlt: 'Check engine light'},
+                  {text: '/photography', img: PhotographyNavImg, imgAlt: 'Camera'}
                 ]}
                 navLinkCallback={onNavSelect}
               />

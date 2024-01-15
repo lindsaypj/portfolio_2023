@@ -1,7 +1,8 @@
 import React from "react";
-import { Card, CardImg, Col, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 
 import '../styles/HeroNavigation.css';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function HeroNavigation({ navLinks, navLinkCallback }) {
   return (
@@ -17,7 +18,7 @@ export default function HeroNavigation({ navLinks, navLinkCallback }) {
             className='nav-card mb-4 bg-dark text-white shadow'
             onClick={() => {navLinkCallback(link.text)}}
           >
-            <CardImg src={link.img} />
+            <LazyLoadImage src={link.img} alt={link.imgAlt} />
             <Card.Title className='my-2 fs-md-4'>{link.text}</Card.Title>
           </Card>
         </Col>
