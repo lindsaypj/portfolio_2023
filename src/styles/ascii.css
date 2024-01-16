@@ -6,54 +6,6 @@
   height: 130vh;
 }
 
-/* Small screens (default) */
-.ascii {
-  position: absolute;
-  object-fit: contain;
-  text-align: center;
-  top: -10vh;
-  left: -20vw;
-  font-size:5px;
-  height: 130vh;
-  
-  border: none; 
-  pointer-events: none;
-
-  transition: right 1s ease-out, left 1s ease-out;
-}
-
-@media screen and (min-width: 576px) {
-  .ascii {
-    right: -30vw;
-    left: auto;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .ascii {
-    right: -20vw;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .ascii {
-    right: -10vw;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .ascii {
-    right: 0vw;
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  .ascii {
-    right: 10vw;
-  }
-}
-
-
 /*** LOADING ANIMATION ***/
 
 .ascii-loading {
@@ -76,7 +28,7 @@
 /* Load animation */
 @media (prefers-reduced-motion: no-preference) {
   .ascii-loading {
-    animation: LoadAscii 2s ease-out 1s forwards;
+    animation: slide-in 2s ease-out 1s forwards;
   }
 }
 
@@ -85,87 +37,108 @@
   100% {opacity: 100%;}
 }
 
-@keyframes LoadAscii {
+@keyframes slide-in {
   0% {
-    left: 0vw;
+    opacity: 0%;
+    transform: translateX(25vw);
   }
   100% {
     opacity: 100%;
+    transform: translateX(0);
   }
 }
 
 @media screen and (min-width: 576px) {
-  .ascii-loading {
-    right: -30vw;
-    left: auto;
-  }
-
-  @keyframes LoadAscii {
+  @keyframes slide-in {
     0% {
-      right: -60vw;
+      opacity: 0%;
+      transform: translateX(25vw);
     }
     100% {
       opacity: 100%;
+      transform: translateX(0);
     }
   }
 }
 
 @media screen and (min-width: 768px) {
-  .ascii-loading {
-    right: -20vw;
-  }
-
-  @keyframes LoadAscii {
+  @keyframes slide-in {
     0% {
-      right: -50vw;
+      opacity: 0%;
+      transform: translateX(20vw);
     }
     100% {
       opacity: 100%;
+      transform: translateX(0);
     }
   }
 }
 
 @media screen and (min-width: 992px) {
-  .ascii-loading {
-    right: -10vw;
-  }
-
-  @keyframes LoadAscii {
+  @keyframes slide-in {
     0% {
-      right: -40vw;
+      opacity: 0%;
+      transform: translateX(15vw);
     }
     100% {
       opacity: 100%;
-    }
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .ascii-loading {
-    right: 0vw;
-  }
-
-  @keyframes LoadAscii {
-    0% {
-      right: -30vw;
-    }
-    100% {
-      opacity: 100%;
+      transform: translateX(0);
     }
   }
 }
 
 @media screen and (min-width: 1400px) {
-  .ascii-loading {
-    right: 10vw;
-  }
-
-  @keyframes LoadAscii {
+  @keyframes slide-in {
     0% {
-      right: 0vw;
+      opacity: 0%;
+      transform: translateX(10vw);
     }
     100% {
       opacity: 100%;
+      transform: translateX(0);
     }
+  }
+}
+
+/* Small screens (default) */
+.ascii {
+  position: absolute;
+  object-fit: contain;
+  text-align: center;
+  top: -10vh;
+  left: -20vw;
+  font-size:5px;
+  height: 130vh;
+  
+  border: none; 
+  pointer-events: none;
+
+  transition: left 1s ease-out, left 1s ease-out;
+}
+
+/* Positioning */
+@media screen and (min-width: 576px) {
+  .ascii, .ascii-loading {
+    left: 1vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .ascii, .ascii-loading {
+    left: 10vw;
+  }
+}
+@media screen and (min-width: 992px) {
+  .ascii, .ascii-loading {
+    left: 20vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .ascii, .ascii-loading {
+    left: 25vw;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .ascii, .ascii-loading {
+    left: 35vw;
   }
 }
