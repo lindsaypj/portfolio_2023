@@ -74,7 +74,9 @@
 .about-me__title h3 {
   font-weight: 200;
   font-size: clamp(23px, calc(25px + 1vw), 3vw);
-  animation: LoadReducedMotion ease-out 0.5s forwards;
+
+  opacity: 0%;
+  animation: LoadReducedMotion 1.1s ease-out 2.5s forwards;
 }
 
 .about-me__link {
@@ -85,7 +87,9 @@
   font-size: clamp(15px, 1.5rem, 2vw);
   font-weight: 200;
   text-decoration: none;
-  animation: LoadReducedMotion ease-out 0.5s forwards;
+
+  opacity: 0%;
+  animation: LoadReducedMotion 1s ease-out 2.65s forwards;
 }
 .about-me__link div {
   vertical-align: middle;
