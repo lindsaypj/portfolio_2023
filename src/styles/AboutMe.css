@@ -76,7 +76,7 @@
   font-size: clamp(23px, calc(25px + 1vw), 3vw);
 
   opacity: 0%;
-  animation: LoadReducedMotion 1.15s ease-out 2.5s forwards;
+  animation: LoadReducedMotion 1.65s ease-out 2.3s forwards;
 }
 
 .about-me__link {
@@ -89,7 +89,7 @@
   text-decoration: none;
 
   opacity: 0%;
-  animation: LoadReducedMotion 1s ease-out 2.65s forwards;
+  animation: LoadReducedMotion 1.5s ease-out 2.45s forwards;
 }
 .about-me__link div {
   vertical-align: middle;
