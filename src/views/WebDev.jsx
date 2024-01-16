@@ -57,18 +57,20 @@ export default function WebDev({ scrollRef, mobileMode }) {
                 uniqueID={'REIDescription'}
                 visibleParagraph={
                   <p>
-                    As a Software Engineer Intern with the Membership team at REI, I enabled all 24.5
-                    million members to edit their membership information. Jumping in with no Vue.js
-                    experience, I learned by developing and examining the existing front-end application.
+                    As a Software Engineer Intern with the Membership team at REI, I enabled the
+                    editing of membership information for all 24.5 million members. Instead of
+                    calling into an REI Service Center, members can now make changes from their
+                    online account. Jumping in with no Vue.js experience, I quickly learned by
+                    developing and examining the existing front-end application.
                   </p>
                 }
                 truncatedParagraphs={
                   <><p>
-                    The intial technical design would reuse existing form utilities, but this led to
-                    unexpected complexity. The existing utilities had key differences which did not
-                    translate well to the new design. I took the initiative to rethink and advocate for
-                    a modified technical design with the team lead. They ultimately agreed and I
-                    completed the changes on schedule.
+                    One of my favorite parts of the internship was getting to speak with all the
+                    people involved in making the changes possible. I worked with the designer to
+                    refine and clarify design details, I worked with the backend developer to
+                    resolve API issues, I worked with QA to find and test edge-case user
+                    interactions, and I got lots of feedback from senior front-end developers.
                   </p>
                   <p>
                     If you have an REI Membership, visit the <a href='https://www.rei.com/membership/dashboard' target='_blank' rel='noreferrer'>Membership Dashboard</a> to
