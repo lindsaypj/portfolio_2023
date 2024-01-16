@@ -100,8 +100,11 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .about-me__job-title {
-    transition: font-size 0.4s ease-in, padding 0.4s ease-in;
+  .about-me__title h3, .about-me__link {
+    transition: font-size 0.4s ease-in;
+  }
+  .about-me__title {
+    transition: padding-left 0.4s ease-in, top 0.4s ease-in;
   }
 }
 
@@ -110,3 +113,5 @@
   0% {opacity: 0%;}
   100% {opacity: 100%;}
 }
+
+/* Transitions */
