@@ -101,6 +101,7 @@
 }
 .about-me__link:hover {
   font-weight: 400;
+  transition: color 0.1s ease-in, font-weight 0.1s ease-in, fill 0.1s ease-in;
   color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
   fill: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
 }
