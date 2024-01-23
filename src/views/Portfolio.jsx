@@ -17,7 +17,7 @@ import PhotographyNavImg from '../resources/images/PortfolioNav/PhotographyNavIm
 import Automotive from './Automotive';
 import Photography from './Photography';
 
-export default function Portfolio({ shouldScroll, setShouldScrollToRoute, headingTypedCallback, mobileMode }) {
+export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, headingTypedCallback, mobileMode }) {
   const portfolioRef = useRef();
   const webDevRef = useRef();
   const softwareDevRef= useRef();
@@ -26,21 +26,40 @@ export default function Portfolio({ shouldScroll, setShouldScrollToRoute, headin
   const photographyRef = useRef();
 
   const scrollToPortfolio = useCallback(() => {
-    const scrollDistance = portfolioRef.current.getBoundingClientRect().top + window.scrollY;
+    let scrollDistance;
+    switch(page) {
+      case '/portfolio/web':
+        scrollDistance = webDevRef.current.getBoundingClientRect().top + window.scrollY;
+        break;
+      case '/portfolio/software':
+        scrollDistance = softwareDevRef.current.getBoundingClientRect().top + window.scrollY;
+        break;
+      case '/portfolio/open_source':
+        scrollDistance = openSourceRef.current.getBoundingClientRect().top + window.scrollY;
+        break;
+      case '/portfolio/automotive':
+        scrollDistance = automotiveRef.current.getBoundingClientRect().top + window.scrollY;
+        break;
+      case '/portfolio/photography':
+        scrollDistance = photographyRef.current.getBoundingClientRect().top + window.scrollY;
+        break;
+      default:
+        scrollDistance = portfolioRef.current.getBoundingClientRect().top + window.scrollY;
+    }
+    
     window.scroll({
       top: scrollDistance,
       behavior: "smooth"
     });
     window.removeEventListener ('load', scrollToPortfolio);
-  }, []);
+  }, [page]);
 
   useEffect(() => {
     if (shouldScroll) {
       setTimeout(scrollToPortfolio, 50);
-      
       setShouldScrollToRoute(false);
     }
-  }, [shouldScroll, setShouldScrollToRoute, scrollToPortfolio]);
+  }, [shouldScroll, setShouldScrollToRoute, page, scrollToPortfolio]);
 
   const onNavSelect = (link) => {
     switch(link) {

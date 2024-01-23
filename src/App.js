@@ -14,7 +14,15 @@ import SudokuGame from './views/SudokuGame';
 
 // CONSTANTS
 const MOBILE_BREAKPOINT = 768; // Aligns with Bootstrap MD breakpoint
-
+const REAL_PAGES = ['', '/about_me', '/sudoku'];
+const PORTFOLIO_SECTIONS = [
+  '/portfolio',
+  '/portfolio/automotive',
+  '/portfolio/open_source',
+  '/portfolio/photography',
+  '/portfolio/software',
+  '/portfolio/web'
+];
 
 function App() {
   const windowWidth = useWindowWidth();
@@ -25,17 +33,22 @@ function App() {
   const [headingTyped, setHeadingTyped] = useState(false);
   const [terminalHero, setTerminalHero] = useState(false);
   const [mobileMode, setMobileMode] = useState(true);
-  const [shouldScrollToRoute, setShouldScrollToRoute] = useState(true);
+  const [shouldScrollToRoute, setShouldScrollToRoute] = useState(REAL_PAGES.includes(currentPage));
 
+  // Handle dynamic titles on page load
   useEffect(() => {
     if (currentPage !== '/about_me' && currentPage !== '') {
       setHeadingTyped(true);
     }
   }, [currentPage]);
 
+  // Check for mobile aspect ratio on width change
   useEffect(() => {
-    if (windowWidth > MOBILE_BREAKPOINT) setMobileMode(false);
-    else setMobileMode(true);
+    if (windowWidth > MOBILE_BREAKPOINT) {
+      setMobileMode(false);
+    } else {
+      setMobileMode(true);
+    }
   }, [windowWidth]);
 
   const headingTypedCallback = useCallback(() => {
@@ -50,6 +63,11 @@ function App() {
     // Scroll to section
     switch(newPage) {
       case '/portfolio':
+      case '/portfolio/web':
+      case '/portfolio/software':
+      case '/portfolio/open_source':
+      case '/portfolio/automotive':
+      case '/portfolio/photography':
         setShouldScrollToRoute(true);
         break;
       default:
@@ -67,7 +85,7 @@ function App() {
         return (
           <></>
         );
-      case '.sudoku()':
+      case '/sudoku':
         return (
           <SudokuGame />
         );
@@ -81,7 +99,8 @@ function App() {
             mobileMode={mobileMode}
           />
           <Portfolio
-            shouldScroll={shouldScrollToRoute && page === '/portfolio' }
+            shouldScroll={shouldScrollToRoute && PORTFOLIO_SECTIONS.includes(page)}
+            page={page}
             setShouldScrollToRoute={setShouldScrollToRoute}
             mobileMode={mobileMode}
             headingTypedCallback={headingTypedCallback}

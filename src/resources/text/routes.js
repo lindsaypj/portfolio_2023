@@ -1,23 +1,24 @@
-// Paths are like navigation, and will change the rendered content of page
+export const PORTFOLIO_SECTIONS = [
+  '/portfolio',
+  '/portfolio/automotive',
+  '/portfolio/open_source',
+  '/portfolio/photography',
+  '/portfolio/software',
+  '/portfolio/web'
+];
+
+// Paths are like navigation, and will change pages and scroll to section
 export const paths = [
   '/about_me',
-  '/portfolio',
+  ...PORTFOLIO_SECTIONS,
+  '/sudoku',
   // '/resume',
   // '/terminal'
 ];
 
-// Paths that are valid when entered, but not officially displayed in Footer
-export const hiddenPaths = [
-  '/portfolio/web',
-  '/portfolio/web_development',
-  '/portfolio/software',
-  '/portfolio/software_development',
-  '/portfolio/open_source',
-]
-
 // Methods allow you to interact with the page. This means they are path specific
 export const methods = [
-  '.sudoku()'
+  
 ];
 
 // Commands are like methods, but they are global
