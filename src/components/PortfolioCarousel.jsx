@@ -15,7 +15,7 @@ export default function PortfolioCarousel({ desktopImages = [], mobileImages, sh
   return (<>
     <Carousel fade className='z-0 portfolio-carousel rounded pb-5 p-md-5'>
       {getImages().map((image, index) => (
-        <Carousel.Item key={index}>
+        <Carousel.Item key={index} className='d-flex'>
           <LazyLoadImage
             src={image.src}
             placeholderSrc={image.placeholder}
