@@ -11,9 +11,13 @@ export const PORTFOLIO_SECTIONS = [
 export const paths = [
   '/about_me',
   ...PORTFOLIO_SECTIONS,
-  '/sudoku',
-  // '/resume',
-  // '/terminal'
+  '/sudoku'
+];
+
+export const PRIMARY_ROUTES = [
+  '/about_me',
+  '/portfolio',
+  '/sudoku'
 ];
 
 // Methods allow you to interact with the page. This means they are path specific

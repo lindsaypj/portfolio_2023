@@ -8,6 +8,7 @@ import '../styles/Terminal.css';
 import '../styles/Cursor.css';
 
 import RouteTree from '../objects/RouteTree';
+import { PRIMARY_ROUTES } from "../resources/text/routes";
 
 const routeTree = new RouteTree();
 
@@ -67,7 +68,12 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
   const checkForValidPath = useCallback((possiblePath) => {
     const possibleRoutes = routeTree.getRoutes(possiblePath);
     setValidPath(possibleRoutes.includes(possiblePath));
-    setPartialRoutes(possibleRoutes.filter((route) => route !== possiblePath));
+    if (possiblePath === '/') {
+      setPartialRoutes(PRIMARY_ROUTES);
+    }
+    else {
+      setPartialRoutes(possibleRoutes);
+    }
   }, []);
 
 
