@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
@@ -10,13 +10,17 @@ export default function RoutesPopover({ routes, override, selectionCallback }) {
   const [showMenu, setShowMenu] = useState(false);
 
   useLayoutEffect(() => {
-    if (routes.length > 0 && override) {
-      setShowMenu(true);
-    } else {
-      setShowMenu(false);
-    }
+    const nextShowMenu = routes.length > 0 && override;
+    setShowMenu(nextShowMenu);
   }, [routes, override]);
 
+  // Generate empty popover on first load
+  useLayoutEffect(() => {
+    setShowMenu(true);
+  }, []);
+  useEffect(() => {
+    setShowMenu(false);
+  }, []);
 
   // EVENT HANDLERS
   

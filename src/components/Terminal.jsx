@@ -63,17 +63,10 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
     cursor.current.style.marginLeft = -(terminal.current.value.length - nextCursorPos) + 'ch';
   }
 
-  // Update autocmoplete routs
+  // Update autocomplete routes
   const checkForValidPath = useCallback((possiblePath) => {
     const possibleRoutes = routeTree.getRoutes(possiblePath);
-
-    if (possibleRoutes.includes(possiblePath)) {
-      setValidPath(true);
-    }
-    else {
-      setValidPath(false);
-    }
-
+    setValidPath(possibleRoutes.includes(possiblePath));
     setPartialRoutes(possibleRoutes.filter((route) => route !== possiblePath));
   }, []);
 
