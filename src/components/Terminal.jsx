@@ -22,31 +22,10 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
 
   const [terminalText, setTerminalText] = useState(currentRoute);
   const [abbriviatePrefix, setAbbriviatePrefix] = useState(false);
-  const [partialRoutes, setPartialRoutes] = useState([]);
+  const [partialRoutes, setPartialRoutes] = useState(routeTree.getRoutes(currentRoute));
   const [validPath, setValidPath] = useState(false);
   const [terminalHasFocus, setTerminalHasFocus] = useState(true);
 
-  // When Route updates
-  useEffect(() => {
-    if (currentRoute === '/about_me') {
-      terminal.current.value = '';
-      setTerminalText('');
-    }
-    else {
-      terminal.current.value = currentRoute;
-      setTerminalText(currentRoute);
-    }
-  }, [currentRoute]);
-
-  // Handle delayed prefix typing
-  useEffect(() => {
-    if (shouldTypePrefix) {
-      setFocus();
-    }
-    else {
-      cursor.current.classList.add('hide');
-    }
-  }, [shouldTypePrefix]);
 
   // Handle heroMode transitions
   useEffect(() => {
@@ -72,17 +51,56 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
       setPartialRoutes(PRIMARY_ROUTES);
     }
     else {
-      setPartialRoutes(possibleRoutes);
+      setPartialRoutes(possibleRoutes.filter(route => route !== possiblePath));
     }
   }, []);
+
+  const setFocus = useCallback((event) => {
+    if (!event || !event.target.classList.contains('terminal-ignore-focus')) {
+      terminal.current.focus();
+      setTerminalHasFocus(true);
+    }
+  }, []);
+
+  // When Route updates
+  useEffect(() => {
+    if (currentRoute === '/about_me') {
+      terminal.current.value = '';
+      setTerminalText('');
+      setFocus();
+    }
+    else {
+      terminal.current.value = currentRoute;
+      setTerminalText(currentRoute);
+    }
+  }, [currentRoute, setFocus]);
+
+  // Handle delayed prefix typing
+  useEffect(() => {
+    if (shouldTypePrefix) {
+      setFocus();
+    }
+    else {
+      cursor.current.classList.add('hide');
+    }
+  }, [shouldTypePrefix, setFocus]);
 
 
   // EVENT HANDLERS
 
-  const setFocus = () => {
-    terminal.current.focus();
-    setTerminalHasFocus(true);
-  }
+  const handleNavCallback = useCallback((route) => {
+    switch(route) {
+      case '/about_me':
+        terminal.current.value = '';
+        setTerminalText('');
+        setPartialRoutes([]);
+        navChangeCallback('');
+        break;
+      default:
+        navChangeCallback(route);
+        setTerminalHasFocus(false);
+    }
+  },[navChangeCallback]);
 
   const handleTerminalCursorPosChange = (event) => {
     const nextCursorPos = event.target.selectionStart;
@@ -109,14 +127,14 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
     handleTerminalCursorPosChange(event);
     if (validPath) {
       if (event.key === 'Enter' || event.key === 'Accept') {
-        navChangeCallback(terminalText);
+        handleNavCallback(terminalText);
       }
     }
   }
 
   const handleOnChange = (event) => {
     handleTerminalCursorPosChange(event);
-
+    setTerminalHasFocus(true);
     const input = event.target;
 
     // Update input/text width
@@ -144,8 +162,8 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
     // Update RouteTree
     checkForValidPath(selection);
     // Execute route
-    navChangeCallback(selection);
-  }, [checkForValidPath, navChangeCallback]);
+    handleNavCallback(selection);
+  }, [checkForValidPath, handleNavCallback]);
 
 
   // RENDERING 

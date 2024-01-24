@@ -14,7 +14,7 @@ export default function RoutesPopover({ routes, override, selectionCallback }) {
     setShowMenu(nextShowMenu);
   }, [routes, override]);
 
-  // Generate empty popover on first load
+  // Generate empty popover on first load (MUST BE LAST USE_LAYOUT_EFFECT)
   useLayoutEffect(() => {
     setShowMenu(true);
   }, []);
@@ -22,18 +22,17 @@ export default function RoutesPopover({ routes, override, selectionCallback }) {
     setShowMenu(false);
   }, []);
 
+
   // EVENT HANDLERS
   
   const handleOnToggle = (nextShow, meta) => {
-    if (routes.length > 0 && override) {
-      setShowMenu(true);
-    } else {
-      setShowMenu(false);
-    }
+    const nextShowMenu = routes.length > 0 && override;
+    setShowMenu(nextShowMenu);
   }
 
   const handleOnSelect = (eventKey, event) => {
     selectionCallback(eventKey);
+    setShowMenu(false);
   }
 
   return (
@@ -56,7 +55,7 @@ export default function RoutesPopover({ routes, override, selectionCallback }) {
         {routes.map((route) => (
           <DropdownItem
             as='span'
-            className='terminal-ignore-blur'
+            className='terminal-ignore-blur terminal-ignore-focus'
             eventKey={route}
             key={route}
             onMouseDown={(e) => e.preventDefault()}
