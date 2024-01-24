@@ -14,7 +14,7 @@ import SudokuGame from './views/SudokuGame';
 
 // CONSTANTS
 const MOBILE_BREAKPOINT = 768; // Aligns with Bootstrap MD breakpoint
-const REAL_PAGES = ['', '/about_me', '/sudoku'];
+const REAL_PAGES = ['', '/about_me', '/portfolio', '/sudoku'];
 const PORTFOLIO_SECTIONS = [
   '/portfolio',
   '/portfolio/automotive',
