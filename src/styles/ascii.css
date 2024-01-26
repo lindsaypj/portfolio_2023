@@ -4,6 +4,7 @@
   overflow: hidden;
   width: 99vw;
   height: 130vh;
+  pointer-events: none;
 }
 
 /*** LOADING ANIMATION ***/
