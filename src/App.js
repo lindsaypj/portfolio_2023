@@ -11,18 +11,11 @@ import Terminal from './components/Terminal';
 import scrollToTop from './scripts/scrollToTop';
 import useWindowWidth from './hooks/useWindowWidth';
 import SudokuGame from './views/SudokuGame';
+import TopNav from './components/TopNav';
+import { PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
 
 // CONSTANTS
 const MOBILE_BREAKPOINT = 768; // Aligns with Bootstrap MD breakpoint
-const REAL_PAGES = ['', '/about_me', '/portfolio', '/sudoku'];
-const PORTFOLIO_SECTIONS = [
-  '/portfolio',
-  '/portfolio/automotive',
-  '/portfolio/open_source',
-  '/portfolio/photography',
-  '/portfolio/software',
-  '/portfolio/web'
-];
 
 function App() {
   const windowWidth = useWindowWidth();
@@ -33,7 +26,7 @@ function App() {
   const [headingTyped, setHeadingTyped] = useState(false);
   const [terminalHero, setTerminalHero] = useState(false);
   const [mobileMode, setMobileMode] = useState(true);
-  const [shouldScrollToRoute, setShouldScrollToRoute] = useState(REAL_PAGES.includes(currentPage));
+  const [shouldScrollToRoute, setShouldScrollToRoute] = useState(SCROLLABLE_ROUTES.includes(currentPage));
 
   // Handle dynamic titles on page load
   useEffect(() => {
@@ -112,6 +105,13 @@ function App() {
 
   return (
     <div className='App app-dark'>
+      <header>
+        <TopNav
+          navChangeCallback={navChangeCallback}
+          mobileMode={mobileMode}
+        />
+      </header>
+
       <main id='main-content'>
         {getContent()}
       </main>

@@ -1,3 +1,17 @@
+// Non-sub-routes
+export const PRIMARY_ROUTES = [
+  '/about_me',
+  '/games',
+  '/learning',
+  '/portfolio',
+  '/sudoku'
+];
+
+export const TOP_NAV_ROUTES = ['/portfolio', '/games', '/learning'];
+
+// These routes will be brought into focus on page load if active
+export const SCROLLABLE_ROUTES = ['', '/about_me', '/portfolio', '/sudoku'];
+
 export const PORTFOLIO_SECTIONS = [
   '/portfolio',
   '/portfolio/automotive',
@@ -11,12 +25,6 @@ export const PORTFOLIO_SECTIONS = [
 export const paths = [
   '/about_me',
   ...PORTFOLIO_SECTIONS,
-  '/sudoku'
-];
-
-export const PRIMARY_ROUTES = [
-  '/about_me',
-  '/portfolio',
   '/sudoku'
 ];
 
