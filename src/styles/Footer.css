@@ -16,6 +16,7 @@
 .footer__link {
   font-weight: 200;
   text-align: start;
+  white-space: nowrap;
   padding: 0;
   color: white;
   text-decoration: none;
