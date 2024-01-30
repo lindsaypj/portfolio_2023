@@ -26,6 +26,9 @@ export default function Foorter({ navChangeCallback }) {
   };
 
   const getMethods = () => {
+    if (methods.length === 0) {
+      return <span className='footer__item'>There are no methods for the current page</span>
+    }
     return methods.map((method) => (
       <Button
         variant={'link'}
