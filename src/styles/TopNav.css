@@ -4,12 +4,6 @@
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
   z-index: 1;
-
-  background: -webkit-linear-gradient(black 0%, rgba(0,0,0,0.3) 100%);
-  background: -moz-linear-gradient(black 0%, rgba(0,0,0,0.3) 100%);
-  background: -ms-linear-gradient(black 0%, rgba(0,0,0,0.3) 100%);
-  background: -o-linear-gradient(black 0%, rgba(0,0,0,0.3) 100%);
-  background: linear-gradient(black 0%, rgba(0,0,0,0.3) 100%);
 }
 
 .top-nav__item {

@@ -173,6 +173,9 @@ p {
   background: linear-gradient(0deg,black 10%, rgba(0,0,0,0.3) 100%);
 }
 
+.bg-gradient-match {
+  background: rgba(0,0,0,0.3);
+}
 
 /*** ////////    CURSOR HOVER EFFECTS    //////// ***/
 

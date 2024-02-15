@@ -24,6 +24,8 @@ export const PORTFOLIO_SECTIONS = [
 // Paths are like navigation, and will change pages and scroll to section
 export const paths = [
   '/about_me',
+  '/games',
+  '/learning',
   ...PORTFOLIO_SECTIONS,
   '/sudoku'
 ];
@@ -37,7 +39,7 @@ export const methods = [
 export const commands = [
   // ' theme dark',
   // ' theme light',
-  // ' help <command>,'
+  // ' help <command>',
   // ' top',
   // ' bottom'
 ];

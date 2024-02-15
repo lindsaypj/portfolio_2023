@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 import AboutMe from './views/AboutMe';
 import Foorter from './components/Footer';
+import Learning from './views/Learning';
 import Portfolio from './views/Portfolio';
 import Terminal from './components/Terminal';
 
@@ -13,6 +14,7 @@ import useWindowWidth from './hooks/useWindowWidth';
 import SudokuGame from './views/SudokuGame';
 import TopNav from './components/TopNav';
 import { PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
+
 
 // CONSTANTS
 const MOBILE_BREAKPOINT = 768; // Aligns with Bootstrap MD breakpoint
@@ -70,13 +72,16 @@ function App() {
 
   const getContent = useCallback(() => {
     switch(page) {
-      case '/terminal':
+      case '/games':
         return (
           <></>
         );
-      case '/resume':
+      case '/learning':
         return (
-          <></>
+          <Learning
+            headingTypedCallback={headingTypedCallback}
+            mobileMode={mobileMode}
+          />
         );
       case '/sudoku':
         return (
