@@ -45,6 +45,9 @@ export default function Learning({ headingTypedCallback, mobileMode }) {
           ))}
           </Accordion>
         </Col>
+        <Col>
+        
+        </Col>
       </Row>
     </Container>
   );
