@@ -19,7 +19,7 @@ const LEARNING_TOPICS = [
   {
     'name': '/algorithms',
     'contents': [
-      'Bellman-Ford',
+      'BellmanFord',
       'BinarySearch',
       'BreadthFirstSearch',
       'DepthFirstSearch',
