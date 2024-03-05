@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ArrayList() {
+export default function HashMap() {
   return (
     <></>
   );

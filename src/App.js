@@ -1,19 +1,20 @@
 import './styles/App.css';
 import SESSION_KEYS, { loadSessionPageData, saveSessionValue } from './scripts/sessionInterface';
+import { getPrimaryRoute } from './scripts/utils';
+import scrollToTop from './scripts/scrollToTop';
 
 import { useCallback, useEffect, useState } from 'react';
+import useWindowWidth from './hooks/useWindowWidth';
 
 import AboutMe from './views/AboutMe';
 import Foorter from './components/Footer';
 import Learning from './views/Learning';
 import Portfolio from './views/Portfolio';
-import Terminal from './components/Terminal';
-
-import scrollToTop from './scripts/scrollToTop';
-import useWindowWidth from './hooks/useWindowWidth';
 import SudokuGame from './views/SudokuGame';
+import Terminal from './components/Terminal';
 import TopNav from './components/TopNav';
-import { PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
+
+import { LEARNING_SECTIONS, PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
 
 
 // CONSTANTS
@@ -56,13 +57,10 @@ function App() {
     saveSessionValue(SESSION_KEYS.CURRENT_PAGE, newPage);
 
     // Scroll to section
-    switch(newPage) {
+    const newPageRoot = getPrimaryRoute(newPage);
+    switch(newPageRoot) {
       case '/portfolio':
-      case '/portfolio/web':
-      case '/portfolio/software':
-      case '/portfolio/open_source':
-      case '/portfolio/automotive':
-      case '/portfolio/photography':
+      case '/learning':
         setShouldScrollToRoute(true);
         break;
       default:
@@ -71,7 +69,9 @@ function App() {
   };
 
   const getContent = useCallback(() => {
-    switch(page) {
+    const nextRoute = getPrimaryRoute(page);
+    
+    switch(nextRoute) {
       case '/games':
         return (
           <></>
@@ -81,6 +81,10 @@ function App() {
           <Learning
             headingTypedCallback={headingTypedCallback}
             mobileMode={mobileMode}
+            currentRoute={page}
+            navChangeCallback={navChangeCallback}
+            shouldScroll={shouldScrollToRoute && LEARNING_SECTIONS.includes(page)}
+            setShouldScrollToRoute={setShouldScrollToRoute}
           />
         );
       case '/sudoku':

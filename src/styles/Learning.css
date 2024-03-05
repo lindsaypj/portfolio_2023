@@ -38,6 +38,7 @@
   background-color: rgb(112, 112, 112);
 }
 
+
 /***    ACCORDION    ***/
 
 .learning-accordion__item {
@@ -89,5 +90,13 @@
   opacity: 100%;
 }
 .learning-accordion__topic.selected {
-  background: var(--bs-btn-active-bg);
+  background: black;
+  color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
+}
+
+
+/***    TOPIC CONTENT STYLES    ***/
+
+.learning-header {
+  margin-top: 1rem;
 }

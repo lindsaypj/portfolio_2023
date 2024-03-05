@@ -21,11 +21,37 @@ export const PORTFOLIO_SECTIONS = [
   '/portfolio/web'
 ];
 
+export const LEARNING_SECTIONS = [
+  '/learning',
+  '/learning/ArrayList',
+  '/learning/BinaryTree',
+  '/learning/Graph',
+  '/learning/HashMap',
+  '/learning/HashSet',
+  '/learning/Heap',
+  '/learning/LinkedList',
+  '/learning/TreeMap',
+  '/learning/TreeSet',
+  '/learning/Stack',
+  '/learning/Queue',
+  '/learning/BellmanFord',
+  '/learning/BinarySearch',
+  '/learning/BreadthFirstSearch',
+  '/learning/DepthFirstSearch',
+  '/learning/Dijkstra',
+  '/learning/FloodFill',
+  '/learning/HeapSort',
+  '/learning/HuffmanCoding',
+  '/learning/MergeSort',
+  '/learning/QuickSort',
+  '/learning/UnionFind',
+]
+
 // Paths are like navigation, and will change pages and scroll to section
 export const paths = [
   '/about_me',
   '/games',
-  '/learning',
+  ...LEARNING_SECTIONS,
   ...PORTFOLIO_SECTIONS,
   '/sudoku'
 ];

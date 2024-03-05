@@ -1,11 +1,70 @@
-import React from "react";
-import { Accordion, Button, Col, Container, Row } from "react-bootstrap";
-import TypingText from "../components/TypingText";
-import LEARNING_TOPICS from '../resources/text/learning';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Accordion, Button, Col, Container, Row } from 'react-bootstrap';
+import TypingText from '../components/TypingText';
+
+import { LEARNING_TOPICS, LEARNING_CONTENT } from '../resources/text/learning';
 
 import '../styles/Learning.css';
 
-export default function Learning({ headingTypedCallback, mobileMode }) {
+export default function Learning({ headingTypedCallback, mobileMode, currentRoute, navChangeCallback, shouldScroll, setShouldScrollToRoute }) {
+
+  ////    INITIALIZATION    ////
+
+  let initialTopic = '';
+  let initialAccordionKey = '';
+  if (currentRoute !== '/learning') {
+    initialTopic = currentRoute.slice(9);
+    initialAccordionKey = LEARNING_CONTENT[initialTopic].group;
+  }
+
+  const [selectedTopic, setSelectedTopic] = useState(initialTopic);
+  const [accordionKey, setAccoridonKey] = useState(initialAccordionKey);
+  const contentRef = useRef();
+
+
+  ////    STATE MANAGMENT    ////
+
+  // Teminal route update
+  useEffect(() => {
+    let nextTopic = '';
+    let nextAccordionKey = '';
+    if (currentRoute !== '/learning') {
+      nextTopic = currentRoute.slice(9);
+      nextAccordionKey = LEARNING_CONTENT[nextTopic].group;
+    }
+    setSelectedTopic(nextTopic);
+    setAccoridonKey(nextAccordionKey);
+  }, [currentRoute]);
+
+  const scrollToContent = useCallback(() => {
+    const scrollDistance = contentRef.current.getBoundingClientRect().top + window.scrollY;
+    window.scroll({
+      top: scrollDistance,
+      behavior: "smooth"
+    });
+    window.removeEventListener ('load', scrollToContent);
+  }, [currentRoute]);
+
+  useEffect(() => {
+    if (shouldScroll) {
+      setTimeout(scrollToContent, 50);
+      setShouldScrollToRoute(false);
+    }
+  }, [shouldScroll, setShouldScrollToRoute, currentRoute, scrollToContent]);
+
+  const handleTopicSelection = useCallback((topic) => {
+    setSelectedTopic(topic);
+    const nextRoute = '/learning' + topic;
+    navChangeCallback(nextRoute);
+  }, [navChangeCallback]);
+
+
+  ////    RENDERING    ////
+
+  const getTopicContent = useCallback(() => {
+    return React.createElement(LEARNING_CONTENT[selectedTopic].content);
+  }, [selectedTopic]);
+
   return (
     <Container fluid className='learning-container'>
 
@@ -21,9 +80,13 @@ export default function Learning({ headingTypedCallback, mobileMode }) {
       {/* Accordian Navigation */}
       <Row className='accordion-row'>
         <Col xs={12} md={5} lg={4} className='accordion-col p-0 bg-black bg-opacity-75'>
-          <Accordion className='learning-accordion' flush alwaysOpen>
+          <Accordion
+            className='learning-accordion'
+            defaultActiveKey={accordionKey}
+            flush
+          >
           {/* Sections */}
-          {LEARNING_TOPICS.map((section) => (
+          {LEARNING_TOPICS.map(( section ) => (
             <Accordion.Item
               eventKey={section.name}
               key={section.name}
@@ -37,7 +100,8 @@ export default function Learning({ headingTypedCallback, mobileMode }) {
                   <Button
                     key={topic}
                     variant='dark'
-                    className='learning-accordion__topic padding-margins pe-0'
+                    className={'learning-accordion__topic padding-margins pe-0' + (topic === selectedTopic ? ' selected' : '')}
+                    onClick={() => { handleTopicSelection(topic) }}
                   >{topic}</Button>
                 ))}
               </Accordion.Body>
@@ -45,8 +109,9 @@ export default function Learning({ headingTypedCallback, mobileMode }) {
           ))}
           </Accordion>
         </Col>
-        <Col>
-        
+        <Col ref={contentRef} className='px-3'>
+          <h1 className='learning-header'>{ selectedTopic }</h1>
+          { getTopicContent() }
         </Col>
       </Row>
     </Container>
