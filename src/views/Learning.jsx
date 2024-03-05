@@ -37,7 +37,10 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
   }, [currentRoute]);
 
   const scrollToContent = useCallback(() => {
-    const scrollDistance = contentRef.current.getBoundingClientRect().top + window.scrollY;
+    let scrollDistance = 0;
+    if (currentRoute !== '/learning') {
+      scrollDistance = contentRef.current.getBoundingClientRect().top + window.scrollY;
+    }
     window.scroll({
       top: scrollDistance,
       behavior: "smooth"
