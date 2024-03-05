@@ -82,7 +82,7 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
         <Col xs={12} md={5} lg={4} className='accordion-col p-0 bg-black bg-opacity-75'>
           <Accordion
             className='learning-accordion'
-            defaultActiveKey={accordionKey}
+            activeKey={accordionKey}
             flush
           >
           {/* Sections */}
@@ -92,7 +92,12 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
               key={section.name}
               className='learning-accordion__item'
             >
-              <Accordion.Header className='learning-accordion__header padding-margins pe-0'>{section.name}</Accordion.Header>
+              <Accordion.Header
+                className='learning-accordion__header padding-margins pe-0'
+                onClick={() => {setAccoridonKey(section.name)}}
+              >
+                {section.name}
+              </Accordion.Header>
 
               <Accordion.Body className='p-0'>
                 {/* Topics */}
