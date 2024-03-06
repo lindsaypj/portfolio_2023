@@ -4,13 +4,12 @@ export const PRIMARY_ROUTES = [
   '/games',
   '/learning',
   '/portfolio',
-  '/sudoku'
 ];
 
 export const TOP_NAV_ROUTES = ['/portfolio', '/games', '/learning'];
 
 // These routes will be brought into focus on page load if active
-export const SCROLLABLE_ROUTES = ['', '/about_me', '/portfolio', '/sudoku'];
+export const SCROLLABLE_ROUTES = ['', '/about_me', '/portfolio', '/games/sudoku'];
 
 export const PORTFOLIO_SECTIONS = [
   '/portfolio',
@@ -18,7 +17,12 @@ export const PORTFOLIO_SECTIONS = [
   '/portfolio/open_source',
   '/portfolio/photography',
   '/portfolio/software',
-  '/portfolio/web'
+  '/portfolio/web',
+];
+
+export const GAMES_SECTIONS = [
+  '/games',
+  '/games/sudoku',
 ];
 
 export const LEARNING_SECTIONS = [
@@ -45,15 +49,15 @@ export const LEARNING_SECTIONS = [
   '/learning/MergeSort',
   '/learning/QuickSort',
   '/learning/UnionFind',
-]
+];
 
 // Paths are like navigation, and will change pages and scroll to section
 export const paths = [
   '/about_me',
-  '/games',
+  ...GAMES_SECTIONS,
   ...LEARNING_SECTIONS,
   ...PORTFOLIO_SECTIONS,
-  '/sudoku'
+  '/sudoku',
 ];
 
 // Methods allow you to interact with the page. This means they are path specific

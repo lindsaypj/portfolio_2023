@@ -15,6 +15,7 @@ import Terminal from './components/Terminal';
 import TopNav from './components/TopNav';
 
 import { LEARNING_SECTIONS, PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
+import Games from './views/Games';
 
 
 // CONSTANTS
@@ -74,7 +75,9 @@ function App() {
     switch(nextRoute) {
       case '/games':
         return (
-          <></>
+          <Games
+            headingTypedCallback={headingTypedCallback}
+          />
         );
       case '/learning':
         return (
