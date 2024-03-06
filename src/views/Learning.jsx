@@ -61,6 +61,11 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
     navChangeCallback(nextRoute);
   }, [navChangeCallback]);
 
+  const handleClickAccordionItem = (accordionItem) => {
+    const nextAccordionKey = accordionItem === accordionKey ? '' : accordionItem;
+    setAccoridonKey(nextAccordionKey);
+  }
+
 
   ////    RENDERING    ////
 
@@ -97,7 +102,7 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
             >
               <Accordion.Header
                 className='learning-accordion__header padding-margins pe-0'
-                onClick={() => {setAccoridonKey(section.name)}}
+                onClick={() => {handleClickAccordionItem(section.name)}}
               >
                 {section.name}
               </Accordion.Header>
