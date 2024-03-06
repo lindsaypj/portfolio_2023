@@ -56,7 +56,7 @@ function App() {
 
   // Check for mobile aspect ratio on width change
   useEffect(() => {
-    if (windowWidth > MOBILE_BREAKPOINT) {
+    if (windowWidth >= MOBILE_BREAKPOINT) {
       setMobileMode(false);
     } else {
       setMobileMode(true);
