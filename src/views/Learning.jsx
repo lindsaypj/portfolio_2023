@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Accordion, Button, Col, Container, Row } from 'react-bootstrap';
+import React, { useCallback, useEffect, useLayoutEffect, useRef } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import TypingText from '../components/TypingText';
 
 import { LEARNING_TOPICS, LEARNING_CONTENT } from '../resources/text/learning';
@@ -7,26 +7,17 @@ import { LEARNING_TOPICS, LEARNING_CONTENT } from '../resources/text/learning';
 import '../styles/Learning.css';
 import AccordionNav from '../components/AccordionNav';
 
-export default function Learning({ headingTypedCallback, mobileMode, currentRoute, navChangeCallback, shouldScroll, setShouldScrollToRoute }) {
+export default function Learning({ headingTypedCallback, mobileMode, currentRoute, navChangeCallback, shouldScroll, setShouldScrollToRoute, selectedTopic = '', setSelectedTopic, accordionKey = '', setAccordionKey }) {
 
   ////    INITIALIZATION    ////
-
-  let initialTopic = '';
-  let initialAccordionKey = '';
-  if (currentRoute !== '/learning') {
-    initialTopic = currentRoute.slice(9);
-    initialAccordionKey = LEARNING_CONTENT[initialTopic].group;
-  }
-
-  const [selectedTopic, setSelectedTopic] = useState(initialTopic);
-  const [accordionKey, setAccoridonKey] = useState(initialAccordionKey);
+  
   const contentRef = useRef();
 
 
   ////    STATE MANAGMENT    ////
 
   // Teminal route update
-  useEffect(() => {
+  useLayoutEffect(() => {
     let nextTopic = '';
     let nextAccordionKey = '';
     if (currentRoute !== '/learning') {
@@ -34,8 +25,8 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
       nextAccordionKey = LEARNING_CONTENT[nextTopic].group;
     }
     setSelectedTopic(nextTopic);
-    setAccoridonKey(nextAccordionKey);
-  }, [currentRoute]);
+    setAccordionKey(nextAccordionKey);
+  }, [currentRoute, setAccordionKey, setSelectedTopic]);
 
   const scrollToContent = useCallback(() => {
     let scrollDistance = 0;
@@ -60,11 +51,11 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
     setSelectedTopic(topic);
     const nextRoute = '/learning' + topic;
     navChangeCallback(nextRoute);
-  }, [navChangeCallback]);
+  }, [navChangeCallback, setSelectedTopic]);
 
   const handleClickAccordionItem = (accordionItem) => {
     const nextAccordionKey = accordionItem === accordionKey ? '' : accordionItem;
-    setAccoridonKey(nextAccordionKey);
+    setAccordionKey(nextAccordionKey);
   }
 
 
@@ -73,6 +64,10 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
   const getTopicContent = useCallback(() => {
     return React.createElement(LEARNING_CONTENT[selectedTopic].content);
   }, [selectedTopic]);
+
+  const getAccordionKey = useCallback(() => {
+    return accordionKey;
+  }, [accordionKey]);
 
   return (
     <Container fluid className='learning-container'>
@@ -90,17 +85,17 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
       <Row className='learning-accordion__row'>
         <Col
           xs={12} md={5} lg={4}
-          className='learning-accordion__col p-0 bg-black bg-opacity-75'
+          className='learning-accordion__col p-0 bg-black bg-opacity-75 d-none d-md-inline-block'
         >
           <AccordionNav
-            accordionKey={accordionKey}
+            accordionKey={getAccordionKey()}
             topics={LEARNING_TOPICS}
             selectedTopic={selectedTopic}
             handleClickAccordionItem={handleClickAccordionItem}
             handleTopicSelection={handleTopicSelection}
           />
         </Col>
-        <Col ref={contentRef} className='px-3'>
+        <Col ref={contentRef} className={mobileMode ? 'padding-margins' : ''}>
           <h1 className='learning-header'>{ selectedTopic }</h1>
           { getTopicContent() }
         </Col>

@@ -2,12 +2,14 @@ import './styles/App.css';
 import SESSION_KEYS, { loadSessionPageData, saveSessionValue } from './scripts/sessionInterface';
 import { getPrimaryRoute } from './scripts/utils';
 import scrollToTop from './scripts/scrollToTop';
+import { getInitialAccordionState } from './scripts/init';
 
 import { useCallback, useEffect, useState } from 'react';
 import useWindowWidth from './hooks/useWindowWidth';
 
 import AboutMe from './views/AboutMe';
 import Foorter from './components/Footer';
+import Games from './views/Games';
 import Learning from './views/Learning';
 import Portfolio from './views/Portfolio';
 import SudokuGame from './views/SudokuGame';
@@ -15,7 +17,6 @@ import Terminal from './components/Terminal';
 import TopNav from './components/TopNav';
 
 import { GAMES_SECTIONS, LEARNING_SECTIONS, PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
-import Games from './views/Games';
 
 
 // CONSTANTS
@@ -26,11 +27,25 @@ function App() {
 
   const { currentPage } = loadSessionPageData();
 
+  let initialTopic, initialAccordionKey;
+  if (getPrimaryRoute(currentPage) === '/learning') {
+    [initialTopic, initialAccordionKey] = getInitialAccordionState(currentPage);
+  }
+
   const [page, setPage] = useState(currentPage);
   const [headingTyped, setHeadingTyped] = useState(false);
   const [terminalHero, setTerminalHero] = useState(false);
-  const [mobileMode, setMobileMode] = useState(true);
+  const [mobileMode, setMobileMode] = useState(false);
   const [shouldScrollToRoute, setShouldScrollToRoute] = useState(SCROLLABLE_ROUTES.includes(currentPage));
+
+  const [selectedTopic, setSelectedTopic] = useState(initialTopic);
+  const [accordionKey, setAccordionKey] = useState(initialAccordionKey);
+  const accordionControls = {
+    selectedTopic: selectedTopic,
+    setSelectedTopic: setSelectedTopic,
+    accordionKey: accordionKey,
+    setAccordionKey: setAccordionKey
+  }
 
   // Handle dynamic titles on page load
   useEffect(() => {
@@ -92,6 +107,7 @@ function App() {
             navChangeCallback={navChangeCallback}
             shouldScroll={shouldScrollToRoute && LEARNING_SECTIONS.includes(page)}
             setShouldScrollToRoute={setShouldScrollToRoute}
+            {...accordionControls}
           />
         );
       case '/sudoku':
@@ -117,7 +133,7 @@ function App() {
           </>
         );
     }
-  }, [page, headingTypedCallback, headingTyped, mobileMode, shouldScrollToRoute]);
+  }, [page, headingTypedCallback, headingTyped, mobileMode, shouldScrollToRoute, selectedTopic, accordionKey]);
 
   return (
     <div className='App app-dark'>
