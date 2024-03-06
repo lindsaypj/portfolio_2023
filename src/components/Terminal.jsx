@@ -13,7 +13,7 @@ import { PRIMARY_ROUTES } from "../resources/text/routes";
 const routeTree = new RouteTree();
 
 export default function Terminal({ navChangeCallback, currentRoute, shouldTypePrefix, heroMode }) {
-  const MAX_CHAR_COUNT = 20;
+  const MAX_CHAR_COUNT = routeTree.getMaxRouteLength();
 
   const terminal = useRef();
   const commandLine = useRef();
