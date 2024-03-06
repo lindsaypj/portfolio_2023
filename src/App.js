@@ -14,7 +14,7 @@ import SudokuGame from './views/SudokuGame';
 import Terminal from './components/Terminal';
 import TopNav from './components/TopNav';
 
-import { LEARNING_SECTIONS, PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
+import { GAMES_SECTIONS, LEARNING_SECTIONS, PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
 import Games from './views/Games';
 
 
@@ -62,6 +62,7 @@ function App() {
     switch(newPageRoot) {
       case '/portfolio':
       case '/learning':
+      case '/games':
         setShouldScrollToRoute(true);
         break;
       default:
@@ -76,7 +77,10 @@ function App() {
       case '/games':
         return (
           <Games
+            currentRoute={page}
             headingTypedCallback={headingTypedCallback}
+            shouldScroll={shouldScrollToRoute && GAMES_SECTIONS.includes(page)}
+            setShouldScrollToRoute={setShouldScrollToRoute}
           />
         );
       case '/learning':

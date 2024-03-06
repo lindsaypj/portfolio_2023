@@ -1,9 +1,45 @@
-import React from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import TypingText from '../components/TypingText';
 import SudokuGame from './SudokuGame';
 
-export default function Games({ headingTypedCallback }) {
+export default function Games({ currentRoute, headingTypedCallback, shouldScroll, setShouldScrollToRoute }) {
+
+  ////    INITIALIZATION    ////
+
+  const SudokuRef = useRef();
+
+
+  ////    STATE MANAGMENT    ////
+
+  const scrollToContent = useCallback(() => {
+    let scrollDistance;
+    console.log(currentRoute)
+    switch(currentRoute) {
+      case '/games/sudoku':
+        scrollDistance = SudokuRef.current.getBoundingClientRect().top + window.scrollY;
+        break;
+      default:
+        scrollDistance = 0;
+    }
+  
+    window.scroll({
+      top: scrollDistance,
+      behavior: "smooth"
+    });
+    window.removeEventListener ('load', scrollToContent);
+  }, [currentRoute]);
+
+  useEffect(() => {
+    if (shouldScroll) {
+      setTimeout(scrollToContent, 50);
+      setShouldScrollToRoute(false);
+    }
+  }, [shouldScroll, setShouldScrollToRoute, currentRoute, scrollToContent]);
+
+
+  ////    RENDERING    ////
+
   return (
     <Container fluid className='learning-container'>
 
@@ -15,7 +51,7 @@ export default function Games({ headingTypedCallback }) {
           </h1>
         </Col>
       </Row>
-      <Row className=''>
+      <Row ref={SudokuRef}>
         <h1 className='padding-margins route-header'>/sudoku</h1>
         <SudokuGame />
       </Row>
