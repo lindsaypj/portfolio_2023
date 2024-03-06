@@ -14,7 +14,6 @@ export default function Games({ currentRoute, headingTypedCallback, shouldScroll
 
   const scrollToContent = useCallback(() => {
     let scrollDistance;
-    console.log(currentRoute)
     switch(currentRoute) {
       case '/games/sudoku':
         scrollDistance = SudokuRef.current.getBoundingClientRect().top + window.scrollY;
