@@ -13,6 +13,11 @@
   font-weight: 400;
 }
 
+.about-me__header {
+  position: relative;
+  z-index: 0;
+}
+
 /* About me bio */
 .about-me__bio {
   display: flex;

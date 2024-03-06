@@ -62,7 +62,7 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero, heading
           
             <AsciiPortrait visible={headingTyped} mobileMode={mobileMode} />
 
-            <h1 className='route-header padding-margins'>
+            <h1 className='about-me__header route-header padding-margins bg-gradient-down'>
               <TypingText text="/about_me" doneTypingCallback={headingTypedCallback} />
             </h1>
             
