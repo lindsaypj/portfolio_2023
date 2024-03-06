@@ -4,7 +4,7 @@ import { getPrimaryRoute } from './scripts/utils';
 import scrollToTop from './scripts/scrollToTop';
 import { getInitialAccordionState } from './scripts/init';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import useWindowWidth from './hooks/useWindowWidth';
 
 import AboutMe from './views/AboutMe';
@@ -40,12 +40,14 @@ function App() {
 
   const [selectedTopic, setSelectedTopic] = useState(initialTopic);
   const [accordionKey, setAccordionKey] = useState(initialAccordionKey);
-  const accordionControls = {
-    selectedTopic: selectedTopic,
-    setSelectedTopic: setSelectedTopic,
-    accordionKey: accordionKey,
-    setAccordionKey: setAccordionKey
-  }
+  const accordionControls = useMemo(() => (
+    {
+      selectedTopic: selectedTopic,
+      setSelectedTopic: setSelectedTopic,
+      accordionKey: accordionKey,
+      setAccordionKey: setAccordionKey
+    }
+  ), [selectedTopic, accordionKey]);
 
   // Handle dynamic titles on page load
   useEffect(() => {
@@ -133,7 +135,7 @@ function App() {
           </>
         );
     }
-  }, [page, headingTypedCallback, headingTyped, mobileMode, shouldScrollToRoute, selectedTopic, accordionKey]);
+  }, [page, headingTypedCallback, headingTyped, mobileMode, shouldScrollToRoute, accordionControls]);
 
   return (
     <div className='App app-dark'>
