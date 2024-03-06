@@ -1,10 +1,29 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import '../styles/PortfolioCarousel.css';
+import { useIsVisible } from '../hooks/useIsVisible';
 
 export default function PortfolioCarousel({ desktopImages = [], mobileImages, showMobile = false }) {
+
+  ////    INITIALIZATION    ////
+
+  const carouselRef = useRef()
+  const isVisible = useIsVisible(carouselRef);
+  const [caroselInterval, setCaroselInterval] = useState(null);
+
+
+  ////    STATE MANAGMENT    ////
+
+  useEffect(() => {
+    const nextInterval = isVisible ? 4500 : null;
+    setCaroselInterval(nextInterval);
+  }, [isVisible]);
+
+
+  ////    RENDERING    ////
+  
   const getImages = useCallback(() => {
     if (showMobile) {
       return mobileImages;
@@ -13,7 +32,12 @@ export default function PortfolioCarousel({ desktopImages = [], mobileImages, sh
   }, [showMobile, desktopImages, mobileImages]);
 
   return (<>
-    <Carousel fade className='z-0 portfolio-carousel rounded pb-5 p-md-5'>
+    <Carousel
+      fade
+      interval={caroselInterval}
+      className='z-0 portfolio-carousel rounded pb-5 p-md-5'
+      ref={carouselRef}
+    >
       {getImages().map((image, index) => (
         <Carousel.Item key={index} className='d-flex'>
           <LazyLoadImage
