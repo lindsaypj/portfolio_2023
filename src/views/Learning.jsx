@@ -5,6 +5,7 @@ import TypingText from '../components/TypingText';
 import { LEARNING_TOPICS, LEARNING_CONTENT } from '../resources/text/learning';
 
 import '../styles/Learning.css';
+import AccordionNav from '../components/AccordionNav';
 
 export default function Learning({ headingTypedCallback, mobileMode, currentRoute, navChangeCallback, shouldScroll, setShouldScrollToRoute }) {
 
@@ -86,41 +87,18 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
       </Row>
 
       {/* Accordian Navigation */}
-      <Row className='accordion-row'>
-        <Col xs={12} md={5} lg={4} className='accordion-col p-0 bg-black bg-opacity-75'>
-          <Accordion
-            className='learning-accordion'
-            activeKey={accordionKey}
-            flush
-          >
-          {/* Sections */}
-          {LEARNING_TOPICS.map(( section ) => (
-            <Accordion.Item
-              eventKey={section.name}
-              key={section.name}
-              className='learning-accordion__item'
-            >
-              <Accordion.Header
-                className='learning-accordion__header padding-margins pe-0'
-                onClick={() => {handleClickAccordionItem(section.name)}}
-              >
-                {section.name}
-              </Accordion.Header>
-
-              <Accordion.Body className='p-0'>
-                {/* Topics */}
-                {section.contents.map((topic) => (
-                  <Button
-                    key={topic}
-                    variant='dark'
-                    className={'learning-accordion__topic padding-margins pe-0' + (topic === selectedTopic ? ' selected' : '')}
-                    onClick={() => { handleTopicSelection(topic) }}
-                  >{topic}</Button>
-                ))}
-              </Accordion.Body>
-            </Accordion.Item>
-          ))}
-          </Accordion>
+      <Row className='learning-accordion__row'>
+        <Col
+          xs={12} md={5} lg={4}
+          className='learning-accordion__col p-0 bg-black bg-opacity-75'
+        >
+          <AccordionNav
+            accordionKey={accordionKey}
+            topics={LEARNING_TOPICS}
+            selectedTopic={selectedTopic}
+            handleClickAccordionItem={handleClickAccordionItem}
+            handleTopicSelection={handleTopicSelection}
+          />
         </Col>
         <Col ref={contentRef} className='px-3'>
           <h1 className='learning-header'>{ selectedTopic }</h1>

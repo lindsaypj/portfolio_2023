@@ -6,92 +6,36 @@
 }
 
 @media screen and (min-width: 1600px) {
-  .accordion-col:nth-child(1) {
+  .learning-accordion__col:nth-child(1) {
     width: 25%;
   }
 }
 
-.accordion-row, .learning-accordion {
+.learning-accordion__row {
   height: 100vh;
 }
 
-.accordion-col {
+.learning-accordion__col {
   overflow-y: overlay;
   z-index: 0;
 }
 
-.accordion-col::-webkit-scrollbar {
+.learning-accordion__col::-webkit-scrollbar {
   width: 0.8em;
 }
 
-.accordion-col-content::-webkit-scrollbar-track {
+.learning-accordion__col-content::-webkit-scrollbar-track {
   background-color: #0a0b0d;
 }
  
-.accordion-col::-webkit-scrollbar-thumb {
+.learning-accordion__col::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   border-radius: 1rem;
   width: 0.8em;
 }
 
-.accordion-col::-webkit-scrollbar-thumb:vertical:hover {
+.learning-accordion__col::-webkit-scrollbar-thumb:vertical:hover {
   background-color: rgb(112, 112, 112);
-}
-
-
-/***    ACCORDION    ***/
-
-.learning-accordion__item {
-  background: transparent;
-  box-shadow: none;
-  border: none;
-}
-
-.learning-accordion__header:hover {
-  background: black;
-}
-
-.learning-accordion__header button {
-  padding-left: 0;
-  background: transparent;
-  color: white;
-  border: none;
-}
-
-.learning-accordion__header button, .learning-accordion__header button:not(.collapsed) {
-  background: transparent;
-  color: white;
-  border: none;
-  box-shadow: none;
-}
-
-.learning-accordion__header button::after {
-  filter: brightness(100);
-  color: white;
-}
-
-.learning-accordion__header button:focus {
-  box-shadow: none;
-  border: none;
-}
-
-.learning-accordion__topic {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  width: 100%;
-  text-align: start;
-  text-indent: 2rem;
-}
-
-.learning-accordion__topic:hover {
-  background: black;
-  color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
-  opacity: 100%;
-}
-.learning-accordion__topic.selected {
-  background: black;
-  color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
 }
 
 
