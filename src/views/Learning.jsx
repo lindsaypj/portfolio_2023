@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useLayoutEffect, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import TypingText from '../components/TypingText';
+import AccordionNav from '../components/AccordionNav';
 
 import { LEARNING_TOPICS, LEARNING_CONTENT } from '../resources/text/learning';
-
 import '../styles/Learning.css';
-import AccordionNav from '../components/AccordionNav';
+
 
 export default function Learning({ headingTypedCallback, mobileMode, currentRoute, navChangeCallback, shouldScroll, setShouldScrollToRoute, selectedTopic = '', setSelectedTopic, accordionKey = '', setAccordionKey }) {
 
@@ -53,12 +53,6 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
     navChangeCallback(nextRoute);
   }, [navChangeCallback, setSelectedTopic]);
 
-  const handleClickAccordionItem = (accordionItem) => {
-    const nextAccordionKey = accordionItem === accordionKey ? '' : accordionItem;
-    setAccordionKey(nextAccordionKey);
-  }
-
-
   ////    RENDERING    ////
 
   const getTopicContent = useCallback(() => {
@@ -89,13 +83,13 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
         >
           <AccordionNav
             accordionKey={getAccordionKey()}
+            setAccordionKey={setAccordionKey}
             topics={LEARNING_TOPICS}
             selectedTopic={selectedTopic}
-            handleClickAccordionItem={handleClickAccordionItem}
             handleTopicSelection={handleTopicSelection}
           />
         </Col>
-        <Col ref={contentRef} className={mobileMode ? 'padding-margins' : ''}>
+        <Col ref={contentRef} className={mobileMode ? 'padding-margins' : 'px-md-4 px-lg-5'}>
           <h1 className='learning-header'>{ selectedTopic }</h1>
           { getTopicContent() }
         </Col>

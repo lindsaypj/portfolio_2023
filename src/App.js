@@ -143,6 +143,8 @@ function App() {
         <TopNav
           navChangeCallback={navChangeCallback}
           mobileMode={mobileMode}
+          currentPage={page}
+          {...accordionControls}
         />
       </header>
 

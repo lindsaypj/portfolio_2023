@@ -1,9 +1,15 @@
 import React from 'react';
-
-import '../styles/AccordionNav.css';
 import { Accordion, Button } from 'react-bootstrap';
 
-export default function AccordionNav({ accordionKey, topics, selectedTopic, handleClickAccordionItem, handleTopicSelection }) {
+import '../styles/AccordionNav.css';
+
+export default function AccordionNav({ accordionKey, setAccordionKey, topics, selectedTopic, handleTopicSelection }) {
+
+  const handleClickAccordionItem = (accordionItem) => {
+    const nextAccordionKey = accordionItem === accordionKey ? '' : accordionItem;
+    setAccordionKey(nextAccordionKey);
+  }
+
   return (
     <Accordion
       className='accordion-nav'
