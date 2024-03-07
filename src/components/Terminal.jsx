@@ -44,7 +44,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
   }
 
   // Update autocomplete routes
-  const checkForValidPath = useCallback((possiblePath) => {
+  const updateAutocomplete = useCallback((possiblePath) => {
     const possibleRoutes = routeTree.getRoutes(possiblePath);
     setValidPath(possibleRoutes.includes(possiblePath));
     if (possiblePath === '/') {
@@ -72,8 +72,9 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
     else {
       terminal.current.value = currentRoute;
       setTerminalText(currentRoute);
+      updateAutocomplete(currentRoute);
     }
-  }, [currentRoute, setFocus]);
+  }, [currentRoute, setFocus, updateAutocomplete]);
 
   // Handle delayed prefix typing
   useEffect(() => {
@@ -147,7 +148,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
       input.value = input.value.slice(0, MAX_CHAR_COUNT);
     }
     setTerminalText(input.value);
-    checkForValidPath(input.value);
+    updateAutocomplete(input.value);
   }
 
   const handleInputTextSelct = (event) => {
@@ -160,10 +161,10 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
     // Update Overlay
     setTerminalText(selection);
     // Update RouteTree
-    checkForValidPath(selection);
+    updateAutocomplete(selection);
     // Execute route
     handleNavCallback(selection);
-  }, [checkForValidPath, handleNavCallback]);
+  }, [updateAutocomplete, handleNavCallback]);
 
 
   // RENDERING 
