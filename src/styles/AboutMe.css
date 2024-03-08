@@ -30,6 +30,14 @@
   font-size: 1.2rem;
   line-height: 1.8;
 }
+.about-me__bio div.show {
+  animation: LoadReducedMotion ease-out 1s;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .about-me__bio div.show {
+    animation: SlideEaseOut ease-out 1s;
+  }
+}
 
 .about-me__details {
   display: flex;
@@ -125,5 +133,20 @@
   0% {opacity: 0%;}
   100% {opacity: 100%;}
 }
+
+@keyframes SlideEaseOut {
+  0% {
+    opacity: 0%;
+    position: relative;
+    right: 50px;
+  }
+  100% {
+    opacity: 100%;
+    position: relative;
+    right: 0;
+  }
+}
+
+
 
 /* Transitions */
