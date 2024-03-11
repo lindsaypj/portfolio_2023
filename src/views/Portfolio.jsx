@@ -85,7 +85,7 @@ export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, 
 
   return (
     <Container fluid className='p-0' ref={portfolioRef}>
-      <Row className='portfolio__row hero-row'>
+      <Row className='portfolio__row bg-gradient-down'>
         <Col className='p-0 col-12'>
           <Row>
             <Col className='p-0 col-12'>
