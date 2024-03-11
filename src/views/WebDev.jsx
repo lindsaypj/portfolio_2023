@@ -216,10 +216,6 @@ export default function WebDev({ scrollRef, mobileMode }) {
                 }
               />
 
-              <p className='mt-3'>
-                Demo: <a href='https://plindsay.greenriverdev.com/485/advise-it/' target='_blank' rel='noreferrer'>Advise IT</a>
-              </p>
-
               <div className='text-center m-4'>
                 <PHPLogo className='logo-dark portfolio-logo' />
                 <a href='https://getbootstrap.com/' target='_blank' rel='noreferrer' title='Bootstrap'>
