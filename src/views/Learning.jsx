@@ -89,7 +89,11 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
             handleTopicSelection={handleTopicSelection}
           />
         </Col>
-        <Col ref={contentRef} className={mobileMode ? 'padding-margins' : 'px-md-4 px-lg-5'}>
+        <Col
+          xs={12} md={7} lg={8}
+          ref={contentRef}
+          className={mobileMode ? 'padding-margins' : 'px-md-4 px-lg-5'}
+        >
           <h1 className='learning-header'>{ selectedTopic }</h1>
           { getTopicContent() }
         </Col>
