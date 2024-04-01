@@ -1,0 +1,207 @@
+.array-list__brace75 {
+  width: 36%;
+  height: 20rem;
+  display: inline-block;
+  padding-top: 1rem;
+
+  opacity: 0;
+  animation: infinite ArrayListAnimBracket 15s;
+}
+.array-list__brace75 img {
+  object-fit: contain;
+  width: 100%;
+}
+.array-list__brace75 p {
+  display: block;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  overflow: hidden;
+}
+.array-list__brace75 p:nth-child(2) {
+  height: initial;
+  animation: infinite ArrayListBracket75 15s;
+}
+.array-list__brace75 p:nth-child(3) {
+  width: 0;
+  height: 0;
+  animation: infinite ArrayListBracket25 15s;
+}
+
+.array-list__cell {
+  display: flex;
+  width: clamp(1rem, 12.5vw, 12.5%);
+  aspect-ratio: 1;
+  text-align: center;
+  border: 0.3rem solid white;
+  margin-right: -0.3rem;
+}
+
+.array-list__cell:nth-child(5), .array-list__cell:nth-child(6), .array-list__cell:nth-child(7), .array-list__cell:nth-child(8) {
+  width: 0;
+  
+  opacity: 0;
+  animation: infinite ArrayListAnimCell567 15s;
+}
+
+.array-list__cell-value {
+  align-self: center;
+  width: 100%;
+  height: 100%;
+
+  fill: white;
+  opacity: 0;
+}
+
+.array-list__cell:nth-child(1) .array-list__cell-value, .array-list__cell:nth-child(2) .array-list__cell-value {
+  opacity: 1;
+}
+.array-list__cell:nth-child(3) .array-list__cell-value {
+  animation: infinite ArrayListAnimCellVal3 15s;
+}
+.array-list__cell:nth-child(4) .array-list__cell-value {
+  animation: infinite ArrayListAnimCellVal4 15s;
+}
+.array-list__cell:nth-child(5) .array-list__cell-value {
+  animation: infinite ArrayListAnimCellVal5 15s;
+}
+
+@media screen and (min-width: 992px) {
+  .array-list__cell {
+    border: 0.5rem solid white;
+    margin-right: -0.5rem;
+  }
+}
+
+
+/* Animation keyframes In order of execution */
+
+@keyframes ArrayListAnimCellVal3 {
+  10% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes ArrayListAnimBracket {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    width: 36%;
+  }
+  60% {
+    width: 25%
+  }
+  70% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    width: 25%;
+    opacity: 0;
+  }
+}
+@keyframes ArrayListBracket75 {
+  50% {
+    width: 100%;
+    height: inherit;
+  }
+  60% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 0;
+    height: 0;
+  }
+}
+@keyframes ArrayListBracket25 {
+  50% {
+    width: 0;
+    height: 0;
+  }
+  60% {
+    width: 100%;
+    height: inherit;
+  }
+  100% {
+    width: 100%;
+    height: inherit;
+  }
+}
+@keyframes ArrayListAnimCell567 {
+  20% {
+    width: 0;
+  }
+  30% {
+    width: clamp(1rem, 12.5vw, 12.5%);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    width: clamp(1rem, 12.5vw, 12.5%);
+    opacity: 0;
+  }
+}
+@keyframes ArrayListAnimCellVal4 {
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes ArrayListAnimCellVal5 {
+  50% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
