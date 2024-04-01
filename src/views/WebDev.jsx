@@ -140,10 +140,6 @@ export default function WebDev({ scrollRef, mobileMode }) {
                 }
               />
 
-              <p className='mt-3'>
-                Demo: <a href='http://34.122.23.24:8080/' target='_blank' rel='noreferrer'>Sudoku In the Clouds</a>
-              </p>
-
               <div className='text-center m-4'>
                 <ColormindLogo />
                 <ReactLogo className='portfolio-logo' />
