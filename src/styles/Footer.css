@@ -26,7 +26,7 @@
   color: white;
 }
 
-.footer__link span:hover {
+.footer__link:hover {
   font-weight: 400;
   color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
 }
