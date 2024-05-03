@@ -51,7 +51,6 @@ export default function Games({ currentRoute, headingTypedCallback, shouldScroll
         </Col>
       </Row>
       <Row ref={SudokuRef}>
-        <h1 className='padding-margins route-header'>/sudoku</h1>
         <SudokuGame />
       </Row>
     </Container>
