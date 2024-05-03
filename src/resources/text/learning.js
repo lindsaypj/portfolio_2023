@@ -82,3 +82,15 @@ export const LEARNING_CONTENT = {
   '/UnionFind': { 'content': UnionFind, 'group': 'Algorithms' },
   '': { 'content': DefaultTopic, 'group': '' },
 };
+
+
+
+////   RUNTIME TABLES   ////
+
+export const ArrayListRuntimes = [
+  {'name': 'get()', 'runtime': 'O(1)'},
+  {'name': 'add()', 'runtime': 'O(1) (Amortized)'},
+  {'name': 'remove()', 'runtime': 'O(n)'},
+  {'name': 'indexOf()', 'runtime': 'O(n)'},
+  {'name': 'size()', 'runtime': 'O(1)'},
+]
