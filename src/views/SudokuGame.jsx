@@ -92,7 +92,7 @@ export default function SudokuGame() {
         </Col>
       </Row>
       <Row>
-        <Col>
+        <Col className='text-center p-0'>
           <TestConfigurator
             numBoards={1}
             boardSize={size}

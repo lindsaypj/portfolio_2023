@@ -27,13 +27,13 @@
 }
 @media screen and (min-width: 768px) {
   .board-4 .cell-row:nth-child(2) {
-    height: calc(min(65vh, 65vw) / 4 + min(2vh, 2vw) - 1px);
+    height: calc(min(60vh, 60vw) / 4 + min(2vh, 2vw) - 1px);
   }
   .board-9 .cell-row:nth-child(3), .board-9 .cell-row:nth-child(6) {
-    height: calc(min(65vh, 65vw) / 9 + min(1.5vh, 1.5vw) - 1px);
+    height: calc(min(60vh, 60vw) / 9 + min(1.5vh, 1.5vw) - 1px);
   }
   .board-16 .cell-row:nth-child(4), .board-16 .cell-row:nth-child(8), .board-16 .cell-row:nth-child(12) {
-    height: calc(min(65vh, 65vw) / 16 + min(1.2vh, 1.2vw) - 1px);
+    height: calc(min(60vh, 60vw) / 16 + min(1.2vh, 1.2vw) - 1px);
   }
 }
 
@@ -79,12 +79,12 @@ input {
 }
 @media screen and (min-width: 768px) {
   .cell-row-4 {
-    height: calc(min(65vh, 65vw) / 4);
+    height: calc(min(60vh, 60vw) / 4);
   }
   .cell-row-9 {
-    height: calc(min(65vh, 65vw) / 9);
+    height: calc(min(60vh, 60vw) / 9);
   }
   .cell-row-16 {
-    height: calc(min(65vh, 65vw) / 16);
+    height: calc(min(60vh, 60vw) / 16);
   }
 }

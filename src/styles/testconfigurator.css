@@ -1,12 +1,12 @@
-
-.configurator-container > {
-    display: block;
-    border: none;
-}
-
 .configurator-container {
-  display: block;
-  margin-left: calc((100vw - min(75vh, 75vw)) / 2);
+  display: inline-block;
+  text-align: start;
+  width: Calc(min(90vh, 90vw) + 0.75rem);
+}
+@media screen and (min-width: 768px) {
+  .configurator-container {
+    max-width: Calc(min(65vh, 65vw) + 1.25rem);
+  }
 }
 
 .configurator-header {
