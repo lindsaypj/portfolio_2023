@@ -101,3 +101,16 @@ export const ArrayListRuntimes = [
   {'name': 'indexOf()', 'runtime': 'O(n)'},
   {'name': 'size()', 'runtime': 'O(1)'},
 ]
+
+
+
+////    GLOSSARY TERMS    ////
+
+export const Glossary = {
+  'ArrayList': 'a list of elements stored as a dynamically resizing array.',
+  'Complete tree': 'a tree in which all levels are fully filled, except for possibly the last level, which is filled from left to right.',
+  'Full tree': 'a tree in which all nodes are leaf nodes or have the max number of child nodes.',
+  'Graph': 'a non-linear collection of verticies and edges which together simulate the relationship between values.',
+  'Leaf node': 'a tree node with no child nodes.',
+  'LinkedList': 'a sequence of nodes containing data and a reference to the next node in the list.',
+}
