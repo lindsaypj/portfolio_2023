@@ -11,3 +11,14 @@
     columns: 3;
   }
 }
+
+.glossary-form input {
+  font-size: 1.25rem;
+}
+.glossary-form label {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+.glossary-form .form-floating>.form-control:focus~label, .glossary-form .form-floating>.form-control:not(:placeholder-shown)~label {
+  transform: scale(.75) translateY(-.5rem) translateX(.15rem) !important;
+}

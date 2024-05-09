@@ -10,11 +10,11 @@ export default function Glossary() {
     <Form className='glossary-form mb-4' data-bs-theme='dark'>
       <FloatingLabel
         controlId='glossary-term-prefix'
-        label='Search term...'
+        label='Search...'
         className='mb-3'
       >
         <Form.Control
-          placeholder='Search term...'
+          placeholder='Search...'
           aria-label='Search term'
           aria-describedby='glossary-term-prefix'
         />
