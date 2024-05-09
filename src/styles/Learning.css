@@ -16,7 +16,6 @@
 }
 
 .learning-accordion__col {
-  overflow-y: overlay;
   z-index: 0;
 }
 

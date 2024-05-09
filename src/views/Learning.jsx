@@ -87,6 +87,7 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
             topics={LEARNING_TOPICS}
             selectedTopic={selectedTopic}
             handleTopicSelection={handleTopicSelection}
+            className={' sticky-top'}
           />
         </Col>
         <Col

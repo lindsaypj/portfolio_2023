@@ -3,7 +3,7 @@ import { Accordion, Button } from 'react-bootstrap';
 
 import '../styles/AccordionNav.css';
 
-export default function AccordionNav({ accordionKey, setAccordionKey, topics, selectedTopic, handleTopicSelection }) {
+export default function AccordionNav({ accordionKey, setAccordionKey, topics, selectedTopic, handleTopicSelection, className }) {
 
   const handleClickAccordionItem = (accordionItem) => {
     const nextAccordionKey = accordionItem === accordionKey ? '' : accordionItem;
@@ -12,7 +12,7 @@ export default function AccordionNav({ accordionKey, setAccordionKey, topics, se
 
   return (
     <Accordion
-      className='accordion-nav'
+      className={'accordion-nav' + className}
       activeKey={accordionKey}
       flush
     >
