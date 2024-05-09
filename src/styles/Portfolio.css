@@ -3,8 +3,18 @@
   height: 80px;
 }
 
-.portfolio__row {
+.portfolio-header {
+  margin: 0;
+  padding-top: 2.5rem;
+}
+
+.portfolio__row--hero {
   min-height: 100vh;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.portfolio__row {
+  min-height: 90vh;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
