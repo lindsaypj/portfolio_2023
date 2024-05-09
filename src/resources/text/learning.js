@@ -37,7 +37,11 @@ export const LEARNING_TOPICS = [
       '/TreeSet',
       '/Stack',
       '/Queue',
-    ]
+    ],
+    'complete': {
+      '/ArrayList': true,
+      '/BinaryTree': true,
+    }
   },
   {
     'name': 'Algorithms',
@@ -53,7 +57,10 @@ export const LEARNING_TOPICS = [
       '/MergeSort',
       '/QuickSort',
       '/UnionFind',
-    ]
+    ],
+    'complete': {
+      '/ArrayList': true,
+    }
   }
 ];
 
@@ -85,7 +92,7 @@ export const LEARNING_CONTENT = {
 
 
 
-////   RUNTIME TABLES   ////
+////    RUNTIME TABLES    ////
 
 export const ArrayListRuntimes = [
   {'name': 'get()', 'runtime': 'O(1)'},

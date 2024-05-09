@@ -32,14 +32,21 @@ export default function AccordionNav({ accordionKey, setAccordionKey, topics, se
 
         <Accordion.Body className='p-0'>
           {/* Topics */}
-          {section.contents.map((topic) => (
-            <Button
-              key={topic}
-              variant='dark'
-              className={'accordion-nav__topic padding-margins pe-0' + (topic === selectedTopic ? ' selected' : '')}
-              onClick={() => { handleTopicSelection(topic) }}
-            >{topic}</Button>
-          ))}
+          {section.contents.map((topic) => {
+            const completed = !!section.complete[topic];
+            
+            return (
+              <Button
+                key={topic}
+                variant='dark'
+                className={'accordion-nav__topic padding-margins pe-0' + (topic === selectedTopic ? ' selected' : '') + (!completed ? ' disabled' : '')}
+                onClick={() => {
+                  if (completed) {
+                    handleTopicSelection(topic);
+                  }
+                }}
+              >{topic}</Button>
+          )})}
         </Accordion.Body>
       </Accordion.Item>
     ))}
