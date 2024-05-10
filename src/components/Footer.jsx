@@ -2,7 +2,7 @@ import React from "react";
 
 import { Button, Col, Container, Row } from "react-bootstrap";
 
-import { paths, methods, commands } from "../resources/text/routes";
+import { PRIMARY_ROUTES, methods, commands } from "../resources/text/routes";
 import '../styles/Footer.css'
 
 
@@ -13,7 +13,7 @@ export default function Foorter({ navChangeCallback }) {
   }
 
   const getPaths = () => {
-    return paths.map((path) => (
+    return PRIMARY_ROUTES.map((path) => (
       <Button
         variant={'link'}
         key={path}
@@ -26,6 +26,9 @@ export default function Foorter({ navChangeCallback }) {
   };
 
   const getMethods = () => {
+    if (methods.length === 0) {
+      return <span className='footer__item'>There are no methods for the current page</span>
+    }
     return methods.map((method) => (
       <Button
         variant={'link'}

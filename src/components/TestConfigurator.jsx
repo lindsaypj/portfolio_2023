@@ -9,8 +9,8 @@ function TestConfigurator({ boardSize, setBoardSize, hideNums, setHideNums }) {
   return (
     <div className="configurator-container mb-5">
       {/* HIDE/SHOW NUMBERS */}
-      <div className="mt-3 d-inline-block align-top me-3">
-        <p className="ms-1 mb-1 text-start">Cell Values:</p>
+      <div className="mt-3 ms-1 me-3 d-inline-block align-top">
+        <p className="mb-1 text-start">Cell Values:</p>
         <div className="d-inline me-2">
           <ShowNumBtn 
             theme={"btn-theme-light"}

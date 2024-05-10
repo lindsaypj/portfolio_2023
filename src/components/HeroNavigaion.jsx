@@ -15,10 +15,10 @@ export default function HeroNavigation({ navLinks, navLinkCallback }) {
         >
           <Card
             as={'a'}
-            className='nav-card mb-4 bg-dark text-white shadow'
+            className='nav-card mb-4 bg-black bg-opacity-75 text-white shadow border-0 overflow-hidden'
             onClick={() => {navLinkCallback(link.text)}}
           >
-            <LazyLoadImage src={link.img} alt={link.imgAlt} />
+            <LazyLoadImage src={link.img} alt={link.imgAlt} className='ratio-1x1' />
             <Card.Title className='my-2 fs-md-4'>{link.text}</Card.Title>
           </Card>
         </Col>

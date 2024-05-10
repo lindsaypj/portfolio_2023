@@ -1,39 +1,53 @@
 import './styles/App.css';
 import SESSION_KEYS, { loadSessionPageData, saveSessionValue } from './scripts/sessionInterface';
+import { getPrimaryRoute } from './scripts/utils';
+import scrollToTop from './scripts/scrollToTop';
+import { getInitialAccordionState } from './scripts/init';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import useWindowWidth from './hooks/useWindowWidth';
 
 import AboutMe from './views/AboutMe';
 import Foorter from './components/Footer';
+import Games from './views/Games';
+import Learning from './views/Learning';
 import Portfolio from './views/Portfolio';
-import Terminal from './components/Terminal';
-
-import scrollToTop from './scripts/scrollToTop';
-import useWindowWidth from './hooks/useWindowWidth';
 import SudokuGame from './views/SudokuGame';
+import Terminal from './components/Terminal';
+import TopNav from './components/TopNav';
+
+import { GAMES_SECTIONS, LEARNING_SECTIONS, PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
+
 
 // CONSTANTS
 const MOBILE_BREAKPOINT = 768; // Aligns with Bootstrap MD breakpoint
-const REAL_PAGES = ['', '/about_me', '/portfolio', '/sudoku'];
-const PORTFOLIO_SECTIONS = [
-  '/portfolio',
-  '/portfolio/automotive',
-  '/portfolio/open_source',
-  '/portfolio/photography',
-  '/portfolio/software',
-  '/portfolio/web'
-];
 
 function App() {
   const windowWidth = useWindowWidth();
 
   const { currentPage } = loadSessionPageData();
 
+  let initialTopic, initialAccordionKey;
+  if (getPrimaryRoute(currentPage) === '/learning') {
+    [initialTopic, initialAccordionKey] = getInitialAccordionState(currentPage);
+  }
+
   const [page, setPage] = useState(currentPage);
-  const [headingTyped, setHeadingTyped] = useState(false);
-  const [terminalHero, setTerminalHero] = useState(false);
-  const [mobileMode, setMobileMode] = useState(true);
-  const [shouldScrollToRoute, setShouldScrollToRoute] = useState(REAL_PAGES.includes(currentPage));
+  const [headingTyped, setHeadingTyped] = useState(currentPage !== '/about_me' && currentPage !== '');
+  const [terminalHero, setTerminalHero] = useState(currentPage === '/about_me' || currentPage === '');
+  const [mobileMode, setMobileMode] = useState(false);
+  const [shouldScrollToRoute, setShouldScrollToRoute] = useState(SCROLLABLE_ROUTES.includes(currentPage));
+
+  const [selectedTopic, setSelectedTopic] = useState(initialTopic);
+  const [accordionKey, setAccordionKey] = useState(initialAccordionKey);
+  const accordionControls = useMemo(() => (
+    {
+      selectedTopic: selectedTopic,
+      setSelectedTopic: setSelectedTopic,
+      accordionKey: accordionKey,
+      setAccordionKey: setAccordionKey
+    }
+  ), [selectedTopic, accordionKey]);
 
   // Handle dynamic titles on page load
   useEffect(() => {
@@ -44,7 +58,7 @@ function App() {
 
   // Check for mobile aspect ratio on width change
   useEffect(() => {
-    if (windowWidth > MOBILE_BREAKPOINT) {
+    if (windowWidth >= MOBILE_BREAKPOINT) {
       setMobileMode(false);
     } else {
       setMobileMode(true);
@@ -61,13 +75,11 @@ function App() {
     saveSessionValue(SESSION_KEYS.CURRENT_PAGE, newPage);
 
     // Scroll to section
-    switch(newPage) {
+    const newPageRoot = getPrimaryRoute(newPage);
+    switch(newPageRoot) {
       case '/portfolio':
-      case '/portfolio/web':
-      case '/portfolio/software':
-      case '/portfolio/open_source':
-      case '/portfolio/automotive':
-      case '/portfolio/photography':
+      case '/learning':
+      case '/games':
         setShouldScrollToRoute(true);
         break;
       default:
@@ -76,14 +88,29 @@ function App() {
   };
 
   const getContent = useCallback(() => {
-    switch(page) {
-      case '/terminal':
+    const nextRoute = getPrimaryRoute(page);
+    
+    switch(nextRoute) {
+      case '/games':
         return (
-          <></>
+          <Games
+            currentRoute={page}
+            headingTypedCallback={headingTypedCallback}
+            shouldScroll={shouldScrollToRoute && GAMES_SECTIONS.includes(page)}
+            setShouldScrollToRoute={setShouldScrollToRoute}
+          />
         );
-      case '/resume':
+      case '/learning':
         return (
-          <></>
+          <Learning
+            headingTypedCallback={headingTypedCallback}
+            mobileMode={mobileMode}
+            currentRoute={page}
+            navChangeCallback={navChangeCallback}
+            shouldScroll={shouldScrollToRoute && LEARNING_SECTIONS.includes(page)}
+            setShouldScrollToRoute={setShouldScrollToRoute}
+            {...accordionControls}
+          />
         );
       case '/sudoku':
         return (
@@ -108,10 +135,19 @@ function App() {
           </>
         );
     }
-  }, [page, headingTypedCallback, headingTyped, mobileMode, shouldScrollToRoute]);
+  }, [page, headingTypedCallback, headingTyped, mobileMode, shouldScrollToRoute, accordionControls]);
 
   return (
     <div className='App app-dark'>
+      <header>
+        <TopNav
+          navChangeCallback={navChangeCallback}
+          mobileMode={mobileMode}
+          currentPage={page}
+          {...accordionControls}
+        />
+      </header>
+
       <main id='main-content'>
         {getContent()}
       </main>

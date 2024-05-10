@@ -12,6 +12,8 @@ export class SudokuGame {
     this.cols = cellGroups.cols;
     this.groups = cellGroups.groups;
 
-
+    this.checkForConflict = (cellIndex) => {
+      
+    };
   }
 }

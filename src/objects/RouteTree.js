@@ -3,13 +3,19 @@ import routes from '../resources/text/routes';
 class RouteTree {
   constructor(initialRoutes = routes) {
     this.root = new Node();
+    this.maxRouteLength = 0;
     initialRoutes.forEach((route) => {
       this.addRoute(route);
     });
   }
 
+  getMaxRouteLength() {
+    return this.maxRouteLength;
+  }
+
   addRoute(route) {
     this.addChars(this.root, route);
+    this.maxRouteLength = Math.max(this.maxRouteLength, route.length);
   }
   addChars(currentNode, route) {
     const nextChar = route.charAt(0);

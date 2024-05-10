@@ -45,7 +45,7 @@ export default function WebDev({ scrollRef, mobileMode }) {
   return (
     <Row className='bg-gradient-down pb-10' ref={scrollRef}>
       <Col className='p-0'>
-        <h1 className='route-header padding-margins mt-4'>/web</h1>
+        <h1 className='portfolio-header padding-margins mt-4'>/web</h1>
 
         {/* REI Membership Dashboard */}
         <Row className='portfolio__row padding-margins d-block d-xl-flex'>

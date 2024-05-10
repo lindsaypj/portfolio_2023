@@ -1,0 +1,8 @@
+.runtime-table {
+  border: 1px solid;
+}
+
+.runtime-table td, .runtime-table th {
+  border: 1px solid;
+  padding: 0.5rem;
+}

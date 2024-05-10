@@ -15,6 +15,8 @@
   background-color: black;
   color: white;
   position: relative;
+  max-height: min(80vh, 500px);
+  overflow-y: auto;
 }
 
 .autocomplete-menu span {
@@ -31,4 +33,27 @@
 @keyframes ShowTransition {
   0% {opacity: 0%;}
   100% {opacity: 100%;}
+}
+
+
+/***   Scrollbar   ***/
+
+.autocomplete-menu::-webkit-scrollbar {
+  width: 0.8em;
+}
+
+.autocomplete-menu::-webkit-scrollbar-track {
+  background-color: black;
+  border-top-right-radius: var(--bs-border-radius);
+  border-bottom-right-radius: var(--bs-border-radius);
+}
+ 
+.autocomplete-menu::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 1rem;
+  width: 0.8em;
+}
+
+.autocomplete-menu::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: rgb(112, 112, 112);
 }

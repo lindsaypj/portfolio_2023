@@ -1,0 +1,45 @@
+/***    PAGE STYLES    ***/
+
+.learning-container {
+  padding: 0;
+  min-height: 100vh;
+}
+
+@media screen and (min-width: 1600px) {
+  .learning-accordion__col:nth-child(1) {
+    width: 25%;
+  }
+}
+
+.learning-accordion__row {
+  min-height: 100vh;
+}
+
+.learning-accordion__col {
+  z-index: 0;
+}
+
+.learning-accordion__col::-webkit-scrollbar {
+  width: 0.8em;
+}
+
+.learning-accordion__col-content::-webkit-scrollbar-track {
+  background-color: #0a0b0d;
+}
+ 
+.learning-accordion__col::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 1rem;
+  width: 0.8em;
+}
+
+.learning-accordion__col::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: rgb(112, 112, 112);
+}
+
+
+/***    TOPIC CONTENT STYLES    ***/
+
+.learning-header {
+  margin-top: 2.5rem;
+}

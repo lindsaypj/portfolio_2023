@@ -87,33 +87,33 @@ input.cell:focus {
 
 @media screen and (min-width: 768px) {
   .size-4 {
-    width: calc(min(65vh, 65vw) / 4);
-    height: calc(min(65vh, 65vw) / 4);
+    width: calc(min(60vh, 60vw) / 4);
+    height: calc(min(60vh, 60vw) / 4);
   
-    line-height: calc(min(65vh, 65vw) / 4);  
+    line-height: calc(min(60vh, 60vw) / 4);  
   }
   .cell-height-4 {
-    height: calc(min(65vh, 65vw) / 4);
+    height: calc(min(60vh, 60vw) / 4);
   }
   
   .size-9 {
-    width: calc(min(65vh, 65vw) / 9);
-    height: calc(min(65vh, 65vw) / 9);
+    width: calc(min(60vh, 60vw) / 9);
+    height: calc(min(60vh, 60vw) / 9);
   
-    line-height: calc(min(65vh, 65vw) / 9);
+    line-height: calc(min(60vh, 60vw) / 9);
   }
   .cell-height-9 {
-    height: calc(min(65vh, 65vw) / 9);
+    height: calc(min(60vh, 60vw) / 9);
   }
   
   .size-16 {
-    width: calc(min(65vh, 65vw) / 16);
-    height: calc(min(65vh, 65vw) / 16);
+    width: calc(min(60vh, 60vw) / 16);
+    height: calc(min(60vh, 60vw) / 16);
   
-    line-height: calc(min(65vh, 65vw) / 16);
+    line-height: calc(min(60vh, 60vw) / 16);
   }
   .cell-height-16 {
-    height: calc(min(65vh, 65vw) / 16);
+    height: calc(min(60vh, 60vw) / 16);
   }
 }
 

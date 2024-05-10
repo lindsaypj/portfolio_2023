@@ -16,6 +16,7 @@
 .footer__link {
   font-weight: 200;
   text-align: start;
+  white-space: nowrap;
   padding: 0;
   color: white;
   text-decoration: none;
@@ -25,13 +26,25 @@
   color: white;
 }
 
-.footer__link span:hover {
+.footer__link:hover {
   font-weight: 400;
   color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
 }
 
 @media (min-width: 576px) {
-  .footer__link, h5 {
+  h5 {
     text-indent: 35%;
   }
+  .footer__link, .footer__item {
+    margin-left: 35%;
+  }
+}
+
+.footer__item {
+  font-weight: 200;
+  text-align: start;
+  padding: 0;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
 }

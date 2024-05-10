@@ -85,11 +85,11 @@ export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, 
 
   return (
     <Container fluid className='p-0' ref={portfolioRef}>
-      <Row className='portfolio__row bg-gradient-down'>
+      <Row className='portfolio__row--hero bg-gradient-down'>
         <Col className='p-0 col-12'>
           <Row>
             <Col className='p-0 col-12'>
-              <h1 className='route-header padding-margins mb-4'>
+              <h1 className='portfolio-header padding-margins mb-4'>
                 <TypingText text='/portfolio' doneTypingCallback={headingTypedCallback} />
               </h1>
             </Col>
