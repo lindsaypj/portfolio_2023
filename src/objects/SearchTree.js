@@ -14,6 +14,10 @@ class SearchTree {
   addSearchTerm(term) {
     this.addChars(this.root, term, term);
     this.maxTermLength = Math.max(this.maxTermLength, term.length);
+
+    const subTerms = term.split(' ').slice(1).forEach((subTerm) => {
+      this.addChars(this.root, subTerm, term);
+    });
   }
   addChars(currentNode, partialTerm, searchTerm) {
     const nextChar = partialTerm.charAt(0);
