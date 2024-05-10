@@ -40,7 +40,7 @@ export const LEARNING_TOPICS = [
     ],
     'complete': {
       '/ArrayList': true,
-      '/BinaryTree': true,
+      '/BinaryTree': false,
     }
   },
   {
@@ -102,15 +102,24 @@ export const ArrayListRuntimes = [
   {'name': 'size()', 'runtime': 'O(1)'},
 ]
 
+export const BinaryTreeRuntimes = [
+  {'name': 'get()', 'runtime': 'O(1)'},
+  {'name': 'add()', 'runtime': 'O(1) (Amortized)'},
+  {'name': 'remove()', 'runtime': 'O(n)'},
+  {'name': 'indexOf()', 'runtime': 'O(n)'},
+  {'name': 'size()', 'runtime': 'O(1)'},
+]
 
 
 ////    GLOSSARY TERMS    ////
 
 export const Glossary = {
   'ArrayList': 'a list of elements stored as a dynamically resizing array.',
+  'BinaryTree': 'a tree where each node has a maximum of 2 child nodes.',
   'Complete tree': 'a tree in which all levels are fully filled, except for possibly the last level, which is filled from left to right.',
   'Full tree': 'a tree in which all nodes are leaf nodes or have the max number of child nodes.',
   'Graph': 'a non-linear collection of verticies and edges which together simulate the relationship between values.',
   'Leaf node': 'a tree node with no child nodes.',
   'LinkedList': 'a sequence of nodes containing data and a reference to the next node in the list.',
+  'Node': 'an element within a network that defines its relation to other elements in the network. Also refered to as a Vertex in Graph Theory.',
 }
