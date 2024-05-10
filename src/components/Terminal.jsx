@@ -24,7 +24,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
   const [abbriviatePrefix, setAbbriviatePrefix] = useState(false);
   const [partialRoutes, setPartialRoutes] = useState(routeTree.getRoutes(currentRoute));
   const [validPath, setValidPath] = useState(false);
-  const [terminalHasFocus, setTerminalHasFocus] = useState(true);
+  const [terminalHasFocus, setTerminalHasFocus] = useState(heroMode);
 
 
   // Handle heroMode transitions
@@ -59,6 +59,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
     if (!event || !event.target.classList.contains('terminal-ignore-focus')) {
       terminal.current.focus();
       setTerminalHasFocus(true);
+      cursor.current.classList.remove('hide');
     }
   }, []);
 
@@ -76,15 +77,12 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
     }
   }, [currentRoute, setFocus, updateAutocomplete]);
 
-  // Handle delayed prefix typing
+  // Handle initial terminal focus
   useEffect(() => {
-    if (shouldTypePrefix) {
+    if (shouldTypePrefix && terminalHasFocus) {
       setFocus();
     }
-    else {
-      cursor.current.classList.add('hide');
-    }
-  }, [shouldTypePrefix, setFocus]);
+  }, [shouldTypePrefix, terminalHasFocus, setFocus]);
 
 
   // EVENT HANDLERS
@@ -195,6 +193,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
               text={getTerminalPrefix()}
               charInterval={50}
               shouldType={shouldTypePrefix}
+              skipInitAnimation={!heroMode}
               fillUnrenderedSpace={false}
             />
           </span>
@@ -212,7 +211,6 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
             className='terminal-input'
             type='text'
             spellCheck="false"
-            onFocus={() => {cursor.current.classList.remove('hide')}}
             onBlur={handleInputBlur}
             onSelect={handleInputTextSelct}
             onKeyUp={handleKeyUp}
@@ -227,7 +225,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
           </span>
 
           {/* Terminal Cursor */}
-          <Cursor cursorRef={cursor} className='command-line-text' />
+          <Cursor cursorRef={cursor} className='command-line-text hide' />
         </div>
       </div>
     </div>

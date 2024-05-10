@@ -5,6 +5,7 @@ export default function TypingText({
   charInterval = 100,            // Interval to type each char
   shouldType = true,             // Boolean to determine when to start typing
   doneTypingCallback = () => {}, // Callback triggered when all chars rendered/typed
+  skipInitAnimation = false,     // Flag to render text immediatly without animating
   fillUnrenderedSpace = true     // Flag to make unrendered text take up the same space as when rendered
 }) {
   const [renderedText, setRenderedText] = useState(" ");
@@ -30,12 +31,15 @@ export default function TypingText({
           setRenderedText(text);
         }
       }, charInterval);
-      return () => clearInterval(interval);
+      return () => clearInterval(interval);      
     }
     // eslint-disable-next-line
   }, [text, renderedText, shouldType, charInterval]);
   
-  if (!fillUnrenderedSpace) {
+  if (skipInitAnimation && renderedText === " ") {
+    return <>{text}</>
+  }
+  else if (!fillUnrenderedSpace) {
     return <>{renderedText}</>
   }
 

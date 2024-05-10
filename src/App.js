@@ -33,8 +33,8 @@ function App() {
   }
 
   const [page, setPage] = useState(currentPage);
-  const [headingTyped, setHeadingTyped] = useState(false);
-  const [terminalHero, setTerminalHero] = useState(false);
+  const [headingTyped, setHeadingTyped] = useState(currentPage !== '/about_me' && currentPage !== '');
+  const [terminalHero, setTerminalHero] = useState(currentPage === '/about_me' || currentPage === '');
   const [mobileMode, setMobileMode] = useState(false);
   const [shouldScrollToRoute, setShouldScrollToRoute] = useState(SCROLLABLE_ROUTES.includes(currentPage));
 
