@@ -138,12 +138,12 @@
   0% {
     opacity: 0%;
     position: relative;
-    right: 50px;
+    bottom: 40px;
   }
   100% {
     opacity: 100%;
     position: relative;
-    right: 0;
+    bottom: 0;
   }
 }
 
