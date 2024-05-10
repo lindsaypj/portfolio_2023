@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, FloatingLabel, Form } from 'react-bootstrap';
 
-import { Glossary as Terms } from '../../resources/text/learning';
+import SearchTree from '../../objects/SearchTree';
+
+import { Glossary as searchTerms } from '../../resources/text/learning';
 import '../../styles/Glossary.css';
 
+
 export default function Glossary() {
+  const GlossarySearchTree = new SearchTree(searchTerms);
+
+  const [searchValue, setSearchValue] = useState('');
+  const [searchResults, setSearchResults] = useState(new Set());
+  
+  const handleSearch = (event) => {
+    const nextValue = event.target.value;
+    setSearchValue(nextValue);
+
+    const nextSearchResults = GlossarySearchTree.getTerms(nextValue);
+    setSearchResults(nextSearchResults);
+  }
+
   return (
     <> 
     <Form className='glossary-form mb-4' data-bs-theme='dark'>
@@ -17,17 +33,23 @@ export default function Glossary() {
           placeholder='Search...'
           aria-label='Search term'
           aria-describedby='glossary-term-prefix'
+          value={searchValue}
+          onChange={handleSearch}
         />
       </FloatingLabel>
     </Form>
 
     <ul className='glossary-list'>
-      {(Object.keys(Terms)).map((term) => (
+      {(Object.keys(searchTerms))
+        .filter((term) => {
+          return searchValue === '' || searchResults.has(term.toLowerCase());
+        })
+        .map((term) => (
         <li key={term} className='overflow-hidden pb-3'>
           <Term
             key={term}
             term={term}
-            definition={Terms[term]}
+            definition={searchTerms[term]}
           />
         </li>
       ))}
