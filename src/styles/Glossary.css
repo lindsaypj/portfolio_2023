@@ -1,13 +1,15 @@
 .glossary-list {
   padding: 0;
   list-style: none;
-  columns: 2;
+  columns: 1;
 }
-
+@media screen and (min-width: 992px) {
+  .glossary-list {
+    columns: 2;
+  }
+}
 @media screen and (min-width: 1200px) {
   .glossary-list {
-    padding: 0;
-    list-style: none;
     columns: 3;
   }
 }
