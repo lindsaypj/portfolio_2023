@@ -21,21 +21,21 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
   const cursor = useRef();
 
   const [terminalText, setTerminalText] = useState(currentRoute);
-  const [abbriviatePrefix, setAbbriviatePrefix] = useState(false);
+  const [abbriviatePrefix, setAbbriviatePrefix] = useState(true);
   const [partialRoutes, setPartialRoutes] = useState(routeTree.getRoutes(currentRoute));
   const [validPath, setValidPath] = useState(false);
-  const [terminalHasFocus, setTerminalHasFocus] = useState(heroMode);
+  const [terminalHasFocus, setTerminalHasFocus] = useState(false);
 
 
   // Handle heroMode transitions
   useEffect(() => {
     if (heroMode && terminalText.length === 0) {
       commandLine.current.classList.add('command-line-hero');
-      setAbbriviatePrefix(true);
+      setAbbriviatePrefix(false);
     }
     else {
       commandLine.current.classList.remove('command-line-hero');
-      setAbbriviatePrefix(false);
+      setAbbriviatePrefix(true);
     }
   }, [heroMode, terminalText]);
 
@@ -79,10 +79,11 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
 
   // Handle initial terminal focus
   useEffect(() => {
-    if (shouldTypePrefix && terminalHasFocus) {
+    if (shouldTypePrefix && heroMode) {
       setFocus();
     }
-  }, [shouldTypePrefix, terminalHasFocus, setFocus]);
+    // eslint-disable-next-line
+  }, [shouldTypePrefix, setFocus]);
 
 
   // EVENT HANDLERS
@@ -167,7 +168,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
 
   // RENDERING 
   const getTerminalPrefix = useCallback(() => {
-    return abbriviatePrefix ? 'patrick_lindsay' : 'pl';
+    return abbriviatePrefix ? 'pl' : 'patrick_lindsay';
   }, [abbriviatePrefix]);
 
   return (
@@ -188,7 +189,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
           onClick={handleClickTerminal}
         >
           {/* Command Prefix: patrick_lindsay | pl */}
-          <span className='command-prefix terminal-ignore-blur  command-line-text'>
+          <span className='command-prefix terminal-ignore-blur command-line-text'>
             <TypingText
               text={getTerminalPrefix()}
               charInterval={50}

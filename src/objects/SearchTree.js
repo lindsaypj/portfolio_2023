@@ -15,7 +15,7 @@ class SearchTree {
     this.addChars(this.root, term, term);
     this.maxTermLength = Math.max(this.maxTermLength, term.length);
 
-    const subTerms = term.split(' ').slice(1).forEach((subTerm) => {
+    term.split(' ').slice(1).forEach((subTerm) => {
       this.addChars(this.root, subTerm, term);
     });
   }
