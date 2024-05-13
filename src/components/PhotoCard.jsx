@@ -10,8 +10,13 @@ export default function PhotoCard({ image, modalCallback }) {
     modalCallback(image);
   };
 
+  const getImageRatio = () => {
+    const ratioClass = ' photo-container--' + image.ratio;
+    return ratioClass;
+  }
+
   return (
-    <div className='photo-container' onClick={onClickImage}>
+    <div className={'photo-container' + getImageRatio()} onClick={onClickImage}>
       <LazyLoadImage
         src={image.src}
         placeholderSrc={image.placeholder}
