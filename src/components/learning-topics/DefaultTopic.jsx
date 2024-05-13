@@ -1,5 +1,5 @@
 import React from 'react';
-import Glossary from './Glossary';
+import Glossary from '../learning-components/Glossary';
 
 export default function DefaultTopic() {
   return (

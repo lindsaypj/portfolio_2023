@@ -1,7 +1,7 @@
 import React from 'react';
 
-import RuntimeTable from '../RuntimeTable';
-import ReferenceList from './ReferenceList';
+import RuntimeTable from '../learning-components/RuntimeTable';
+import ReferenceList from '../learning-components/ReferenceList';
 
 import { ArrayListRuntimes, ArrayListReferences } from '../../resources/text/learning';
 
@@ -10,7 +10,7 @@ export default function ArrayList() {
     <>
       {/* Topic Description */}
       <p>List of elements stored as a dynamically resizing array.</p>
-      
+
       <RuntimeTable methods={ArrayListRuntimes} />
 
       <h4 className='learning-h4'>Uses</h4>

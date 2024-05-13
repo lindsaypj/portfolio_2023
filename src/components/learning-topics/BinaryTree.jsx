@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import RuntimeTable from '../RuntimeTable';
+import RuntimeTable from '../learning-components/RuntimeTable';
 
 export default function BinaryTree() {
   return (
