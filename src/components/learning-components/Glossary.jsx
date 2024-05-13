@@ -45,7 +45,7 @@ export default function Glossary() {
           return searchValue === '' || searchResults.has(term.toLowerCase());
         })
         .map((term) => (
-        <li key={term} className='overflow-hidden pb-3'>
+        <li key={term} className='overflow-hidden mb-3'>
           <Term
             key={term}
             term={term}
