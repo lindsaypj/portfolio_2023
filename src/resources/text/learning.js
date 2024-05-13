@@ -100,7 +100,7 @@ export const ArrayListRuntimes = [
   {'name': 'remove()', 'runtime': 'O(n)'},
   {'name': 'indexOf()', 'runtime': 'O(n)'},
   {'name': 'size()', 'runtime': 'O(1)'},
-]
+];
 
 export const BinaryTreeRuntimes = [
   {'name': 'get()', 'runtime': 'O(1)'},
@@ -108,7 +108,24 @@ export const BinaryTreeRuntimes = [
   {'name': 'remove()', 'runtime': 'O(n)'},
   {'name': 'indexOf()', 'runtime': 'O(n)'},
   {'name': 'size()', 'runtime': 'O(1)'},
-]
+];
+
+
+
+////    REFERENCES    ////
+
+export const ArrayListReferences = [
+  {
+    'prefix': 'Java',
+    'displayText': 'Oracle Documentation (Java 8)',
+    'link': 'https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html'
+  },
+  {
+    'prefix': 'JavaScript',
+    'displayText': 'MDN Web Docs JS Array',
+    'link': 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array'
+  },
+];
 
 
 ////    GLOSSARY TERMS    ////
@@ -122,4 +139,4 @@ export const Glossary = {
   'Leaf node': 'a tree node with no child nodes.',
   'LinkedList': 'a sequence of nodes containing data and a reference to the next node in the list.',
   'Node': 'an element within a network that defines its relation to other elements in the network. Also refered to as a Vertex in Graph Theory.',
-}
+};

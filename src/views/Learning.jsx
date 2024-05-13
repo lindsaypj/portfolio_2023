@@ -95,7 +95,7 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
           ref={contentRef}
           className={mobileMode ? 'padding-margins' : 'px-md-4 px-lg-5'}
         >
-          <h2 className='learning-header'>{ selectedTopic }</h2>
+          <h2 className='learning-topic-header'>{ selectedTopic }</h2>
           { getTopicContent() }
         </Col>
       </Row>

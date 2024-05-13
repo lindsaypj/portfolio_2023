@@ -40,6 +40,10 @@
 
 /***    TOPIC CONTENT STYLES    ***/
 
-.learning-header {
-  margin-top: 2.5rem;
+.learning-topic-header {
+  margin: 2.5rem 0 2rem;
+}
+
+.learning-h4 {
+  margin: 3rem 0 1rem 0;
 }
