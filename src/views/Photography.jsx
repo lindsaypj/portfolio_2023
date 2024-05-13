@@ -83,59 +83,19 @@ export default function Photography({ scrollRef }) {
 
   return (
     <Row className='bg-gradient-down pb-10' ref={scrollRef}>
-      <Col className='p-0'>
-        <h1 className='route-header padding-margins mt-4'>/photography</h1>
+      <Col className='padding-margins'>
+        <h1 className='route-header my-4'>/photography</h1>
 
-        {/* Mobile */}
-        <Row className='portfolio__row padding-margins pb-4 photography d-flex d-md-none'>
-          <Col className='py-4 px-0 col-12'>
-            <PhotoCard image={images[0]} modalCallback={modalCallback} />
-            <PhotoCard image={images[1]} modalCallback={modalCallback} />
-            <PhotoCard image={images[2]} modalCallback={modalCallback} />
-            <PhotoCard image={images[3]} modalCallback={modalCallback} />
-            <PhotoCard image={images[4]} modalCallback={modalCallback} />
-            <PhotoCard image={images[5]} modalCallback={modalCallback} />
-            <PhotoCard image={images[6]} modalCallback={modalCallback} />
-            <PhotoCard image={images[7]} modalCallback={modalCallback} />
-          </Col>
-        </Row>
-
-        {/* Tablet */}
-        <Row className='portfolio__row padding-margins pb-4 photography d-none d-md-flex d-xl-none'>
-          <Col className='py-4 px-0 col-6'>
-            <PhotoCard image={images[0]} modalCallback={modalCallback} />
-            <PhotoCard image={images[1]} modalCallback={modalCallback} />
-            <PhotoCard image={images[2]} modalCallback={modalCallback} />
-            <PhotoCard image={images[6]} modalCallback={modalCallback} />
-          </Col>
-
-          <Col className='py-4 px-0 col-6'>
-            <PhotoCard image={images[3]} modalCallback={modalCallback} />
-            <PhotoCard image={images[4]} modalCallback={modalCallback} />
-            <PhotoCard image={images[5]} modalCallback={modalCallback} />
-            <PhotoCard image={images[7]} modalCallback={modalCallback} />
-          </Col>
-        </Row>
-
-        {/* Desktop */}
-        <Row className='portfolio__row padding-margins pb-4 photography d-none d-xl-flex'>
-          <Col className='py-4 px-0 col-4'>
-            <PhotoCard image={images[0]} modalCallback={modalCallback} />
-            <PhotoCard image={images[1]} modalCallback={modalCallback} />
-            <PhotoCard image={images[2]} modalCallback={modalCallback} />
-          </Col>
-
-          <Col className='py-4 px-0 col-4'>
-            <PhotoCard image={images[3]} modalCallback={modalCallback} />
-            <PhotoCard image={images[4]} modalCallback={modalCallback} />
-            <PhotoCard image={images[5]} modalCallback={modalCallback} />
-          </Col>
-
-          <Col className='py-4 px-0 col-4'>
-            <PhotoCard image={images[6]} modalCallback={modalCallback} />
-            <PhotoCard image={images[7]} modalCallback={modalCallback} />
-          </Col>
-        </Row>
+        <ul className='photography-list'>
+          <li><PhotoCard image={images[0]} modalCallback={modalCallback} /></li>
+          <li><PhotoCard image={images[1]} modalCallback={modalCallback} /></li>
+          <li><PhotoCard image={images[2]} modalCallback={modalCallback} /></li>
+          <li><PhotoCard image={images[3]} modalCallback={modalCallback} /></li>
+          <li><PhotoCard image={images[4]} modalCallback={modalCallback} /></li>
+          <li><PhotoCard image={images[5]} modalCallback={modalCallback} /></li>
+          <li><PhotoCard image={images[6]} modalCallback={modalCallback} /></li>
+          <li><PhotoCard image={images[7]} modalCallback={modalCallback} /></li>
+        </ul>
       </Col>
 
       {/* Image Previewer */}

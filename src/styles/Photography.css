@@ -40,3 +40,20 @@
 .modal-body::-webkit-scrollbar-thumb:vertical:hover {
   background-color: rgb(112, 112, 112);
 }
+
+.photography-list {
+  padding: 0;
+  list-style: none;
+  column-gap: 0;
+  columns: 1;
+}
+@media screen and (min-width: 768px) {
+  .photography-list {
+    columns: 2;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .photography-list {
+    columns: 3;
+  }
+}
