@@ -28,7 +28,6 @@ export const GAMES_SECTIONS = [
 export const LEARNING_SECTIONS = [
   '/learning',
   '/learning/ArrayList',
-  '/learning/BinaryTree',
   '/learning/Graph',
   '/learning/HashMap',
   '/learning/HashSet',

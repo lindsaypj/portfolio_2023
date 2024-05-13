@@ -1,5 +1,4 @@
 import ArrayList from '../../components/learning-topics/ArrayList';
-import BinaryTree from '../../components/learning-topics/BinaryTree';
 import Graph from '../../components/learning-topics/Graph';
 import HashMap from '../../components/learning-topics/HashMap';
 import HashSet from '../../components/learning-topics/HashSet';
@@ -27,7 +26,6 @@ export const LEARNING_TOPICS = [
     'name': 'Data Structures',
     'contents': [
       '/ArrayList',
-      '/BinaryTree',
       '/Graph',
       '/HashMap',
       '/HashSet',
@@ -40,7 +38,6 @@ export const LEARNING_TOPICS = [
     ],
     'complete': {
       '/ArrayList': true,
-      '/BinaryTree': false,
     }
   },
   {
@@ -66,7 +63,6 @@ export const LEARNING_TOPICS = [
 
 export const LEARNING_CONTENT = {
   '/ArrayList': { 'content': ArrayList, 'group': 'Data Structures' },
-  '/BinaryTree': { 'content': BinaryTree, 'group': 'Data Structures' },
   '/Graph': { 'content': Graph, 'group': 'Data Structures' },
   '/HashMap': { 'content': HashMap, 'group': 'Data Structures' },
   '/HashSet': { 'content': HashSet, 'group': 'Data Structures' },
@@ -102,13 +98,13 @@ export const ArrayListRuntimes = [
   {'name': 'size()', 'runtime': 'O(1)'},
 ];
 
-export const BinaryTreeRuntimes = [
-  {'name': 'get()', 'runtime': 'O(1)'},
-  {'name': 'add()', 'runtime': 'O(1) (Amortized)'},
-  {'name': 'remove()', 'runtime': 'O(n)'},
-  {'name': 'indexOf()', 'runtime': 'O(n)'},
-  {'name': 'size()', 'runtime': 'O(1)'},
-];
+// export const SearchTreeRuntimes = [
+//   {'name': 'get()', 'runtime': 'O(1)'},
+//   {'name': 'add()', 'runtime': 'O(1) (Amortized)'},
+//   {'name': 'remove()', 'runtime': 'O(n)'},
+//   {'name': 'indexOf()', 'runtime': 'O(n)'},
+//   {'name': 'size()', 'runtime': 'O(1)'},
+// ];
 
 
 
