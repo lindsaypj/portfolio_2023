@@ -1,0 +1,147 @@
+/***   CSS Variables   ***/
+:root {
+  --maze-border-width: 2px;
+  --maze-negative-border-width: -2px;
+  --maze-cell-active-color: #61dafb;
+  --maze-cell-path-color: #525965;
+  --maze-cell-bg-color: #282c34;
+}
+.maze.maze-b-1 {
+  --maze-border-width: 2px;
+  --maze-negative-border-width: -2px;
+}
+.maze.maze-b-5 {
+  --maze-border-width: min(1vh, 1vw);
+  --maze-negative-border-width: max(-1vh, -1vw);
+}
+.maze.maze-b-10 {
+  --maze-border-width: min(1vh, 1vw);
+  --maze-negative-border-width: max(-1vh, -1vw);
+}
+.maze.maze-b-15 {
+  --maze-border-width: min(1.5vh, 1.5vw);
+  --maze-negative-border-width: max(-1.5vh, -1.5vw);
+}
+.maze.maze-b-20 {
+  --maze-border-width: min(2vh, 2vw);
+  --maze-negative-border-width: max(-2vh, -2vw);
+}
+
+
+/***   Maze Styles   ***/
+/* NOTE: grid-template-columns and aspect-ratio are set in Maze.jsx */
+.maze {
+  display: grid;
+  grid-gap: calc(var(--maze-border-width) - 1px);
+  border: min(2.5vh, 2.5vw) black solid;
+  background-color: black;
+}
+
+.maze-cell {
+  display: inline-block;
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: var(--maze-cell-bg-color);
+}
+.maze-cell:nth-child(1) {
+  box-shadow: max(-2.5vh, -2.5vw) 0 var(--maze-cell-path-color) !important;
+}
+.maze-cell:nth-last-child(1) {
+  box-shadow: min(2.5vh, 2.5vw) 0 var(--maze-cell-bg-color) !important;
+}
+
+
+/***   Maze Path   ***/
+.maze .cell-current {
+  background-color: var(--maze-cell-active-color) !important;
+}
+.maze .cell-traveled {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--maze-cell-path-color);
+}
+.maze .cell-traveled-n {
+  box-shadow: 0 var(--maze-negative-border-width) var(--maze-cell-path-color) !important;
+}
+.maze .cell-traveled-e {
+  box-shadow: var(--maze-border-width) 0 var(--maze-cell-path-color) !important;
+}
+.maze .cell-traveled-s {
+  box-shadow: 0 var(--maze-border-width) var(--maze-cell-path-color) !important;
+}
+.maze .cell-traveled-w {
+  box-shadow: var(--maze-negative-border-width) 0 var(--maze-cell-path-color) !important;
+}
+
+
+/***   Maze Walls   ***/
+.maze .cell-n {
+  box-shadow: 0 var(--maze-negative-border-width) var(--maze-cell-bg-color);
+}
+.maze .cell-e {
+  box-shadow: var(--maze-border-width) 0 var(--maze-cell-bg-color);
+}
+.maze .cell-s {
+  box-shadow: 0 var(--maze-border-width) var(--maze-cell-bg-color);
+}
+.maze .cell-w {
+  box-shadow: var(--maze-negative-border-width) 0 var(--maze-cell-bg-color);
+}
+.maze .cell-n.cell-e {
+  box-shadow: 
+    0 var(--maze-negative-border-width) var(--maze-cell-bg-color),
+    var(--maze-border-width) 0 var(--maze-cell-bg-color);
+}
+.maze .cell-n.cell-s {
+  box-shadow:
+    0 var(--maze-negative-border-width) var(--maze-cell-bg-color),
+    0 var(--maze-border-width) var(--maze-cell-bg-color);
+}
+.maze .cell-n.cell-w {
+  box-shadow: 
+    0 var(--maze-negative-border-width) var(--maze-cell-bg-color),
+    var(--maze-negative-border-width) 0 var(--maze-cell-bg-color);
+}
+.maze .cell-e.cell-s {
+  box-shadow: 
+    0 var(--maze-border-width) var(--maze-cell-bg-color),
+    var(--maze-border-width) 0 var(--maze-cell-bg-color);
+}
+.maze .cell-e.cell-w {
+  box-shadow:
+    var(--maze-negative-border-width) 0 var(--maze-cell-bg-color),
+    var(--maze-border-width) 0 var(--maze-cell-bg-color);
+}
+.maze .cell-s.cell-w {
+  box-shadow: 
+    0 var(--maze-border-width) var(--maze-cell-bg-color),
+    var(--maze-negative-border-width) 0 var(--maze-cell-bg-color);
+}
+.maze .cell-n.cell-e.cell-s {
+  box-shadow: 
+    0 var(--maze-negative-border-width) var(--maze-cell-bg-color),
+    var(--maze-border-width) 0 var(--maze-cell-bg-color),
+    0 var(--maze-border-width) var(--maze-cell-bg-color);
+}
+.maze .cell-e.cell-s.cell-w {
+  box-shadow: 
+    var(--maze-border-width) 0 var(--maze-cell-bg-color),
+    0 var(--maze-border-width) var(--maze-cell-bg-color),
+    var(--maze-negative-border-width) 0 var(--maze-cell-bg-color);
+}
+.maze .cell-n.cell-s.cell-w {
+  box-shadow:
+    0 var(--maze-negative-border-width) var(--maze-cell-bg-color),
+    0 var(--maze-border-width) var(--maze-cell-bg-color),
+    var(--maze-negative-border-width) 0 var(--maze-cell-bg-color);
+}
+.maze .cell-n.cell-e.cell-w {
+  box-shadow:
+    0 var(--maze-negative-border-width) var(--maze-cell-bg-color),
+    var(--maze-border-width) 0 var(--maze-cell-bg-color),
+    var(--maze-negative-border-width) 0 var(--maze-cell-bg-color);
+}
+.maze .cell-n.cell-e.cell-s.cell-w {
+  box-shadow: none;
+}

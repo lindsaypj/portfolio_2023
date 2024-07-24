@@ -13,3 +13,8 @@ export const pascalToSnake = (path) => {
   console.log('PascalToSnake: '+snakeCase);
   return snakeCase.replace('_', '');
 }
+
+// Clamp value between min and max
+export const clamp = (min, max, target) => {
+  return Math.max(min, Math.min(max, target));
+}

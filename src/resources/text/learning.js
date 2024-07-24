@@ -56,7 +56,7 @@ export const LEARNING_TOPICS = [
       '/UnionFind',
     ],
     'complete': {
-      '/ArrayList': true,
+      '/DepthFirstSearch': true,
     }
   }
 ];
@@ -122,6 +122,18 @@ export const ArrayListReferences = [
     'link': 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array'
   },
 ];
+export const DepthFirstSearchReferences = [
+  {
+    'prefix': 'Wikipedia',
+    'displayText': 'Depth-first search',
+    'link': 'https://en.wikipedia.org/wiki/Depth-first_search'
+  },
+  {
+    'prefix': 'Stanford Lecture',
+    'displayText': 'Graphs, DFS and Topological Sort',
+    'link': 'https://web.stanford.edu/class/archive/cs/cs161/cs161.1166/lectures/lecture10.pdf'
+  }
+]
 
 
 ////    GLOSSARY TERMS    ////

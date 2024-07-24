@@ -2,12 +2,14 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import TypingText from '../components/TypingText';
 import SudokuGame from './SudokuGame';
+import MazeGame from '../components/maze/MazeGame';
 
 export default function Games({ currentRoute, headingTypedCallback, shouldScroll, setShouldScrollToRoute }) {
 
   ////    INITIALIZATION    ////
 
   const SudokuRef = useRef();
+  const MazeRef = useRef();
 
 
   ////    STATE MANAGMENT    ////
@@ -52,6 +54,11 @@ export default function Games({ currentRoute, headingTypedCallback, shouldScroll
       </Row>
       <Row ref={SudokuRef}>
         <SudokuGame />
+      </Row>
+      <Row ref={MazeRef}>
+        <Col xs={12} className='p-0'>
+          <MazeGame />
+        </Col>
       </Row>
     </Container>
   );

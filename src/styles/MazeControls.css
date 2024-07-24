@@ -1,0 +1,62 @@
+.maze-controls {
+  display: block;
+  width: min(95vh, 95vw);
+  margin: auto;
+  text-align: start;
+  font-size: 1.25rem;
+}
+@media screen and (min-width: 768px) {
+  .maze-controls {
+    display: flex;
+    max-width: min(65vh, 65vw);
+  }
+  .maze-traversal-controls {
+    display: inline-block;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    text-align: end;
+  }
+}
+.maze-size-controls {
+  display: inline-block;
+}
+.maze-traversal-controls {
+  display: block;
+  padding-top: 1.5em;
+}
+.maze-traversal-controls .wrapper {
+  display: inline-block;
+  text-align: center;
+}
+
+.maze-controls .dimensions {
+  display: inline-block;
+}
+
+.maze-controls .maze-input-group {
+  display: inline-block;
+}
+
+.maze-controls input {
+  font-size: 1.25rem;
+  font-weight: 700 !important;
+}
+
+.maze-controls label {
+  display: block;
+}
+
+.maze-controls .icon-wrapper {
+  display: inline-block;
+}
+.maze-controls .x-icon {
+  margin-inline: 1rem;
+  font-size: 1.25rem;
+  align-self: flex-end;
+}
+
+.maze-controls .btn {
+  margin-block: 1rem;
+  font-size: 1.25rem;
+  font-weight: 700 !important;
+}
