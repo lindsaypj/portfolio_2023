@@ -43,11 +43,8 @@
   aspect-ratio: 1;
   background-color: var(--maze-cell-bg-color);
 }
-.maze-cell:nth-child(1) {
-  box-shadow: max(-2.5vh, -2.5vw) 0 var(--maze-cell-path-color) !important;
-}
 .maze-cell:nth-last-child(1) {
-  box-shadow: min(2.5vh, 2.5vw) 0 var(--maze-cell-bg-color) !important;
+  background-color: darkred;
 }
 
 

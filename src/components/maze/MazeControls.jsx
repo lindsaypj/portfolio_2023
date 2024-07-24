@@ -16,7 +16,7 @@ const DIRECTION_MAP = ['north', 'east', 'south', 'west'];
 const INIT_BUTTON = {disabled: true, onClick: () => {}};
 const INIT_BUTTON_STATES = {'north': INIT_BUTTON, 'east': INIT_BUTTON, 'south': INIT_BUTTON, 'west': INIT_BUTTON};
 
-export default function MazeControls({ defaultSize, handlePathTraversal, traversalOptions, handleLoadingNewMaze, solveMazeCallback }) {
+export default function MazeControls({ defaultSize, handlePathTraversal, traversalOptions, generateCallback, solveCallback }) {
   const [mazeHeightInput, setMazeHeightInput] = useState(defaultSize);
   const [mazeWidthInput, setMazeWidthInput] = useState(defaultSize);
   const [buttonStates, setButtonStates] = useState(INIT_BUTTON_STATES);
@@ -51,19 +51,8 @@ export default function MazeControls({ defaultSize, handlePathTraversal, travers
     setMazeHeightInput(requestHeight);
     const requestWidth = clamp(MIN_MAZE_DIMENSION, MAX_MAZE_DIMENSION, mazeWidthInput);
     setMazeWidthInput(requestWidth);
-
-    // generateMazeRequest(requestWidth, requestHeight)
-    //   .then(function (response) {
-    //     if (response.ok) {
-    //       return response.json();
-    //     }
-    //     else {
-    //       console.log(response);
-    //     }
-    //   })
-    //   .then(function (mazeData) {
-    //     handleLoadingNewMaze(requestWidth, requestHeight, mazeData);
-    //   })
+    
+    generateCallback(requestWidth, requestHeight);
   }
 
 
@@ -113,7 +102,7 @@ export default function MazeControls({ defaultSize, handlePathTraversal, travers
           >Generate</button>
           <button
             className="btn btn-light"
-            onClick={solveMazeCallback}
+            onClick={solveCallback}
           >Solve</button>
         </div>
       </div>

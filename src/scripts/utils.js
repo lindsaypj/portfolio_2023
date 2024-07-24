@@ -18,3 +18,7 @@ export const pascalToSnake = (path) => {
 export const clamp = (min, max, target) => {
   return Math.max(min, Math.min(max, target));
 }
+
+export const randomInt = (max) => {
+  return Math.floor(Math.random() * max);
+}
