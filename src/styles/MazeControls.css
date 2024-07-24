@@ -22,7 +22,7 @@
 }
 .maze-traversal-controls {
   display: block;
-  padding-top: 1.5em;
+  padding-top: 1.75em;
 }
 .maze-traversal-controls .wrapper {
   display: inline-block;
@@ -44,6 +44,7 @@
 
 .maze-controls label {
   display: block;
+  margin-bottom: 0.25rem;
 }
 
 .maze-controls .icon-wrapper {

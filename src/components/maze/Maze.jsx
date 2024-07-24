@@ -71,7 +71,7 @@ export default function Maze({ mazeWidth, mazeHeight, initMaze, mazePath, curren
     }
     
     return cells;
-  }, [mazeHeight, mazeWidth, initMaze, getCellStyles]);
+  }, [mazeHeight, mazeWidth, initMaze, getPathStyles]);
 
   return (
     <div ref={mazeRef} className={"maze" + calculateBorderSize()}>
