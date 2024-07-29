@@ -112,10 +112,6 @@ function App() {
             {...accordionControls}
           />
         );
-      case '/sudoku':
-        return (
-          <SudokuGame />
-        );
       default:
         return (
           <>

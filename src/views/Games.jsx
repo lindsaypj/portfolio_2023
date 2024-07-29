@@ -20,6 +20,9 @@ export default function Games({ currentRoute, headingTypedCallback, shouldScroll
       case '/games/sudoku':
         scrollDistance = SudokuRef.current.getBoundingClientRect().top + window.scrollY;
         break;
+      case '/games/maze':
+        scrollDistance = MazeRef.current.getBoundingClientRect().top + window.scrollY;
+        break;
       default:
         scrollDistance = 0;
     }
