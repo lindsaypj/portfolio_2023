@@ -35,7 +35,7 @@ export default function MazeGame() {
         throw Error('Illegal move request');
       }
 
-      const nextCellIndex = getNeighborCell(state.currentCell, action.move, mazeWidth, initMaze.length);
+      const nextCellIndex = getNeighborCell(state.currentCell, action.move, mazeWidth, Object.keys(initMaze).length);
       const nextTraversalOptions = [...initMaze[nextCellIndex]];
       const nextPath = [...state.path];
       let lastCell;
@@ -65,7 +65,7 @@ export default function MazeGame() {
       const nextPath = action.solve
       const nextCellIndex = nextPath[nextPath.length - 1];
       const lastCell = nextPath[nextPath.length - 2];
-      const nextTraversalOptions = [initMaze[nextCellIndex]];
+      const nextTraversalOptions = [...initMaze[nextCellIndex]];
 
       return {
         path: nextPath,
