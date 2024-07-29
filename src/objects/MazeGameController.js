@@ -77,8 +77,8 @@ export class MazeGameController {
   loadMazeData(mazeData) {
     for (const [cell, doors] of Object.entries(mazeData)) {
       for (let door = 0; door < doors.length; door++) {
-        const adjacentCell = getNeighborCell(cell, door, this.width, this.cellCount)
-        this.graph.addEdge(cell, adjacentCell)
+        const adjacentCell = getNeighborCell(Number(cell), doors[door], this.width, this.cellCount)
+        this.graph.addEdge(Number(cell), adjacentCell)
       }
     }
   }
