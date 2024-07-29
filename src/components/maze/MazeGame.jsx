@@ -23,6 +23,13 @@ export default function MazeGame() {
 
 
   function pathReducer(state, action) {
+    if (action.init) {
+      const nextTraversalOptions = [...initMaze[0]];
+      return {
+        ...INIT_PATH,
+        traversalOptions: nextTraversalOptions
+      };
+    }
     if (action.move !== undefined && action.current === state.currentCell) {
       if (!state.traversalOptions.includes(action.move)) {  
         throw Error('Illegal move request');
@@ -54,12 +61,18 @@ export default function MazeGame() {
         traversalOptions: nextTraversalOptions
       }
     }
-    if (action.init) {
-      const nextTraversalOptions = [...initMaze[0]];
+    if (action.solve) {
+      const nextPath = action.solve
+      const nextCellIndex = nextPath[nextPath.length - 1];
+      const lastCell = nextPath[nextPath.length - 2];
+      const nextTraversalOptions = [initMaze[nextCellIndex]];
+
       return {
-        ...INIT_PATH,
+        path: nextPath,
+        currentCell: nextCellIndex,
+        lastCell: lastCell,
         traversalOptions: nextTraversalOptions
-      };
+      }
     }
   }
     
@@ -79,6 +92,12 @@ export default function MazeGame() {
     updateMazePath({'init': true});
     setSolved(false);
   }, []);
+
+  const handleSolve = useCallback(() => {
+    const path = controller.solveMaze();
+    updateMazePath({'solve': path});
+    setSolved(true);
+  }, [controller]);
 
   return (
     <Container fluid className='min-vh-100'>
@@ -104,6 +123,7 @@ export default function MazeGame() {
             handlePathTraversal={handlePathTraversal}
             traversalOptions={mazePath.traversalOptions}
             generateCallback={handleGeneration}
+            solveCallback={handleSolve}
           />
         </Col>
       </Row>
