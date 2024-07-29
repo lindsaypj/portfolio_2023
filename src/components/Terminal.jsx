@@ -74,6 +74,8 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
       terminal.current.value = currentRoute;
       setTerminalText(currentRoute);
       updateAutocomplete(currentRoute);
+      terminal.current.blur();
+      setTerminalHasFocus(false);
     }
   }, [currentRoute, setFocus, updateAutocomplete]);
 
