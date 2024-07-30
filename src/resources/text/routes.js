@@ -9,7 +9,18 @@ export const PRIMARY_ROUTES = [
 export const TOP_NAV_ROUTES = ['/portfolio', '/games', '/learning'];
 
 // These routes will be brought into focus on page load if active
-export const SCROLLABLE_ROUTES = ['', '/about_me', '/portfolio', '/games/sudoku', '/games/maze'];
+export const SCROLLABLE_ROUTES = [
+  '',
+  '/about_me',
+  '/portfolio',
+  '/portfolio/automotive',
+  '/portfolio/open_source',
+  '/portfolio/photography',
+  '/portfolio/software',
+  '/portfolio/web',
+  '/games/sudoku',
+  '/games/maze'
+];
 
 export const PORTFOLIO_SECTIONS = [
   '/portfolio',

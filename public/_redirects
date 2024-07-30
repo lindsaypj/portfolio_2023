@@ -1,2 +1,9 @@
-/games/maze /?path=/games/maze
-/games/sudoku /?path=/games/sudoku
+/about_me               /?path=/about_me
+/portfolio              /?path=/portfolio
+/portfolio/automotive   /?path=/portfolio/automotive
+/portfolio/open_source  /?path=/portfolio/open_source
+/portfolio/photography  /?path=/portfolio/photography
+/portfolio/software     /?path=/portfolio/software
+/portfolio/web          /?path=/portfolio/web
+/games/maze             /?path=/games/maze
+/games/sudoku           /?path=/games/sudoku
