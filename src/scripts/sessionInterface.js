@@ -4,10 +4,14 @@ const SESSION_KEYS = {
 
 export const loadSessionPageData = () => {
   const defaultPage = '';
+  const searchParams = new URLSearchParams(window.location.search);
 
+  if (searchParams.has('path')) {
+    return {currentPage: searchParams.get('path')};
+  }
+  
   const currentPageJson = sessionStorage.getItem(SESSION_KEYS.CURRENT_PAGE);
   const currentPage = JSON.parse(currentPageJson) || defaultPage;
-
   return {
     currentPage
   };
