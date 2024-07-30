@@ -4,6 +4,7 @@
   width: 100%;
 }
 .photo-container {
+  font-size: 0;
   padding: 0.75rem;
   transition: padding 0.5s ease-out, margin 0.5s ease-out;
 }
@@ -26,4 +27,23 @@
 
 .photo-container--4-5:hover {
   padding: 0.25rem calc(0.75rem - (0.5rem * (0.8)));
+}
+.photo-container--1-1, .photo-container--1-1 img {
+  aspect-ratio: 1;
+}
+
+.photo-container--9-16, .photo-container--9-16 img {
+  aspect-ratio: calc(9 + 0.75rem / 16 + 0.75rem);
+}
+
+.photo-container--3-2, .photo-container--3-2 img {
+  aspect-ratio: 3/2;
+}
+
+.photo-container--4-3, .photo-container--4-3 img {
+  aspect-ratio: 4/3;
+}
+
+.photo-container--4-5, .photo-container--4-5 img {
+  aspect-ratio: 4/5;
 }
