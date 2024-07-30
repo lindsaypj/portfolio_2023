@@ -127,6 +127,10 @@ p, li {
   font-size: 1.25rem;
 }
 
+.fs-0 {
+  font-size: 0;
+}
+
 .fs-md-4 {
   font-size: 1rem;
 }

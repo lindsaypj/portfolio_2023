@@ -35,7 +35,7 @@ export default function PortfolioCarousel({ desktopImages = [], mobileImages, sh
     <Carousel
       fade
       interval={caroselInterval}
-      className='z-0 portfolio-carousel rounded pb-5 p-md-5'
+      className='z-0 portfolio-carousel rounded pb-5 p-md-5 fs-0'
       ref={carouselRef}
     >
       {getImages().map((image, index) => (
