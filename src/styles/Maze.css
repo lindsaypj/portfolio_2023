@@ -11,8 +11,8 @@
   --maze-negative-border-width: -2px;
 }
 .maze.maze-b-5 {
-  --maze-border-width: min(1vh, 1vw);
-  --maze-negative-border-width: max(-1vh, -1vw);
+  --maze-border-width: min(0.5vh, 0.5vw);
+  --maze-negative-border-width: max(-0.5vh, -0.5vw);
 }
 .maze.maze-b-10 {
   --maze-border-width: min(1vh, 1vw);
@@ -31,10 +31,21 @@
 /***   Maze Styles   ***/
 /* NOTE: grid-template-columns and aspect-ratio are set in Maze.jsx */
 .maze {
+  margin: min(2.5vh, 2.5vw);
   display: grid;
   grid-gap: calc(var(--maze-border-width) - 1px);
-  border: min(2.5vh, 2.5vw) black solid;
+  outline: min(2.5vh, 2.5vw) black solid;
   background-color: black;
+  max-width: min(92.5vh, 92.5vw);
+  max-height: min(92.5vh, 92.5vw);
+}
+
+@media screen and (min-width: 768px) {
+  .maze {
+    max-width: min(62.5vh, 62.5vw);
+    max-height: min(62.5vh, 62.5vw);
+    margin-inline: auto;
+  }
 }
 
 .maze-cell {
