@@ -91,21 +91,25 @@ export default function WebDev({ scrollRef, mobileMode }) {
               desktopImages={[
                 {
                   src: MembershipInformationViewImg, placeholder: MembershipInformationViewImgPlaceholder,
-                  alt: 'REI Membership dashboard showing membership Name, email, phone number, and address.'
+                  alt: 'REI Membership dashboard showing membership Name, email, phone number, and address.',
+                  ratio: 'ar-3-2'
                 },
                 {
                   src: MembershipInformationEditImg, placeholder: MembershipInformationEditImgPlaceholder,
-                  alt: 'REI Membership dashboard edit form with Name, email, phone number, and address.'
+                  alt: 'REI Membership dashboard edit form with Name, email, phone number, and address.',
+                  ratio: 'ar-3-2'
                 }
               ]}
               mobileImages={[
                 {
                   src: MembershipInformationViewMobileImg, placeholder: MembershipInformationViewMobileImgPlaceholder,
-                  alt: 'REI Membership dashboard showing membership Name, email, phone number, and address.'
+                  alt: 'REI Membership dashboard showing membership Name, email, phone number, and address.',
+                  ratio: 'ar-16-33'
                 },
                 {
                   src: MembershipInformationEditMobileImg, placeholder: MembershipInformationEditMobileImgPlaceholder,
-                  alt: 'REI Membership dashboard edit form with Name, email, phone number, and address.'
+                  alt: 'REI Membership dashboard edit form with Name, email, phone number, and address.',
+                  ratio: 'ar-16-33'
                 }
               ]}
               showMobile={mobileMode}
@@ -155,23 +159,28 @@ export default function WebDev({ scrollRef, mobileMode }) {
               desktopImages={[
                 {
                   src: SudokuHome, placeholder: SudokuHomePlaceholder,
-                  alt: 'Sudoku In the Clouds home page with Menu, Login, and Play buttons.'
+                  alt: 'Sudoku In the Clouds home page with Menu, Login, and Play buttons.',
+                  ratio: 'ar-640-321'
                 },
                 {
                   src: SudokuLogin, placeholder: SudokuLoginPlaceholder,
-                  alt: 'Login page with an option to create a free account. With an account, you can track completed games and save game preferences.'
+                  alt: 'Login page with an option to create a free account. With an account, you can track completed games and save game preferences.',
+                  ratio: 'ar-640-321'
                 },
                 {
                   src: SudokuAccount, placeholder: SudokuAccountPlaceholder,
-                  alt: 'Example account page. Review and edit player stats, settings, and preferences.'
+                  alt: 'Example account page. Review and edit player stats, settings, and preferences.',
+                  ratio: 'ar-640-321'
                 },
                 {
                   src: SudokuAccountThemed, placeholder: SudokuAccountThemedPlaceholder,
-                  alt: 'Example accunt page with custom prefernces that change the colors of the page.'
+                  alt: 'Example accunt page with custom prefernces that change the colors of the page.',
+                  ratio: 'ar-640-321'
                 },
                 {
                   src: SudokuGame, placeholder: SudokuGamePlaceholder,
-                  alt: 'An partially complete game of Sudoku. The page colors match the custom preferences.'
+                  alt: 'An partially complete game of Sudoku. The page colors match the custom preferences.',
+                  ratio: 'ar-640-321'
                 }
               ]}
             />
@@ -226,19 +235,23 @@ export default function WebDev({ scrollRef, mobileMode }) {
               desktopImages={[
                 {
                   src: AdviseItHome, placeholder: AdviseItHomePlaceholder,
-                  alt: 'Advise it new plan page. Create a blank, or standard plan.'
+                  alt: 'Advise it new plan page. Create a blank, or standard plan.',
+                  ratio: 'ar-3103-1907'
                 },
                 {
                   src: AdviseItPlan, placeholder: AdviseItPlanPlaceholder,
-                  alt: 'Blank advising plan with fall, winter, spring, and summer quarters. You can add additional school years, add an advisor, or save.'
+                  alt: 'Blank advising plan with fall, winter, spring, and summer quarters. You can add additional school years, add an advisor, or save.',
+                  ratio: 'ar-3103-1907'
                 },
                 {
                   src: AdviseItAdmin, placeholder: AdviseItAdminPlaceholder,
-                  alt: 'Table of academic schedules. Shows advisor, last saved date, and a URL to each plan.'
+                  alt: 'Table of academic schedules. Shows advisor, last saved date, and a URL to each plan.',
+                  ratio: 'ar-3103-1907'
                 },
                 {
                   src: AdviseItFooterLinks, placeholder: AdviseItFooterLinksPlaceholder,
-                  alt: 'Table of footer links that can be edited or deleted. New links can be added.'
+                  alt: 'Table of footer links that can be edited or deleted. New links can be added.',
+                  ratio: 'ar-3103-1907'
                 }
               ]}
             />

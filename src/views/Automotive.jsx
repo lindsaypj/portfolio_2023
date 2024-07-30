@@ -73,19 +73,23 @@ export default function Automotive({ scrollRef }) {
               desktopImages={[
                 {
                   src: InteriorBeforeImg, placeholder: InteriorBeforeImgPlaceholder,
-                  alt: 'Vehicle interior before conversion. Has two pedals and an automatic gear selector.'
+                  alt: 'Vehicle interior before conversion. Has two pedals and an automatic gear selector.',
+                  ratio: 'ar-4-3'
                 },
                 {
                   src: AutoAndManualImg, placeholder: AutoAndManualImgPlaceholder,
-                  alt: 'Automatic and manual transmission on the ground next to eachother.'
+                  alt: 'Automatic and manual transmission on the ground next to eachother.',
+                  ratio: 'ar-4-3'
                 },
                 {
                   src: ShifterImg, placeholder: ShifterImgPlaceholder,
-                  alt: 'Manual gear selector with and without the interior trim. With the trim, it looks like it came as a manual from the factory.'
+                  alt: 'Manual gear selector with and without the interior trim. With the trim, it looks like it came as a manual from the factory.',
+                  ratio: 'ar-4-3'
                 },
                 {
                   src: InteriorAfterImg, placeholder: InteriorAfterImgPlaceholder,
-                  alt: 'Vehicle interior after conversion. Has three pedals and a manual gear selector.'
+                  alt: 'Vehicle interior after conversion. Has three pedals and a manual gear selector.',
+                  ratio: 'ar-4-3'
                 }
               ]}
             />

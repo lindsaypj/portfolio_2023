@@ -39,7 +39,7 @@ export default function PortfolioCarousel({ desktopImages = [], mobileImages, sh
       ref={carouselRef}
     >
       {getImages().map((image, index) => (
-        <Carousel.Item key={index} className='d-flex'>
+        <Carousel.Item key={index} className={'d-flex' + image.ratio ? ' '+image.ratio : ''}>
           <LazyLoadImage
             src={image.src}
             placeholderSrc={image.placeholder}

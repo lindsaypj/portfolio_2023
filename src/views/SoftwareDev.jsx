@@ -76,23 +76,28 @@ export default function SoftwareDev({ scrollRef }) {
               desktopImages={[
                 {
                   src: Gen16, placeholder: Gen16Placeholder,
-                  alt: 'Unsolved maze that is 16 by 16 grid tiles. The maze generated in 0.0000 seconds.'
+                  alt: 'Unsolved maze that is 16 by 16 grid tiles. The maze generated in 0.0000 seconds.',
+                  ratio: 'ar-271-210'
                 },
                 {
                   src: Solved16, placeholder: Solved16Placeholder,
-                  alt: 'Solved 16 by 16 maze with the path highlighted. The maze was solved using DFS in 0.0000 seconds.'
+                  alt: 'Solved 16 by 16 maze with the path highlighted. The maze was solved using DFS in 0.0000 seconds.',
+                  ratio: 'ar-271-210'
                 },
                 {
                   src: Gen300, placeholder: Gen300Placeholder,
-                  alt: 'Unsolved maze that is 302 by 302 grid tiles. The maze generated in 0.0529 seconds.'
+                  alt: 'Unsolved maze that is 302 by 302 grid tiles. The maze generated in 0.0529 seconds.',
+                  ratio: 'ar-271-210'
                 },
                 {
                   src: Solved300, placeholder: Solved300Placeholder,
-                  alt: 'Solved 302 by 302 maze with the path highlighted. The maze was solved using BFS in 0.0120 seconds.'
+                  alt: 'Solved 302 by 302 maze with the path highlighted. The maze was solved using BFS in 0.0120 seconds.',
+                  ratio: 'ar-271-210'
                 },
                 {
                   src: Solved1000, placeholder: Solved1000Placeholder,
-                  alt: 'Solved 1000 by 1000 maze with the path highlighted. The maze was solved using DFS in 0.0466 seconds.'
+                  alt: 'Solved 1000 by 1000 maze with the path highlighted. The maze was solved using DFS in 0.0466 seconds.',
+                  ratio: 'ar-271-210'
                 }
               ]}
             />
@@ -139,15 +144,18 @@ export default function SoftwareDev({ scrollRef }) {
               desktopImages={[
                 {
                   src: AutoCompleteBlank, placeholder: AutoCompleteBlankPlaceholder,
-                  alt: 'Autocomplete Search program showing empty text field and search button.'
+                  alt: 'Autocomplete Search program showing empty text field and search button.',
+                  ratio: 'ar-74-43'
                 },
                 {
                   src: AutoComplete, placeholder: AutoCompletePlaceholder,
-                  alt: 'Autocomplete Search program with e a g in text field. Autocomplete options are displayed. Eager, eagerly, eagle, etc.'
+                  alt: 'Autocomplete Search program with e a g in text field. Autocomplete options are displayed. Eager, eagerly, eagle, etc.',
+                  ratio: 'ar-74-43'
                 },
                 {
                   src: AutoCompleteSearch, placeholder: AutoCompleteSearchPlaceholder,
-                  alt: 'Autocomplete Search program with "Eagle" in the text input. The definition is displayed under the search button.'
+                  alt: 'Autocomplete Search program with "Eagle" in the text input. The definition is displayed under the search button.',
+                  ratio: 'ar-74-43'
                 }
               ]}
             />

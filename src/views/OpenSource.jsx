@@ -71,11 +71,13 @@ export default function OpenSource({ scrollRef }) {
               desktopImages={[
                 {
                   src: FlutterCommit, placeholder: FlutterCommitPlaceholder,
-                  alt: 'My merged pull request: Added Cupertino Date Picker month year mode.'
+                  alt: 'My merged pull request: Added Cupertino Date Picker month year mode.',
+                  ratio: 'ar-542-305'
                 },
                 {
                   src: FlutterDesignDiscussion, placeholder: FlutterDesignDiscussionPlaceholder,
-                  alt: 'Cupertino Date Picker Refactor pubilc document.'
+                  alt: 'Cupertino Date Picker Refactor pubilc document.',
+                  ratio: 'ar-542-305'
                 }
               ]}
             />
