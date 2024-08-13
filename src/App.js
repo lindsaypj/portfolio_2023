@@ -12,7 +12,6 @@ import Foorter from './components/Footer';
 import Games from './views/Games';
 import Learning from './views/Learning';
 import Portfolio from './views/Portfolio';
-import SudokuGame from './views/SudokuGame';
 import Terminal from './components/Terminal';
 import TopNav from './components/TopNav';
 
