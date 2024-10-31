@@ -4,7 +4,7 @@ import TypingText from '../components/TypingText';
 import SudokuGame from './SudokuGame';
 import MazeGame from '../components/maze/MazeGame';
 
-export default function Games({ currentRoute, headingTypedCallback, shouldScroll, setShouldScrollToRoute }) {
+export default function Games({ currentRoute, typedCallback, shouldScroll, setShouldScrollToRoute }) {
 
   ////    INITIALIZATION    ////
 
@@ -51,7 +51,7 @@ export default function Games({ currentRoute, headingTypedCallback, shouldScroll
       <Row>
         <Col xs={12} className='p-0'>
           <h1 className='route-header padding-margins bg-black'>
-            <TypingText text='/games' doneTypingCallback={headingTypedCallback} />
+            <TypingText text='/games' doneTypingCallback={typedCallback} />
           </h1>
         </Col>
       </Row>

@@ -80,8 +80,13 @@
 @media screen and (min-width: 1200px) {
   .about-me__title {
     position: absolute;
-    top: 45.5vh;
+    top: 40vh;
   }
+}
+
+.about-me__title h2 {
+  font-weight: 500;
+  font-size: clamp(28px, calc(35px + 1vw), 4vw);
 }
 
 .about-me__title h3 {

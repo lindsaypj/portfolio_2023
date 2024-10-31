@@ -60,17 +60,6 @@
   overflow-wrap: break-word;
 }
 
-/* Hero styling */
-/* Hero mode is used to place terminal */
-
-@media (prefers-reduced-motion: no-preference) {
-  .command-line, .command-line-text, .command-line input {
-    transition: top 0.4s ease-in, font-size 0.4s ease-in, padding 0.4s ease-in;
-  }
-  .terminal-arrow {
-    transition: font-size 0.4s ease-in, text-indent 0.4s ease-in;
-  }
-}
 
 .command-line {
   position: fixed;
@@ -79,19 +68,7 @@
   padding-left: clamp(0px, 4.5rem, calc(5vw - 0.5rem));
   line-height: 2.2rem;
 }
-.command-line-hero {
-  top: calc(44vh - 3rem) !important;
-  padding-left: calc(clamp(0px, 5rem, 5vw) - 0.5rem);
-}
-@media screen and (min-width: 768px) {
-  .command-line-hero {
-    padding-left: calc(clamp(0px, 10rem, 10vw) - 0.5rem);
-  }
-}
-.command-line-hero .command-line-text, .command-line-hero input {
-  font-weight: 500;
-  font-size: clamp(28px, calc(35px + 1vw), 4vw);
-}
+
 
 .terminal-arrow {
   font-size: calc(10px + 1vw);

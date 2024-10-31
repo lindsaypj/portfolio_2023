@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 
 import Cursor from "./Cursor";
-import TypingText from './TypingText';
 import RoutesPopover from "./RoutesPopover";
 
 import '../styles/Terminal.css';
@@ -12,7 +11,7 @@ import { PRIMARY_ROUTES } from "../resources/text/routes";
 
 const routeTree = new RouteTree();
 
-export default function Terminal({ navChangeCallback, currentRoute, shouldTypePrefix, heroMode }) {
+export default function Terminal({ navChangeCallback, currentRoute, shouldTypePrefix }) {
   const MAX_CHAR_COUNT = routeTree.getMaxRouteLength();
 
   const terminal = useRef();
@@ -21,23 +20,10 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
   const cursor = useRef();
 
   const [terminalText, setTerminalText] = useState(currentRoute);
-  const [abbriviatePrefix, setAbbriviatePrefix] = useState(true);
   const [partialRoutes, setPartialRoutes] = useState(routeTree.getRoutes(currentRoute));
   const [validPath, setValidPath] = useState(false);
   const [terminalHasFocus, setTerminalHasFocus] = useState(false);
 
-
-  // Handle heroMode transitions
-  useEffect(() => {
-    if (heroMode && terminalText.length === 0) {
-      commandLine.current.classList.add('command-line-hero');
-      setAbbriviatePrefix(false);
-    }
-    else {
-      commandLine.current.classList.remove('command-line-hero');
-      setAbbriviatePrefix(true);
-    }
-  }, [heroMode, terminalText]);
 
   const updateCursorPos = (nextCursorPos) => {
     cursor.current.style.marginLeft = -(terminal.current.value.length - nextCursorPos) + 'ch';
@@ -81,7 +67,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
 
   // Handle initial terminal focus
   useEffect(() => {
-    if (shouldTypePrefix && heroMode) {
+    if (shouldTypePrefix) {
       setFocus();
     }
     // eslint-disable-next-line
@@ -169,9 +155,6 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
 
 
   // RENDERING 
-  const getTerminalPrefix = useCallback(() => {
-    return abbriviatePrefix ? 'pl' : 'patrick_lindsay';
-  }, [abbriviatePrefix]);
 
   return (
     <div
@@ -190,16 +173,8 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
           className="p-0 m-0 terminal-ignore-blur terminal-click"
           onClick={handleClickTerminal}
         >
-          {/* Command Prefix: patrick_lindsay | pl */}
-          <span className='command-prefix terminal-ignore-blur command-line-text'>
-            <TypingText
-              text={getTerminalPrefix()}
-              charInterval={50}
-              shouldType={shouldTypePrefix}
-              skipInitAnimation={!heroMode}
-              fillUnrenderedSpace={false}
-            />
-          </span>
+          {/* Command Prefix: pl */}
+          <span className='command-prefix terminal-ignore-blur command-line-text'>pl</span>
 
           {/* Autocomplete menu */}
           <RoutesPopover

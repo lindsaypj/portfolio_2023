@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from "react";
-import useScrollPos from '../hooks/useScrollPos';
+import React, { useEffect, useRef, useState } from "react";
 
 import TypingText from '../components/TypingText';
 import AsciiPortrait from '../components/ascii-portrait';
@@ -11,12 +10,12 @@ import { aboutMeSkills } from "../resources/text/skills";
 import GitHubLogo from "../resources/logos/GitHubLogo";
 import LinkedInLogo from "../resources/logos/LinkedInLogo";
 
-export default function AboutMe({ headingTypedCallback, setTerminalHero, headingTyped, mobileMode }) {
+export default function AboutMe({ typedCallback, mobileMode }) {
 
   ////    INITIALIZATION    ////
 
   const textSection = useRef();
-  const scrollPos = useScrollPos();
+  const [headerTyped, setHeaderTyped] = useState(false);
 
 
   ////    STATE MANAGMENT    ////
@@ -37,23 +36,8 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero, heading
     return () => {
       textObserver.unobserve(textSelectionInstance);
       textObserver.disconnect();
-      setTerminalHero(false);
     }
-  }, [setTerminalHero]);
-
-  // Handle hero mode
-  useEffect(() => {
-    if (scrollPos > 0) {
-      setTerminalHero(false);
-    }
-    else {
-      setTerminalHero(true);
-    }
-
-    return () => { // On unmount
-      setTerminalHero(false);
-    }
-  }, [scrollPos, setTerminalHero]);
+  }, []);
 
 
   ////    RENDERING    ////
@@ -69,13 +53,27 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero, heading
       <Row className='hero-row'>
         <Col className="p-0">
         
-          <AsciiPortrait visible={headingTyped} mobileMode={mobileMode} />
+          <AsciiPortrait visible={headerTyped} mobileMode={mobileMode} />
 
           <h1 className='about-me__header route-header padding-margins bg-gradient-down'>
-            <TypingText text="/about_me" doneTypingCallback={headingTypedCallback} />
+            <TypingText
+              text="/about_me"
+              doneTypingCallback={() => { setHeaderTyped(true) }}
+              useCursor
+            />
           </h1>
           
           <div className='about-me__title padding-margins'>
+            <h2>
+              <TypingText
+                text={'Patrick Lindsay'}
+                charInterval={50}
+                shouldType={headerTyped}
+                doneTypingCallback={typedCallback}
+                fillUnrenderedSpace={false}
+                useCursor
+              />
+            </h2>
             <h3>
               Software Engineer
             </h3>

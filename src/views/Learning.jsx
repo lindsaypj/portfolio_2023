@@ -7,7 +7,7 @@ import { LEARNING_TOPICS, LEARNING_CONTENT } from '../resources/text/learning';
 import '../styles/Learning.css';
 
 
-export default function Learning({ headingTypedCallback, mobileMode, currentRoute, navChangeCallback, shouldScroll, setShouldScrollToRoute, selectedTopic = '', setSelectedTopic, accordionKey = '', setAccordionKey }) {
+export default function Learning({ typedCallback, mobileMode, currentRoute, navChangeCallback, shouldScroll, setShouldScrollToRoute, selectedTopic = '', setSelectedTopic, accordionKey = '', setAccordionKey }) {
 
   ////    INITIALIZATION    ////
   
@@ -70,7 +70,7 @@ export default function Learning({ headingTypedCallback, mobileMode, currentRout
       <Row>
         <Col xs={12} className='p-0'>
           <h1 className='route-header padding-margins bg-black'>
-            <TypingText text="/learning" doneTypingCallback={headingTypedCallback} />
+            <TypingText text="/learning" doneTypingCallback={typedCallback} />
           </h1>
         </Col>
       </Row>

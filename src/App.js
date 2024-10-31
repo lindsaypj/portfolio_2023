@@ -32,8 +32,7 @@ function App() {
   }
 
   const [page, setPage] = useState(currentPage);
-  const [headingTyped, setHeadingTyped] = useState(currentPage !== '/about_me' && currentPage !== '');
-  const [terminalHero, setTerminalHero] = useState(false);
+  const [typingComplete, setTypingComplete] = useState(currentPage !== '/about_me' && currentPage !== '');
   const [mobileMode, setMobileMode] = useState(false);
   const [shouldScrollToRoute, setShouldScrollToRoute] = useState(SCROLLABLE_ROUTES.includes(currentPage));
 
@@ -51,7 +50,7 @@ function App() {
   // Handle dynamic titles on page load
   useEffect(() => {
     if (currentPage !== '/about_me' && currentPage !== '') {
-      setHeadingTyped(true);
+      setTypingComplete(true);
     }
   }, [currentPage]);
 
@@ -64,8 +63,8 @@ function App() {
     }
   }, [windowWidth]);
 
-  const headingTypedCallback = useCallback(() => {
-    setHeadingTyped(true);
+  const typedCallback = useCallback(() => {
+    setTypingComplete(true);
   }, []);
 
   const navChangeCallback = (newPage) => {
@@ -94,7 +93,7 @@ function App() {
         return (
           <Games
             currentRoute={page}
-            headingTypedCallback={headingTypedCallback}
+            typedCallback={typedCallback}
             shouldScroll={shouldScrollToRoute && GAMES_SECTIONS.includes(page)}
             setShouldScrollToRoute={setShouldScrollToRoute}
           />
@@ -102,7 +101,7 @@ function App() {
       case '/learning':
         return (
           <Learning
-            headingTypedCallback={headingTypedCallback}
+            typedCallback={typedCallback}
             mobileMode={mobileMode}
             currentRoute={page}
             navChangeCallback={navChangeCallback}
@@ -115,9 +114,8 @@ function App() {
         return (
           <>
           <AboutMe
-            headingTypedCallback={headingTypedCallback}
-            setTerminalHero={setTerminalHero}
-            headingTyped={headingTyped}
+            typedCallback={typedCallback}
+            typingComplete={typingComplete}
             mobileMode={mobileMode}
           />
           <Portfolio
@@ -125,12 +123,12 @@ function App() {
             page={page}
             setShouldScrollToRoute={setShouldScrollToRoute}
             mobileMode={mobileMode}
-            headingTypedCallback={headingTypedCallback}
+            typedCallback={typedCallback}
           />
           </>
         );
     }
-  }, [page, headingTypedCallback, headingTyped, mobileMode, shouldScrollToRoute, accordionControls]);
+  }, [page, typedCallback, typingComplete, mobileMode, shouldScrollToRoute, accordionControls]);
 
   return (
     <div className='App app-dark'>
@@ -153,8 +151,7 @@ function App() {
           <Terminal
             navChangeCallback={navChangeCallback}
             currentRoute={page}
-            shouldTypePrefix={headingTyped}
-            heroMode={terminalHero}
+            shouldTypePrefix={typingComplete}
           />
         </div>
       </div>
