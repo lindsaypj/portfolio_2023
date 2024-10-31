@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import Cursor from "./Cursor";
 
 export default function TypingText({
   text,                          // Text to be rendered
@@ -6,10 +7,12 @@ export default function TypingText({
   shouldType = true,             // Boolean to determine when to start typing
   doneTypingCallback = () => {}, // Callback triggered when all chars rendered/typed
   skipInitAnimation = false,     // Flag to render text immediatly without animating
-  fillUnrenderedSpace = true     // Flag to make unrendered text take up the same space as when rendered
+  fillUnrenderedSpace = true,    // Flag to make unrendered text take up the same space as when rendered
+  useCursor = false              // Flag to render cursor when typing
 }) {
   const [renderedText, setRenderedText] = useState(" ");
   const [hiddenText, setHiddenText] = useState(text);
+  const [cursorClass, setCursorClass] = useState("d-none");
     
   useEffect(() => {
     if (shouldType) {
@@ -17,6 +20,12 @@ export default function TypingText({
         if (text === renderedText) {
           doneTypingCallback();
           clearInterval(interval);
+          setCursorClass("d-none");
+        }
+
+        // Show cursor if applicable
+        if (useCursor) {
+          setCursorClass("");
         }
 
         // Determine type direction (add or delete)
@@ -29,6 +38,7 @@ export default function TypingText({
         }
         else {
           setRenderedText(text);
+          setCursorClass("d-none");
         }
       }, charInterval);
       return () => clearInterval(interval);      
@@ -40,10 +50,10 @@ export default function TypingText({
     return <>{text}</>
   }
   else if (!fillUnrenderedSpace) {
-    return <>{renderedText}</>
+    return <>{renderedText}<Cursor className={cursorClass} /></>
   }
 
   return (
-    <>{renderedText}<span className="hidden">{hiddenText}</span></>
+    <>{renderedText}<Cursor className={cursorClass} /><span className="hidden">{hiddenText}</span></>
   )
 }
