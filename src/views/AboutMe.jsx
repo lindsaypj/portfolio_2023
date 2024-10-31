@@ -105,18 +105,13 @@ export default function AboutMe({ headingTypedCallback, setTerminalHero, heading
           <div className='about-me__bio padding-margins pe-xl-0'>
             <div ref={textSection}>
               <p>
-                I just received my Bachelor of Applied Science in Software Development,
-                but I am more eager than ever to keep learning.
+                I have a Bachelor of Applied Science in Software Development and
+                I am more eager than ever to keep learning.
               </p>
               <p>
                 I quickly adopt new skills and software. I am confident with Full-stack web
                 development, database management, and object oriented programming. I love 
-                pushing the limits of what I know.
-              </p>
-              <p>
-                My interests extend beyond software development to automotive and rock climbing.
-                One exciting achievement that still inspires me to this day was converting my car
-                from using an automatic transmission to using a manual transmission.
+                pushing the limits of what I believe to be possible.
               </p>
               <p>
                 I am confident I can adapt to any technology, however I am currently comfortable
