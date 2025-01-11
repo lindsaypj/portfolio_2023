@@ -17,7 +17,7 @@ import PhotographyNavImg from '../resources/images/PortfolioNav/PhotographyNavIm
 import Automotive from './Automotive';
 import Photography from './Photography';
 
-export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, typedCallback, mobileMode }) {
+export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, mobileMode }) {
   const portfolioRef = useRef();
   const webDevRef = useRef();
   const softwareDevRef= useRef();
@@ -90,7 +90,7 @@ export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, 
           <Row>
             <Col className='p-0 col-12'>
               <h1 className='portfolio-header padding-margins mb-4'>
-                <TypingText text='/portfolio' doneTypingCallback={typedCallback} />
+                <TypingText text='/portfolio' />
               </h1>
             </Col>
           </Row>

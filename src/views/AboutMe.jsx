@@ -10,7 +10,7 @@ import { aboutMeSkills } from "../resources/text/skills";
 import GitHubLogo from "../resources/logos/GitHubLogo";
 import LinkedInLogo from "../resources/logos/LinkedInLogo";
 
-export default function AboutMe({ typedCallback, mobileMode }) {
+export default function AboutMe({ mobileMode }) {
 
   ////    INITIALIZATION    ////
 
@@ -69,7 +69,6 @@ export default function AboutMe({ typedCallback, mobileMode }) {
                 text={'Patrick Lindsay'}
                 charInterval={50}
                 shouldType={headerTyped}
-                doneTypingCallback={typedCallback}
                 fillUnrenderedSpace={false}
                 useCursor
               />

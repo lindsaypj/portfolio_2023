@@ -32,7 +32,6 @@ function App() {
   }
 
   const [page, setPage] = useState(currentPage);
-  const [typingComplete, setTypingComplete] = useState(currentPage !== '/about_me' && currentPage !== '');
   const [mobileMode, setMobileMode] = useState(false);
   const [shouldScrollToRoute, setShouldScrollToRoute] = useState(SCROLLABLE_ROUTES.includes(currentPage));
 
@@ -47,12 +46,6 @@ function App() {
     }
   ), [selectedTopic, accordionKey]);
 
-  // Handle dynamic titles on page load
-  useEffect(() => {
-    if (currentPage !== '/about_me' && currentPage !== '') {
-      setTypingComplete(true);
-    }
-  }, [currentPage]);
 
   // Check for mobile aspect ratio on width change
   useEffect(() => {
@@ -62,10 +55,6 @@ function App() {
       setMobileMode(true);
     }
   }, [windowWidth]);
-
-  const typedCallback = useCallback(() => {
-    setTypingComplete(true);
-  }, []);
 
   const navChangeCallback = (newPage) => {
     // Update page/session state
@@ -93,7 +82,6 @@ function App() {
         return (
           <Games
             currentRoute={page}
-            typedCallback={typedCallback}
             shouldScroll={shouldScrollToRoute && GAMES_SECTIONS.includes(page)}
             setShouldScrollToRoute={setShouldScrollToRoute}
           />
@@ -101,7 +89,6 @@ function App() {
       case '/learning':
         return (
           <Learning
-            typedCallback={typedCallback}
             mobileMode={mobileMode}
             currentRoute={page}
             navChangeCallback={navChangeCallback}
@@ -114,8 +101,6 @@ function App() {
         return (
           <>
           <AboutMe
-            typedCallback={typedCallback}
-            typingComplete={typingComplete}
             mobileMode={mobileMode}
           />
           <Portfolio
@@ -123,12 +108,11 @@ function App() {
             page={page}
             setShouldScrollToRoute={setShouldScrollToRoute}
             mobileMode={mobileMode}
-            typedCallback={typedCallback}
           />
           </>
         );
     }
-  }, [page, typedCallback, typingComplete, mobileMode, shouldScrollToRoute, accordionControls]);
+  }, [page, mobileMode, shouldScrollToRoute, accordionControls]);
 
   return (
     <div className='App app-dark'>
@@ -151,7 +135,6 @@ function App() {
           <Terminal
             navChangeCallback={navChangeCallback}
             currentRoute={page}
-            shouldTypePrefix={typingComplete}
           />
         </div>
       </div>

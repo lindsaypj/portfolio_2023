@@ -11,7 +11,7 @@ import { PRIMARY_ROUTES } from "../resources/text/routes";
 
 const routeTree = new RouteTree();
 
-export default function Terminal({ navChangeCallback, currentRoute, shouldTypePrefix }) {
+export default function Terminal({ navChangeCallback, currentRoute }) {
   const MAX_CHAR_COUNT = routeTree.getMaxRouteLength();
 
   const terminal = useRef();
@@ -64,7 +64,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
       setTerminalHasFocus(false);
     }
   }, [currentRoute, setFocus, updateAutocomplete]);
-  
+
 
   // EVENT HANDLERS
 
@@ -165,8 +165,6 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
           className="p-0 m-0 terminal-ignore-blur terminal-click"
           onClick={handleClickTerminal}
         >
-          {/* Command Prefix: pl */}
-          <span className='command-prefix terminal-ignore-blur command-line-text'>pl</span>
 
           {/* Autocomplete menu */}
           <RoutesPopover
