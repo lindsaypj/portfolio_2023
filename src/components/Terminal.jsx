@@ -64,15 +64,7 @@ export default function Terminal({ navChangeCallback, currentRoute, shouldTypePr
       setTerminalHasFocus(false);
     }
   }, [currentRoute, setFocus, updateAutocomplete]);
-
-  // Handle initial terminal focus
-  useEffect(() => {
-    if (shouldTypePrefix) {
-      setFocus();
-    }
-    // eslint-disable-next-line
-  }, [shouldTypePrefix, setFocus]);
-
+  
 
   // EVENT HANDLERS
 
