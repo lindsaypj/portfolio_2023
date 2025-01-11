@@ -25,7 +25,6 @@
   padding-bottom: 1rem;
   flex-direction: column;
   justify-content: center;
-  width: clamp(35vw, 50rem, 100%);
   height: 100%;
   font-size: 1.2rem;
   line-height: 1.8;
@@ -41,6 +40,7 @@
 
 .about-me__details {
   display: flex;
+  margin: auto;
   padding-top: 0rem;
   padding-bottom: 3rem;
   flex-direction: column;

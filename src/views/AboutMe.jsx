@@ -106,11 +106,6 @@ export default function AboutMe({ mobileMode }) {
                 I am more eager than ever to keep learning.
               </p>
               <p>
-                I quickly adopt new skills and software. I am confident with Full-stack web
-                development, database management, and object oriented programming. I love 
-                pushing the limits of what I believe to be possible.
-              </p>
-              <p>
                 I am confident I can adapt to any technology, however I am currently comfortable
                 with agile development and the following tools and languages:
               </p>
