@@ -34,8 +34,8 @@ export default function OpenSource({ scrollRef }) {
                 visibleParagraph={
                   <p>
                     During my coursework, I had the opportunity to learn about contributing to
-                    open source projects. As a team of 4, we were paired with mentor who works at Google
-                    on the Flutter Framework. <a href="https://flutter.dev/" target='_blank' rel='noreferrer'>Flutter</a> is a cross platform app development framework that
+                    open source projects. We were paired with mentor from Google who works
+                    on the Flutter Framework. <a href="https://flutter.dev/" target='_blank' rel='noreferrer'>Flutter</a> is a cross-platform app development framework that
                     allows you to create one app for all the major platforms. Flutter uses
                     the <a href="https://dart.dev/" target='_blank' rel='noreferrer'>Dart</a> programming
                     language, which we had to learn.
@@ -43,16 +43,15 @@ export default function OpenSource({ scrollRef }) {
                 }
                 truncatedParagraphs={
                   <><p>
-                    After getting our environments set up, reading all the documentation, and learning
-                    about Dart, we started working on open issues. The issue I took on was a <a href="https://github.com/flutter/flutter/issues/93508" target='_blank' rel='noreferrer'>feature request</a> for
+                    The issue I took on was a <a href="https://github.com/flutter/flutter/issues/93508" target='_blank' rel='noreferrer'>feature request</a> for
                     a month/year mode to the  Cupertino (Apple's
                     design system) Date Picker. I got to dive deep into the functionality and testing
-                    pipelines that exist for the Date Picker and add in the new mode with its own tests.
-                    I created a <a href="https://github.com/flutter/flutter/pull/125603" target='_blank' rel='noreferrer'>PR</a>,
-                    recieved feedback, and ultimatly the changes merged!
+                    pipelines that exist for the Date Picker. I added in the new mode with its own tests.
+                    I created a <a href="https://github.com/flutter/flutter/pull/125603" target='_blank' rel='noreferrer'>Pull Request</a>,
+                    recieved some feedback. Eventually, the changes merged!
                   </p>
                   <p>
-                    Finally, as a group we started a <a href="https://docs.google.com/document/d/1Ib5ztLzc19e1Uggz16BFlrJMg1TOdYLyP-WqtTpDltM/edit?resourcekey=0-11oVmOsTHLD5fqxdAHZqNg#heading=h.pub7jnop54q0#enable-force-dark" target='_blank' rel='noreferrer'>design discussion</a> to
+                    I also joined a group of peers in starting a <a href="https://docs.google.com/document/d/1Ib5ztLzc19e1Uggz16BFlrJMg1TOdYLyP-WqtTpDltM/edit?resourcekey=0-11oVmOsTHLD5fqxdAHZqNg#heading=h.pub7jnop54q0#enable-force-dark" target='_blank' rel='noreferrer'>design discussion</a> to
                     resolve some conflicting issues regarding the Date Picker's functionality and how
                     it differs from the Native IOS functionallity. Our mentor presented our findings
                     during a meeting with other Googlers for feedback.
