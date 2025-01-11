@@ -2,20 +2,20 @@ import './styles/App.css';
 import SESSION_KEYS, { loadSessionPageData, saveSessionValue } from './scripts/sessionInterface';
 import { getPrimaryRoute } from './scripts/utils';
 import scrollToTop from './scripts/scrollToTop';
-import { getInitialAccordionState } from './scripts/init';
+// import { getInitialAccordionState } from './scripts/init';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import useWindowWidth from './hooks/useWindowWidth';
 
 import AboutMe from './views/AboutMe';
 import Foorter from './components/Footer';
 import Games from './views/Games';
-import Learning from './views/Learning';
+// import Learning from './views/Learning';
 import Portfolio from './views/Portfolio';
 import Terminal from './components/Terminal';
 import TopNav from './components/TopNav';
 
-import { GAMES_SECTIONS, LEARNING_SECTIONS, PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
+import { GAMES_SECTIONS, PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
 
 
 // CONSTANTS
@@ -26,25 +26,25 @@ function App() {
 
   const { currentPage } = loadSessionPageData();
 
-  let initialTopic, initialAccordionKey;
-  if (getPrimaryRoute(currentPage) === '/learning') {
-    [initialTopic, initialAccordionKey] = getInitialAccordionState(currentPage);
-  }
+  // let initialTopic, initialAccordionKey;
+  // if (getPrimaryRoute(currentPage) === '/learning') {
+  //   [initialTopic, initialAccordionKey] = getInitialAccordionState(currentPage);
+  // }
 
   const [page, setPage] = useState(currentPage);
   const [mobileMode, setMobileMode] = useState(false);
   const [shouldScrollToRoute, setShouldScrollToRoute] = useState(SCROLLABLE_ROUTES.includes(currentPage));
 
-  const [selectedTopic, setSelectedTopic] = useState(initialTopic);
-  const [accordionKey, setAccordionKey] = useState(initialAccordionKey);
-  const accordionControls = useMemo(() => (
-    {
-      selectedTopic: selectedTopic,
-      setSelectedTopic: setSelectedTopic,
-      accordionKey: accordionKey,
-      setAccordionKey: setAccordionKey
-    }
-  ), [selectedTopic, accordionKey]);
+  // const [selectedTopic, setSelectedTopic] = useState(initialTopic);
+  // const [accordionKey, setAccordionKey] = useState(initialAccordionKey);
+  // const accordionControls = useMemo(() => (
+  //   {
+  //     selectedTopic: selectedTopic,
+  //     setSelectedTopic: setSelectedTopic,
+  //     accordionKey: accordionKey,
+  //     setAccordionKey: setAccordionKey
+  //   }
+  // ), [selectedTopic, accordionKey]);
 
 
   // Check for mobile aspect ratio on width change
@@ -86,17 +86,17 @@ function App() {
             setShouldScrollToRoute={setShouldScrollToRoute}
           />
         );
-      case '/learning':
-        return (
-          <Learning
-            mobileMode={mobileMode}
-            currentRoute={page}
-            navChangeCallback={navChangeCallback}
-            shouldScroll={shouldScrollToRoute && LEARNING_SECTIONS.includes(page)}
-            setShouldScrollToRoute={setShouldScrollToRoute}
-            {...accordionControls}
-          />
-        );
+      // case '/learning':
+      //   return (
+      //     <Learning
+      //       mobileMode={mobileMode}
+      //       currentRoute={page}
+      //       navChangeCallback={navChangeCallback}
+      //       shouldScroll={shouldScrollToRoute && LEARNING_SECTIONS.includes(page)}
+      //       setShouldScrollToRoute={setShouldScrollToRoute}
+      //       {...accordionControls}
+      //     />
+      //   );
       default:
         return (
           <>
@@ -112,7 +112,7 @@ function App() {
           </>
         );
     }
-  }, [page, mobileMode, shouldScrollToRoute, accordionControls]);
+  }, [page, mobileMode, shouldScrollToRoute]);
 
   return (
     <div className='App app-dark'>
@@ -121,7 +121,7 @@ function App() {
           navChangeCallback={navChangeCallback}
           mobileMode={mobileMode}
           currentPage={page}
-          {...accordionControls}
+          // {...accordionControls}
         />
       </header>
 

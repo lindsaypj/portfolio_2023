@@ -113,9 +113,9 @@ export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, 
 
       <WebDev scrollRef={webDevRef} mobileMode={mobileMode} />
 
-      <SoftwareDev scrollRef={softwareDevRef} />
-
       <OpenSource scrollRef={openSourceRef} />
+
+      <SoftwareDev scrollRef={softwareDevRef} />
 
       <Automotive scrollRef={automotiveRef} />
 

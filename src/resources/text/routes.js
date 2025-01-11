@@ -2,11 +2,11 @@
 export const PRIMARY_ROUTES = [
   '/about_me',
   '/games',
-  '/learning',
+  // '/learning',
   '/portfolio',
 ];
 
-export const TOP_NAV_ROUTES = ['/portfolio', '/games', '/learning'];
+export const TOP_NAV_ROUTES = ['/portfolio', '/games']; // '/learning'
 
 // These routes will be brought into focus on page load if active
 export const SCROLLABLE_ROUTES = [
@@ -38,28 +38,28 @@ export const GAMES_SECTIONS = [
 ];
 
 export const LEARNING_SECTIONS = [
-  '/learning',
-  '/learning/ArrayList',
-  '/learning/Graph',
-  '/learning/HashMap',
-  '/learning/HashSet',
-  '/learning/Heap',
-  '/learning/LinkedList',
-  '/learning/TreeMap',
-  '/learning/TreeSet',
-  '/learning/Stack',
-  '/learning/Queue',
-  '/learning/BellmanFord',
-  '/learning/BinarySearch',
-  '/learning/BreadthFirstSearch',
-  '/learning/DepthFirstSearch',
-  '/learning/Dijkstra',
-  '/learning/FloodFill',
-  '/learning/HeapSort',
-  '/learning/HuffmanCoding',
-  '/learning/MergeSort',
-  '/learning/QuickSort',
-  '/learning/UnionFind',
+  // '/learning',
+  // '/learning/ArrayList',
+  // '/learning/Graph',
+  // '/learning/HashMap',
+  // '/learning/HashSet',
+  // '/learning/Heap',
+  // '/learning/LinkedList',
+  // '/learning/TreeMap',
+  // '/learning/TreeSet',
+  // '/learning/Stack',
+  // '/learning/Queue',
+  // '/learning/BellmanFord',
+  // '/learning/BinarySearch',
+  // '/learning/BreadthFirstSearch',
+  // '/learning/DepthFirstSearch',
+  // '/learning/Dijkstra',
+  // '/learning/FloodFill',
+  // '/learning/HeapSort',
+  // '/learning/HuffmanCoding',
+  // '/learning/MergeSort',
+  // '/learning/QuickSort',
+  // '/learning/UnionFind',
 ];
 
 // Paths are like navigation, and will change pages and scroll to section
