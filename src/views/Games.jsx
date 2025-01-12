@@ -4,6 +4,8 @@ import TypingText from '../components/TypingText';
 import SudokuGame from './SudokuGame';
 import MazeGame from '../components/maze/MazeGame';
 
+import '../styles/Games.css';
+
 export default function Games({ currentRoute, shouldScroll, setShouldScrollToRoute }) {
 
   ////    INITIALIZATION    ////
@@ -45,7 +47,7 @@ export default function Games({ currentRoute, shouldScroll, setShouldScrollToRou
   ////    RENDERING    ////
 
   return (
-    <Container fluid className='learning-container'>
+    <Container fluid className='games-container'>
 
       {/* Header */}
       <Row>
