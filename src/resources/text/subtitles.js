@@ -3,8 +3,10 @@ export const aboutMeTitles = [
   'Mechanic',
   'Web Developer',
   'Photographer',
-  'Game Developer',
+  'Backend Engineer',
   'Graphic Designer',
-  'Frontend Engineer',
+  'Game Developer',
   'Rock Climber',
+  'Frontend Engineer',
+  'Artist',
 ];
