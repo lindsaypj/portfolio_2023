@@ -1,21 +1,40 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useReducer, useRef } from "react";
 
 import TypingText from '../components/TypingText';
 import AsciiPortrait from '../components/ascii-portrait';
+import RevolvingTypingText from "../components/RevolvingTypingText";
 import { Badge, Col, Container, Row } from "react-bootstrap";
 
 import '../styles/AboutMe.css';
 import GRCLogo from '../resources/logos/GRCLogo';
-import { aboutMeSkills } from "../resources/text/skills";
-import GitHubLogo from "../resources/logos/GitHubLogo";
-import LinkedInLogo from "../resources/logos/LinkedInLogo";
+import { aboutMeSkills } from '../resources/text/skills';
+import { aboutMeTitles } from '../resources/text/subtitles';
+import GitHubLogo from '../resources/logos/GitHubLogo';
+import LinkedInLogo from '../resources/logos/LinkedInLogo';
+
+
+function typedReducer(state, action) {
+  const nextState = {...state}
+  switch(action.text) {
+    case 'header':
+      nextState.header = action.typed
+      break;
+    case 'name':
+      nextState.name = action.typed
+      break;
+    default:
+      return state
+  }
+  return nextState
+}
+
 
 export default function AboutMe({ mobileMode }) {
 
   ////    INITIALIZATION    ////
 
   const textSection = useRef();
-  const [headerTyped, setHeaderTyped] = useState(false);
+  const [headersTyped, setHeadersTyped] = useReducer(typedReducer, {header: false, name: false});
 
 
   ////    STATE MANAGMENT    ////
@@ -53,12 +72,12 @@ export default function AboutMe({ mobileMode }) {
       <Row className='hero-row'>
         <Col className="p-0">
         
-          <AsciiPortrait visible={headerTyped} mobileMode={mobileMode} />
+          <AsciiPortrait visible={headersTyped.header} mobileMode={mobileMode} />
 
           <h1 className='about-me__header route-header padding-margins bg-gradient-down'>
             <TypingText
               text="/about_me"
-              doneTypingCallback={() => { setHeaderTyped(true) }}
+              doneTypingCallback={() => { setHeadersTyped({text: 'header', typed: true}) }}
               useCursor
             />
           </h1>
@@ -68,13 +87,19 @@ export default function AboutMe({ mobileMode }) {
               <TypingText
                 text={'Patrick Lindsay'}
                 charInterval={50}
-                shouldType={headerTyped}
+                shouldType={headersTyped.header}
+                doneTypingCallback={() => { setHeadersTyped({text: 'name', typed: true}) }}
                 fillUnrenderedSpace={false}
                 useCursor
               />
             </h2>
             <h3>
-              Software Engineer
+              <RevolvingTypingText
+                texts={aboutMeTitles}
+                wordInterval = {5000}
+                charInterval= {50}
+                shouldType={headersTyped.name}
+              />
             </h3>
             <a className='about-me__link me-2 me-md-3' href='https://github.com/lindsaypj' target='_blank' rel='noreferrer'>
               <div className='d-inline-block'>
