@@ -115,10 +115,10 @@ export default function Photography({ scrollRef }) {
         show={showPreview}
         onHide={closePreview}
       >
-        <Modal.Body className='p-0 bg-transparent'>
+        <Modal.Body className='p-0 bg-transparent no-overflow-x'>
           <button type='button' className='btn-close shadow' aria-label='Close' onClick={closePreview} />
           <img
-            className={'w-100 rounded shadow-lg' + getPreviewCursor()}
+            className={'zooming-img rounded shadow-lg' + getPreviewCursor()}
             src={previewImg.src}
             alt={previewImg.alt}
             onClick={() => setPreviewZoomed(!previewZoomed)}

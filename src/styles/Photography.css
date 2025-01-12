@@ -1,6 +1,11 @@
 .zoomed-out {
   max-width: fit-content;
-  max-height: 90vh;
+  height: 100vh;
+}
+
+.zooming-img {
+  width: calc(100vw - var(--scrollbar-width));
+  overflow: hidden;
 }
 
 .modal-content {
