@@ -17,6 +17,9 @@
 .card-title {
   font-size: 1rem;
   transition: font-size 0.5s;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 .hero-nav-col:hover .card-title {
   font-size: 1.2rem !important;
@@ -44,4 +47,9 @@
   .hero-nav-col:hover .card-title {
     font-size: 1.9rem !important;
   }
+}
+
+.hero-nav-img {
+  position: relative;
+  bottom: 1.5rem;
 }
