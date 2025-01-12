@@ -1,3 +1,5 @@
+import { getHighlightedFromIndex } from "../scripts/sudokuUtils.js";
+
 import React, { useState, useLayoutEffect, useReducer, useCallback } from "react";
 import Cell from "./Cell.jsx";
 
@@ -5,8 +7,9 @@ import '../styles/board.css';
 
 function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIndex, hideNums }) {
 
-  ////    BOARD STATE MANAGMENT    ////
+  ////    STATE INITIALIZATION    ////
 
+  const cellCount = size*size;
   const [cells, setCells] = useState([]);
   const [cellRows, setCellRows] = useReducer(() => {
     const rows = [];
@@ -19,10 +22,20 @@ function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIn
     }
     return rows;
   }, []);
-  const cellCount = size*size;
+
+  const [highlighted, setHighlighted] = useReducer((state, index) => {
+    return getHighlightedFromIndex(index, size)
+  }, new Set());
+
+
+  ////    STATE MANAGMENT    ////
+
+  const isHighlighted = useCallback((cellIndex) => {
+    return highlighted.has(cellIndex)
+  }, [highlighted])
 
   // Callback function to update the board when a cell is updated
-  function updateCellOnBoard(index, value) {
+  const updateCellOnBoard = (index, value) => {
     let valid = true;
     // Validate index
     if (isNaN(index) || index < 0 || index > cells.length) {
@@ -52,7 +65,7 @@ function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIn
   }
 
 
-  ////    BOARD INITIALIZATION    ////
+  ////    BOARD PRE-RENDERING    ////
 
   // Check if session data exists
   useLayoutEffect(() => {
@@ -75,6 +88,7 @@ function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIn
   // Generate Rows and cols to map through
   useLayoutEffect(() => {
     setCellRows();
+    setHighlighted();
   }, [size]);
 
   // Determine cell editability
@@ -105,6 +119,9 @@ function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIn
                 textVisibility={!(hideNums)}
                 boardIndex={boardIndex + cellIndex}
                 disabled={canEditCell(cellIndex)}
+                error={false}
+                onFocusCallback={setHighlighted}
+                highlighted={isHighlighted(cellIndex)}
               />
             );
           })}

@@ -185,6 +185,12 @@ input.cell:focus {
 .cell-bg-transparent {
   background-color: transparent!important;
 }
+.cell-bg-error {
+  background-color: rgba(254, 84, 84, 0.3)!important;
+}
+.cell-bg-highlighted {
+  background-color: rgba(255, 255, 255, 0.2)!important;
+}
 
 /* Cell Text Color */
 .cell-text-black {
