@@ -4,74 +4,40 @@ import { Col, Container, Row } from "react-bootstrap";
 import SudokuBoard from "../components/SudokuBoard";
 import TestConfigurator from "../components/TestConfigurator";
 
-import { SudokuGameData } from "../objects/SudokuGameData";
+import { Sudoku } from "../objects/SudokuGame";
 
 
 export default function SudokuGame() {
 
   ////    INITIALIZATION    ////
 
-  const savedSudokuGameData = new SudokuGameData();
-  const [sudokuGameData, setSudokuGameData] = useState(savedSudokuGameData);
+  const sudokuGame = new Sudoku()
 
-  const savedSize = savedSudokuGameData.size;
-  const savedInitialBoard = savedSudokuGameData.getSavedInitialBoard();
-  const savedBoard = savedSudokuGameData.getSavedBoard();
-  const savedHideNums = savedSudokuGameData.hideNums;
-
-  const [board, setBoard] = useState(savedBoard);
-  const [initialBoard, setInitialBoard] = useState(savedInitialBoard);
-  const [size, setSize] = useState(savedSize);
-  const [hideNums, setHideNums] = useState(savedHideNums);
+  const [board, setBoard] = useState(sudokuGame.getBoard());
+  const [initialBoard, setInitialBoard] = useState(sudokuGame.getInitBoard());
+  const [size, setSize] = useState(sudokuGame.getSize());
+  const [hideNums, setHideNums] = useState(sudokuGame.getHideNums());
 
 
   ////    STATE MANAGMENT    ////
 
-  const updateBoardBySize = ({ boardSize, nextBoard }) => {
-    const updatedGameData = sudokuGameData;
-    switch(boardSize) {
-      case 4:
-        updatedGameData.board4 = nextBoard;
-        break;
-      case 9:
-        updatedGameData.board9 = nextBoard;
-        break;
-      case 16:
-        updatedGameData.board16 = nextBoard;
-        break;
-      default:
-        console.log('Size ['+ boardSize +'] not recognized');
-    }
-    setSudokuGameData(updatedGameData);
-    updatedGameData.saveGameData();
-  }
-
   const handleBoardUpdate = (boardSize, nextBoard) => {
-    // Update Local State
     setBoard(nextBoard);
 
-    // Update GameData (local and session)
-    updateBoardBySize({boardSize, nextBoard});
+    // Update init and session data
+    sudokuGame.updateBoardBySize({boardSize, nextBoard});
   }
 
   const handleBoardSizeChange = (nextSize) => {
-    const updatedGameData = sudokuGameData;
-    updatedGameData.size = nextSize;
+    sudokuGame.changeSize(nextSize);
     setSize(nextSize);
-    setBoard(updatedGameData.getSavedBoard(nextSize));
-    setInitialBoard(updatedGameData.getSavedInitialBoard(nextSize));
-    
-    setSudokuGameData(updatedGameData);
-    updatedGameData.saveGameData();
+    setBoard(sudokuGame.getBoard());
+    setInitialBoard(sudokuGame.getInitBoard());
   }
 
   const handleHideNumsChange = (nextHideNums) => {
-    const updatedGameData = sudokuGameData;
-    updatedGameData.hideNums = nextHideNums;
+    sudokuGame.showHideNums(nextHideNums)
     setHideNums(nextHideNums);
-    
-    setSudokuGameData(updatedGameData);
-    updatedGameData.saveGameData();
   }
 
 
