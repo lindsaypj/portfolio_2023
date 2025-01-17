@@ -119,7 +119,6 @@ function Cell({
     if (event.key === 'Backspace' || event.key === 'Delete') {
       setInputValue(0);
     }
-    console.log('backspace')
   }, []);
 
   function onCellFocus(event) {
