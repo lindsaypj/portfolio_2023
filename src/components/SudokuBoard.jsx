@@ -5,7 +5,7 @@ import Cell from "./Cell.jsx";
 
 import '../styles/board.css';
 
-function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIndex, hideNums }) {
+function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIndex, hideNums, conflicts }) {
 
   ////    STATE INITIALIZATION    ////
 
@@ -34,33 +34,22 @@ function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIn
     return highlighted.has(cellIndex)
   }, [highlighted])
 
-  // Callback function to update the board when a cell is updated
+  // Callback to update the board when a cell is updated
   const updateCellOnBoard = (index, value) => {
     let valid = true;
-    // Validate index
     if (isNaN(index) || index < 0 || index > cells.length) {
       valid = false;
     }
-    // Validate value
     if (isNaN(value) || value < 0 || value > size) {
       valid = false;
     }
 
     // Update BoardState
     if (valid) {
-      // Update state
-      const updatedCells = cells.map((current, cellIndex) => {
-        if (cellIndex === index) {
-          // Set the updated value
-          return value;
-        } else {
-          // The rest haven't changed
-          return current;
-        }
-      });
-      setCells(updatedCells);
-      // Update GameData + session
-      handleBoardUpdate(size, updatedCells);
+      const updatedBoard = [...cells];
+      updatedBoard[index] = value;
+      setCells(updatedBoard);
+      handleBoardUpdate(size, updatedBoard, index);
     }
   }
 
@@ -119,7 +108,7 @@ function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIn
                 textVisibility={!(hideNums)}
                 boardIndex={boardIndex + cellIndex}
                 disabled={canEditCell(cellIndex)}
-                error={false}
+                error={conflicts.includes(cellIndex)}
                 onFocusCallback={setHighlighted}
                 highlighted={isHighlighted(cellIndex)}
               />

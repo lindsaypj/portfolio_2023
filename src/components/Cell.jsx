@@ -16,7 +16,7 @@ function Cell({
     boardIndex,
     textVisibility,
     disabled,
-    error = true,
+    error,
     onFocusCallback,
     highlighted
 }) {
@@ -105,7 +105,7 @@ function Cell({
   useLayoutEffect(() => {
     setCellBGColor();
     setCellTextColor();
-  }, [textVisibility, displayValue, highlighted]);
+  }, [textVisibility, displayValue, highlighted, error]);
 
   // Set Input pattern on size change
   useEffect(() => {

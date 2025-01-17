@@ -5,7 +5,7 @@ import HideNumBtn from "./HideNumBtn";
 import '../styles/testconfigurator.css';
 
 
-function TestConfigurator({ boardSize, setBoardSize, hideNums, setHideNums }) {
+function TestConfigurator({ boardSize, setBoardSize, hideNums, setHideNums, showConflicts, setShowConflicts }) {
   return (
     <div className="configurator-container mb-5">
       {/* HIDE/SHOW NUMBERS */}

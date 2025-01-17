@@ -17,15 +17,18 @@ export default function SudokuGame() {
   const [initialBoard, setInitialBoard] = useState(sudokuGame.getInitBoard());
   const [size, setSize] = useState(sudokuGame.getSize());
   const [hideNums, setHideNums] = useState(sudokuGame.getHideNums());
+  const [showConflicts, setShowConflicts] = useState(sudokuGame.getShowConflicts());
+  const [conflicts, setConflicts] = useState(sudokuGame.getConflicts());
 
 
   ////    STATE MANAGMENT    ////
 
-  const handleBoardUpdate = (boardSize, nextBoard) => {
-    setBoard(nextBoard);
-
+  const handleBoardUpdate = (boardSize, nextBoard, index) => {
     // Update init and session data
-    sudokuGame.updateBoardBySize({boardSize, nextBoard});
+    sudokuGame.updateBoardBySize({boardSize, nextBoard, index});
+
+    setBoard(nextBoard);
+    setConflicts(sudokuGame.getConflicts());
   }
 
   const handleBoardSizeChange = (nextSize) => {
@@ -33,11 +36,17 @@ export default function SudokuGame() {
     setSize(nextSize);
     setBoard(sudokuGame.getBoard());
     setInitialBoard(sudokuGame.getInitBoard());
+    setConflicts(sudokuGame.getConflicts());
   }
 
   const handleHideNumsChange = (nextHideNums) => {
-    sudokuGame.showHideNums(nextHideNums)
+    sudokuGame.showHideNums(nextHideNums);
     setHideNums(nextHideNums);
+  }
+
+  const handleShowConflictsChange = (shouldShowConflicts) => {
+    sudokuGame.showHideConflicts(shouldShowConflicts);
+    setShowConflicts(shouldShowConflicts);
   }
 
 
@@ -54,17 +63,19 @@ export default function SudokuGame() {
             handleBoardUpdate={handleBoardUpdate}
             boardIndex={10}
             hideNums={hideNums}
+            conflicts={conflicts}
           />
         </Col>
       </Row>
       <Row>
         <Col className='text-center p-0'>
           <TestConfigurator
-            numBoards={1}
             boardSize={size}
             setBoardSize={handleBoardSizeChange}
             hideNums={hideNums}
             setHideNums={handleHideNumsChange}
+            showConflicts={showConflicts}
+            setShowConflicts={handleShowConflictsChange}
           />
         </Col>
       </Row>

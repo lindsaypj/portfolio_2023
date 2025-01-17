@@ -45,6 +45,8 @@ export class SudokuGameData {
     if (savedGameData) {
       this.size = savedGameData.size;
       this.hideNums = savedGameData.hideNums;
+      this.showConflicts = savedGameData.showConflicts;
+      this.conflicts = savedGameData.conflicts;
       this.board4 = savedGameData.board4;
       this.board9 = savedGameData.board9;
       this.board16 = savedGameData.board16;
@@ -55,9 +57,11 @@ export class SudokuGameData {
     else {
       this.size = 4;
       this.hideNums = false;
-      this.board4 = [];
-      this.board9 = [];
-      this.board16 = [];
+      this.showConflicts = true;
+      this.conflicts = [];
+      this.board4 = EXAMPLE_4X4;
+      this.board9 = EXAMPLE_9X9;
+      this.board16 = EXAMPLE_16X16;
       this.initBoard4 = EXAMPLE_4X4;
       this.initBoard9 = EXAMPLE_9X9;
       this.initBoard16 = EXAMPLE_16X16;
