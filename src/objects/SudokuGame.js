@@ -40,13 +40,13 @@ export class Sudoku {
 
     this.showHideNums = (nextHideNums) => {
       this.gameData.hideNums = nextHideNums;
-      this.saveGameData();
+      this.gameData.saveGameData();
     }
 
     this.showHideConflicts = (shouldShowConflicts) => {
       this.gameData.showConflicts = shouldShowConflicts;
       this.updateConflicts();
-      this.saveGameData();
+      this.gameData.saveGameData();
     }
 
     this.updateBoardBySize = ({ boardSize, nextBoard, index }) => {
