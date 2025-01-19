@@ -2,7 +2,7 @@ import React from "react";
 import ShowNumBtn from "./ShowNumBtn";
 import HideNumBtn from "./HideNumBtn";
 
-import '../styles/testconfigurator.css';
+import '../../styles/testconfigurator.css';
 
 
 function TestConfigurator({ boardSize, setBoardSize, hideNums, setHideNums, showConflicts, setShowConflicts }) {

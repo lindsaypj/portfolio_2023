@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import '../styles/ShowNumBtn.css';
-import '../styles/HideNumBtn.css';
+import '../../styles/ShowNumBtn.css';
+import '../../styles/HideNumBtn.css';
 
 function HideNumBtn(props) {
     const [selected, setSelected] = useState(true);

@@ -2,26 +2,26 @@ import React, { useCallback, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Col, Row } from 'react-bootstrap';
 
-import '../styles/Photography.css'
+import '../../styles/Photography.css'
 
-import PhotoCard from '../components/PhotoCard';
+import PhotoCard from '../PhotoCard';
 
-import MothImg from '../resources/images/Photogrophy/moth.webp';
-import MothImgPlaceholder from '../resources/images/Photogrophy/placeholders/moth.webp';
-import SkylineImg from '../resources/images/Photogrophy/high-contrast-skyline.webp';
-import SkylineImgPlaceholder from '../resources/images/Photogrophy/placeholders/high-contrast-skyline.webp';
-import DandelionImg from '../resources/images/Photogrophy/dandelion.webp';
-import DandelionImgPlaceholder from '../resources/images/Photogrophy/placeholders/dandelion.webp';
-import OceanSkyImg from '../resources/images/Photogrophy/high-contrast-ocean-sky.webp';
-import OceanSkyImgPlaceholder from '../resources/images/Photogrophy/placeholders/high-contrast-ocean-sky.webp';
-import CandleImg from '../resources/images/Photogrophy/candle-vingette.webp';
-import CandleImgPlaceholder from '../resources/images/Photogrophy/placeholders/candle-vingette.webp';
-import FenceImg from '../resources/images/Photogrophy/white-fence.webp';
-import FenceImgPlaceholder from '../resources/images/Photogrophy/placeholders/white-fence.webp';
-import TreeImg from '../resources/images/Photogrophy/organic-tree-corrected.webp';
-import TreeImgPlaceholder from '../resources/images/Photogrophy/placeholders/organic-tree-corrected.webp';
-import LeafImg from '../resources/images/Photogrophy/leaf.webp';
-import LeafImgPlaceholder from '../resources/images/Photogrophy/placeholders/leaf.webp';
+import MothImg from '../../resources/images/Photogrophy/moth.webp';
+import MothImgPlaceholder from '../../resources/images/Photogrophy/placeholders/moth.webp';
+import SkylineImg from '../../resources/images/Photogrophy/high-contrast-skyline.webp';
+import SkylineImgPlaceholder from '../../resources/images/Photogrophy/placeholders/high-contrast-skyline.webp';
+import DandelionImg from '../../resources/images/Photogrophy/dandelion.webp';
+import DandelionImgPlaceholder from '../../resources/images/Photogrophy/placeholders/dandelion.webp';
+import OceanSkyImg from '../../resources/images/Photogrophy/high-contrast-ocean-sky.webp';
+import OceanSkyImgPlaceholder from '../../resources/images/Photogrophy/placeholders/high-contrast-ocean-sky.webp';
+import CandleImg from '../../resources/images/Photogrophy/candle-vingette.webp';
+import CandleImgPlaceholder from '../../resources/images/Photogrophy/placeholders/candle-vingette.webp';
+import FenceImg from '../../resources/images/Photogrophy/white-fence.webp';
+import FenceImgPlaceholder from '../../resources/images/Photogrophy/placeholders/white-fence.webp';
+import TreeImg from '../../resources/images/Photogrophy/organic-tree-corrected.webp';
+import TreeImgPlaceholder from '../../resources/images/Photogrophy/placeholders/organic-tree-corrected.webp';
+import LeafImg from '../../resources/images/Photogrophy/leaf.webp';
+import LeafImgPlaceholder from '../../resources/images/Photogrophy/placeholders/leaf.webp';
 
 const images = [
   {

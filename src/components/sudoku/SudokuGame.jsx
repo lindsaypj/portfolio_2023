@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
-import SudokuBoard from "../components/SudokuBoard";
-import TestConfigurator from "../components/TestConfigurator";
+import SudokuBoard from "./SudokuBoard";
+import TestConfigurator from "./TestConfigurator";
 
-import { Sudoku } from "../objects/SudokuGame";
+import { Sudoku } from "../../objects/SudokuGame";
 
 
 export default function SudokuGame() {

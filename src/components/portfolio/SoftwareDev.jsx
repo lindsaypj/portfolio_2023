@@ -1,28 +1,28 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
-import PortfolioCarousel from '../components/PortfolioCarousel';
-import TruncatedArticle from '../components/TruncatedArticle';
+import PortfolioCarousel from './PortfolioCarousel';
+import TruncatedArticle from '../TruncatedArticle';
 
-import Gen16 from '../resources/images/MazeSolver/16x16-generation.webp';
-import Gen16Placeholder from '../resources/images/MazeSolver/placeholders/16x16-generation.webp';
-import Solved16 from '../resources/images/MazeSolver/16x16-solved.webp';
-import Solved16Placeholder from '../resources/images/MazeSolver/placeholders/16x16-solved.webp';
-import Gen300 from '../resources/images/MazeSolver/300x300-generation.webp';
-import Gen300Placeholder from '../resources/images/MazeSolver/placeholders/300x300-generation.webp';
-import Solved300 from '../resources/images/MazeSolver/300x300-solved.webp';
-import Solved300Placeholder from '../resources/images/MazeSolver/placeholders/300x300-solved.webp';
-import Solved1000 from '../resources/images/MazeSolver/1000x1000-solved.webp';
-import Solved1000Placeholder from '../resources/images/MazeSolver/placeholders/1000x1000-solved.webp';
-import JavaLogo from '../resources/logos/JavaLogo';
-import IntelliJLogo from '../resources/logos/IntelliJLogo';
-import AutoCompleteBlank from '../resources/images/Autocomplete/auto-complete-blank.webp';
-import AutoCompleteBlankPlaceholder from '../resources/images/Autocomplete/placeholders/auto-complete-blank.webp';
-import AutoCompleteSearch from '../resources/images/Autocomplete/auto-complete-search.webp';
-import AutoCompleteSearchPlaceholder from '../resources/images/Autocomplete/placeholders/auto-complete-search.webp';
-import AutoComplete from '../resources/images/Autocomplete/auto-complete.webp';
-import AutoCompletePlaceholder from '../resources/images/Autocomplete/placeholders/auto-complete.webp';
-import LinkIcon from '../resources/icons/LinkIcon';
+import Gen16 from '../../resources/images/MazeSolver/16x16-generation.webp';
+import Gen16Placeholder from '../../resources/images/MazeSolver/placeholders/16x16-generation.webp';
+import Solved16 from '../../resources/images/MazeSolver/16x16-solved.webp';
+import Solved16Placeholder from '../../resources/images/MazeSolver/placeholders/16x16-solved.webp';
+import Gen300 from '../../resources/images/MazeSolver/300x300-generation.webp';
+import Gen300Placeholder from '../../resources/images/MazeSolver/placeholders/300x300-generation.webp';
+import Solved300 from '../../resources/images/MazeSolver/300x300-solved.webp';
+import Solved300Placeholder from '../../resources/images/MazeSolver/placeholders/300x300-solved.webp';
+import Solved1000 from '../../resources/images/MazeSolver/1000x1000-solved.webp';
+import Solved1000Placeholder from '../../resources/images/MazeSolver/placeholders/1000x1000-solved.webp';
+import JavaLogo from '../../resources/logos/JavaLogo';
+import IntelliJLogo from '../../resources/logos/IntelliJLogo';
+import AutoCompleteBlank from '../../resources/images/Autocomplete/auto-complete-blank.webp';
+import AutoCompleteBlankPlaceholder from '../../resources/images/Autocomplete/placeholders/auto-complete-blank.webp';
+import AutoCompleteSearch from '../../resources/images/Autocomplete/auto-complete-search.webp';
+import AutoCompleteSearchPlaceholder from '../../resources/images/Autocomplete/placeholders/auto-complete-search.webp';
+import AutoComplete from '../../resources/images/Autocomplete/auto-complete.webp';
+import AutoCompletePlaceholder from '../../resources/images/Autocomplete/placeholders/auto-complete.webp';
+import LinkIcon from '../../resources/icons/LinkIcon';
 
 
 export default function SoftwareDev({ scrollRef }) {

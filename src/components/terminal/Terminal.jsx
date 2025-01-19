@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 
-import Cursor from "./Cursor";
+import Cursor from "../Cursor";
 import RoutesPopover from "./RoutesPopover";
 
-import '../styles/Terminal.css';
-import '../styles/Cursor.css';
+import '../../styles/Terminal.css';
+import '../../styles/Cursor.css';
 
-import RouteTree from '../objects/RouteTree';
-import { PRIMARY_ROUTES } from "../resources/text/routes";
+import RouteTree from '../../objects/RouteTree';
+import { PRIMARY_ROUTES } from "../../resources/text/routes";
 
 const routeTree = new RouteTree();
 

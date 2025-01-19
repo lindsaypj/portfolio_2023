@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
 
-import '../styles/HeroNavigation.css';
+import '../../styles/HeroNavigation.css';
 
 window.addEventListener('load', () => {})
 

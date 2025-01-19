@@ -4,18 +4,19 @@ import TypingText from '../components/TypingText';
 
 import '../styles/Portfolio.css';
 
-import WebDev from './WebDev';
-import SoftwareDev from './SoftwareDev';
-import OpenSource from './OpenSource';
-import HeroNavigation from '../components/HeroNavigaion';
+import WebDev from '../components/portfolio/WebDev';
+import SoftwareDev from '../components/portfolio/SoftwareDev';
+import OpenSource from '../components/portfolio/OpenSource';
+import Automotive from '../components/portfolio/Automotive';
+import Photography from '../components/portfolio/Photography';
+import HeroNavigation from '../components/nav/HeroNavigaion';
 
 import WebDevNavImg from '../resources/images/PortfolioNav/WebDevNavImg.jpg';
 import SoftwareDevNavImg from '../resources/images/PortfolioNav/JavaNavImg.jpg';
 import OpenSourceNavImg from '../resources/images/PortfolioNav/OpenSourceNavImg.png';
 import AutomotiveNavImg from '../resources/images/PortfolioNav/AutomotiveNavImg.jpg';
 import PhotographyNavImg from '../resources/images/PortfolioNav/PhotographyNavImg.png';
-import Automotive from './Automotive';
-import Photography from './Photography';
+
 
 export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, mobileMode }) {
   const portfolioRef = useRef();

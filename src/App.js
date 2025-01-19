@@ -12,8 +12,8 @@ import Foorter from './components/Footer';
 import Games from './views/Games';
 // import Learning from './views/Learning';
 import Portfolio from './views/Portfolio';
-import Terminal from './components/Terminal';
-import TopNav from './components/TopNav';
+import Terminal from './components/terminal/Terminal';
+import TopNav from './components/nav/TopNav';
 
 import { GAMES_SECTIONS, PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
 

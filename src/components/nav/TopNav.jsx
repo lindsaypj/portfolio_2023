@@ -2,12 +2,12 @@ import React, { useCallback, useState } from "react";
 import { Button, Offcanvas } from "react-bootstrap";
 import AccordionNav from "./AccordionNav";
 
-import MenuIcon from "../resources/icons/MenuIcon";
+import MenuIcon from "../../resources/icons/MenuIcon";
 
-import { getPrimaryRoute } from "../scripts/utils";
-import { TOP_NAV_ROUTES } from "../resources/text/routes";
-import { LEARNING_TOPICS } from "../resources/text/learning";
-import '../styles/TopNav.css';
+import { getPrimaryRoute } from "../../scripts/utils";
+import { TOP_NAV_ROUTES } from "../../resources/text/routes";
+import { LEARNING_TOPICS } from "../../resources/text/learning";
+import '../../styles/TopNav.css';
 
 export default function TopNav({ navChangeCallback, mobileMode, currentPage, selectedTopic, setSelectedTopic, accordionKey, setAccordionKey }) {
 

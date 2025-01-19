@@ -1,16 +1,16 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 
-import PortfolioCarousel from "../components/PortfolioCarousel";
-import TruncatedArticle from "../components/TruncatedArticle";
+import PortfolioCarousel from "./PortfolioCarousel";
+import TruncatedArticle from "../TruncatedArticle";
 
-import DartLogo from '../resources/logos/DartLogo';
-import FlutterLogo from "../resources/logos/FlutterLogo";
-import FlutterCommit from '../resources/images/Flutter/FlutterCommit.webp';
-import FlutterCommitPlaceholder from '../resources/images/Flutter/placeholders/FlutterCommit.webp';
-import FlutterDesignDiscussion from '../resources/images/Flutter/FlutterDesignDiscussion.webp';
-import FlutterDesignDiscussionPlaceholder from '../resources/images/Flutter/placeholders/FlutterDesignDiscussion.webp';
-import LinkIcon from "../resources/icons/LinkIcon";
+import DartLogo from '../../resources/logos/DartLogo';
+import FlutterLogo from "../../resources/logos/FlutterLogo";
+import FlutterCommit from '../../resources/images/Flutter/FlutterCommit.webp';
+import FlutterCommitPlaceholder from '../../resources/images/Flutter/placeholders/FlutterCommit.webp';
+import FlutterDesignDiscussion from '../../resources/images/Flutter/FlutterDesignDiscussion.webp';
+import FlutterDesignDiscussionPlaceholder from '../../resources/images/Flutter/placeholders/FlutterDesignDiscussion.webp';
+import LinkIcon from "../../resources/icons/LinkIcon";
 
 export default function OpenSource({ scrollRef }) {
   return (

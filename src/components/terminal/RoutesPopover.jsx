@@ -4,7 +4,7 @@ import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 
-import '../styles/RoutesPopover.css';
+import '../../styles/RoutesPopover.css';
 
 export default function RoutesPopover({ routes, override, selectionCallback }) {
   const [showMenu, setShowMenu] = useState(false);

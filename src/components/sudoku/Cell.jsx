@@ -1,7 +1,7 @@
 import React, { useReducer, useState } from 'react';
 import { useEffect, useLayoutEffect, useCallback } from 'react';
 
-import '../styles/cell.css'
+import '../../styles/cell.css'
 
 const COLORS = ['black', 'blue', 'red', 'green', 'yellow', 'purple', 'orange', 'magenta',
                 'cyan', 'lime', 'pink', 'crimson', 'dark-purple', 'dark-cyan', 'gray', 'navy', 'fire'];

@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-import '../styles/PortfolioCarousel.css';
-import { useIsVisible } from '../hooks/useIsVisible';
+import '../../styles/PortfolioCarousel.css';
+import { useIsVisible } from '../../hooks/useIsVisible';
 
 export default function PortfolioCarousel({ desktopImages = [], mobileImages, showMobile = false }) {
 

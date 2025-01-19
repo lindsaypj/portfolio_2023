@@ -1,9 +1,9 @@
-import { getHighlightedFromIndex } from "../scripts/sudokuUtils.js";
+import { getHighlightedFromIndex } from "../../scripts/sudokuUtils.js";
 
 import React, { useState, useLayoutEffect, useReducer, useCallback } from "react";
 import Cell from "./Cell.jsx";
 
-import '../styles/board.css';
+import '../../styles/board.css';
 
 function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIndex, hideNums, conflicts }) {
 

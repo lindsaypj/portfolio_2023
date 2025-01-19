@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import TypingText from '../components/TypingText';
-import SudokuGame from './SudokuGame';
+import SudokuGame from '../components/sudoku/SudokuGame';
 import MazeGame from '../components/maze/MazeGame';
 
 import '../styles/Games.css';

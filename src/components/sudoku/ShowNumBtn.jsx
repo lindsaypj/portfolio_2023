@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import '../styles/ShowNumBtn.css';
+import '../../styles/ShowNumBtn.css';
 
 function ShowNumBtn(props) {
   const [selected, setSelected] = useState(false);
