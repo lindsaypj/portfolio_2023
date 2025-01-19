@@ -9,8 +9,8 @@ export const aboutMeSkills = [
   'TypeScript',
   'REST',
   'Docker',
-  'HTML 5',
-  'CSS 3',
+  'HTML5',
+  'CSS3',
   'Sass',
   'Figma'
 ];
