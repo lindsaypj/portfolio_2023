@@ -6,6 +6,10 @@ export const PRIMARY_ROUTES = [
   '/portfolio',
 ];
 
+export const HIDDEN_ROUTES = [
+  '/dev'
+];
+
 export const TOP_NAV_ROUTES = ['/portfolio', '/games']; // '/learning'
 
 // These routes will be brought into focus on page load if active

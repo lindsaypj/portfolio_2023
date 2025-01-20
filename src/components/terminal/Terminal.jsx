@@ -19,8 +19,10 @@ export default function Terminal({ navChangeCallback, currentRoute }) {
   const terminalTextOverlay = useRef();
   const cursor = useRef();
 
+  const initPartialRoutes = routeTree.getRoutes(currentRoute)[0];
+
   const [terminalText, setTerminalText] = useState(currentRoute);
-  const [partialRoutes, setPartialRoutes] = useState(routeTree.getRoutes(currentRoute));
+  const [partialRoutes, setPartialRoutes] = useState(initPartialRoutes);
   const [validPath, setValidPath] = useState(false);
   const [terminalHasFocus, setTerminalHasFocus] = useState(false);
 
@@ -31,8 +33,8 @@ export default function Terminal({ navChangeCallback, currentRoute }) {
 
   // Update autocomplete routes
   const updateAutocomplete = useCallback((possiblePath) => {
-    const possibleRoutes = routeTree.getRoutes(possiblePath);
-    setValidPath(possibleRoutes.includes(possiblePath));
+    const [possibleRoutes, hiddenRoutes] = routeTree.getRoutes(possiblePath);
+    setValidPath(possibleRoutes.includes(possiblePath) || hiddenRoutes.includes(possiblePath));
     if (possiblePath === '/') {
       setPartialRoutes(PRIMARY_ROUTES);
     }

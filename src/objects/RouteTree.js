@@ -1,4 +1,5 @@
 import routes from '../resources/text/routes';
+import { HIDDEN_ROUTES } from '../resources/text/routes';
 
 class RouteTree {
   constructor(initialRoutes = routes) {
@@ -7,37 +8,40 @@ class RouteTree {
     initialRoutes.forEach((route) => {
       this.addRoute(route);
     });
+    HIDDEN_ROUTES.forEach((route) => {
+      this.addRoute(route, true);
+    });
   }
 
   getMaxRouteLength() {
     return this.maxRouteLength;
   }
 
-  addRoute(route) {
-    this.addChars(this.root, route);
+  addRoute(route, hidden = false) {
+    this.addChars(this.root, route, hidden);
     this.maxRouteLength = Math.max(this.maxRouteLength, route.length);
   }
-  addChars(currentNode, route) {
+  addChars(currentNode, route, isHidden) {
     const nextChar = route.charAt(0);
 
     if (route.length === 1) {
       if (currentNode.hasChild(nextChar)) {
         const child = currentNode.getChild(nextChar);
         if (child !== null) {
-          child.setRouteEnd();
+          child.setRouteEnd(isHidden);
         }
       }
       else {
-        currentNode.addChild(new Node(nextChar, true));
+        currentNode.addChild(new Node(nextChar, true, isHidden));
       }
       return currentNode;
     }
 
     if (currentNode.hasChild(nextChar)) {
-      this.addChars(currentNode.getChild(nextChar), route.slice(1));
+      this.addChars(currentNode.getChild(nextChar), route.slice(1), isHidden);
     }
     else {
-      const newNode = this.addChars(new Node(nextChar), route.slice(1));
+      const newNode = this.addChars(new Node(nextChar), route.slice(1), isHidden);
       currentNode.addChild(newNode);
     }
     return currentNode;
@@ -45,10 +49,9 @@ class RouteTree {
 
   getRoutes(possibleRoute) {
     if (possibleRoute === "" || !possibleRoute) {
-      return [];
+      return [[], []];
     }
-    const matches = this.getMatches(this.root, possibleRoute, "");
-    return matches;
+    return this.getMatches(this.root, possibleRoute, "");
   }
   getMatches(currentNode, possibleRoute, sequence) {
     // Traverse tree using possible route
@@ -57,32 +60,41 @@ class RouteTree {
       if (childNode) {
         return this.getMatches(childNode, possibleRoute.slice(1), sequence + currentNode.char);
       }
-      return [];
+      return [[], []];
     }
 
     // Save route if found
     let matches = [];
+    let hiddenMatches = [];
     if (currentNode.isRouteEnd) {
-      matches.push(sequence + currentNode.char);
+      if (currentNode.isHidden) {
+        hiddenMatches.push(sequence + currentNode.char);
+      }
+      else {
+        matches.push(sequence + currentNode.char);
+      }
     }
 
     // Check children for partial matches
     if (!currentNode.isLeaf) {
       const children = Object.keys(currentNode.children);
       children.forEach((childKey) => {
-        matches = matches.concat(this.getMatches(currentNode.getChild(childKey), possibleRoute, sequence + currentNode.char));
+        const [nextMatches, nextHiddenMatches] = this.getMatches(currentNode.getChild(childKey), possibleRoute, sequence + currentNode.char);
+        matches = matches.concat(nextMatches);
+        hiddenMatches = hiddenMatches.concat(nextHiddenMatches);
       });
     }
-    return matches;
+    return [matches, hiddenMatches];
   }
 }
 
 class Node {
-  constructor(char = "", isRouteEnd = false) {
+  constructor(char = "", isRouteEnd = false, isHidden = false) {
     this.char = char;
     this.children = {};
     this.isRouteEnd = isRouteEnd;
     this.isLeaf = true;
+    this.isHidden = isHidden;
   }
 
   getChild(char) {
@@ -98,8 +110,9 @@ class Node {
     return !!this.children[char];
   }
 
-  setRouteEnd() {
+  setRouteEnd(isHidden = false) {
     this.isRouteEnd = true;
+    this.isHidden = isHidden;
   }
 }
 
