@@ -16,16 +16,6 @@
   margin-bottom: 3rem;
 }
 
-@media screen and (min-width: 768px) {
-  .portfolio-carousel .carousel-control-next {
-    margin: 3rem 3rem 3rem 0;
-  }
-
-  .portfolio-carousel .carousel-control-prev {
-    margin: 3rem 0 3rem 3rem;
-  }
-}
-
 .portfolio-carousel .carousel-control-next:hover {
   background: rgb(0,0,0);
   background: -moz-linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7203475140056023) 100%);

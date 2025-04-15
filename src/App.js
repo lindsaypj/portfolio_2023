@@ -14,6 +14,7 @@ import Games from './views/Games';
 import Portfolio from './views/Portfolio';
 import Terminal from './components/terminal/Terminal';
 import TopNav from './components/nav/TopNav';
+import DevPage from './views/DevPage';
 
 import { GAMES_SECTIONS, PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
 
@@ -86,6 +87,10 @@ function App() {
             setShouldScrollToRoute={setShouldScrollToRoute}
           />
         );
+      case '/dev':
+        return (
+          <DevPage />
+        )
       // case '/learning':
       //   return (
       //     <Learning

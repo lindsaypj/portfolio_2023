@@ -3,7 +3,7 @@ import { Collapse } from "react-bootstrap";
 
 import '../styles/TruncatedArticle.css';
 
-export default function TruncatedArticle({ visibleParagraph, truncatedParagraphs, uniqueID }) {
+export default function TruncatedArticle({ paragraphs, uniqueID }) {
 
   const [expanded, setExpanded] = useState(false);
 
@@ -33,7 +33,10 @@ export default function TruncatedArticle({ visibleParagraph, truncatedParagraphs
 
   return (
     <div ref={article} className='truncated-article'>
-      {visibleParagraph}
+      <p>
+        {paragraphs[0]}
+      </p>
+      
       <span
         ref={readMore}
         className='link-primary fs-5'
@@ -47,7 +50,12 @@ export default function TruncatedArticle({ visibleParagraph, truncatedParagraphs
 
       <Collapse in={expanded} className='mt-3'>
         <div id={uniqueID}>
-          {truncatedParagraphs}
+          {paragraphs.slice(1).map((paragraph, index) => (
+            <p key={uniqueID + index}>
+              {paragraph}
+            </p>
+          ))}
+
           <span
             ref={showLess}
             className='link-primary fs-5 hide'

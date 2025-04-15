@@ -1,6 +1,12 @@
 .portfolio-logo {
-  width: 100px;
-  height: 80px;
+  width: 6rem;
+  height: 4.2rem;
+}
+@media screen and (min-width: 1400px) {
+  .portfolio-logo {
+    width: 8rem;
+    height: 4.6rem;
+  }
 }
 
 .portfolio-header {
@@ -13,9 +19,3 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-.portfolio__row {
-  min-height: 90vh;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
