@@ -7,3 +7,4 @@
 /portfolio/web          /?path=/portfolio/web
 /games/maze             /?path=/games/maze
 /games/sudoku           /?path=/games/sudoku
+/commission             /?path=/commission

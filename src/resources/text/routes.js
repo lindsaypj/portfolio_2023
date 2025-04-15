@@ -7,7 +7,8 @@ export const PRIMARY_ROUTES = [
 ];
 
 export const HIDDEN_ROUTES = [
-  '/dev'
+  '/dev',
+  '/commission'
 ];
 
 export const TOP_NAV_ROUTES = ['/portfolio', '/games']; // '/learning'

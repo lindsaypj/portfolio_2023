@@ -8,6 +8,7 @@ import { useCallback, useEffect, useState } from 'react';
 import useWindowWidth from './hooks/useWindowWidth';
 
 import AboutMe from './views/AboutMe';
+import Commission from './views/Commission';
 import Foorter from './components/Footer';
 import Games from './views/Games';
 // import Learning from './views/Learning';
@@ -90,7 +91,7 @@ function App() {
       case '/dev':
         return (
           <DevPage />
-        )
+        );
       // case '/learning':
       //   return (
       //     <Learning
@@ -102,6 +103,10 @@ function App() {
       //       {...accordionControls}
       //     />
       //   );
+      case '/commission':
+        return (
+          <Commission />
+        );
       default:
         return (
           <>
