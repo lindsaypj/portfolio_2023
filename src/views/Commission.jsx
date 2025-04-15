@@ -29,7 +29,7 @@ export default function Commission() {
   
 
   return (
-    <Container fluid className='commission-container p-0'>
+    <Container fluid className='commission-container p-0 mb-5'>
       <Row>
         <Col  className='p-0'>
           <h1 className='route-header padding-margins bg-black'>
