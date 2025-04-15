@@ -127,7 +127,7 @@ export default function AboutMe({ mobileMode }) {
           <div className='about-me__bio padding-margins pe-xl-0'>
             <div ref={textSection}>
               <p>
-                I have a Bachelor of Applied Science in Software Development and
+                With a Bachelor of Applied Science in Software Development,
                 I am more eager than ever to keep learning.
               </p>
               <p>
