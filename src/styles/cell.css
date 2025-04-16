@@ -5,6 +5,16 @@ input.cell {
   background-color: transparent;
 }
 
+/* Hide Input Number Ticker */
+input.cell[type="number"]::-webkit-outer-spin-button,
+input.cell[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input.cell[type="number"] {
+    -moz-appearance: textfield;
+}
+
 .cellContainer {
   position: relative;
   display: inline-block;

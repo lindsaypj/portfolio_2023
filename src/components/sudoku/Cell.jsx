@@ -133,13 +133,16 @@ function Cell({
 
   return (
     <div className={'cellContainer cell-height-'+size}>
+      {/* Cell visible element (Non-Interactable) */}
       <p className={'cellDisplay size-'+size + ' cell-text-'+cellTextColor}>{displayValue}</p>
       {/* Cell input element (Interactable) */}
       <input 
-        type={'text'}
+        type={'number'}
         className={'cell size-'+size+' cell-bg-'+cellBGColor+ ' cell-text-transparent'}
         tabIndex={boardIndex}
         pattern={inputPattern}
+        min={0}
+        max={size}
         value={inputValue}
         onFocus={onCellFocus}
         onBlur={onCellBlur}
