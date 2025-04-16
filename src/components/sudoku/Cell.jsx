@@ -1,12 +1,10 @@
 import React, { useReducer, useState } from 'react';
-import { useEffect, useLayoutEffect, useCallback } from 'react';
+import { useLayoutEffect, useCallback } from 'react';
 
 import '../../styles/cell.css'
 
 const COLORS = ['black', 'blue', 'red', 'green', 'yellow', 'purple', 'orange', 'magenta',
                 'cyan', 'lime', 'pink', 'crimson', 'dark-purple', 'dark-cyan', 'gray', 'navy', 'fire'];
-const INPUT_PATTERNS = {4:'[0-4]', 9:'[0-9]', 16:'[0-9]|1[0-6]'};
-
 
 function Cell({
     cellIndex,
@@ -25,9 +23,6 @@ function Cell({
 
   const [inputValue, setInputValue] = useState('');
   const [displayValue, setDisplayValue] = useState(value);
-
-  // (prevents unwated input values)
-  const [inputPattern, setInputPattern] = useState(INPUT_PATTERNS[size]);
   
   // Background Color
   const [cellBGColor, setCellBGColor] = useReducer(() => {
@@ -107,11 +102,6 @@ function Cell({
     setCellTextColor();
   }, [textVisibility, displayValue, highlighted, error]);
 
-  // Set Input pattern on size change
-  useEffect(() => {
-    setInputPattern(INPUT_PATTERNS[size]);
-  },[size]);
-
 
   // CELL FOCUS/BLUR HANDLERS
   const handleBackspace = useCallback((event) => {
@@ -138,10 +128,9 @@ function Cell({
       {/* Cell input element (Interactable) */}
       <input 
         type={'number'}
-        inputMode='numeric'
+        inputMode={'numeric'}
         className={'cell size-'+size+' cell-bg-'+cellBGColor+ ' cell-text-transparent'}
         tabIndex={boardIndex}
-        pattern={inputPattern}
         min={0}
         max={size}
         value={inputValue}
