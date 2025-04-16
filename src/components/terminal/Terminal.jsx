@@ -73,6 +73,7 @@ export default function Terminal({ navChangeCallback, currentRoute }) {
   const handleNavCallback = useCallback((route) => {
     switch(route) {
       case '/about_me':
+      case '/':
         terminal.current.value = '';
         setTerminalText('');
         setPartialRoutes([]);
