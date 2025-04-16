@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import TypingText from '../components/TypingText';
 import { Col, Container, Form, InputGroup, Row } from 'react-bootstrap';
 
+import "../styles/Commission.css";
+
 export default function Commission() {
 
   const [hours, setHours] = useState(8);
@@ -38,31 +40,15 @@ export default function Commission() {
         </Col>
       </Row>
       <Row>
-        <Col>
-          <h2 className='mt-5 ps-2'>Inputs</h2>
+        <Col className='padding-margins form-col'>
+          <h2 className='mt-5'>Compensation</h2>
           <Form>
-            {/* HOURS */}
-            <Form.Group as={Row} className="mb-3" controlId="hoursInput">
-              <Form.Label column sm="3">
-                Hours Worked
-              </Form.Label>
-              <Col sm="8">
-                <Form.Control
-                  id='hoursInput'
-                  value={hours}
-                  onChange={(event) => {setHours(event.target.value)}}
-                  aria-label="Hours"
-                />
-              </Col>
-            </Form.Group>
-
             {/* PAY */}
-            <Form.Group as={Row} className="mb-3" controlId="payInput">
-              <Form.Label column sm="3">
+            <Form.Group className="mb-3" controlId="payInput">
+              <Form.Label className='px-0 w-100'>
                 Pay
               </Form.Label>
-              <Col sm="8">
-                <InputGroup>
+                <InputGroup className='p-0'>
                   <InputGroup.Text id='Pay'>
                     $
                   </InputGroup.Text>
@@ -74,16 +60,14 @@ export default function Commission() {
                     aria-describedby='Pay'
                   />
                 </InputGroup>
-              </Col>
             </Form.Group>
 
             {/* COMMISSION PERCENT */}
-            <Form.Group as={Row} className="mb-3" controlId="commissionInput">
-              <Form.Label column sm="3">
+            <Form.Group className="mb-3" controlId="commissionInput">
+              <Form.Label className='px-0 w-100'>
                 Commission Rate
               </Form.Label>
-              <Col sm="8">
-                <InputGroup>
+                <InputGroup className='px-0'>
                   <Form.Control
                     id='commissionInput'
                     value={commission}
@@ -95,33 +79,46 @@ export default function Commission() {
                     %
                   </InputGroup.Text>
                 </InputGroup>
-              </Col>
             </Form.Group>
           </Form>
 
-          <h2 className='mt-5 ps-2'>Daily Commission Requirment</h2>
+          <h2 className='mt-5 0'>Daily Commission Requirment</h2>
 
-          <p className='ps-2'>
+          <Form>
+            {/* HOURS */}
+            <Form.Group className="mb-3" controlId="hoursInput">
+              <Form.Label className='px-0 w-100'>
+                Hours Worked
+              </Form.Label>
+              <Form.Control
+                id='hoursInput'
+                value={hours}
+                onChange={(event) => {setHours(event.target.value)}}
+                aria-label="Hours"
+              />
+            </Form.Group>
+          </Form>
+
+          <p className='m-0'>
             If I work for 
             <span className='fw-bold'> {hours || 0} </span>
             hours, I need to earn
           </p>
-          <p className='ps-2'>
+          <p>
             <span className='fw-bold'> ${getDailyCommission() || 0} </span>
             in commission.
           </p>
 
 
-          <h2 className='mt-5 ps-2'>Hours Per Vehicle</h2>
+          <h2 className='mt-5'>Hours Per Vehicle</h2>
 
           <Form>
             {/* VEHICLE COMMISSION TOTAL */}
-            <Form.Group as={Row} className="mb-3" controlId="vehicleInput">
-              <Form.Label column sm="3">
+            <Form.Group className="mb-3" controlId="vehicleInput">
+              <Form.Label className='px-0 w-100'>
                 Vehicle Commission
               </Form.Label>
-              <Col sm="8">
-                <InputGroup>
+                <InputGroup className='px-0'>
                   <InputGroup.Text>
                     $
                   </InputGroup.Text>
@@ -132,16 +129,15 @@ export default function Commission() {
                     aria-label="Vehicle Commission Total"
                   />
                 </InputGroup>
-              </Col>
             </Form.Group>
           </Form>
 
-          <p className='ps-2'>
+          <p className='m-0'>
             If I work on a
             <span className='fw-bold'> ${vehicleCom || 0} </span>
             vehicle longer than
           </p>
-          <p className='ps-2'>
+          <p>
             <span className='fw-bold'> {getVehicleTime()}, </span>
             I will go into subsidy.
           </p>
