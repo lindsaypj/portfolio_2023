@@ -11,13 +11,16 @@ export default function Commission() {
   const [pay, setPay] = useState(16.66);
   const [commission, setCommission] = useState(35);
   const [vehicleCom, setVehicleCom] = useState(170);
+  const [vehicleSpiff, setVehicleSpiff] = useState('');
 
   const getDailyCommission = () => {
-    return ((100/commission) * (hours * pay));
+    return ((100/commission) * (hours * pay)).toFixed(2);
   }
 
   const getVehicleTime = () => {
-    let minutes = ((vehicleCom * (commission/100)) / pay) * 60;
+    const spiff = !vehicleSpiff ? 0 : Number(vehicleSpiff);
+    let minutes = (((vehicleCom * (commission/100)) + spiff) / pay) * 60;
+    console.log(minutes)
 
     const hours = Math.floor(minutes / 60);
     minutes = Math.floor(minutes % 60);
@@ -27,6 +30,11 @@ export default function Commission() {
     else {
       return minutes + ' min';
     }
+  }
+
+  const getVehicleCommission = () => {
+    const spiff = !vehicleSpiff ? 0 : Number(vehicleSpiff);
+    return ((vehicleCom * (commission/100)) + spiff).toFixed(2);
   }
   
 
@@ -44,105 +52,90 @@ export default function Commission() {
           <h2 className='mt-5'>Compensation</h2>
           <Form>
             {/* PAY */}
-            <Form.Group className='mb-3' controlId='payInput'>
-              <Form.Label className='px-0 w-100' id='payLabel'>
-                Pay
-              </Form.Label>
-                <InputGroup className='p-0'>
-                  <InputGroup.Text>
-                    $
-                  </InputGroup.Text>
-                  <Form.Control
-                    id='payInput'
-                    value={pay}
-                    onChange={(event) => {setPay(event.target.value)}}
-                    aria-label='Hourly Pay'
-                    aria-describedby='payLabel'
-                  />
-                </InputGroup>
-            </Form.Group>
+            <Form.Label className='px-0 w-100' id='payLabel'>
+              Pay
+            </Form.Label>
+            <InputGroup className='p-0'>
+              <InputGroup.Text>
+                $
+              </InputGroup.Text>
+              <Form.Control
+                id='payInput'
+                value={pay}
+                onChange={(event) => {setPay(event.target.value)}}
+                aria-label='Hourly Pay'
+                aria-describedby='payLabel'
+              />
+            </InputGroup>
 
             {/* COMMISSION PERCENT */}
-            <Form.Group className='mb-3' controlId='commissionInput'>
-              <Form.Label className='px-0 w-100' id='commissionPercent'>
-                Commission Rate
-              </Form.Label>
-                <InputGroup className='px-0'>
-                  <Form.Control
-                    id='commissionInput'
-                    value={commission}
-                    onChange={(event) => {setCommission(event.target.value)}}
-                    aria-label='Commission Percent'
-                    aria-describedby='commissionPercent'
-                  />
-                  <InputGroup.Text>
-                    %
-                  </InputGroup.Text>
-                </InputGroup>
-            </Form.Group>
+            <Form.Label className='mt-2 px-0 w-100' id='commissionPercent'>
+              Commission Rate
+            </Form.Label>
+            <InputGroup className='px-0'>
+              <Form.Control
+                id='commissionInput'
+                value={commission}
+                onChange={(event) => {setCommission(event.target.value)}}
+                aria-label='Commission Percent'
+                aria-describedby='commissionPercent'
+              />
+              <InputGroup.Text>
+                %
+              </InputGroup.Text>
+            </InputGroup>
           </Form>
 
           <h2 className='mt-5 0'>Hourly Commission Target</h2>
 
           <Form>
             {/* HOURS */}
-            <Form.Group className='mb-3' controlId='hoursInput'>
-              <Form.Label className='px-0 w-100' id='hoursWorkedLabel'>
-                Hours Worked
-              </Form.Label>
-              <Form.Control
-                id='hoursInput'
-                value={hours}
-                onChange={(event) => {setHours(event.target.value)}}
-                aria-label='Hours'
-                aria-describedby='hoursWorkedLabel'
-              />
-            </Form.Group>
+            <Form.Label className='px-0 w-100' id='hoursWorkedLabel'>
+              Hours Worked
+            </Form.Label>
+            <Form.Control
+              id='hoursInput'
+              value={hours}
+              onChange={(event) => {setHours(event.target.value)}}
+              aria-label='Hours'
+              aria-describedby='hoursWorkedLabel'
+            />
           </Form>
 
-          <p className='m-0'>
-            If I work for 
-            <span className='fw-bold'> {hours || 0} </span>
-            hours, I need to earn
-          </p>
-          <p>
-            <span className='fw-bold'> ${getDailyCommission() || 0} </span>
-            in commission.
-          </p>
+          <h4 className='mt-2'> ${getDailyCommission() || 0}</h4>
 
 
           <h2 className='mt-5'>Vehicle Timer</h2>
 
           <Form>
             {/* VEHICLE COMMISSION TOTAL */}
-            <Form.Group className='mb-3' controlId='vehicleInput'>
-              <Form.Label className='px-0 w-100' id='vehicleCommissionLabel'>
-                Vehicle Commission
-              </Form.Label>
-                <InputGroup className='px-0'>
-                  <InputGroup.Text>
-                    $
-                  </InputGroup.Text>
-                  <Form.Control
-                    id='vehicleInput'
-                    value={vehicleCom}
-                    onChange={(event) => {setVehicleCom(event.target.value)}}
-                    aria-label='Vehicle Commission Total'
-                    aria-describedby='vehicleCommissionLabel'
-                  />
-                </InputGroup>
-            </Form.Group>
+            <Form.Label className='px-0 w-100' id='vehicleCommissionLabel'>
+              Vehicle Commission
+            </Form.Label>
+            <InputGroup className='px-0'>
+              <InputGroup.Text>
+                $
+              </InputGroup.Text>
+              <Form.Control
+                id='vehicleInput'
+                value={vehicleCom}
+                onChange={(event) => {setVehicleCom(event.target.value)}}
+                aria-label='Vehicle Commission'
+                aria-describedby='vehicleCommissionLabel'
+              />
+              <Form.Control
+                id='vehicleSpiffInput'
+                value={vehicleSpiff}
+                placeholder='Spiff'
+                onChange={(event) => {setVehicleSpiff(event.target.value)}}
+                aria-label='Vehicle Commission Spiff'
+                aria-describedby='vehicleCommissionLabel'
+              />
+            </InputGroup>
           </Form>
 
-          <p className='m-0'>
-            If I work on a
-            <span className='fw-bold'> ${vehicleCom || 0} </span>
-            vehicle longer than
-          </p>
-          <p>
-            <span className='fw-bold'> {getVehicleTime()}, </span>
-            I will go into subsidy.
-          </p>
+          <h4 className='mt-2 fw-bold'>{getVehicleTime()}</h4>
+          <h4 className='mt-2 fw-bold'>${getVehicleCommission()} earned</h4>
         </Col>
       </Row>
     </Container>
