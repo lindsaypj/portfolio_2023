@@ -10,21 +10,23 @@ export default function Commission() {
   const [hours, setHours] = useState(8);
   const [pay, setPay] = useState(16.66);
   const [commission, setCommission] = useState(35);
-  const [vehicleCom, setVehicleCom] = useState(170);
+  const [vehicleLabor, setVehicleLabor] = useState(170);
   const [vehicleSpiff, setVehicleSpiff] = useState('');
 
-  const getDailyCommission = () => {
+  // Minimum labor per hours worked to stay out of subsidy
+  const getDailyLabor = () => {
     return ((100/commission) * (hours * pay)).toFixed(2);
   }
 
-  const getDailyEarnedCommission = () => {
+  // Min commission per hours worked == Hourly pay earned
+  const getDailyCommission = () => {
     return (hours * pay).toFixed(2);
   }
 
+  // Max time to work on a vehicle and stay out of subsidy, based on labor
   const getVehicleTime = () => {
     const spiff = !vehicleSpiff ? 0 : Number(vehicleSpiff);
-    let minutes = (((vehicleCom * (commission/100)) + spiff) / pay) * 60;
-    console.log(minutes)
+    let minutes = (((vehicleLabor * (commission/100)) + spiff) / pay) * 60;
 
     const hours = Math.floor(minutes / 60);
     minutes = Math.floor(minutes % 60);
@@ -39,9 +41,10 @@ export default function Commission() {
     }
   }
 
+  // Commission based on vehicle labor + spiff
   const getVehicleCommission = () => {
     const spiff = !vehicleSpiff ? 0 : Number(vehicleSpiff);
-    return ((vehicleCom * (commission/100)) + spiff).toFixed(2);
+    return ((vehicleLabor * (commission/100)) + spiff).toFixed(2);
   }
   
 
@@ -94,7 +97,6 @@ export default function Commission() {
           </Form>
 
           <h2 className='mt-5 0'>Hourly Commission Target</h2>
-
           <Form>
             {/* HOURS */}
             <Form.Label className='px-0 w-100' id='hoursWorkedLabel'>
@@ -109,16 +111,15 @@ export default function Commission() {
             />
           </Form>
 
-          <h4 className='mt-2'> ${getDailyCommission() || 0} Labor</h4>
-          <h4>${getDailyEarnedCommission() || 0} Earned</h4>
+          <h4 className='mt-2'> ${getDailyLabor() || 0} Labor</h4>
+          <h4>${getDailyCommission() || 0} Commission</h4>
 
 
           <h2 className='mt-5'>Vehicle Timer</h2>
-
           <Form>
             {/* VEHICLE COMMISSION TOTAL */}
-            <Form.Label className='px-0 w-100' id='vehicleCommissionLabel'>
-              Vehicle Commission
+            <Form.Label className='px-0 w-100' id='vehicleLaborLabel'>
+              Vehicle Labor
             </Form.Label>
             <InputGroup className='px-0'>
               <InputGroup.Text>
@@ -126,24 +127,27 @@ export default function Commission() {
               </InputGroup.Text>
               <Form.Control
                 id='vehicleInput'
-                value={vehicleCom}
-                onChange={(event) => {setVehicleCom(event.target.value)}}
+                value={vehicleLabor}
+                onChange={(event) => {setVehicleLabor(event.target.value)}}
                 aria-label='Vehicle Commission'
-                aria-describedby='vehicleCommissionLabel'
+                aria-describedby='vehicleLaborLabel'
               />
+              <InputGroup.Text>
+                $
+              </InputGroup.Text>
               <Form.Control
                 id='vehicleSpiffInput'
                 value={vehicleSpiff}
                 placeholder='Spiff'
                 onChange={(event) => {setVehicleSpiff(event.target.value)}}
                 aria-label='Vehicle Commission Spiff'
-                aria-describedby='vehicleCommissionLabel'
+                aria-describedby='vehicleLaborLabel'
               />
             </InputGroup>
           </Form>
 
           <h4 className='mt-2 fw-bold'>{getVehicleTime()}</h4>
-          <h4 className='mt-2 fw-bold'>${getVehicleCommission()} Earned</h4>
+          <h4 className='mt-2 fw-bold'>${getVehicleCommission()} Commission</h4>
         </Col>
       </Row>
     </Container>
