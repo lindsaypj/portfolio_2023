@@ -17,6 +17,10 @@ export default function Commission() {
     return ((100/commission) * (hours * pay)).toFixed(2);
   }
 
+  const getDailyEarnedCommission = () => {
+    return (hours * pay).toFixed(2);
+  }
+
   const getVehicleTime = () => {
     const spiff = !vehicleSpiff ? 0 : Number(vehicleSpiff);
     let minutes = (((vehicleCom * (commission/100)) + spiff) / pay) * 60;
@@ -24,8 +28,11 @@ export default function Commission() {
 
     const hours = Math.floor(minutes / 60);
     minutes = Math.floor(minutes % 60);
-    if (hours > 0) {
+    if (hours > 1) {
       return hours + ' hrs ' + minutes + ' min';
+    }
+    else if (hours > 0) {
+      return hours + ' hr ' + minutes + ' min';
     }
     else {
       return minutes + ' min';
@@ -102,7 +109,8 @@ export default function Commission() {
             />
           </Form>
 
-          <h4 className='mt-2'> ${getDailyCommission() || 0}</h4>
+          <h4 className='mt-2'> ${getDailyCommission() || 0} Labor</h4>
+          <h4>${getDailyEarnedCommission() || 0} Earned</h4>
 
 
           <h2 className='mt-5'>Vehicle Timer</h2>
@@ -135,7 +143,7 @@ export default function Commission() {
           </Form>
 
           <h4 className='mt-2 fw-bold'>{getVehicleTime()}</h4>
-          <h4 className='mt-2 fw-bold'>${getVehicleCommission()} earned</h4>
+          <h4 className='mt-2 fw-bold'>${getVehicleCommission()} Earned</h4>
         </Col>
       </Row>
     </Container>
