@@ -22,6 +22,18 @@ function typedReducer(state, action) {
     case 'name':
       nextState.name = action.typed
       break;
+    case 'title':
+      nextState.title = action.typed
+      break;
+    case 'desc':
+      nextState.desc = action.typed
+      break;
+    case 'github':
+      nextState.github = action.typed
+      break;
+    case 'linkedin':
+      nextState.linkedin = action.typed
+      break;
     default:
       return state
   }
@@ -34,7 +46,7 @@ export default function AboutMe({ mobileMode }) {
   ////    INITIALIZATION    ////
 
   const textSection = useRef();
-  const [headersTyped, setHeadersTyped] = useReducer(typedReducer, {header: false, name: false});
+  const [headersTyped, setHeadersTyped] = useReducer(typedReducer, {header: false, name: false, title: false, github: false, linkedin: false, desc: false});
 
 
   ////    STATE MANAGMENT    ////
@@ -96,23 +108,61 @@ export default function AboutMe({ mobileMode }) {
             <h3>
               <RevolvingTypingText
                 texts={aboutMeTitles}
-                wordInterval = {5000}
-                charInterval= {50}
-                shouldType={headersTyped.name}
+                wordInterval={5000}
+                charInterval={50}
+                init={headersTyped.name}
+                shouldType={headersTyped.desc}
+                firstTypedCallback={() => { setTimeout(() => {setHeadersTyped({text: 'title', typed: true})}, 0) }}
               />
             </h3>
-            <a className='about-me__link me-2 me-md-3' href='https://github.com/lindsaypj' target='_blank' rel='noreferrer'>
-              <div className='d-inline-block'>
-                GitHub
-                <GitHubLogo className='ms-1' />
+            <div>
+              <div className='about-me__link--typing'>
+                <TypingText
+                  text={"Github----LinkedIn-"}
+                  charInterval={50}
+                  shouldType={headersTyped.title}
+                  doneTypingCallback={() => { setTimeout(() => {setHeadersTyped({text: 'github', typed: true})}, 200) }}
+                  fillUnrenderedSpace={false}
+                  useCursor
+                />
               </div>
-            </a>
-            <a className='about-me__link' href='https://www.linkedin.com/in/lindsaypj/' target='_blank' rel='noreferrer'>
-              <div className='d-inline-block'>
-                LinkedIn
-                <LinkedInLogo className='ms-1' />
-              </div>
-            </a>
+              <a className='about-me__link me-2 me-md-3' href='https://github.com/lindsaypj' target='_blank' rel='noreferrer'>
+                <div className='d-inline-block'>
+                  <TypingText
+                    text={'Github'}
+                    charInterval={50}
+                    shouldType={headersTyped.title}
+                    doneTypingCallback={() => { setTimeout(() => {setHeadersTyped({text: 'github', typed: true})}, 200) }}
+                    fillUnrenderedSpace={false}
+                  />
+                  <GitHubLogo className='ms-1 fs-1' />
+                </div>
+              </a>
+              <a className='about-me__link' href='https://www.linkedin.com/in/lindsaypj/' target='_blank' rel='noreferrer'>
+                <div className='d-inline-block'>
+                  <TypingText
+                    text={'LinkedIn'}
+                    charInterval={50}
+                    shouldType={headersTyped.github}
+                    doneTypingCallback={() => { setTimeout(() => {setHeadersTyped({text: 'linkedin', typed: true})}, 100) }}
+                    fillUnrenderedSpace={false}
+                  />
+                  <LinkedInLogo className='ms-1 fs-1' />
+                </div>
+              </a>
+            </div>
+            
+
+            <p className="pt-4 col-xxl-5 col-xl-6 col-12">
+              <TypingText
+                text={'With a Bachelor of Applied Science in Software Development, I am more eager than ever to keep learning.'}
+                charInterval={40}
+                shouldType={headersTyped.linkedin}
+                doneTypingCallback={() => { setTimeout(() => {setHeadersTyped({text: 'desc', typed: true})}, 1000) }}
+                fillUnrenderedSpace={true}
+                useCursor
+              />
+            </p>
           </div>
 
         </Col>
@@ -126,14 +176,25 @@ export default function AboutMe({ mobileMode }) {
         >
           <div className='about-me__bio padding-margins pe-xl-0'>
             <div ref={textSection}>
+
+              <div>
+                <GRCLogo />  
+              </div>
+
+              <hr className="my-4"></hr>
+
               <p>
-                With a Bachelor of Applied Science in Software Development,
-                I am more eager than ever to keep learning.
+                I am confident I can adapt to any technology, however I'm currently comfortable
+                with these tools and languages.
               </p>
-              <p>
-                I am confident I can adapt to any technology, however I am currently comfortable
-                with agile development and the following tools and languages:
-              </p>
+
+              <hr className="my-4"></hr>
+
+              <div className=''>
+                {aboutMeSkills.map((skill) => (
+                  <Badge key={skill} pill bg='light' text='dark' className='p-2 me-1'>{ skill }</Badge>
+                ))}
+              </div>
             </div>
           </div>
         </Col>
@@ -142,18 +203,6 @@ export default function AboutMe({ mobileMode }) {
           xs={12} xl={6} xxl={7}
         >
           <div className='about-me__details padding-margins mx-xl-auto'>
-            <div>
-              <GRCLogo />
-
-              <hr></hr>
-
-              <div className='p-4'>
-                {aboutMeSkills.map((skill) => (
-                  <Badge key={skill} pill bg='light' text='dark' className='p-2 me-1'>{ skill }</Badge>
-                ))}
-              </div>
-              
-            </div>
           </div>
         </Col>
       </Row>

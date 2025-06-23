@@ -1,4 +1,5 @@
 export const aboutMeSkills = [
+  'Agile',
   'Git',
   'JavaScript',
   'Java',
