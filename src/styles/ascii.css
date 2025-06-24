@@ -14,7 +14,8 @@
   object-fit: contain;
   text-align: center;
   top: -10vh;
-  left: -20vw;
+  left: 66.666%;
+  transform: translate(-50%, 0);
   font-size:5px;
   height: 130vh;
   opacity: 0%;
@@ -41,63 +42,11 @@
 @keyframes slide-in {
   0% {
     opacity: 0%;
-    transform: translateX(25vw);
+    transform: translate(-30%, 0);
   }
   100% {
     opacity: 100%;
-    transform: translateX(0);
-  }
-}
-
-@media screen and (min-width: 576px) {
-  @keyframes slide-in {
-    0% {
-      opacity: 0%;
-      transform: translateX(25vw);
-    }
-    100% {
-      opacity: 100%;
-      transform: translateX(0);
-    }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  @keyframes slide-in {
-    0% {
-      opacity: 0%;
-      transform: translateX(20vw);
-    }
-    100% {
-      opacity: 100%;
-      transform: translateX(0);
-    }
-  }
-}
-
-@media screen and (min-width: 992px) {
-  @keyframes slide-in {
-    0% {
-      opacity: 0%;
-      transform: translateX(15vw);
-    }
-    100% {
-      opacity: 100%;
-      transform: translateX(0);
-    }
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  @keyframes slide-in {
-    0% {
-      opacity: 0%;
-      transform: translateX(10vw);
-    }
-    100% {
-      opacity: 100%;
-      transform: translateX(0);
-    }
+    transform: translate(-50%, 0);
   }
 }
 
@@ -107,7 +56,8 @@
   object-fit: contain;
   text-align: center;
   top: -10vh;
-  left: -20vw;
+  left: 66.666%;
+  transform: translate(-50%, 0);
   font-size:5px;
   height: 130vh;
   
@@ -115,31 +65,4 @@
   pointer-events: none;
 
   transition: left 1s ease-out, left 1s ease-out;
-}
-
-/* Positioning */
-@media screen and (min-width: 576px) {
-  .ascii, .ascii-loading {
-    left: 1vw;
-  }
-}
-@media screen and (min-width: 768px) {
-  .ascii, .ascii-loading {
-    left: 10vw;
-  }
-}
-@media screen and (min-width: 992px) {
-  .ascii, .ascii-loading {
-    left: 20vw;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .ascii, .ascii-loading {
-    left: 25vw;
-  }
-}
-@media screen and (min-width: 1400px) {
-  .ascii, .ascii-loading {
-    left: 35vw;
-  }
 }
