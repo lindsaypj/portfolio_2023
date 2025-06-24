@@ -1,13 +1,11 @@
-import React, { useEffect, useReducer, useRef } from "react";
+import React, { useReducer } from "react";
 
 import TypingText from '../components/TypingText';
 import AsciiPortrait from '../components/ascii-portrait';
 import RevolvingTypingText from "../components/RevolvingTypingText";
-import { Badge, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 import '../styles/AboutMe.css';
-import GRCLogo from '../resources/logos/GRCLogo';
-import { aboutMeSkills } from '../resources/text/skills';
 import { aboutMeTitles } from '../resources/text/subtitles';
 import GitHubLogo from '../resources/logos/GitHubLogo';
 import LinkedInLogo from '../resources/logos/LinkedInLogo';
@@ -45,37 +43,10 @@ export default function AboutMe({ mobileMode }) {
 
   ////    INITIALIZATION    ////
 
-  const textSection = useRef();
   const [headersTyped, setHeadersTyped] = useReducer(typedReducer, {header: false, name: false, title: false, github: false, linkedin: false, desc: false});
 
 
-  ////    STATE MANAGMENT    ////
-
-  // Show Bio when visible
-  useEffect(() => {
-    const textSelectionInstance = textSection.current;
-    const textObserver = new IntersectionObserver((entries, observer) => {
-      const trigger = entries[0];
-      if (trigger.isIntersecting) {
-        showBio();
-        observer.unobserve(textSelectionInstance);
-        observer.disconnect();
-      }
-    });
-    textObserver.observe(textSelectionInstance);
-
-    return () => {
-      textObserver.unobserve(textSelectionInstance);
-      textObserver.disconnect();
-    }
-  }, []);
-
-
   ////    RENDERING    ////
-
-  const showBio = () => {
-    textSection.current.classList.add('show');
-  }
 
   return (
     <>
@@ -153,7 +124,7 @@ export default function AboutMe({ mobileMode }) {
             </div>
             
 
-            <p className="pt-4 col-xxl-5 col-xl-6 col-12">
+            <p className="pt-4 col-xxl-5 col-lg-6 col-md-8 col-12">
               <TypingText
                 text={'With a Bachelor of Applied Science in Software Development, I am more eager than ever to keep learning.'}
                 charInterval={40}
@@ -165,45 +136,6 @@ export default function AboutMe({ mobileMode }) {
             </p>
           </div>
 
-        </Col>
-      </Row>
-
-      {/* Brief Bio */}
-      <Row className='about-me__row bg-black bg-opacity-75'>
-        <Col
-          className='p-0'
-          xs={12} xl={6} xxl={5}
-        >
-          <div className='about-me__bio padding-margins pe-xl-0'>
-            <div ref={textSection}>
-
-              <div>
-                <GRCLogo />  
-              </div>
-
-              <hr className="my-4"></hr>
-
-              <p>
-                I am confident I can adapt to any technology, however I'm currently comfortable
-                with these tools and languages.
-              </p>
-
-              <hr className="my-4"></hr>
-
-              <div className=''>
-                {aboutMeSkills.map((skill) => (
-                  <Badge key={skill} pill bg='light' text='dark' className='p-2 me-1'>{ skill }</Badge>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Col>
-        <Col
-          className='p-0 text-center'
-          xs={12} xl={6} xxl={7}
-        >
-          <div className='about-me__details padding-margins mx-xl-auto'>
-          </div>
         </Col>
       </Row>
     </Container>

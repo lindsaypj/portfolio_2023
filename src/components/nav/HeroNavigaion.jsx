@@ -7,11 +7,11 @@ window.addEventListener('load', () => {})
 
 export default function HeroNavigation({ navLinks, navLinkCallback }) {
   return (
-    <Row className='text-center'>
+    <Row className='hero-nav text-center'>
       {navLinks.map((link) => (
         <Col
-          className='hero-nav-col col-xxl-2-4'
-          xs={6} lg={4} xl={3}
+          className='hero-nav-col'
+          xs={6} md={4} lg={6} xl={4} xxl={4}
           key={link.text}
         >
           <Card

@@ -16,6 +16,7 @@ import SoftwareDevNavImg from '../resources/images/PortfolioNav/JavaNavImg.jpg';
 import OpenSourceNavImg from '../resources/images/PortfolioNav/OpenSourceNavImg.png';
 import AutomotiveNavImg from '../resources/images/PortfolioNav/AutomotiveNavImg.jpg';
 import PhotographyNavImg from '../resources/images/PortfolioNav/PhotographyNavImg.png';
+import Bio from '../components/portfolio/Bio';
 
 
 export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, mobileMode }) {
@@ -86,7 +87,7 @@ export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, 
 
   return (
     <Container fluid className='p-0' ref={portfolioRef}>
-      <Row className='portfolio__row--hero bg-gradient-down'>
+      <Row className='portfolio__row--hero bg-black bg-opacity-75'>
         <Col className='p-0 col-12'>
           <Row>
             <Col className='p-0 col-12'>
@@ -96,7 +97,7 @@ export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, 
             </Col>
           </Row>
           <Row>
-            <Col className='col-12 padding-margins-n2'>
+            <Col className='padding-margins-n2 pe-lg-0' xs={12} lg={6} xl={7}>
               <HeroNavigation
                 navLinks={[
                   {text: '/web', img: WebDevNavImg, imgAlt: 'Code'},
@@ -107,6 +108,14 @@ export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, 
                 ]}
                 navLinkCallback={onNavSelect}
               />
+            </Col>
+
+            {/* Bio/Skills */}
+            <Col
+              className='padding-margins'
+              xs={12} lg={6} xl={5}
+            >
+              <Bio />
             </Col>
           </Row>
         </Col>
