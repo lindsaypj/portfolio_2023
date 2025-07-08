@@ -11,7 +11,7 @@ import { PRIMARY_ROUTES } from "../../resources/text/routes";
 
 const routeTree = new RouteTree();
 
-export default function Terminal({ navChangeCallback, currentRoute }) {
+export default function Terminal({ navChangeCallback, currentRoute, terminalHasFocus, setTerminalHasFocus }) {
   const MAX_CHAR_COUNT = routeTree.getMaxRouteLength();
 
   const terminal = useRef();
@@ -24,7 +24,6 @@ export default function Terminal({ navChangeCallback, currentRoute }) {
   const [terminalText, setTerminalText] = useState(currentRoute);
   const [partialRoutes, setPartialRoutes] = useState(initPartialRoutes);
   const [validPath, setValidPath] = useState(false);
-  const [terminalHasFocus, setTerminalHasFocus] = useState(false);
 
 
   const updateCursorPos = (nextCursorPos) => {
@@ -49,7 +48,7 @@ export default function Terminal({ navChangeCallback, currentRoute }) {
       setTerminalHasFocus(true);
       cursor.current.classList.remove('hide');
     }
-  }, []);
+  }, [setTerminalHasFocus]);
 
   // When Route updates
   useEffect(() => {
@@ -65,7 +64,7 @@ export default function Terminal({ navChangeCallback, currentRoute }) {
       terminal.current.blur();
       setTerminalHasFocus(false);
     }
-  }, [currentRoute, setFocus, updateAutocomplete]);
+  }, [currentRoute, setFocus, updateAutocomplete, setTerminalHasFocus]);
 
 
   // EVENT HANDLERS
@@ -83,7 +82,7 @@ export default function Terminal({ navChangeCallback, currentRoute }) {
         navChangeCallback(route);
         setTerminalHasFocus(false);
     }
-  },[navChangeCallback]);
+  },[navChangeCallback, setTerminalHasFocus]);
 
   const handleTerminalCursorPosChange = (event) => {
     const nextCursorPos = event.target.selectionStart;

@@ -36,6 +36,7 @@ function App() {
   const [page, setPage] = useState(currentPage);
   const [mobileMode, setMobileMode] = useState(false);
   const [shouldScrollToRoute, setShouldScrollToRoute] = useState(SCROLLABLE_ROUTES.includes(currentPage));
+  const [terminalHasFocus, setTerminalHasFocus] = useState(false);
 
   // const [selectedTopic, setSelectedTopic] = useState(initialTopic);
   // const [accordionKey, setAccordionKey] = useState(initialAccordionKey);
@@ -112,6 +113,7 @@ function App() {
           <>
           <AboutMe
             mobileMode={mobileMode}
+            terminalHasFocus={terminalHasFocus}
           />
           <Portfolio
             shouldScroll={shouldScrollToRoute && PORTFOLIO_SECTIONS.includes(page)}
@@ -122,7 +124,7 @@ function App() {
           </>
         );
     }
-  }, [page, mobileMode, shouldScrollToRoute]);
+  }, [page, mobileMode, shouldScrollToRoute, terminalHasFocus]);
 
   return (
     <div className='App app-dark'>
@@ -145,6 +147,8 @@ function App() {
           <Terminal
             navChangeCallback={navChangeCallback}
             currentRoute={page}
+            terminalHasFocus={terminalHasFocus}
+            setTerminalHasFocus={setTerminalHasFocus}
           />
         </div>
       </div>

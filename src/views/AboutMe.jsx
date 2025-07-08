@@ -39,7 +39,7 @@ function typedReducer(state, action) {
 }
 
 
-export default function AboutMe({ mobileMode }) {
+export default function AboutMe({ mobileMode, terminalHasFocus }) {
 
   ////    INITIALIZATION    ////
 
@@ -82,8 +82,9 @@ export default function AboutMe({ mobileMode }) {
                 wordInterval={5000}
                 charInterval={50}
                 init={headersTyped.name}
-                shouldType={headersTyped.desc}
+                shouldType={headersTyped.desc && !terminalHasFocus}
                 firstTypedCallback={() => { setTimeout(() => {setHeadersTyped({text: 'title', typed: true})}, 0) }}
+                useCursor={!terminalHasFocus}
               />
             </h3>
             <div>
