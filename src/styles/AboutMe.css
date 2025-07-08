@@ -21,20 +21,7 @@
 /* Job subtitle container */
 .about-me__title {
   position: absolute;
-  top: 44vh;
-}
-@media screen and (min-width: 768px) {
-  .about-me__title {
-    position: absolute;
-    top: 45vh;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .about-me__title {
-    position: absolute;
-    top: 37vh;
-  }
+  top: 35vh;
 }
 
 .about-me__title h2 {
