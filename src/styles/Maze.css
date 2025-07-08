@@ -51,7 +51,6 @@
 .maze-cell {
   display: inline-block;
   width: 100%;
-  aspect-ratio: 1;
   background-color: var(--maze-cell-bg-color);
 }
 .maze-cell:nth-last-child(1) {

@@ -67,9 +67,7 @@ export default function Maze({ mazeWidth, mazeHeight, initMaze, mazePath, curren
     // Apply layout
     if (mazeRef.current) {
       mazeRef.current.style.gridTemplateColumns = 'repeat('+mazeWidth+', 1fr)';
-      if (mazeWidth/mazeHeight < 1) {
-        mazeRef.current.style.aspectRatio = mazeWidth+'/'+mazeHeight;
-      }
+      mazeRef.current.style.aspectRatio = mazeWidth+'/'+mazeHeight;
     }
     
     return cells;
