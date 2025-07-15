@@ -51,7 +51,7 @@ export default function WebDev({ scrollRef, mobileMode }) {
           title={"REI Membership Dashboard"}
           id={'REIDescription'}
           description={[
-            `As a Software Engineer Intern with the Membership team at REI, I enabled the
+            `As a Software Engineer Intern with the Membership team at REI, I helped enable the
               editing of membership information for all 24.5 million members. Instead of
               calling into an REI Service Center, members can now make changes from their
               online account. Jumping in with no Vue.js experience, I quickly learned by
