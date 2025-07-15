@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
 import SudokuBoard from "./SudokuBoard";
+import SudokuMenu from "./SudokuMenu";
 import TestConfigurator from "./TestConfigurator";
 
 import { Sudoku } from "../../objects/SudokuGame";
@@ -19,16 +20,18 @@ export default function SudokuGame() {
   const [hideNums, setHideNums] = useState(sudokuGame.getHideNums());
   const [showConflicts, setShowConflicts] = useState(sudokuGame.getShowConflicts());
   const [conflicts, setConflicts] = useState(sudokuGame.getConflicts());
+  const [solved, setSolved] = useState(sudokuGame.isSolved());
 
 
   ////    STATE MANAGMENT    ////
 
-  const handleBoardUpdate = (boardSize, nextBoard, index) => {
+  const handleBoardUpdate = (boardSize, nextBoard) => {
     // Update init and session data
-    sudokuGame.updateBoardBySize({boardSize, nextBoard, index});
+    sudokuGame.updateBoardBySize({boardSize, nextBoard});
 
     setBoard(nextBoard);
     setConflicts(sudokuGame.getConflicts());
+    setSolved(sudokuGame.isSolved());
   }
 
   const handleBoardSizeChange = (nextSize) => {
@@ -37,6 +40,7 @@ export default function SudokuGame() {
     setBoard(sudokuGame.getBoard());
     setInitialBoard(sudokuGame.getInitBoard());
     setConflicts(sudokuGame.getConflicts());
+    setSolved(sudokuGame.isSolved());
   }
 
   const handleHideNumsChange = (nextHideNums) => {
@@ -49,6 +53,13 @@ export default function SudokuGame() {
     setShowConflicts(shouldShowConflicts);
   }
 
+  const handleBoardReset = () => {
+    sudokuGame.reset();
+    setBoard(sudokuGame.getBoard());
+    setConflicts(sudokuGame.getConflicts());
+    setSolved(sudokuGame.isSolved());
+  }
+
 
   ////    RENDERING    ////
 
@@ -56,6 +67,10 @@ export default function SudokuGame() {
     <Container fluid className='min-vh-100 p-0 m-0'>
       <Row>
         <Col className='text-center mt-4 p-0'>
+          <SudokuMenu
+            showMenu={solved}
+            handleReset={handleBoardReset}
+          />
           <SudokuBoard
             size={size}
             initialBoard={initialBoard}

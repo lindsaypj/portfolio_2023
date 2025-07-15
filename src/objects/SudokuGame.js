@@ -1,4 +1,3 @@
-import { getHighlightedFromIndex } from "../scripts/sudokuUtils";
 import { SudokuGameData } from "./SudokuGameData";
 import getCellGroups from "./SudokuInitTools";
 
@@ -31,6 +30,10 @@ export class Sudoku {
       return this.gameData.conflicts;
     }
 
+    this.isSolved = () => {
+      return this.gameData.getSolved() === true;
+    }
+
     this.changeSize = (newSize) => {
       this.gameData.size = newSize;
       this.cellGroups = getCellGroups(newSize);
@@ -49,21 +52,10 @@ export class Sudoku {
       this.gameData.saveGameData();
     }
 
-    this.updateBoardBySize = ({ boardSize, nextBoard, index }) => {
-      switch(boardSize) {
-        case 4:
-          this.gameData.board4 = nextBoard;
-          break;
-        case 9:
-          this.gameData.board9 = nextBoard;
-          break;
-        case 16:
-          this.gameData.board16 = nextBoard;
-          break;
-        default:
-          console.log('Size ['+ boardSize +'] not recognized');
-      }
+    this.updateBoardBySize = ({ boardSize, nextBoard }) => {
+      this.gameData.setBoard(boardSize, nextBoard)
       this.updateConflicts();
+      this.checkWinCondition();
       this.gameData.saveGameData();
     }
 
@@ -72,6 +64,10 @@ export class Sudoku {
         this.gameData.conflicts = [];
         return;
       }
+      this.gameData.conflicts = this.getConflicts();
+    }
+
+    this.getConflicts = () => {
       const currentBoard = this.getBoard();
       const conflicts = [];
       Object.values(this.cellGroups).forEach((groupType) => { // Row, Col, Group
@@ -96,7 +92,30 @@ export class Sudoku {
           });
         });
       });
-      this.gameData.conflicts = conflicts;
+      return conflicts;
+    }
+
+    this.checkWinCondition = () => {
+      let win = true;
+      
+      // No conflicts
+      const conflicts = this.getConflicts();
+      if (conflicts.length > 0) {
+        win = false;
+      }
+
+      // No empty cells
+      const board = this.getBoard();
+      win = win && !Object.values(board).some((cell) => {
+        return cell === 0;
+      });
+
+      this.gameData.setSolved(win);
+    }
+
+    this.reset = () => {
+      this.gameData.resetCurrentBoard();
+      this.gameData.saveGameData();
     }
   }
 }

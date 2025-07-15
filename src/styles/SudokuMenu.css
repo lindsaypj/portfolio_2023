@@ -1,0 +1,34 @@
+.sudoku-menu {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: calc(min(90vh, 90vw));
+  aspect-ratio: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .sudoku-menu {
+    width: calc(min(65vh, 65vw));
+  }
+}
+
+.sudoku-menu-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.sudoku-menu-title {
+  font-size: 5rem;
+  font-weight: 500;
+  margin-bottom: 15%;
+}
+
+.sudoku-menu button {
+  font-size: 1.5rem;
+  padding-block: 2rem;
+  padding-inline: 3rem;
+}

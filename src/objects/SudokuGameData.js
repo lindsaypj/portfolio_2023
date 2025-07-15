@@ -47,51 +47,81 @@ export class SudokuGameData {
       this.hideNums = savedGameData.hideNums;
       this.showConflicts = savedGameData.showConflicts;
       this.conflicts = savedGameData.conflicts;
-      this.board4 = savedGameData.board4;
-      this.board9 = savedGameData.board9;
-      this.board16 = savedGameData.board16;
-      this.initBoard4 = savedGameData.initBoard4;
-      this.initBoard9 = savedGameData.initBoard9;
-      this.initBoard16 = savedGameData.initBoard16;
+      this.boards = savedGameData.boards;
+      this.initBoards = savedGameData.initBoards;
+      this.solved = savedGameData.solved;
     }
     else {
       this.size = 4;
       this.hideNums = false;
       this.showConflicts = true;
       this.conflicts = [];
-      this.board4 = EXAMPLE_4X4;
-      this.board9 = EXAMPLE_9X9;
-      this.board16 = EXAMPLE_16X16;
-      this.initBoard4 = EXAMPLE_4X4;
-      this.initBoard9 = EXAMPLE_9X9;
-      this.initBoard16 = EXAMPLE_16X16;
+      this.boards = {
+        4: EXAMPLE_4X4,
+        9: EXAMPLE_9X9,
+        16: EXAMPLE_16X16
+      };
+      this.initBoards = {
+        4: EXAMPLE_4X4,
+        9: EXAMPLE_9X9,
+        16: EXAMPLE_16X16
+      };
+      this.solved = {
+        4: false,
+        9: false,
+        16: false
+      };
     }
 
     this.getSavedBoard = () => {
-      switch(this.size) {
-        case 4:
-          return this.board4;
-        case 9:
-          return this.board9;
-        case 16:
-          return this.board16;
-        default:
-          console.log('Size ['+ this.size +'] not recognized');
+      try {
+        return this.boards[this.size]
+      } catch (error) {
+        console.log(error);
       }
     };
+
+    this.setBoard = (size, nextBoard) => {
+      try {
+        this.boards[this.size] = nextBoard;
+      } catch (error) {
+        console.log(error);
+      }
+    }
     
     this.getSavedInitialBoard = () => {
-      switch(this.size) {
-        case 4:
-          return this.initBoard4;
-        case 9:
-          return this.initBoard9;
-        case 16:
-          return this.initBoard16;
-        default:
-          console.log('Size ['+ this.size +'] not recognized');
+      try {
+        return this.initBoards[this.size]
+      } catch (error) {
+        console.log(error);
       }
     };
+
+    this.getSolved = () => {
+      try {
+        return this.solved[this.size]
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    this.setSolved = (solved) => {
+      try {
+        this.solved[this.size] = solved;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    this.resetCurrentBoard = () => {
+      try {
+        this.boards[this.size] = this.initBoards[this.size];
+        this.solved[this.size] = false;
+        this.conflicts = [];
+      } catch (error) {
+        console.log(error);
+      }
+    }
 
     // Save data to session storage
     this.saveGameData = () => {

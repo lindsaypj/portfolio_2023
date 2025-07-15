@@ -49,7 +49,7 @@ function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIn
       const updatedBoard = [...cells];
       updatedBoard[index] = value;
       setCells(updatedBoard);
-      handleBoardUpdate(size, updatedBoard, index);
+      handleBoardUpdate(size, updatedBoard);
     }
   }
 
