@@ -90,9 +90,16 @@ function App() {
           />
         );
       case '/dev':
-        return (
-          <DevPage />
-        );
+        switch (page) {
+          case '/dev/sudoku':
+            return (
+              <DevPage content={'/sudoku'} />
+            );
+          default:
+            return (
+              <DevPage />
+            );
+        }
       // case '/learning':
       //   return (
       //     <Learning

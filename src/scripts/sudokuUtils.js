@@ -1,3 +1,5 @@
+import getCellGroups from "../objects/SudokuInitTools"
+
 export const ROWS4X4 = [[0, 1, 2, 3], [4, 5, 6, 7,], [8, 9, 10, 11], [12, 13, 14, 15]]
 export const COLS4X4 = [[0, 4, 8, 12],[1, 5, 9, 13], [2, 6, 10, 14], [3, 7, 11, 15]]
 export const GROUPS4X4 = [[0, 1, 4, 5], [2, 3, 6, 7], [8, 9, 12, 13], [10, 11, 14, 15]]
@@ -124,4 +126,59 @@ export const getHighlightedFromIndex = (index, size) => {
       return nextHighlighted;
   }
   return nextHighlighted;
+}
+
+export const getConflicts = (board, size) => {
+  const cellGroups = getCellGroups(size);
+  const currentBoard = board;
+      const conflicts = [];
+      Object.values(cellGroups).forEach((groupType) => { // Row, Col, Group
+        groupType.forEach((group) => { // Row
+          const testSet = [];
+          const tempConflicts = new Set();
+          group.forEach((cellIndex) => { // Cell
+            const cellValue = currentBoard[cellIndex];
+            if (!cellValue) {
+              return;
+            }
+            if (testSet[cellValue]) {
+              testSet[cellValue].push(cellIndex);
+              tempConflicts.add(cellValue);
+            }
+            else {
+              testSet[cellValue] = [cellIndex];
+            }
+          });
+          tempConflicts.forEach((conflict) => {
+            conflicts.push(...testSet[conflict]);
+          });
+        });
+      });
+      return conflicts;
+}
+
+export const getBoardFromData = (data, size) => {
+  switch (size) {
+    case 9:
+      return data.board9x9;
+    case 16:
+      return data.board16x16;
+    case 4:
+    default:
+      return data.board4x4;
+  }
+}
+
+export const setBoardWithData = (data, nextBoard) => {
+  switch (data.size) {
+    case 9:
+      data.board9x9 = nextBoard;
+      break;
+    case 16:
+      data.board16x16 = nextBoard;
+      break;
+    case 4:
+    default:
+      data.board4x4 = nextBoard;
+  }
 }

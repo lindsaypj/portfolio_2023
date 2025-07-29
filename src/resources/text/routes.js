@@ -9,6 +9,7 @@ export const PRIMARY_ROUTES = [
 export const HIDDEN_ROUTES = [
   '/',
   '/dev',
+  '/dev/sudoku',
   '/commission'
 ];
 
