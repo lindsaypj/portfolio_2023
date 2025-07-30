@@ -1,5 +1,3 @@
-import getCellGroups from "../objects/SudokuInitTools"
-
 export const ROWS4X4 = [[0, 1, 2, 3], [4, 5, 6, 7,], [8, 9, 10, 11], [12, 13, 14, 15]]
 export const COLS4X4 = [[0, 4, 8, 12],[1, 5, 9, 13], [2, 6, 10, 14], [3, 7, 11, 15]]
 export const GROUPS4X4 = [[0, 1, 4, 5], [2, 3, 6, 7], [8, 9, 12, 13], [10, 11, 14, 15]]
@@ -91,6 +89,31 @@ export const GROUPS16X16 = [
   [204, 205, 206, 207, 220, 221, 222, 223, 236, 237, 238, 239, 252, 253, 254, 255]
 ]
 
+export const getCellGroups = (size) => {
+  switch(size) {
+    case 4:
+      return {
+        rows: ROWS4X4,
+        cols: COLS4X4,
+        groups: GROUPS4X4,
+      }
+    case 9:
+      return {
+        rows: ROWS9X9,
+        cols: COLS9X9,
+        groups: GROUPS9X9,
+      }
+    case 16:
+      return {
+        rows: ROWS16X16,
+        cols: COLS16X16,
+        groups: GROUPS16X16
+      }
+    default:
+      return {};
+  }
+}
+
 export const getHighlightedFromIndex = (index, size) => {
   const nextHighlighted = new Set();
 
@@ -130,31 +153,42 @@ export const getHighlightedFromIndex = (index, size) => {
 
 export const getConflicts = (board, size) => {
   const cellGroups = getCellGroups(size);
-  const currentBoard = board;
-      const conflicts = [];
-      Object.values(cellGroups).forEach((groupType) => { // Row, Col, Group
-        groupType.forEach((group) => { // Row
-          const testSet = [];
-          const tempConflicts = new Set();
-          group.forEach((cellIndex) => { // Cell
-            const cellValue = currentBoard[cellIndex];
-            if (!cellValue) {
-              return;
-            }
-            if (testSet[cellValue]) {
-              testSet[cellValue].push(cellIndex);
-              tempConflicts.add(cellValue);
-            }
-            else {
-              testSet[cellValue] = [cellIndex];
-            }
-          });
-          tempConflicts.forEach((conflict) => {
-            conflicts.push(...testSet[conflict]);
-          });
-        });
+  const conflicts = [];
+  Object.values(cellGroups).forEach((groupType) => { // Row, Col, Group
+    groupType.forEach((group) => {
+      const testSet = [];
+      const tempConflicts = new Set();
+      group.forEach((cellIndex) => {
+        const cellValue = board[cellIndex];
+        if (!cellValue) {
+          return;
+        }
+        if (testSet[cellValue]) {
+          testSet[cellValue].push(cellIndex);
+          tempConflicts.add(cellValue);
+        }
+        else {
+          testSet[cellValue] = [cellIndex];
+        }
       });
-      return conflicts;
+      tempConflicts.forEach((conflict) => {
+        conflicts.push(...testSet[conflict]);
+      });
+    });
+  });
+  return conflicts;
+}
+
+export const getInitBoard = (data, size) => {
+  switch (size) {
+    case 9:
+      return data.initBoard9x9;
+    case 16:
+      return data.initBoard16x16;
+    case 4:
+    default:
+      return data.initBoard4x4;
+  }
 }
 
 export const getBoardFromData = (data, size) => {
@@ -181,4 +215,33 @@ export const setBoardWithData = (data, nextBoard) => {
     default:
       data.board4x4 = nextBoard;
   }
+}
+
+export const getPossibleNums = (nextBoard, size) => {
+  const cellGroups = getCellGroups(size);
+  const possibleNums = [];
+  const ALL_POSSIBLE_NUMS = [...Array(size).keys()].map(i => i + 1);
+
+  for (let i = 0; i < nextBoard.length; i++) {
+    possibleNums[i] = [];
+    if (nextBoard[i] !== 0) {
+      continue;
+    }
+
+    const rowNum = Math.floor(i / size);
+    const row = cellGroups.rows[rowNum];
+    const colNum = i % size;
+    const col = cellGroups.cols[colNum];
+    const root = Math.sqrt(size);
+    const groupNum = (Math.floor(rowNum / root) * root) + Math.floor(colNum / root);
+    const group = cellGroups.groups[groupNum];
+
+    const indicies = new Set([...row, ...col, ...group]);
+    possibleNums[i] = new Set([...ALL_POSSIBLE_NUMS]);
+    indicies.forEach((index) => {
+      possibleNums[i].delete(nextBoard[index]);
+    })
+    possibleNums[i] = [...possibleNums[i]];
+  }
+  return possibleNums;
 }

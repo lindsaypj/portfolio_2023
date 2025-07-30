@@ -50,19 +50,19 @@ export class Sudoku {
       this.gameData.saveGameData();
     }
 
-    this.updateBoardBySize = ({ boardSize, nextBoard }) => {
+    this.updateBoardBySize = (boardSize, nextBoard) => {
       this.gameData.setBoard(boardSize, nextBoard)
       this.updateConflicts();
       this.checkWinCondition();
       this.gameData.saveGameData();
     }
 
-    this.updateConflicts = () => {
+    this.updateConflicts = (size = this.getSize(), board = this.getBoard()) => {
       if (!this.gameData.showConflicts) {
         this.gameData.conflicts = [];
         return;
       }
-      this.gameData.conflicts = getConflicts();
+      this.gameData.conflicts = getConflicts(board, size);
     }
 
     this.checkWinCondition = () => {

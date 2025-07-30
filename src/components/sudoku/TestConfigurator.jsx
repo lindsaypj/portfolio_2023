@@ -5,7 +5,16 @@ import HideNumBtn from "./HideNumBtn";
 import '../../styles/testconfigurator.css';
 
 
-function TestConfigurator({ boardSize, setBoardSize, hideNums, setHideNums, showConflicts, setShowConflicts }) {
+function TestConfigurator({
+  boardSize,
+  setBoardSize,
+  hideNums,
+  setHideNums,
+  showConflicts,
+  setShowConflicts,
+  showNotes,
+  setShowNotes
+}) {
   return (
     <div className="configurator-container mb-5">
       {/* HIDE/SHOW NUMBERS */}
@@ -28,7 +37,7 @@ function TestConfigurator({ boardSize, setBoardSize, hideNums, setHideNums, show
       </div>
       
       {/* BOARD SIZE */}
-      <div className={"d-inline-block align-top text-start my-3 size-" + boardSize + "-selected"}>
+      <div className={"d-inline-block align-top text-start my-3 me-3 size-" + boardSize + "-selected"}>
         <p className="mx-1 mb-0 text-start">Board Size:</p>
         <button 
           className="btn m-1 d-inline btn-light shadow-sm fw-bold" 
@@ -43,6 +52,43 @@ function TestConfigurator({ boardSize, setBoardSize, hideNums, setHideNums, show
           onClick={() => setBoardSize(16)}
         >16x16</button>
       </div>
+
+      {/* SHOW CONFLICTS */}
+      {
+        setShowConflicts &&
+        <div className={"d-inline-block align-top text-start my-3 me-3"}>
+          <p className="mx-1 mb-0 text-start">Conflicts:</p>
+          <button 
+            className="btn m-1 d-inline btn-light shadow-sm fw-bold" 
+            onClick={() => setShowConflicts(true)}
+            disabled={showConflicts}
+          >Show</button>
+          <button 
+            className="btn m-1 d-inline btn-light shadow-sm fw-bold" 
+            onClick={() => setShowConflicts(false)}
+            disabled={!showConflicts}
+          >Hide</button>
+        </div>
+      }
+
+      {/* SHOW NOTES */}
+      {
+        setShowNotes && 
+        <div className={"d-inline-block align-top text-start my-3 me-3"}>
+          <p className="mx-1 mb-0 text-start">Notes:</p>
+          <button 
+            className="btn m-1 d-inline btn-light shadow-sm fw-bold" 
+            onClick={() => setShowNotes(true)}
+            disabled={showNotes}
+          >Show</button>
+          <button 
+            className="btn m-1 d-inline btn-light shadow-sm fw-bold" 
+            onClick={() => setShowNotes(false)}
+            disabled={!showNotes}
+          >Hide</button>
+        </div>
+      }
+      
     </div>
   );
 }

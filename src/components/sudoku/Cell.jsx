@@ -2,6 +2,7 @@ import React, { useReducer, useState } from 'react';
 import { useLayoutEffect, useCallback } from 'react';
 
 import '../../styles/cell.css'
+import CellNotes from './CellNotes';
 
 const COLORS = ['black', 'blue', 'red', 'green', 'yellow', 'purple', 'orange', 'magenta',
                 'cyan', 'lime', 'pink', 'crimson', 'dark-purple', 'dark-cyan', 'gray', 'navy', 'fire'];
@@ -16,7 +17,9 @@ function Cell({
     disabled,
     error,
     onFocusCallback,
-    highlighted
+    highlighted,
+    notes,
+    showNotes = false
 }) {
 
   ////   STATE INITIALIZATION   ////
@@ -121,10 +124,21 @@ function Cell({
     onFocusCallback(null)
   }
 
+  // DISPLAY VALUE OR NOTES
+  const getDisplayValue = useCallback(() => {
+    if (displayValue !== 0) {
+      return displayValue;
+    }
+    else if (showNotes) {
+      return ( <CellNotes notes={notes} /> );
+    }
+    return '';
+  },[displayValue, notes, showNotes]);
+
   return (
     <div className={'cellContainer cell-height-'+size}>
       {/* Cell visible element (Non-Interactable) */}
-      <p className={'cellDisplay size-'+size + ' cell-text-'+cellTextColor}>{displayValue}</p>
+      <p className={'cellDisplay size-'+size + ' cell-text-'+cellTextColor}>{getDisplayValue()}</p>
       {/* Cell input element (Interactable) */}
       <input 
         type={'number'}

@@ -5,7 +5,7 @@ import Cell from "./Cell.jsx";
 
 import '../../styles/board.css';
 
-function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIndex, hideNums, conflicts }) {
+function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIndex, hideNums, conflicts, notes, showNotes }) {
 
   ////    STATE INITIALIZATION    ////
 
@@ -87,6 +87,13 @@ function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIn
     }
     return true;
   }, [initialBoard]);
+
+  const getNotes = (cellIndex) => {
+    if (notes) {
+      return notes[cellIndex];
+    }
+    return [];
+  }
     
 
   return(
@@ -111,6 +118,8 @@ function SudokuBoard({ size, initialBoard, saveState, handleBoardUpdate, boardIn
                 error={conflicts.includes(cellIndex)}
                 onFocusCallback={setHighlighted}
                 highlighted={isHighlighted(cellIndex)}
+                notes={getNotes(cellIndex)}
+                showNotes={showNotes}
               />
             );
           })}

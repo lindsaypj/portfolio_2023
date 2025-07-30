@@ -27,7 +27,7 @@ export default function SudokuGame() {
 
   const handleBoardUpdate = (boardSize, nextBoard) => {
     // Update init and session data
-    sudokuGame.updateBoardBySize({boardSize, nextBoard});
+    sudokuGame.updateBoardBySize(boardSize, nextBoard);
 
     setBoard(nextBoard);
     setConflicts(sudokuGame.getConflicts());
@@ -51,6 +51,7 @@ export default function SudokuGame() {
   const handleShowConflictsChange = (shouldShowConflicts) => {
     sudokuGame.showHideConflicts(shouldShowConflicts);
     setShowConflicts(shouldShowConflicts);
+    setConflicts(sudokuGame.getConflicts());
   }
 
   const handleBoardReset = () => {
