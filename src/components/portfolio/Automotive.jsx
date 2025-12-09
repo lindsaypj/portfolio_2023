@@ -25,21 +25,18 @@ export default function Automotive({ scrollRef }) {
           title={"Transmission Swap"}
           id={'automotiveDescription'}
           description={[
-            `When buying my first car, I decided to get a manual transmission to learn how
-              to drive it. At first it was annoying, but as I got better it became fun and
-              satisfying. It wasn't until I sold it that I realized how much I loved driving
-              with a manual transmission.`,
-            `I enjoyed driving the automatic, but there was something missing. Despite
-              being faster, it wasn't as engaging. Then, the automatic transmission was
-              starting to wear out. Needing to be replaced soon, rather than putting in
-              another transmission I didn't really want, I decided to convert my car to manual.`,
-            `Using original BMW parts, the conversion was surprisingly straightforward. I
-              found many others online who completed the same conversion. With their detailed
-              videos and write-ups, I was able to learn everything I needed to about removing
-              the automatic, servicing the new transmission, and installing the manual
-              accessories. After a few days of wrenching and some minor wiring, it was done.`,
-            `I've been driving it for the last 2 years, and I am extremely happy with my new
-              transmission. When I first got my car, I didn't think I was capable of something
+            `When buying my first car, I decided to get a manual transmission. It wasn't until
+              I sold it that I realized how much I loved driving with a manual. When driving an
+              automatic, there is always something missing. Despite being faster, it's not as
+              engaging. When my automatic transmission started to wear out, I decided to
+              convert the car to manual.`,
+            `I researched the process extensively: part differences, removal of the automatic,
+              and installation of the manual. I slowly ordered everything I needed,
+              accumulating a mountain of parts. After a few days of wrenching and some minor
+              wiring, it was done. Using original BMW parts, the conversion was surprisingly
+              straightforward.`,
+            `I've been driving it since 2022, and I'm extremely happy with my new
+              transmission. When I bought the car, I didn't think I was capable of something
               as technical as swapping the transmission. But now I am confident I could do it 
               again. When facing new challenges, I remind myself how my perspective changed before
               and after the transmission swap. What seems near impossible may not always be.`
