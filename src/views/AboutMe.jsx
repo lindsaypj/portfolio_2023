@@ -128,7 +128,7 @@ export default function AboutMe({ mobileMode, terminalHasFocus }) {
             <p className="pt-4 col-xxl-5 col-lg-6 col-md-8 col-12">
               <TypingText
                 text={'With a Bachelor of Applied Science in Software Development, I am more eager than ever to keep learning.'}
-                charInterval={40}
+                charInterval={30}
                 shouldType={headersTyped.linkedin}
                 doneTypingCallback={() => { setTimeout(() => {setHeadersTyped({text: 'desc', typed: true})}, 1000) }}
                 fillUnrenderedSpace={true}
