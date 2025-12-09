@@ -2,31 +2,24 @@
   width: 100%;
 }
 
-.portfolio-carousel .carousel-control-next, .portfolio-carousel .carousel-control-prev {
-  -webkit-transition: background-color 1s linear;
-  -moz-transition: background-color 1s linear;
-  -o-transition: background-color 1s linear;
-  -ms-transition: background-color 1s linear;
-  transition: background-color 1s linear;
-
-  border-radius: var(--bs-border-radius)!important;
-}
-
-.portfolio-carousel .carousel-control-prev, .portfolio-carousel .carousel-control-next {
-  margin-bottom: 3rem;
-}
-
-.portfolio-carousel .carousel-control-next:hover {
-  background: rgb(0,0,0);
+.portfolio-carousel .carousel-control-next {
   background: -moz-linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7203475140056023) 100%);
   background: -webkit-linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7203475140056023) 100%);
   background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7203475140056023) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+  
 }
-.portfolio-carousel .carousel-control-prev:hover {
-  background: rgb(0,0,0);
+.portfolio-carousel .carousel-control-prev {
   background: -moz-linear-gradient(90deg, rgba(0,0,0,0.7203475140056023) 0%, rgba(0,0,0,0) 100%);
   background: -webkit-linear-gradient(90deg, rgba(0,0,0,0.7203475140056023) 0%, rgba(0,0,0,0) 100%);
   background: linear-gradient(90deg, rgba(0,0,0,0.7203475140056023) 0%, rgba(0,0,0,0) 100%);
+}
+.portfolio-carousel .carousel-control-next, .portfolio-carousel .carousel-control-prev {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+  border-radius: var(--bs-border-radius)!important;
+  margin-bottom: 3rem;
+  opacity: 0.3;
+}
+
+.portfolio-carousel .carousel-control-next:hover, .portfolio-carousel .carousel-control-prev:hover {
+  opacity: 0.9;
 }
