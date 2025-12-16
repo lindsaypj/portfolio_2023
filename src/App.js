@@ -1,7 +1,7 @@
 import './styles/App.css';
 import SESSION_KEYS, { loadSessionPageData, saveSessionValue } from './scripts/sessionInterface';
 import { getPrimaryRoute } from './scripts/utils';
-import scrollToTop from './scripts/scrollToTop';
+import { scrollToTop } from './scripts/scrollUtils';
 // import { getInitialAccordionState } from './scripts/init';
 
 import { useCallback, useEffect, useState } from 'react';

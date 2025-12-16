@@ -2,7 +2,7 @@ import React from "react";
 
 import { Button, Col, Container, Row } from "react-bootstrap";
 
-import { PRIMARY_ROUTES, methods, commands } from "../resources/text/routes";
+import { PRIMARY_ROUTES, methods, COMMANDS } from "../resources/text/routes";
 import '../styles/Footer.css'
 
 
@@ -42,7 +42,7 @@ export default function Foorter({ navChangeCallback }) {
   };
 
   const getCommands = () => {
-    return commands.map((command) => (
+    return COMMANDS.map((command) => (
       <Button
         variant={'link'}
         key={command}

@@ -1,3 +1,5 @@
+import { scrollToBottom, scrollToTop } from "../../scripts/scrollUtils";
+
 // Non-sub-routes
 export const PRIMARY_ROUTES = [
   '/about_me',
@@ -83,14 +85,23 @@ export const methods = [
 ];
 
 // Commands are like methods, but they are global
-export const commands = [
-  // ' theme dark',
-  // ' theme light',
-  // ' help <command>',
-  // ' top',
-  // ' bottom'
+export const COMMANDS = [
+  'top',
+  'bottom'
 ];
 
+export const commandFunctions = {
+  'top': scrollToTop,
+  'bottom': scrollToBottom
+}
+
+// Routes to clear after execution/navigation
+export const CLEAR_AFTER_EXE = {
+  '/': true,
+  '/about_me': true,
+  ...Object.fromEntries(COMMANDS.map((route) => [route, true]))
+}
+
 // All routes
-const allRoutes = [...paths, ...methods, ...commands];
+const allRoutes = [...paths, ...methods, ...COMMANDS];
 export default allRoutes;

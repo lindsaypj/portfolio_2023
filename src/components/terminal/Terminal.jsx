@@ -7,7 +7,7 @@ import '../../styles/Terminal.css';
 import '../../styles/Cursor.css';
 
 import RouteTree from '../../objects/RouteTree';
-import { PRIMARY_ROUTES } from "../../resources/text/routes";
+import { PRIMARY_ROUTES, CLEAR_AFTER_EXE, commandFunctions } from "../../resources/text/routes";
 
 const routeTree = new RouteTree();
 
@@ -52,37 +52,44 @@ export default function Terminal({ navChangeCallback, currentRoute, terminalHasF
 
   // When Route updates
   useEffect(() => {
-    if (currentRoute === '/about_me') {
+    if (CLEAR_AFTER_EXE[currentRoute]) {
       terminal.current.value = '';
       setTerminalText('');
-      setFocus();
     }
     else {
       terminal.current.value = currentRoute;
       setTerminalText(currentRoute);
       updateAutocomplete(currentRoute);
-      terminal.current.blur();
-      setTerminalHasFocus(false);
     }
-  }, [currentRoute, setFocus, updateAutocomplete, setTerminalHasFocus]);
+    terminal.current.blur();
+    setTerminalHasFocus(false);
+  }, [currentRoute, updateAutocomplete, setTerminalHasFocus]);
 
 
   // EVENT HANDLERS
 
   const handleNavCallback = useCallback((route) => {
-    switch(route) {
-      case '/about_me':
-      case '/':
-        terminal.current.value = '';
-        setTerminalText('');
-        setPartialRoutes([]);
-        navChangeCallback('');
-        break;
-      default:
-        navChangeCallback(route);
-        setTerminalHasFocus(false);
+    if (commandFunctions[route]) {
+      commandFunctions[route]();
+      terminal.current.blur();
+      setTerminalHasFocus(false);
     }
-  },[navChangeCallback, setTerminalHasFocus]);
+    else {
+      switch(route) {
+        case '/':
+        case '/about_me':
+          navChangeCallback('');
+          break;
+        default:
+          navChangeCallback(route);
+      }
+    }
+    if (CLEAR_AFTER_EXE[route]) {
+      terminal.current.value = '';
+      setTerminalText('');
+      setPartialRoutes([]);
+    }
+  },[setTerminalHasFocus, navChangeCallback]);
 
   const handleTerminalCursorPosChange = (event) => {
     const nextCursorPos = event.target.selectionStart;
