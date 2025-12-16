@@ -36,14 +36,10 @@
   grid-gap: calc(var(--maze-border-width) - 1px);
   outline: min(2.5vh, 2.5vw) black solid;
   background-color: black;
-  max-width: min(92.5vh, 92.5vw);
-  max-height: min(92.5vh, 92.5vw);
 }
 
 @media screen and (min-width: 768px) {
   .maze {
-    max-width: min(62.5vh, 62.5vw);
-    max-height: min(62.5vh, 62.5vw);
     margin-inline: auto;
   }
 }
