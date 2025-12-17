@@ -85,11 +85,12 @@ export default function TopNav({ navChangeCallback, mobileMode, currentPage, sel
           <Offcanvas.Body className='pt-1'>
           { TOP_NAV_ROUTES.map((navRoute) => (
             <button
-              onClick={() => { handleMenuSelection(navRoute); }}
+              onClick={() => { handleMenuSelection(navRoute.route); }}
               className='top-nav__menu-item top-nav__menu-item--mobile'
-              key={navRoute}
+              key={navRoute.route}
+              aria-label={navRoute.desc}
             >
-              {navRoute}
+              {navRoute.route}
             </button>
           )) }
           { getAccordion() }
@@ -102,11 +103,12 @@ export default function TopNav({ navChangeCallback, mobileMode, currentPage, sel
     <div className='top-nav padding-margins'>
       { TOP_NAV_ROUTES.map((navRoute) => (
         <button
-          onClick={() => { handleClick(navRoute); }}
+          onClick={() => { handleClick(navRoute.route); }}
           className='top-nav__item'
-          key={navRoute}
+          key={navRoute.route}
+          aria-label={navRoute.desc}
         >
-          {navRoute}
+          {navRoute.route}
         </button>
       )) }
     </div>
