@@ -95,7 +95,7 @@ export const paths = [
   ...GAMES_SECTIONS,
   ...LEARNING_SECTIONS,
   ...PORTFOLIO_SECTIONS,
-];
+].sort((path1, path2) => path1.route.localeCompare(path2.route));
 
 // Methods allow you to interact with the page. This means they are path specific
 export const methods = [

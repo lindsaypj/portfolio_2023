@@ -34,12 +34,7 @@ export default function Terminal({ navChangeCallback, currentRoute, terminalHasF
   const updateAutocomplete = useCallback((possiblePath) => {
     const [possibleRoutes, hiddenRoutes] = routeTree.getRoutes(possiblePath);
     setValidPath(possibleRoutes.includes(possiblePath) || hiddenRoutes.includes(possiblePath));
-    if (possiblePath === '/') {
-      setPartialRoutes(PRIMARY_ROUTES);
-    }
-    else {
-      setPartialRoutes(possibleRoutes.filter(route => route !== possiblePath));
-    }
+    setPartialRoutes(possibleRoutes.filter(route => route !== possiblePath));
   }, []);
 
   const setFocus = useCallback((event) => {
