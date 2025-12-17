@@ -12,7 +12,7 @@ export default function PortfolioProject({ title, repoLink = null, id, descripti
   // Dynamically switch between fade-top, fade-bottom, and fade-both
   
   return (
-  <div fluid className='portfolio-project padding-margins'>
+  <div className='portfolio-project padding-margins'>
     <h3 className='mb-4'>
       {title}
       { repoLink &&
