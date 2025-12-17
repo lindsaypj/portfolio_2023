@@ -2,10 +2,10 @@ import { scrollToBottom, scrollToTop } from "../../scripts/scrollUtils";
 
 // Non-sub-routes
 export const PRIMARY_ROUTES = [
-  '/about_me',
-  '/games',
-  // '/learning',
-  '/portfolio',
+  {'route': '/about_me', 'desc': 'Navigates to about me section. A brief introduction into who I am.'},
+  {'route': '/games', 'desc': 'Navigates to a showcase of the games, I\'ve made.'},
+  // {'route': '/learning', 'desc': 'Navigates to educational content about software development concepts.'},
+  {'route': '/portfolio', 'desc': 'Navigates to portfolio projects from various areas of expertise.'},
 ];
 
 export const HIDDEN_ROUTES = [
@@ -15,7 +15,11 @@ export const HIDDEN_ROUTES = [
   '/commission'
 ];
 
-export const TOP_NAV_ROUTES = ['/portfolio', '/games']; // '/learning'
+export const TOP_NAV_ROUTES = [
+  {'route': '/portfolio', 'desc': 'Navigates to portfolio projects from various areas of expertise.'},
+  {'route': '/games', 'desc': 'Navigates to a showcase of the games, I\'ve made.'}
+];
+  // '/learning'
 
 // These routes will be brought into focus on page load if active
 export const SCROLLABLE_ROUTES = [
@@ -32,19 +36,19 @@ export const SCROLLABLE_ROUTES = [
 ];
 
 export const PORTFOLIO_SECTIONS = [
-  {'route': '/about_me', 'desc': 'A brief introduction into who I am.'},
-  {'route': '/portfolio', 'desc': 'Example projects from various areas of expertise.'},
-  {'route': '/portfolio/automotive', 'desc': 'Check out my car related projects.'},
-  {'route': '/portfolio/open_source', 'desc': 'Notable open-source contributions.'},
-  {'route': '/portfolio/photography', 'desc': 'Some of my favorite shots.'},
-  {'route': '/portfolio/software', 'desc': 'Some non-web applications I worked on.'},
-  {'route': '/portfolio/web', 'desc': 'Example web projects I\'ve worked on.'},
+  {'route': '/about_me', 'desc': 'Navigates to about me section. A brief introduction into who I am.'},
+  {'route': '/portfolio', 'desc': 'Navigates to portfolio projects from various areas of expertise.'},
+  {'route': '/portfolio/automotive', 'desc': 'Navigates to my car related projects.'},
+  {'route': '/portfolio/open_source', 'desc': 'Navigates to my notable open-source contributions.'},
+  {'route': '/portfolio/photography', 'desc': 'Navigates to some of my favorite shots.'},
+  {'route': '/portfolio/software', 'desc': 'Navigates to some non-web applications I\'ve worked on.'},
+  {'route': '/portfolio/web', 'desc': 'Navigates to some web projects I\'ve worked on.'},
 ];
 
 export const GAMES_SECTIONS = [
-  {'route': '/games', 'desc': 'A showcase of the games, I\'ve made.'},
-  {'route': '/games/sudoku', 'desc': 'Play Sudoku in 4x4, 9x9, or 16x16 variants.'},
-  {'route': '/games/maze', 'desc': 'Generate and solve mazes of any size.'},  
+  {'route': '/games', 'desc': 'Navigates to a showcase of the games, I\'ve made.'},
+  {'route': '/games/sudoku', 'desc': 'Navigates to playable game of sudoku in 4x4, 9x9, or 16x16 variants.'},
+  {'route': '/games/maze', 'desc': 'Navigates to maze generation and solving section of games page.'},
 ];
 
 export const LEARNING_SECTIONS = [
