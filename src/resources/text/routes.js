@@ -31,14 +31,14 @@ export const TOP_NAV_ROUTES = [
 export const SCROLLABLE_ROUTES = [
   '',
   '/about_me',
+  '/games/sudoku',
+  '/games/maze',
   '/portfolio',
   '/portfolio/automotive',
   '/portfolio/open_source',
   '/portfolio/photography',
   '/portfolio/software',
   '/portfolio/web',
-  '/games/sudoku',
-  '/games/maze'
 ];
 
 export const PORTFOLIO_SECTIONS = [
@@ -61,8 +61,8 @@ export const PORTFOLIO_HERO_SECTIONS = [
 
 export const GAMES_SECTIONS = [
   {'route': '/games', 'desc': 'Navigates to a showcase of the games, I\'ve made.'},
-  {'route': '/games/sudoku', 'desc': 'Navigates to playable game of sudoku in 4x4, 9x9, or 16x16 variants.'},
   {'route': '/games/maze', 'desc': 'Navigates to maze generation and solving section of games page.'},
+  {'route': '/games/sudoku', 'desc': 'Navigates to playable game of sudoku in 4x4, 9x9, or 16x16 variants.'},
 ];
 
 export const LEARNING_SECTIONS = [
