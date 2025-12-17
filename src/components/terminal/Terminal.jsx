@@ -35,7 +35,7 @@ export default function Terminal({ navChangeCallback, currentRoute, terminalHasF
     const [possibleRoutes, hiddenRoutes] = routeTree.getRoutes(possiblePath);
     setValidPath(possibleRoutes.includes(possiblePath) || hiddenRoutes.includes(possiblePath));
     if (possiblePath === '/') {
-      setPartialRoutes(PRIMARY_ROUTES.map((route) => route.route));
+      setPartialRoutes(PRIMARY_ROUTES);
     }
     else {
       setPartialRoutes(possibleRoutes.filter(route => route !== possiblePath));

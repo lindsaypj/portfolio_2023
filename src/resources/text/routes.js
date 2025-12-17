@@ -15,10 +15,10 @@ export const PRIMARY_ROUTES = [
 ];
 
 export const HIDDEN_ROUTES = [
-  '/',
-  '/dev',
-  '/dev/sudoku',
-  '/commission'
+  {'route': '/', 'desc': ''},
+  {'route': '/dev', 'desc': ''},
+  {'route': '/dev/sudoku', 'desc': ''},  
+  {'route': '/commission', 'desc': ''},
 ];
 
 export const TOP_NAV_ROUTES = [

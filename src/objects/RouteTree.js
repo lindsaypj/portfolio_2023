@@ -6,7 +6,7 @@ class RouteTree {
     this.root = new Node();
     this.maxRouteLength = 0;
     initialRoutes.forEach((route) => {
-      this.addRoute(route.route);
+      this.addRoute(route);
     });
     HIDDEN_ROUTES.forEach((route) => {
       this.addRoute(route, true);
@@ -18,30 +18,30 @@ class RouteTree {
   }
 
   addRoute(route, hidden = false) {
-    this.addChars(this.root, route, hidden);
-    this.maxRouteLength = Math.max(this.maxRouteLength, route.length);
+    this.addChars(this.root, route.route, route.desc, hidden);
+    this.maxRouteLength = Math.max(this.maxRouteLength, route.route.length);
   }
-  addChars(currentNode, route, isHidden) {
+  addChars(currentNode, route, routeDesc, isHidden) {
     const nextChar = route.charAt(0);
 
     if (route.length === 1) {
       if (currentNode.hasChild(nextChar)) {
         const child = currentNode.getChild(nextChar);
         if (child !== null) {
-          child.setRouteEnd(isHidden);
+          child.setRouteEnd(routeDesc, isHidden);
         }
       }
       else {
-        currentNode.addChild(new Node(nextChar, true, isHidden));
+        currentNode.addChild(new Node(nextChar, true, routeDesc, isHidden));
       }
       return currentNode;
     }
 
     if (currentNode.hasChild(nextChar)) {
-      this.addChars(currentNode.getChild(nextChar), route.slice(1), isHidden);
+      this.addChars(currentNode.getChild(nextChar), route.slice(1), routeDesc, isHidden);
     }
     else {
-      const newNode = this.addChars(new Node(nextChar), route.slice(1), isHidden);
+      const newNode = this.addChars(new Node(nextChar), route.slice(1), routeDesc, isHidden);
       currentNode.addChild(newNode);
     }
     return currentNode;
@@ -49,16 +49,18 @@ class RouteTree {
 
   getRoutes(possibleRoute) {
     if (possibleRoute === "" || !possibleRoute) {
-      return [[], []];
+      return [[], []]; // [[possibleRoutes], [hiddenRoutes]]
     }
     return this.getMatches(this.root, possibleRoute, "");
   }
   getMatches(currentNode, possibleRoute, sequence) {
+    const route = sequence + currentNode.char;
+
     // Traverse tree using possible route
     if (possibleRoute !== "") {
       const childNode = currentNode.getChild(possibleRoute.charAt(0));
       if (childNode) {
-        return this.getMatches(childNode, possibleRoute.slice(1), sequence + currentNode.char);
+        return this.getMatches(childNode, possibleRoute.slice(1), route);
       }
       return [[], []];
     }
@@ -68,10 +70,10 @@ class RouteTree {
     let hiddenMatches = [];
     if (currentNode.isRouteEnd) {
       if (currentNode.isHidden) {
-        hiddenMatches.push(sequence + currentNode.char);
+        hiddenMatches.push({'route': route, 'desc': currentNode.routeDesc});
       }
       else {
-        matches.push(sequence + currentNode.char);
+        matches.push({'route': route, 'desc': currentNode.routeDesc});
       }
     }
 
@@ -79,7 +81,7 @@ class RouteTree {
     if (!currentNode.isLeaf) {
       const children = Object.keys(currentNode.children);
       children.forEach((childKey) => {
-        const [nextMatches, nextHiddenMatches] = this.getMatches(currentNode.getChild(childKey), possibleRoute, sequence + currentNode.char);
+        const [nextMatches, nextHiddenMatches] = this.getMatches(currentNode.getChild(childKey), possibleRoute, route);
         matches = matches.concat(nextMatches);
         hiddenMatches = hiddenMatches.concat(nextHiddenMatches);
       });
@@ -89,11 +91,12 @@ class RouteTree {
 }
 
 class Node {
-  constructor(char = "", isRouteEnd = false, isHidden = false) {
+  constructor(char = "", isRouteEnd = false, routeDesc = "", isHidden = false) {
     this.char = char;
     this.children = {};
     this.isRouteEnd = isRouteEnd;
     this.isLeaf = true;
+    this.routeDesc = routeDesc;
     this.isHidden = isHidden;
   }
 
@@ -110,9 +113,10 @@ class Node {
     return !!this.children[char];
   }
 
-  setRouteEnd(isHidden = false) {
+  setRouteEnd(routeDesc = "", isHidden = false) {
     this.isRouteEnd = true;
     this.isHidden = isHidden;
+    this.routeDesc = routeDesc;
   }
 }
 

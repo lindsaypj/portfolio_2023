@@ -21,8 +21,15 @@
 
 .autocomplete-menu span {
   position: relative;
+  line-height: 1.8rem;
   color: white;
   text-shadow: none;
+}
+
+.autocomplete-menu span.routes-popover-desc {
+  display: block;
+  line-height: 1rem;
+  color: gray;
 }
 
 .autocomplete-menu.show {

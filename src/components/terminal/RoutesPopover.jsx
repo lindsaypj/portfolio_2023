@@ -56,11 +56,15 @@ export default function RoutesPopover({ routes, override, selectionCallback }) {
           <DropdownItem
             as='span'
             className='terminal-ignore-blur terminal-ignore-focus'
-            eventKey={route}
-            key={route}
+            eventKey={route.route}
+            key={route.route}
             onMouseDown={(e) => e.preventDefault()}
+            aria-label={route.desc}
           >
-            {route}
+            {route.route}
+            <span className='routes-popover-desc'>
+              {route.desc}
+            </span>
           </DropdownItem>
         ))}
       </DropdownMenu>
