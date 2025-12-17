@@ -12,15 +12,16 @@ export default function HeroNavigation({ navLinks, navLinkCallback }) {
         <Col
           className='hero-nav-col'
           xs={6} md={4} lg={6} xl={4} xxl={4}
-          key={link.text}
+          key={link.route}
         >
           <Card
             as={'a'}
             className='nav-card text-white bg-black shadow border-0 overflow-hidden ratio-1x1'
-            onClick={() => {navLinkCallback(link.text)}}
+            onClick={() => {navLinkCallback(link.route)}}
+            aria-label={link.desc}
           >
             <img src={link.img} alt={link.imgAlt} className='hero-nav-img' />
-            <Card.Title className='py-2 m-0 fs-md-4 bg-black'>{link.text}</Card.Title>
+            <Card.Title className='py-2 m-0 fs-md-4 bg-black'>{link.route}</Card.Title>
           </Card>
         </Col>
       ))}

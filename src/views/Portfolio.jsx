@@ -11,12 +11,8 @@ import Automotive from '../components/portfolio/Automotive';
 import Photography from '../components/portfolio/Photography';
 import HeroNavigation from '../components/nav/HeroNavigaion';
 
-import WebDevNavImg from '../resources/images/PortfolioNav/WebDevNavImg.jpg';
-import SoftwareDevNavImg from '../resources/images/PortfolioNav/JavaNavImg.jpg';
-import OpenSourceNavImg from '../resources/images/PortfolioNav/OpenSourceNavImg.png';
-import AutomotiveNavImg from '../resources/images/PortfolioNav/AutomotiveNavImg.jpg';
-import PhotographyNavImg from '../resources/images/PortfolioNav/PhotographyNavImg.png';
 import Bio from '../components/portfolio/Bio';
+import { PORTFOLIO_HERO_SECTIONS } from '../resources/text/routes';
 
 
 export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, mobileMode }) {
@@ -99,13 +95,7 @@ export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, 
           <Row>
             <Col className='padding-margins-n2 pe-lg-0' xs={12} lg={6} xl={7}>
               <HeroNavigation
-                navLinks={[
-                  {text: '/web', img: WebDevNavImg, imgAlt: 'Code'},
-                  {text: '/software', img: SoftwareDevNavImg, imgAlt: 'Gears'},
-                  {text: '/open_source', img: OpenSourceNavImg, imgAlt: 'Unlocked lock'},
-                  {text: '/automotive', img: AutomotiveNavImg, imgAlt: 'Check engine light'},
-                  {text: '/photography', img: PhotographyNavImg, imgAlt: 'Camera'}
-                ]}
+                navLinks={PORTFOLIO_HERO_SECTIONS}
                 navLinkCallback={onNavSelect}
               />
             </Col>
