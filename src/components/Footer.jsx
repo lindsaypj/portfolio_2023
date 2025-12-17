@@ -19,11 +19,12 @@ export default function Foorter({ navChangeCallback }) {
     return PRIMARY_ROUTES.map((path) => (
       <Button
         variant={'link'}
-        key={path}
-        onClick={() => onClickFooterLink(path)}
+        key={path.route}
+        onClick={() => onClickFooterLink(path.route)}
         className='footer__link'
+        aria-label={path.desc}
       >
-        <span>{ path }</span>
+        <span>{ path.route }</span>
       </Button>
     ));
   };
@@ -35,9 +36,10 @@ export default function Foorter({ navChangeCallback }) {
     return methods.map((method) => (
       <Button
         variant={'link'}
-        key={method}
-        onClick={() => onClickFooterLink(method)}
+        key={method.route}
+        onClick={() => onClickFooterLink(method.route)}
         className='footer__link'
+        aria-label={method.desc}
       >
         <span>{ method }</span>
       </Button>
@@ -51,6 +53,7 @@ export default function Foorter({ navChangeCallback }) {
         key={command.route}
         onClick={() => onClickFooterCommand(command.route)}
         className='footer__link'
+        aria-label={command.desc}
       >
         <span>{ command.route }</span>
       </Button>
