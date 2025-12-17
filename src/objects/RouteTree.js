@@ -6,7 +6,7 @@ class RouteTree {
     this.root = new Node();
     this.maxRouteLength = 0;
     initialRoutes.forEach((route) => {
-      this.addRoute(route);
+      this.addRoute(route.route);
     });
     HIDDEN_ROUTES.forEach((route) => {
       this.addRoute(route, true);

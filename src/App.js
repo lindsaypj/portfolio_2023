@@ -21,6 +21,8 @@ import { GAMES_SECTIONS, PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resourc
 
 
 // CONSTANTS
+const GAMES_SECTIONS_ROUTES = GAMES_SECTIONS.map((route) => route.route);
+const PORTFOLIO_SECTIONS_ROUTES = PORTFOLIO_SECTIONS.map((route) => route.route);
 const MOBILE_BREAKPOINT = 768; // Aligns with Bootstrap MD breakpoint
 
 function App() {
@@ -85,7 +87,7 @@ function App() {
         return (
           <Games
             currentRoute={page}
-            shouldScroll={shouldScrollToRoute && GAMES_SECTIONS.includes(page)}
+            shouldScroll={shouldScrollToRoute && GAMES_SECTIONS_ROUTES.includes(page)}
             setShouldScrollToRoute={setShouldScrollToRoute}
           />
         );
@@ -123,7 +125,7 @@ function App() {
             terminalHasFocus={terminalHasFocus}
           />
           <Portfolio
-            shouldScroll={shouldScrollToRoute && PORTFOLIO_SECTIONS.includes(page)}
+            shouldScroll={shouldScrollToRoute && PORTFOLIO_SECTIONS_ROUTES.includes(page)}
             page={page}
             setShouldScrollToRoute={setShouldScrollToRoute}
             mobileMode={mobileMode}

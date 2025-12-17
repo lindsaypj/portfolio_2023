@@ -2,7 +2,7 @@ import React from "react";
 
 import { Button, Col, Container, Row } from "react-bootstrap";
 
-import { PRIMARY_ROUTES, methods, COMMANDS } from "../resources/text/routes";
+import { PRIMARY_ROUTES, methods, COMMANDS, commandFunctions } from "../resources/text/routes";
 import '../styles/Footer.css'
 
 
@@ -10,6 +10,9 @@ export default function Foorter({ navChangeCallback }) {
 
   const onClickFooterLink = (link) => {
     navChangeCallback(link);
+  }
+  const onClickFooterCommand = (command) => {
+    commandFunctions[command]();
   }
 
   const getPaths = () => {
@@ -45,11 +48,11 @@ export default function Foorter({ navChangeCallback }) {
     return COMMANDS.map((command) => (
       <Button
         variant={'link'}
-        key={command}
-        onClick={() => onClickFooterLink(command)}
+        key={command.route}
+        onClick={() => onClickFooterCommand(command.route)}
         className='footer__link'
       >
-        <span>{ command }</span>
+        <span>{ command.route }</span>
       </Button>
     ));
   };
