@@ -9,12 +9,13 @@
   width: initial;
 }
 
-.modal-content {
+.photography-modal .modal-content {
   width: fit-content;
   height: fit-content;
   margin: auto;
   border: none;
   background-color: transparent !important;
+  box-shadow: 0rem 0rem 2rem black;
 }
 
 .btn-close {
