@@ -27,14 +27,13 @@ export default function Automotive({ scrollRef }) {
           description={[
             `When buying my first car, I decided to get a manual transmission. It wasn't until
               I sold it that I realized how much I loved driving with a manual. When driving an
-              automatic, there is always something missing. Despite being faster, it's not as
+              automatic or an EV, there is something missing. Despite being faster, it's not as
               engaging. When my automatic transmission started to wear out, I decided to
               convert the car to manual.`,
             `I researched the process extensively: part differences, removal of the automatic,
-              and installation of the manual. I slowly ordered everything I needed,
-              accumulating a mountain of parts. After a few days of wrenching and some minor
-              wiring, it was done. Using original BMW parts, the conversion was surprisingly
-              straightforward.`,
+              and installation of the manual. What seemed impossible was suddenly within reach.
+              After a few days of wrenching and some minor wiring, it was done. Using original
+              BMW parts, the conversion was surprisingly straightforward.`,
             `I've been driving it since 2022, and I'm extremely happy with my new
               transmission. When I bought the car, I didn't think I was capable of something
               as technical as swapping the transmission. But now I am confident I could do it 
