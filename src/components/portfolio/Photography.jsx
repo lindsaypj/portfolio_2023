@@ -18,8 +18,8 @@ import CandleImg from '../../resources/images/Photogrophy/candle-vingette.webp';
 import CandleImgPlaceholder from '../../resources/images/Photogrophy/placeholders/candle-vingette.webp';
 import FenceImg from '../../resources/images/Photogrophy/white-fence.webp';
 import FenceImgPlaceholder from '../../resources/images/Photogrophy/placeholders/white-fence.webp';
-import TreeImg from '../../resources/images/Photogrophy/organic-tree-corrected.webp';
-import TreeImgPlaceholder from '../../resources/images/Photogrophy/placeholders/organic-tree-corrected.webp';
+import OlympusImg from '../../resources/images/Photogrophy/mt-olympus.webp';
+import OlympusImgPlaceholder from '../../resources/images/Photogrophy/placeholders/mt-olympus.webp';
 import LeafImg from '../../resources/images/Photogrophy/leaf.webp';
 import LeafImgPlaceholder from '../../resources/images/Photogrophy/placeholders/leaf.webp';
 
@@ -35,8 +35,8 @@ const images = [
     ratio: '3-2'
   },
   {
-    src: TreeImg, placeholder: TreeImgPlaceholder,
-    alt: 'Black and white tree trunks growing out over water.',
+    src: OlympusImg, placeholder: OlympusImgPlaceholder,
+    alt: 'Backpacker standing on cliff and viewing a mountain.',
     ratio: '9-16'
   },
   {
