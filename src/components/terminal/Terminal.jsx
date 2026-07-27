@@ -7,7 +7,7 @@ import '../../styles/Terminal.css';
 import '../../styles/Cursor.css';
 
 import RouteTree from '../../objects/RouteTree';
-import { PRIMARY_ROUTES, CLEAR_AFTER_EXE, commandFunctions } from "../../resources/text/routes";
+import { CLEAR_AFTER_EXE, commandFunctions } from "../../resources/text/routes";
 
 const routeTree = new RouteTree();
 
@@ -33,8 +33,8 @@ export default function Terminal({ navChangeCallback, currentRoute, terminalHasF
   // Update autocomplete routes
   const updateAutocomplete = useCallback((possiblePath) => {
     const [possibleRoutes, hiddenRoutes] = routeTree.getRoutes(possiblePath);
-    setValidPath(possibleRoutes.includes(possiblePath) || hiddenRoutes.includes(possiblePath));
-    setPartialRoutes(possibleRoutes.filter(route => route !== possiblePath));
+    setValidPath(possibleRoutes.some(route => route.route === possiblePath) || hiddenRoutes.some(route => route.route === possiblePath));
+    setPartialRoutes(possibleRoutes.filter(route => route.route !== possiblePath));
   }, []);
 
   const setFocus = useCallback((event) => {
