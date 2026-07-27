@@ -11,22 +11,9 @@ import MembershipInformationEditImg from '../../resources/images/REI/MembershipI
 import MembershipInformationEditImgPlaceholder from '../../resources/images/REI/placeholders/MembershipInformationEdit.webp';
 import MembershipInformationEditMobileImg from '../../resources/images/REI/MembershipInformationEditMobile.webp';
 import MembershipInformationEditMobileImgPlaceholder from '../../resources/images/REI/placeholders/MembershipInformationEditMobile.webp';
-import SudokuAccount from '../../resources/images/Sudoku/SudokuAccount.webp';
-import SudokuAccountPlaceholder from '../../resources/images/Sudoku/placeholders/SudokuAccount.webp';
-import SudokuAccountThemed from '../../resources/images/Sudoku/SudokuAccountThemed.webp';
-import SudokuAccountThemedPlaceholder from '../../resources/images/Sudoku/placeholders/SudokuAccountThemed.webp';
-import SudokuGame from '../../resources/images/Sudoku/SudokuGame.webp';
-import SudokuGamePlaceholder from '../../resources/images/Sudoku/placeholders/SudokuGame.webp';
-import SudokuHome from '../../resources/images/Sudoku/SudokuHome.webp';
-import SudokuHomePlaceholder from '../../resources/images/Sudoku/placeholders/SudokuHome.webp';
-import SudokuLogin from '../../resources/images/Sudoku/SudokuLogin.webp';
-import SudokuLoginPlaceholder from '../../resources/images/Sudoku/placeholders/SudokuLogin.webp';
 import REILogo from '../../resources/logos/REILogo';
 import VueLogo from '../../resources/logos/VueLogo';
-import ColormindLogo from '../../resources/logos/ColormindLogo';
-import ReactLogo from '../../resources/logos/ReactLogo';
 import SpringLogo from '../../resources/logos/SpringLogo';
-import GoogleCloudLogo from '../../resources/logos/GoogleCloudLogo.png';
 import AdviseItHome from '../../resources/images/AdviseIt/AdviseItHome.webp';
 import AdviseItHomePlaceholder from '../../resources/images/AdviseIt//placeholders/AdviseItHome.webp';
 import AdviseItAdmin from '../../resources/images/AdviseIt/AdviseItAdmin.webp';
@@ -148,57 +135,6 @@ export default function WebDev({ scrollRef, mobileMode }) {
             ]
           }}
           descriptionFirst={true}
-        />
-
-        {/* Sudoku */}
-        <PortfolioProject
-          title={"Sudoku In the Clouds"}
-          id={'SudokuDescription'}
-          description={[
-            `Powered by my own Sudoku API, I designed a front-end application called Sudoku In the
-              Clouds. You can play 4x4, 9x9, or 16x16 board sizes. With an account, you can also
-              save your settings, preferences, and game progress.`,
-            `In addition to the Sudoku API that enables the gameplay, I used an API called
-              Colormind that generates themes using color theory. These colors are used to style
-              the application and are stored in the user's preferences.`
-          ]}
-          logos={<>
-            <ColormindLogo />
-            <ReactLogo className='portfolio-logo' />
-            <SpringLogo className='portfolio-logo' />
-            <a href='https://cloud.google.com/' target='_blank' rel='noreferrer' title='Google Cloud Platform' >
-              <img src={GoogleCloudLogo} className='portfolio-logo h-100' alt='Google Cloud Platform' />
-            </a>
-          </>}
-          images={{
-            desktopImages: [
-              {
-                src: SudokuHome, placeholder: SudokuHomePlaceholder,
-                alt: 'Sudoku In the Clouds home page with Menu, Login, and Play buttons.',
-                ratio: 'ar-640-321'
-              },
-              {
-                src: SudokuLogin, placeholder: SudokuLoginPlaceholder,
-                alt: 'Login page with an option to create a free account. With an account, you can track completed games and save game preferences.',
-                ratio: 'ar-640-321'
-              },
-              {
-                src: SudokuAccount, placeholder: SudokuAccountPlaceholder,
-                alt: 'Example account page. Review and edit player stats, settings, and preferences.',
-                ratio: 'ar-640-321'
-              },
-              {
-                src: SudokuAccountThemed, placeholder: SudokuAccountThemedPlaceholder,
-                alt: 'Example accunt page with custom prefernces that change the colors of the page.',
-                ratio: 'ar-640-321'
-              },
-              {
-                src: SudokuGame, placeholder: SudokuGamePlaceholder,
-                alt: 'An partially complete game of Sudoku. The page colors match the custom preferences.',
-                ratio: 'ar-640-321'
-              }
-            ]
-          }}
         />
       </Col>
     </Row>
