@@ -1,15 +1,12 @@
 import React, { useCallback, useState } from "react";
 import { Button, Offcanvas } from "react-bootstrap";
-import AccordionNav from "./AccordionNav";
 
 import MenuIcon from "../../resources/icons/MenuIcon";
 
-import { getPrimaryRoute } from "../../scripts/utils";
 import { TOP_NAV_ROUTES } from "../../resources/text/routes";
-import { LEARNING_TOPICS } from "../../resources/text/learning";
 import '../../styles/TopNav.css';
 
-export default function TopNav({ navChangeCallback, mobileMode, currentPage, selectedTopic, setSelectedTopic, accordionKey, setAccordionKey }) {
+export default function TopNav({ navChangeCallback, mobileMode, currentPage, selectedTopic, setSelectedTopic }) {
 
   const [menuSelection, setMenuSelection] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -26,12 +23,6 @@ export default function TopNav({ navChangeCallback, mobileMode, currentPage, sel
     handleCloseMenu();
   }, [setMenuSelection]);
 
-  const handleAccordionSelection = useCallback((topic) => {
-    setSelectedTopic(topic);
-    const nextRoute = '/learning' + topic;
-    handleMenuSelection(nextRoute);
-  }, [handleMenuSelection, setSelectedTopic]);
-
   const handleMenuExited = useCallback(() => {
     if (menuSelection) {
       handleClick(menuSelection);
@@ -42,33 +33,10 @@ export default function TopNav({ navChangeCallback, mobileMode, currentPage, sel
 
   ////    RENDERING    ////
 
-  const getAccordionKey = useCallback(() => {
-    return accordionKey;
-  }, [accordionKey]);
-
-  const getAccordion = () => {
-    const primaryRoute = getPrimaryRoute(currentPage);
-    if (primaryRoute === '/learning') {
-      return (
-        <AccordionNav
-          accordionKey={getAccordionKey()}
-          setAccordionKey={setAccordionKey}
-          topics={LEARNING_TOPICS}
-          selectedTopic={selectedTopic}
-          handleTopicSelection={handleAccordionSelection}
-        />
-      )
-    }
-  }
-
-  const getPositioning = useCallback(() => {
-    const primaryRoute = getPrimaryRoute(currentPage);
-    return primaryRoute === '/learning' ? ' top-nav-fixed' : ' top-nav';
-  }, [currentPage]);
 
   if (mobileMode) {
     return (
-      <div className={'padding-margins' + getPositioning() }>
+      <div className={'padding-margins top-nav' }>
         <Button variant='outline-light' className='top-nav__menu-btn' onClick={handleShowMenu}>
           <MenuIcon />
         </Button>
@@ -93,7 +61,6 @@ export default function TopNav({ navChangeCallback, mobileMode, currentPage, sel
               {navRoute.route}
             </button>
           )) }
-          { getAccordion() }
           </Offcanvas.Body>
         </Offcanvas>
       </div>

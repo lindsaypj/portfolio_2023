@@ -9,7 +9,6 @@ import PhotographyNavImg from '../images/PortfolioNav/PhotographyNavImg.png';
 export const PRIMARY_ROUTES = [
   {'route': '/about_me', 'desc': 'Navigates to about me section. A brief introduction into who I am.'},
   {'route': '/games', 'desc': 'Navigates to a showcase of the games, I\'ve made.'},
-  // {'route': '/learning', 'desc': 'Navigates to educational content about software development concepts.'},
   {'route': '/portfolio', 'desc': 'Navigates to portfolio projects from various areas of expertise.'},
 ];
 
@@ -24,7 +23,6 @@ export const TOP_NAV_ROUTES = [
   {'route': '/portfolio', 'desc': 'Navigates to portfolio projects from various areas of expertise.'},
   {'route': '/games', 'desc': 'Navigates to a showcase of the games, I\'ve made.'}
 ];
-  // '/learning'
 
 // These routes will be brought into focus on page load if active
 export const SCROLLABLE_ROUTES = [
@@ -61,35 +59,9 @@ export const GAMES_SECTIONS = [
   {'route': '/games/sudoku', 'desc': 'Navigates to playable game of sudoku in 4x4, 9x9, or 16x16 variants.'},
 ];
 
-export const LEARNING_SECTIONS = [
-  // {'route': '/learning', 'desc': 'Educational content about software development concepts.'},
-  // '/learning/ArrayList',
-  // '/learning/Graph',
-  // '/learning/HashMap',
-  // '/learning/HashSet',
-  // '/learning/Heap',
-  // '/learning/LinkedList',
-  // '/learning/TreeMap',
-  // '/learning/TreeSet',
-  // '/learning/Stack',
-  // '/learning/Queue',
-  // '/learning/BellmanFord',
-  // '/learning/BinarySearch',
-  // '/learning/BreadthFirstSearch',
-  // '/learning/DepthFirstSearch',
-  // '/learning/Dijkstra',
-  // '/learning/FloodFill',
-  // '/learning/HeapSort',
-  // '/learning/HuffmanCoding',
-  // '/learning/MergeSort',
-  // '/learning/QuickSort',
-  // '/learning/UnionFind',
-];
-
 // Paths are like navigation, and will change pages and scroll to section
 export const paths = [
   ...GAMES_SECTIONS,
-  ...LEARNING_SECTIONS,
   ...PORTFOLIO_SECTIONS,
 ].sort((path1, path2) => path1.route.localeCompare(path2.route));
 
