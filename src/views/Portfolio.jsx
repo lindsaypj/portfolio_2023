@@ -5,7 +5,6 @@ import TypingText from '../components/TypingText';
 import '../styles/Portfolio.css';
 
 import WebDev from '../components/portfolio/WebDev';
-import SoftwareDev from '../components/portfolio/SoftwareDev';
 import OpenSource from '../components/portfolio/OpenSource';
 import Automotive from '../components/portfolio/Automotive';
 import Photography from '../components/portfolio/Photography';
@@ -18,7 +17,6 @@ import { PORTFOLIO_HERO_SECTIONS } from '../resources/text/routes';
 export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, mobileMode }) {
   const portfolioRef = useRef();
   const webDevRef = useRef();
-  const softwareDevRef= useRef();
   const openSourceRef = useRef();
   const automotiveRef = useRef();
   const photographyRef = useRef();
@@ -28,9 +26,6 @@ export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, 
     switch(page) {
       case '/portfolio/web':
         scrollDistance = webDevRef.current.getBoundingClientRect().top + window.scrollY;
-        break;
-      case '/portfolio/software':
-        scrollDistance = softwareDevRef.current.getBoundingClientRect().top + window.scrollY;
         break;
       case '/portfolio/open_source':
         scrollDistance = openSourceRef.current.getBoundingClientRect().top + window.scrollY;
@@ -63,9 +58,6 @@ export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, 
     switch(link) {
       case '/web':
         webDevRef.current.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case '/software':
-        softwareDevRef.current.scrollIntoView({ behavior: 'smooth' });
         break;
       case '/open_source':
         openSourceRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -114,8 +106,6 @@ export default function Portfolio({ shouldScroll, page, setShouldScrollToRoute, 
       <WebDev scrollRef={webDevRef} mobileMode={mobileMode} />
 
       <OpenSource scrollRef={openSourceRef} />
-
-      <SoftwareDev scrollRef={softwareDevRef} />
 
       <Automotive scrollRef={automotiveRef} />
 

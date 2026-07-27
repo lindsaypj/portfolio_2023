@@ -1,7 +1,6 @@
 import { scrollToBottom, scrollToTop } from "../../scripts/scrollUtils";
 
 import WebDevNavImg from '../images/PortfolioNav/WebDevNavImg.jpg';
-import SoftwareDevNavImg from '../images/PortfolioNav/JavaNavImg.jpg';
 import OpenSourceNavImg from '../images/PortfolioNav/OpenSourceNavImg.png';
 import AutomotiveNavImg from '../images/PortfolioNav/AutomotiveNavImg.jpg';
 import PhotographyNavImg from '../images/PortfolioNav/PhotographyNavImg.png';
@@ -37,7 +36,6 @@ export const SCROLLABLE_ROUTES = [
   '/portfolio/automotive',
   '/portfolio/open_source',
   '/portfolio/photography',
-  '/portfolio/software',
   '/portfolio/web',
 ];
 
@@ -47,13 +45,11 @@ export const PORTFOLIO_SECTIONS = [
   {'route': '/portfolio/automotive', 'desc': 'Navigates to my car related projects.'},
   {'route': '/portfolio/open_source', 'desc': 'Navigates to my notable open-source contributions.'},
   {'route': '/portfolio/photography', 'desc': 'Navigates to some of my favorite shots.'},
-  {'route': '/portfolio/software', 'desc': 'Navigates to some non-web applications I\'ve worked on.'},
   {'route': '/portfolio/web', 'desc': 'Navigates to some web projects I\'ve worked on.'},
 ];
 
 export const PORTFOLIO_HERO_SECTIONS = [
   {'route': '/web', 'desc': 'Navigates to some web projects I\'ve worked on.',  'img': WebDevNavImg, 'imgAlt': 'Code'},
-  {'route': '/software', 'desc': 'Navigates to some non-web applications I\'ve worked on.', 'img': SoftwareDevNavImg, 'imgAlt': 'Gears'},
   {'route': '/open_source', 'desc': 'Navigates to my notable open-source contributions.', 'img': OpenSourceNavImg, 'imgAlt': 'Unlocked lock'},
   {'route': '/automotive', 'desc': 'Navigates to my car related projects.', 'img': AutomotiveNavImg, 'imgAlt': 'Check engine light'},
   {'route': '/photography', 'desc': 'Navigates to some of my favorite shots.', 'img': PhotographyNavImg, 'imgAlt': 'Camera'}
