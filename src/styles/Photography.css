@@ -1,21 +1,27 @@
 .zooming-img {
   width: calc(100vw - var(--scrollbar-width));
-  max-width: fit-content;
+  max-width: 100%;
   overflow: hidden;
 }
 
 .zoomed-out {
-  height: 100vh;
+  max-height: 100vh;
   width: initial;
 }
 
 .photography-modal .modal-content {
-  width: fit-content;
+  width: 100%;
   height: fit-content;
-  margin: auto;
   border: none;
   background-color: transparent !important;
+  pointer-events: none;
+}
+
+.photography-modal .modal-body {
+  width: fit-content;
+  margin: auto;
   box-shadow: 0rem 0rem 2rem black;
+  pointer-events: all;
 }
 
 .btn-close {
@@ -31,20 +37,20 @@
   background-color: white;
 }
 
-.modal-body::-webkit-scrollbar {
+.photography-modal .modal-body::-webkit-scrollbar {
   width: 0.9em;
 }
 
-.modal-body-content::-webkit-scrollbar-track {
+.photography-modal .modal-body-content::-webkit-scrollbar-track {
   background-color: #0a0b0d;
 }
  
-.modal-body::-webkit-scrollbar-thumb {
+.photography-modal .modal-body::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   border-radius: 1rem;
 }
 
-.modal-body::-webkit-scrollbar-thumb:vertical:hover {
+.photography-modal .modal-body::-webkit-scrollbar-thumb:vertical:hover {
   background-color: rgb(112, 112, 112);
 }
 
