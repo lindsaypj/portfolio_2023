@@ -11,11 +11,12 @@ import Commission from './views/Commission';
 import Foorter from './components/Footer';
 import Games from './views/Games';
 import Portfolio from './views/Portfolio';
+import Statistics from './views/Statistics';
 import Terminal from './components/terminal/Terminal';
 import TopNav from './components/nav/TopNav';
 import DevPage from './views/DevPage';
 
-import { GAMES_SECTIONS, PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
+import { DETACHED_ROUTES, GAMES_SECTIONS, PORTFOLIO_SECTIONS, SCROLLABLE_ROUTES } from './resources/text/routes';
 
 
 // CONSTANTS
@@ -90,6 +91,11 @@ function App() {
           <Commission />
         );
 
+      case '/statistics':
+        return (
+          <Statistics />
+        );
+
       default:
         return (
           <>
@@ -108,37 +114,47 @@ function App() {
     }
   }, [page, mobileMode, shouldScrollToRoute, terminalHasFocus]);
 
-  return (
-    <div className='App app-dark'>
-      <header>
-        <TopNav
-          navChangeCallback={navChangeCallback}
-          mobileMode={mobileMode}
-          currentPage={page}
-        />
-      </header>
-
-      <main id='main-content'>
+  if (DETACHED_ROUTES.includes(page)) {
+    return (
+      <div className='App app-dark'>
         {getContent()}
-      </main>
-
-      {/* Terminal */}
-      <div className='app-header app-header-dark'>
-        <div className='bottom-nav'>
-          <Terminal
-            navChangeCallback={navChangeCallback}
-            currentRoute={page}
-            terminalHasFocus={terminalHasFocus}
-            setTerminalHasFocus={setTerminalHasFocus}
-          />
-        </div>
       </div>
-      
-      <footer>
-        <Foorter navChangeCallback={navChangeCallback} />
-      </footer>
-    </div>
-  );
+    )
+  }
+
+  else {
+    return (
+      <div className='App app-dark'>
+        <header>
+          <TopNav
+            navChangeCallback={navChangeCallback}
+            mobileMode={mobileMode}
+            currentPage={page}
+          />
+        </header>
+
+        <main id='main-content'>
+          {getContent()}
+        </main>
+
+        {/* Terminal */}
+        <div className='app-header app-header-dark'>
+          <div className='bottom-nav'>
+            <Terminal
+              navChangeCallback={navChangeCallback}
+              currentRoute={page}
+              terminalHasFocus={terminalHasFocus}
+              setTerminalHasFocus={setTerminalHasFocus}
+            />
+          </div>
+        </div>
+        
+        <footer>
+          <Foorter navChangeCallback={navChangeCallback} />
+        </footer>
+      </div>
+    );
+  }
 }
 
 export default App;

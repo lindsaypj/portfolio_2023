@@ -1,0 +1,138 @@
+
+/* GENRAL STYLES */
+
+.stats-h2 {
+    font-size: 4vw;
+    font-family: Hepta Slab;
+}
+
+.stats-h3 {
+    font-size: Clamp(1rem, 1.75vw, 1.75rem);
+}
+
+.stats-h2-light {
+    color: white;
+}
+
+.stats-h2-dark {
+    color: black;
+}
+
+.stats-margins {
+    padding-inline: 10vw;
+}
+
+.outline-black {
+  outline-color: black !important;
+}
+
+
+/* COVER ROW */
+
+.stats-cover-row {
+    height: 100vh;
+    outline: solid 1.1rem white;
+    outline-offset: -1rem;
+
+    transition: outline-color 1s;
+}
+
+.cover-title {
+    font-size: 10vw;
+    font-family: Hepta Slab;
+    margin-top: 20vh;
+}
+
+.cover-course {
+    color: rgb(130, 130, 130);
+}
+
+.cover-name {
+    font-size: 1.5vw;
+    margin-top: 15vh;
+    padding: 0.4rem 0.8rem;
+    display: inline-block;
+    border: solid 0.3rem white;
+    
+    transition: border-color 1s;
+}
+
+
+/* TABLE OF CONTENTS ROW */
+
+.stats-toc-row {
+    min-height: 100vh;
+    padding-top: 10vh;
+    padding-bottom: 8vw;
+    background-color: white;
+}
+
+.stats-toc-row .stats-h2 {
+    font-weight: 600;
+    margin-bottom: 2vw;
+    color: black;
+}
+
+.stats-toc {
+    font-size: Clamp(0.6rem, 1vw, 1rem);
+    background-color: black;
+}
+.stats-toc td {
+    padding: 0.2rem 0.5rem;
+}
+
+.stats-toc-indent {
+    text-indent: 1.5rem;
+}
+
+.stats-toc-hoverable {
+    outline: solid 0.2rem transparent;
+    border-radius: 0.2rem;
+    padding-inline: .2rem;
+    transition: background-color .3s ease-out, outline .3s ease-out;
+}
+.stats-toc-hoverable:hover {
+    background-color: rgb(83, 83, 83);
+    outline: solid 0.2rem rgb(83, 83, 83);
+}
+
+/* STATS SIDE NAV */
+
+.stats-side-nav {
+    background-color: black;
+    max-width: 25vw;
+    padding: 1vw;
+}
+.stats-side-nav p {
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    color: rgb(130, 130, 130);
+    padding-inline: 0.5rem;
+}
+.stats-side-nav p.active {
+    color: white;
+    background-color: rgb(83, 83, 83);
+    outline: solid 0.2rem rgb(83, 83, 83);
+    border-radius: 0.2rem;
+}
+
+
+/* PROJECT 2 */
+
+.stats-project2 {
+    background-color: white;
+    color: black;
+    border: solid 1rem black;
+}
+.stats-project2 h3 {
+    font-size: 2rem;
+    color: #0f4761;
+    font-weight: 500;
+}
+.stats-project2 h4 {
+    font-size: 1.75rem;
+    color: #0f4761;
+    font-weight: 500;
+}

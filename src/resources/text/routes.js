@@ -12,13 +12,21 @@ export const PRIMARY_ROUTES = [
   {'route': '/portfolio', 'desc': 'Navigates to portfolio projects from various areas of expertise.'},
 ];
 
+// Routes not visible in the autocomplete menu
 export const HIDDEN_ROUTES = [
   {'route': '/', 'desc': ''},
   {'route': '/dev', 'desc': ''},
   {'route': '/dev/sudoku', 'desc': ''},  
   {'route': '/commission', 'desc': ''},
+  {'route': '/statistics', 'desc': ''},
 ];
 
+// Routes that have no navigation to the rest of the website
+export const DETACHED_ROUTES = [
+  '/statistics',
+]
+
+// Routes displayed in the top nav
 export const TOP_NAV_ROUTES = [
   {'route': '/portfolio', 'desc': 'Navigates to portfolio projects from various areas of expertise.'},
   {'route': '/games', 'desc': 'Navigates to a showcase of the games, I\'ve made.'}
