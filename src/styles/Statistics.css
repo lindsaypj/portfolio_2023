@@ -125,6 +125,8 @@
     color: rgb(130, 130, 130);
     background-color: black;
     border: 0;
+
+    transition: all 0.5s ease-out;
 }
 .stats-side-nav button.active {
     color: white;

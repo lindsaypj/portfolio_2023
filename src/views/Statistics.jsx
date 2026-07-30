@@ -1,4 +1,4 @@
-import React, { useMemo, useReducer, useRef } from 'react';
+import React, { useMemo, useReducer, useRef, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import TypingText from '../components/TypingText';
 
@@ -78,6 +78,7 @@ export default function Statistics() {
     ////    INITIALIZATION    ////
 
     const [headersTyped, setHeadersTyped] = useReducer(typedReducer, {title: false, course: false, date: false, name: false});
+    const [isScrolling, setIsScrolling] = useState(false);
 
     const project2Ref = useRef();
     const project2Part1Ref = useRef();
@@ -97,6 +98,11 @@ export default function Statistics() {
     const scrollToSection = (sectionID) => {
         const id = Number(sectionID.slice(3));
         scrollRefs[id]?.current.scrollIntoView({ behavior: 'smooth' });
+
+        setIsScrolling(true);
+        setTimeout(() => {
+            setIsScrolling(false);
+        }, 800);
     }
 
 
@@ -186,6 +192,7 @@ export default function Statistics() {
                         sections={SECTIONS}
                         scrollToSection={scrollToSection}
                         scrollRefs={scrollRefs}
+                        isScrolling={isScrolling}
                     />
                 </Col>
 

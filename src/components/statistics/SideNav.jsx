@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-export default function SideNav({ sections = [{id: 'undefined'}], scrollToSection, scrollRefs = [] }) {
+export default function SideNav({ sections = [{id: 'undefined'}], scrollToSection, scrollRefs = [], isScrolling }) {
 
     ////    INITIALIZATION    ////
 
@@ -13,7 +13,7 @@ export default function SideNav({ sections = [{id: 'undefined'}], scrollToSectio
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting && !isScrolling) {
                     setActiveContent(entry.target.id);
                 }
             });
@@ -26,9 +26,9 @@ export default function SideNav({ sections = [{id: 'undefined'}], scrollToSectio
                 observer.observe(section.current);
             }
         });
-        
+
         return () => observer.disconnect();
-    }, [scrollRefs]);
+    }, [scrollRefs, isScrolling]);
 
     const handleNavSelect = (sectionID) => {
         setActiveContent(sectionID);
