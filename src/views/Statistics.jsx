@@ -1,4 +1,4 @@
-import React, { useReducer, useRef } from 'react';
+import React, { useMemo, useReducer, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import TypingText from '../components/TypingText';
 
@@ -11,43 +11,43 @@ import SideNav from '../components/statistics/SideNav';
 
 const SECTIONS = [
     {
-        id: '0', title: 'Project 2: Textile Waste',
+        id: 'ref0', title: 'Project 2: Textile Waste',
         subsections: [
-            {id: '1', title: 'Part 1: Fast Fashion Videos'},
-            {id: '2', title: 'Part 2: Clircular Economy and Sustainability'},
-            {id: '3', title: 'Part 3: Textile Waste PSA'}
+            {id: 'ref1', title: 'Part 1: Fast Fashion Videos'},
+            {id: 'ref2', title: 'Part 2: Clircular Economy and Sustainability'},
+            {id: 'ref3', title: 'Part 3: Textile Waste PSA'}
         ]
     },
     {
-        id: '4', title: 'Project 2 Reflection',
+        id: 'ref4', title: 'Project 2 Reflection',
         subsections: []
     },
     {
-        id: '5', title: 'Project 3',
+        id: 'ref5', title: 'Project 3',
         subsections: []
     },
     {
-        id: '6', title: 'Project 3 Reflection',
+        id: 'ref6', title: 'Project 3 Reflection',
         subsections: []
     },
     {
-        id: '7', title: 'Project 4',
+        id: 'ref7', title: 'Project 4',
         subsections: []
     },
     {
-        id: '8', title: 'Project 4 Reflection',
+        id: 'ref8', title: 'Project 4 Reflection',
         subsections: []
     },
     {
-        id: '9', title: 'MyOpenMath Reflection Assessment',
+        id: 'ref9', title: 'MyOpenMath Reflection Assessment',
         subsections: []
     },
     {
-        id: '10', title: 'Weekly Videos Reflection Assessment',
+        id: 'ref10', title: 'Weekly Videos Reflection Assessment',
         subsections: []
     },
     {
-        id: '11', title: 'Overall Course Self-Reflection',
+        id: 'ref11', title: 'Overall Course Self-Reflection',
         subsections: []
     },
 ]
@@ -79,18 +79,24 @@ export default function Statistics() {
 
     const [headersTyped, setHeadersTyped] = useReducer(typedReducer, {title: false, course: false, date: false, name: false});
 
-    const scrollRefs = [
-        useRef(), // Project 2: Textile Waste
-        useRef(), // Project 2 Part 1
-        useRef(), // Project 2 Part 2
-        useRef(), // Project 2 Part 3
-    ]
+    const project2Ref = useRef();
+    const project2Part1Ref = useRef();
+    const project2Part2Ref = useRef();
+    const project2Part3Ref = useRef();
+
+    const scrollRefs = useMemo(() => [
+        project2Ref,
+        project2Part1Ref,
+        project2Part2Ref,
+        project2Part3Ref,
+    ], []);
 
 
     ////    STATE MANGMENT    ////
 
     const scrollToSection = (sectionID) => {
-        scrollRefs[sectionID]?.current.scrollIntoView({ behavior: 'smooth' });
+        const id = Number(sectionID.slice(3));
+        scrollRefs[id]?.current.scrollIntoView({ behavior: 'smooth' });
     }
 
 
@@ -111,6 +117,7 @@ export default function Statistics() {
                     <h2 className='cover-course stats-h2'>
                         <TypingText
                             text='MATH 146: STATISTICS'
+                            charInterval={50}
                             shouldType={headersTyped.title}
                             doneTypingCallback={() => { setHeadersTyped({text: 'course', typed: true}) }}
                             useCursor
@@ -142,30 +149,30 @@ export default function Statistics() {
                     <h2 className='stats-h2'>TABLE OF CONTENTS</h2>
                     <Row className='p-5 bg-black'>
                         <div className='stats-toc'>
-                                {SECTIONS.map(section => 
-                                <div key={section.id}>
-                                    <div className='stats-h3'>
-                                        <button
-                                            className={'stats-toc-hoverable'}
-                                            onClick={() => scrollToSection(section.id)}
-                                        >
-                                            {section.title}
-                                        </button>
-                                    </div>
-                                    
-                                    {section.subsections.length > 0 &&
-                                        section.subsections.map(subsetion => 
-                                            <div key={subsetion.id} className='stats-toc-indent'>
-                                                <button
-                                                    className={'stats-toc-hoverable'}
-                                                    onClick={() => scrollToSection(subsetion.id)}
-                                                >
-                                                    {subsetion.title}
-                                                </button>
-                                            </div>
-                                        )
-                                    }
-                                </div>)}
+                            {SECTIONS.map(section => 
+                            <div key={section.id}>
+                                <div className='stats-h3'>
+                                    <button
+                                        className={'stats-toc-hoverable'}
+                                        onClick={() => scrollToSection(section.id)}
+                                    >
+                                        {section.title}
+                                    </button>
+                                </div>
+                                
+                                {section.subsections.length > 0 &&
+                                    section.subsections.map(subsetion => 
+                                        <div key={subsetion.id} className='stats-toc-indent'>
+                                            <button
+                                                className={'stats-toc-hoverable'}
+                                                onClick={() => scrollToSection(subsetion.id)}
+                                            >
+                                                {subsetion.title}
+                                            </button>
+                                        </div>
+                                    )
+                                }
+                            </div>)}
                         </div>
                     </Row>
                 </Col>
@@ -178,6 +185,7 @@ export default function Statistics() {
                     <SideNav 
                         sections={SECTIONS}
                         scrollToSection={scrollToSection}
+                        scrollRefs={scrollRefs}
                     />
                 </Col>
 
@@ -186,12 +194,12 @@ export default function Statistics() {
                 <Col className='stats-content'>
 
                     {/* Project 2 */}
-                    <Row className='stats-project2' ref={scrollRefs[0]}>
+                    <Row className='stats-project2' ref={project2Ref} id='ref0'>
                         <Col>
 
                             {/* PART 1 */}
 
-                            <h3 ref={scrollRefs[1]}>Project 2 – Textile Waste</h3>
+                            <h3 ref={project2Part1Ref} id='ref1'>Project 2 – Textile Waste</h3>
                             <p className='mt-3 mb-5'>Patrick Lindsay, Nick Walker, Cameron Price 3 points</p>
                             <h4>Part 1 – Watch and discuss the following Videos: 12 points</h4>
                             <ol type='1' className='ms-5'>
@@ -249,7 +257,7 @@ export default function Statistics() {
 
                             {/* PART 2 */}
 
-                            <h4 className='mt-5 pt-5' ref={scrollRefs[2]}>
+                            <h4 className='mt-5 pt-5' ref={project2Part2Ref} id='ref2'>
                                 Part 2 - Questions to answer from the textile article: 26 points
                             </h4>
                             <a className='d-inline-block mb-2' href='https://pmc.ncbi.nlm.nih.gov/articles/PMC8257395/pdf/42824_2021_Article_26.pdf' target='_blank' rel='noreferrer'>
@@ -334,7 +342,7 @@ export default function Statistics() {
 
                             {/* PART 3 */}
                             
-                            <h4 className='mt-5 pt-5' ref={scrollRefs[3]}>
+                            <h4 className='mt-5 pt-5' ref={project2Part3Ref} id='ref3'>
                                 Part 3 – Create a Public Service Announcement (PSA) 30 points
                             </h4>
                             <p>

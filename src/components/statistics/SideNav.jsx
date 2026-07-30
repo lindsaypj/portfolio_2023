@@ -1,6 +1,6 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
-export default function SideNav({ sections = [{id: 'undefined'}], scrollToSection }) {
+export default function SideNav({ sections = [{id: 'undefined'}], scrollToSection, scrollRefs = [] }) {
 
     ////    INITIALIZATION    ////
 
@@ -9,14 +9,35 @@ export default function SideNav({ sections = [{id: 'undefined'}], scrollToSectio
 
     ////    STATE MANAGMENT    ////
 
+    // Update Active side nav element based on scroll position
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveContent(entry.target.id);
+                }
+            });
+        }, {
+            threshold: 0.5,
+        });
+
+        scrollRefs.forEach(section => {
+            if (section) {
+                observer.observe(section.current);
+            }
+        });
+        
+        return () => observer.disconnect();
+    }, [scrollRefs]);
+
     const handleNavSelect = (sectionID) => {
         setActiveContent(sectionID);
         scrollToSection(sectionID);
     }
 
     const getActiveClass = useCallback((id) => {
-        return activeContent === id ? ' active': ''
-    }, [activeContent])
+        return activeContent === id ? ' active': '';
+    }, [activeContent]);
     
 
     ////    RENDERING    ////
