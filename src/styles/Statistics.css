@@ -100,19 +100,26 @@
 /* STATS SIDE NAV */
 
 .stats-side-nav {
-    background-color: black;
     max-width: 25vw;
     padding: 1vw;
+    background-color: black;
 }
-.stats-side-nav p {
+.stats-side-nav button {
+    width: 100%;
     margin-bottom: 0.5rem;
+    padding-inline: 0.5rem;
+    
+    font-size: calc(10px + 1vmin);
     overflow: hidden;
     text-wrap: nowrap;
     text-overflow: ellipsis;
+    text-align: start;
+    
     color: rgb(130, 130, 130);
-    padding-inline: 0.5rem;
+    background-color: black;
+    border: 0;
 }
-.stats-side-nav p.active {
+.stats-side-nav button.active {
     color: white;
     background-color: rgb(83, 83, 83);
     outline: solid 0.2rem rgb(83, 83, 83);

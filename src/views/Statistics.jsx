@@ -1,9 +1,56 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import TypingText from '../components/TypingText';
 
 import '../styles/Statistics.css'
 import ProjectQuestion from '../components/statistics/ProjectQuestion';
+import SideNav from '../components/statistics/SideNav';
+
+
+////    CONSTANTS    ////
+
+const SECTIONS = [
+    {
+        id: '0', title: 'Project 2: Textile Waste',
+        subsections: [
+            {id: '1', title: 'Part 1: Fast Fashion Videos'},
+            {id: '2', title: 'Part 2: Clircular Economy and Sustainability'},
+            {id: '3', title: 'Part 3: Textile Waste PSA'}
+        ]
+    },
+    {
+        id: '4', title: 'Project 2 Reflection',
+        subsections: []
+    },
+    {
+        id: '5', title: 'Project 3',
+        subsections: []
+    },
+    {
+        id: '6', title: 'Project 3 Reflection',
+        subsections: []
+    },
+    {
+        id: '7', title: 'Project 4',
+        subsections: []
+    },
+    {
+        id: '8', title: 'Project 4 Reflection',
+        subsections: []
+    },
+    {
+        id: '9', title: 'MyOpenMath Reflection Assessment',
+        subsections: []
+    },
+    {
+        id: '10', title: 'Weekly Videos Reflection Assessment',
+        subsections: []
+    },
+    {
+        id: '11', title: 'Overall Course Self-Reflection',
+        subsections: []
+    },
+]
 
 function typedReducer(state, action) {
   const nextState = {...state}
@@ -31,6 +78,20 @@ export default function Statistics() {
     ////    INITIALIZATION    ////
 
     const [headersTyped, setHeadersTyped] = useReducer(typedReducer, {title: false, course: false, date: false, name: false});
+
+    const scrollRefs = [
+        useRef(), // Project 2: Textile Waste
+        useRef(), // Project 2 Part 1
+        useRef(), // Project 2 Part 2
+        useRef(), // Project 2 Part 3
+    ]
+
+
+    ////    STATE MANGMENT    ////
+
+    const scrollToSection = (sectionID) => {
+        scrollRefs[sectionID]?.current.scrollIntoView({ behavior: 'smooth' });
+    }
 
 
     ////    RENDERING    ////
@@ -125,34 +186,26 @@ export default function Statistics() {
             </Row>
 
             <Row>
+
                 {/* SIDE NAV */}
                 <Col className='stats-side-nav' xs='auto'>
-                    <div className=''>
-                        <p className='stats-toc-hoverable'>Project 2: Textile Waste</p>
-                        <p className='stats-toc-hoverable stats-toc-indent active'>Part 1: Fast Fashion Videos</p>
-                        <p className='stats-toc-hoverable stats-toc-indent'>Part 2: Clircular Economy and Sustainability</p>
-                        <p className='stats-toc-hoverable stats-toc-indent'>Part 3: Textile Waste PSA</p>
-                        <p className='stats-toc-hoverable'>Project 2 Reflection</p>
-                        <p className='stats-toc-hoverable'>Project 3</p>
-                        <p className='stats-toc-hoverable'>Project 3 Reflection</p>
-                        <p className='stats-toc-hoverable'>Project 4</p>
-                        <p className='stats-toc-hoverable'>Project 4 Reflection</p>
-                        <p className='stats-toc-hoverable'>MyOpenMath Reflection Assessment</p>
-                        <p className='stats-toc-hoverable'>Weekly Videos Reflection Assessment</p>
-                        <p className='stats-toc-hoverable'>Overall Course Self-Reflection</p>
-                    </div>
+                    <SideNav 
+                        sections={SECTIONS}
+                        scrollToSection={scrollToSection}
+                    />
                 </Col>
+
 
                 {/* PORTFOLIO CONTENT */}
                 <Col className='stats-content'>
 
                     {/* Project 2 */}
-                    <Row className='stats-project2'>
+                    <Row className='stats-project2' ref={scrollRefs[0]}>
                         <Col>
 
                             {/* PART 1 */}
 
-                            <h3>Project 2 – Textile Waste</h3>
+                            <h3 ref={scrollRefs[1]}>Project 2 – Textile Waste</h3>
                             <p className='mt-3 mb-5'>Patrick Lindsay, Nick Walker, Cameron Price 3 points</p>
                             <h4>Part 1 – Watch and discuss the following Videos: 12 points</h4>
                             <ol type='1' className='ms-5'>
@@ -210,7 +263,7 @@ export default function Statistics() {
 
                             {/* PART 2 */}
 
-                            <h4 className='mt-5 pt-5'>
+                            <h4 className='mt-5 pt-5' ref={scrollRefs[2]}>
                                 Part 2 - Questions to answer from the textile article: 26 points
                             </h4>
                             <a className='d-inline-block mb-2' href='https://pmc.ncbi.nlm.nih.gov/articles/PMC8257395/pdf/42824_2021_Article_26.pdf' target='_blank' rel='noreferrer'>
@@ -295,7 +348,7 @@ export default function Statistics() {
 
                             {/* PART 3 */}
                             
-                            <h4 className='mt-5 pt-5'>
+                            <h4 className='mt-5 pt-5' ref={scrollRefs[3]}>
                                 Part 3 – Create a Public Service Announcement (PSA) 30 points
                             </h4>
                             <p>
