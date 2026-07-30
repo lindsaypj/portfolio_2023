@@ -7,8 +7,13 @@ export default function useScrollPos() {
       setYPos(window.scrollY);
     }
     window.addEventListener('scroll', updateScrollPos);
+    window.addEventListener('resize', updateScrollPos);
     updateScrollPos();
-    return () => window.removeEventListener('scroll', updateScrollPos);
+    
+    return () => {
+      window.removeEventListener('scroll', updateScrollPos);
+      window.removeEventListener('resize', updateScrollPos);
+    }
   }, []);
   return yPos;
 }
