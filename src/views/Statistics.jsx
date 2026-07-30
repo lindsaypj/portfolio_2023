@@ -141,46 +141,32 @@ export default function Statistics() {
                 <Col className='stats-margins d-flex flex-column'>
                     <h2 className='stats-h2'>TABLE OF CONTENTS</h2>
                     <Row className='p-5 bg-black'>
-                        <table className='stats-toc'>
-                            <tbody>
-                                <tr>
-                                    <td className='stats-h3'><span className='stats-toc-hoverable'>Project 2: Textile Waste</span></td>
-                                </tr>
-                                <tr>
-                                    <td className='stats-toc-indent'><span className='stats-toc-hoverable'>Part 1: Fast Fashion Videos</span></td>
-                                </tr>
-                                <tr>
-                                    <td className='stats-toc-indent'><span className='stats-toc-hoverable'>Part 2: Clircular Economy and Sustainability</span></td>
-                                </tr>
-                                <tr>
-                                    <td className='stats-toc-indent'><span className='stats-toc-hoverable'>Part 3: Textile Waste PSA</span></td>
-                                </tr>
-                                <tr>
-                                    <td className='stats-h3 pt-3'><span className='stats-toc-hoverable'>Project 2 Reflection</span></td>
-                                </tr>
-                                <tr>
-                                    <td className='stats-h3'><span className='stats-toc-hoverable'>Project 3</span></td>
-                                </tr>
-                                <tr>
-                                    <td className='stats-h3'><span className='stats-toc-hoverable'>Project 3 Reflection</span></td>
-                                </tr>
-                                <tr>
-                                    <td className='stats-h3'><span className='stats-toc-hoverable'>Project 4</span></td>
-                                </tr>
-                                <tr>
-                                    <td className='stats-h3'><span className='stats-toc-hoverable'>Project 4 Reflection</span></td>
-                                </tr>
-                                <tr>
-                                    <td className='stats-h3'><span className='stats-toc-hoverable'>MyOpenMath Reflection Assessment</span></td>
-                                </tr>
-                                <tr>
-                                    <td className='stats-h3'><span className='stats-toc-hoverable'>Weekly Videos Reflection Assessment</span></td>
-                                </tr>
-                                <tr>
-                                    <td className='stats-h3'><span className='stats-toc-hoverable'>Overall Course Self-Reflection</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div className='stats-toc'>
+                                {SECTIONS.map(section => 
+                                <div key={section.id}>
+                                    <div className='stats-h3'>
+                                        <button
+                                            className={'stats-toc-hoverable'}
+                                            onClick={() => scrollToSection(section.id)}
+                                        >
+                                            {section.title}
+                                        </button>
+                                    </div>
+                                    
+                                    {section.subsections.length > 0 &&
+                                        section.subsections.map(subsetion => 
+                                            <div key={subsetion.id} className='stats-toc-indent'>
+                                                <button
+                                                    className={'stats-toc-hoverable'}
+                                                    onClick={() => scrollToSection(subsetion.id)}
+                                                >
+                                                    {subsetion.title}
+                                                </button>
+                                            </div>
+                                        )
+                                    }
+                                </div>)}
+                        </div>
                     </Row>
                 </Col>
             </Row>
