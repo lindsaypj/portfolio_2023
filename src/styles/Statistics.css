@@ -96,6 +96,7 @@
     outline: solid 0.2rem rgb(83, 83, 83);
 }
 
+
 /* STATS SIDE NAV */
 
 .stats-side-nav {
@@ -117,6 +118,18 @@
     outline: solid 0.2rem rgb(83, 83, 83);
     border-radius: 0.2rem;
 }
+.stats-side-nav > div {
+    position: sticky;
+    top: 1vw;
+}
+
+
+/* STATS CONTENT */
+
+.stats-content {
+    border: solid 1vw black;
+    padding: 0;
+}
 
 
 /* PROJECT 2 */
@@ -124,15 +137,16 @@
 .stats-project2 {
     background-color: white;
     color: black;
-    border: solid 1rem black;
+    padding: 4vw 4vw;
+    font-size: calc(10px + 1vmin);
 }
 .stats-project2 h3 {
-    font-size: 2rem;
+    font-size: calc(10px + 2vmin);
     color: #0f4761;
     font-weight: 500;
 }
 .stats-project2 h4 {
-    font-size: 1.75rem;
+    font-size: calc(10px + 1.5vmin);
     color: #0f4761;
     font-weight: 500;
 }
