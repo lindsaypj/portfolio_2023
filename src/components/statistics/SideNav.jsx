@@ -13,12 +13,12 @@ export default function SideNav({ sections = [{id: 'undefined'}], scrollToSectio
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !isScrolling) {
+                if (entry.isIntersecting && !(isScrolling.current)) {
                     setActiveContent(entry.target.id);
                 }
             });
         }, {
-            threshold: 0.5,
+            threshold: 0.1,
         });
 
         scrollRefs.forEach(section => {
