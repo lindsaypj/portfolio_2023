@@ -1,10 +1,25 @@
 import React, { useEffect, useMemo, useReducer, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import TypingText from '../components/TypingText';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-import '../styles/Statistics.css'
 import ProjectQuestion from '../components/statistics/ProjectQuestion';
 import SideNav from '../components/statistics/SideNav';
+import TypingText from '../components/TypingText';
+
+import '../styles/Statistics.css';
+
+import PSA1 from '../resources/images/Statistics/PSA/PSA-1.webp';
+import PSA2 from'../resources/images/Statistics/PSA/PSA-2.webp';
+import PSA3 from'../resources/images/Statistics/PSA/PSA-3.webp';
+import PSA4 from'../resources/images/Statistics/PSA/PSA-4.webp';
+import PSA5 from'../resources/images/Statistics/PSA/PSA-5.webp';
+import PSA6 from'../resources/images/Statistics/PSA/PSA-6.webp';
+import PSAPlaceholder1 from'../resources/images/Statistics/PSA/placeholders/PSA-1.webp';
+import PSAPlaceholder2 from'../resources/images/Statistics/PSA/placeholders/PSA-2.webp';
+import PSAPlaceholder3 from'../resources/images/Statistics/PSA/placeholders/PSA-3.webp';
+import PSAPlaceholder4 from'../resources/images/Statistics/PSA/placeholders/PSA-4.webp';
+import PSAPlaceholder5 from'../resources/images/Statistics/PSA/placeholders/PSA-5.webp';
+import PSAPlaceholder6 from'../resources/images/Statistics/PSA/placeholders/PSA-6.webp';
 
 
 ////    CONSTANTS    ////
@@ -398,6 +413,45 @@ export default function Statistics({ mobileMode }) {
                                     <li>Not everyone in your group has to have equal participation in this part of the project, but there should be a discussion that includes a brainstorming session to help kick this off.</li>
                                     <li>If you are willing to let me share your end project with future classes or in displays on campus, please let me know – I would love to start to bring awareness of this problem to our community. </li>
                                 </ol>
+                            </div>
+
+                            <div>
+                                <LazyLoadImage
+                                    src={PSA1}
+                                    placeholderSrc={PSAPlaceholder1}
+                                    alt={'Textile Waste PSA Slide 1'}
+                                    className='w-100 my-2'
+                                />
+                                <LazyLoadImage
+                                    src={PSA2}
+                                    placeholderSrc={PSAPlaceholder2}
+                                    alt={'Textile Waste PSA Slide 2'}
+                                    className='w-100 my-2'
+                                />
+                                <LazyLoadImage
+                                    src={PSA3}
+                                    placeholderSrc={PSAPlaceholder3}
+                                    alt={'Textile Waste PSA Slide 3'}
+                                    className='w-100 my-2'
+                                />
+                                <LazyLoadImage
+                                    src={PSA4}
+                                    placeholderSrc={PSAPlaceholder4}
+                                    alt={'Textile Waste PSA Slide 4'}
+                                    className='w-100 my-2'
+                                />
+                                <LazyLoadImage
+                                    src={PSA5}
+                                    placeholderSrc={PSAPlaceholder5}
+                                    alt={'Textile Waste PSA Slide 5'}
+                                    className='w-100 my-2'
+                                />
+                                <LazyLoadImage
+                                    src={PSA6}
+                                    placeholderSrc={PSAPlaceholder6}
+                                    alt={'Textile Waste PSA Slide 6'}
+                                    className='w-100 my-2'
+                                />
                             </div>
                         </Col>
                     </Row>

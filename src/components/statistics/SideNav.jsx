@@ -80,7 +80,6 @@ export default function SideNav({ sections = [{id: 'undefined'}], scrollToSectio
     }
 
 
-
     if (mobileMode) {
         return (
             <div>
