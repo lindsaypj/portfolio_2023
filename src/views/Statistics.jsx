@@ -73,7 +73,7 @@ function typedReducer(state, action) {
   return nextState
 }
 
-export default function Statistics() {
+export default function Statistics({ mobileMode }) {
 
     ////    INITIALIZATION    ////
 
@@ -173,8 +173,8 @@ export default function Statistics() {
             <Row className='stats-toc-row' ref={tableOfContenstRef}>
                 <Col className='stats-margins d-flex flex-column'>
                     <h2 className='stats-h2'>TABLE OF CONTENTS</h2>
-                    <Row className='p-5 bg-black'>
-                        <div className='stats-toc'>
+                    <Row className='bg-black'>
+                        <Col className='stats-toc'>
                             {SECTIONS.map(section => 
                             <div key={section.id}>
                                 <div className='stats-h3'>
@@ -203,7 +203,7 @@ export default function Statistics() {
                                     )
                                 }
                             </div>)}
-                        </div>
+                        </Col>
                     </Row>
                 </Col>
             </Row>
@@ -211,12 +211,13 @@ export default function Statistics() {
             <Row>
 
                 {/* SIDE NAV */}
-                <Col className='stats-side-nav' xs='auto'>
-                    <SideNav 
+                <Col className={'stats-side-nav' + (mobileMode ? ' order-last w-0 p-0' : '')} xs={mobileMode ? '0' : 'auto'}>
+                    <SideNav
                         sections={SECTIONS}
                         scrollToSection={scrollToSection}
                         scrollRefs={scrollRefs}
                         isScrolling={isScrolling}
+                        mobileMode={mobileMode}
                     />
                 </Col>
 
@@ -236,7 +237,7 @@ export default function Statistics() {
                             </div>
                             <div ref={project2Part1Ref} id='ref1'>
                                 <h4>Part 1 – Watch and discuss the following Videos: 12 points</h4>
-                                <ol type='1' className='ms-5'>
+                                <ol type='1' className='stats-ms-5'>
                                     <li>
                                         <a href='https://www.youtube.com/watch?v=uou_223HFns' target='_blank' rel='noreferrer'>
                                             Ghana becomes dumping ground for the world’s unwanted used clothes

@@ -93,7 +93,9 @@ function App() {
 
       case '/statistics':
         return (
-          <Statistics />
+          <Statistics
+            mobileMode={mobileMode}
+          />
         );
 
       default:

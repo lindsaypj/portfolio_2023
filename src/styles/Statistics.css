@@ -2,7 +2,7 @@
 /* GENRAL STYLES */
 
 .stats-h2 {
-    font-size: Clamp(1.75rem, 4vw, 4rem);
+    font-size: Max(1.2rem, 4vw);
     font-family: Hepta Slab;
 }
 
@@ -26,6 +26,10 @@
   outline-color: black !important;
 }
 
+.stats-ms-5 {
+    margin-left: 3vw;
+}
+
 
 /* COVER ROW */
 
@@ -44,6 +48,7 @@
 }
 
 .cover-course {
+    /* font-size: 4vw; */
     color: rgb(130, 130, 130);
 }
 
@@ -74,6 +79,7 @@
 }
 
 .stats-toc {
+    padding: Clamp(2rem, 3vw, 3rem);
     font-size: Clamp(0.75rem, 1vw, 1rem);
     background-color: black;
 }
@@ -88,7 +94,7 @@
 }
 
 .stats-toc-indent {
-    text-indent: 1.5rem;
+    text-indent: Max(1rem, 1.5vw);
 }
 
 .stats-toc-hoverable {
@@ -169,7 +175,7 @@
     padding: 1vw;
     background-color: black;
 }
-.stats-side-nav button {
+.stats-side-nav button{
     width: 100%;
     margin-bottom: 0.5rem;
     padding-inline: 0.5rem;
@@ -195,6 +201,51 @@
 .stats-side-nav > div {
     position: sticky;
     top: 1vw;
+}
+
+.stats-menu-btn {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+
+    width: initial !important;
+    padding: 0.25rem 0.3rem !important;
+
+    background-color: black !important;
+    border: solid 0.15rem black !important;
+    opacity: 40%;
+}
+.stats-mobile-side-nav {
+    background-color: black;
+    color: rgb(130, 130, 130);
+    opacity: 90%;
+}
+ .stats-mobile-side-nav .stats-toc-hoverable {
+    margin-bottom: 0.5rem;
+    padding-inline: 0.5rem;
+    max-width: Min(90vw, Calc(400px - 2rem));
+    
+    font-size: calc(10px + 1vmin);
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    text-align: start;
+    
+    color: rgb(130, 130, 130);
+    background-color: black;
+    border: 0;
+
+    transition: all 0.5s ease-out;
+ }
+ .stats-mobile-side-nav .stats-toc-hoverable:hover {
+    color: white;
+    background-color: rgb(83, 83, 83);
+    outline: solid 0.2rem rgb(83, 83, 83);
+    border-radius: 0.2rem;
+}
+.stats-mobile-side-nav .btn-close {
+    margin: 0.2rem;
+    padding: 0.5rem;
 }
 
 
