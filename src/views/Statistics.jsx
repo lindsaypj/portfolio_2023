@@ -416,9 +416,7 @@ export default function Statistics({ mobileMode }) {
                                     <li>Not everyone in your group has to have equal participation in this part of the project, but there should be a discussion that includes a brainstorming session to help kick this off.</li>
                                     <li>If you are willing to let me share your end project with future classes or in displays on campus, please let me know – I would love to start to bring awareness of this problem to our community. </li>
                                 </ol>
-                            </div>
-
-                            <div>
+                            
                                 <LazyLoadImage
                                     src={PSA1}
                                     placeholderSrc={PSAPlaceholder1}
