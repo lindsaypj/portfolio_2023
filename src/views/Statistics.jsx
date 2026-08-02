@@ -20,6 +20,7 @@ import PSAPlaceholder3 from'../resources/images/Statistics/PSA/placeholders/PSA-
 import PSAPlaceholder4 from'../resources/images/Statistics/PSA/placeholders/PSA-4.webp';
 import PSAPlaceholder5 from'../resources/images/Statistics/PSA/placeholders/PSA-5.webp';
 import PSAPlaceholder6 from'../resources/images/Statistics/PSA/placeholders/PSA-6.webp';
+import GroupReflection from '../components/statistics/GroupReflection';
 
 
 ////    CONSTANTS    ////
@@ -100,12 +101,14 @@ export default function Statistics({ mobileMode }) {
     const project2Part1Ref = useRef();
     const project2Part2Ref = useRef();
     const project2Part3Ref = useRef();
+    const project2ReflectionRef = useRef();
 
     const scrollRefs = useMemo(() => [
         project2Ref,
         project2Part1Ref,
         project2Part2Ref,
         project2Part3Ref,
+        project2ReflectionRef,
     ], []);
 
 
@@ -455,6 +458,39 @@ export default function Statistics({ mobileMode }) {
                             </div>
                         </Col>
                     </Row>
+
+                    {/* PROJECT 2 REFLECTION */}
+
+                    <div ref={project2ReflectionRef} id='ref4'>
+                        <GroupReflection
+                            projectTitle={'Project 2: Textile Waste'}
+                            groupNumber={1}
+                            timeSpent={3.5}
+                            highlighted={[
+                                {'a': 4, 'other': ''},
+                                {'a': 3, 'other': ''},
+                                {'a': 1, 'other': ''},
+                                {'a': 3, 'other': ''},
+                                {'a': 3, 'other': ''},
+                                {'a': 3, 'other': ''},
+                            ]}
+                            reflection={<>
+                                <p className='fst-italic'>
+                                    The only negative experience I had was collaborating with my team. Since I had very little availability during the week, I was trying to work on it on the weekend. We all had put that we had time on the weekend but it wasn’t until Monday that I got a response. Ultimately we worked through it asynchronously, but I think it was made more difficult by the lack of structured communication.
+                                </p>
+                                <p className='fst-italic'>
+                                    I did enjoy creating the PSA. I recreated a graph in Photoshop to match the theme of our project and it was fun leaving funny notes back and forth with teammates while collaborating in Google Slides. One of my teammates had a vision for the story we would tell and we worked together to implement it.
+                                </p>
+                                <p className='fst-italic'>
+                                    I was amazed to learn how much textile is made and wasted. I have been telling my friends about it and noticing some of their questionable online shopping habits. I have noticed that statistics can be easily misinterpreted and must be framed in the right context to avoid confusion. For example we used the following statistics without the underlined parts first, and corrected it later: 
+                                </p>
+                                <ul className='stats-ms-4 fst-italic'>
+                                    <li>American households bought on average 25 articles of clothing in 1960</li>
+                                    <li>Today it’s an average of 60.5 per individual</li>
+                                </ul>
+                            </>}
+                        />
+                    </div>
                 </Col>
             </Row>
             

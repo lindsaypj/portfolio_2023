@@ -1,0 +1,32 @@
+.stats-group-reflection ul {
+    list-style-type: "-";
+}
+.stats-group-reflection li {
+    padding-left: 1rem;
+}
+
+.stats-group-reflection h3 {
+    font-size: Clamp(0.9rem, 1.75vw, 1.75rem);
+}
+.stats-group-reflection h4, p, li {
+    font-size: Clamp(0.8rem, 1.5vw, calc(10px + 1vmin));
+}
+
+.group-reflection-table {
+    width: 100%;
+}
+
+.group-reflection-table td {
+    font-size: Clamp(0.5rem, 1.5vw, calc(10px + 1vmin));
+    border: solid 0.2rem black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.group-reflection-table td.highlight {
+    background-color: yellow;
+}
+
+.group-reflection-table td:last-child {
+    min-width: 10vw;
+}
