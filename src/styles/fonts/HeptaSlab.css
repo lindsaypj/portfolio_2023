@@ -1,3 +1,24 @@
+/* Fallback font created with https://screenspan.net/fallback */
+@font-face {
+    font-family: 'Adjusted Georgia Fallback';
+    font-weight: 400;
+    src: local(Georgia);
+    size-adjust: 108%;
+    ascent-override: 84%;
+    descent-override: 18%;
+    line-gap-override: normal;
+}
+/* Fallback font created with https://screenspan.net/fallback */
+@font-face {
+    font-family: 'Adjusted Georgia Fallback';
+    font-weight: 600;
+    src: local(Georgia);
+    size-adjust: 119%;
+    ascent-override: 82%;
+    descent-override: 19%;
+    line-gap-override: normal;
+}
+
 /* hepta-slab-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */

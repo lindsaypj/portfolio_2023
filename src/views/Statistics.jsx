@@ -148,6 +148,7 @@ export default function Statistics({ mobileMode }) {
 
     return (
         <Container fluid className='p-0'>
+
             {/* Cover */}
             <Row className={'stats-cover-row'  + (headersTyped.name ? '' : ' outline-black') }>
                 <Col className='p-0 text-center bg-black'>
@@ -462,6 +463,7 @@ export default function Statistics({ mobileMode }) {
                             </div>
                         </Col>
                     </Row>
+
 
                     {/* PROJECT 2 REFLECTION */}
 

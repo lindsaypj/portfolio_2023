@@ -3,11 +3,16 @@
 
 .stats-h2 {
     font-size: Max(1.2rem, 4vw);
-    font-family: Hepta Slab;
+    font-family: 'Hepta Slab', 'Adjusted Georgia Fallback';
+    font-weight: 600;
 }
 
 .stats-h3 {
     font-size: Clamp(1rem, 1.75vw, 1.75rem);
+}
+
+.stats-p {
+    margin-bottom: 0.5rem;
 }
 
 .stats-h2-light {
@@ -57,7 +62,6 @@
 }
 
 .cover-course {
-    /* font-size: 4vw; */
     color: rgb(130, 130, 130);
 }
 
@@ -264,13 +268,23 @@
     background-color: white;
     color: black;
 }
+.stats-content h4, .stats-content p, .stats-content li, .stats-content a {
+    font-size: Max(10px, calc(9px + 1vmin));
+    line-height: 30px;
+}
+
+.stats-credit {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.stats-content .fst-italic {
+    font-style: italic;
+}
 
 
 /* PROJECT 2 */
 
-.stats-project2 {
-    font-size: calc(10px + 1vmin);
-}
 .stats-project2 h3 {
     font-size: calc(10px + 2vmin);
     color: #0f4761;

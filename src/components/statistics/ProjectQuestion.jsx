@@ -58,8 +58,8 @@ export default function ProjectQuestion({ questionNum = '0', credit = ['',''], q
                 <span>{questionNum}.</span>
             </Col>
             <Col>
-                <p className='mb-2'>
-                    Student who completed the work: <b><u>{credit[0]}</u></b> Student who checked it: <b><u>{credit[1]}</u></b>
+                <p className='stats-p'>
+                    Student who completed the work: <span className='stats-credit'>{credit[0]}</span> Student who checked it: <span className='stats-credit'>{credit[1]}</span>
                 </p>
                 {formatQustions()}
             </Col>

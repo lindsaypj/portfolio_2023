@@ -8,9 +8,6 @@
 .stats-group-reflection h3 {
     font-size: Clamp(0.9rem, 1.75vw, 1.75rem);
 }
-.stats-group-reflection h4, p, li {
-    font-size: Clamp(0.8rem, 1.5vw, calc(10px + 1vmin));
-}
 
 .group-reflection-table {
     width: 100%;
