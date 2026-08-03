@@ -33,6 +33,12 @@
     margin-left: 1.5vw;
 }
 
+.stats-project-img {
+    width: 100%;
+    margin-block: 0.5rem;
+    aspect-ratio: 3456/1942;
+}
+
 
 /* COVER ROW */
 

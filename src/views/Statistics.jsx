@@ -421,37 +421,43 @@ export default function Statistics({ mobileMode }) {
                                     src={PSA1}
                                     placeholderSrc={PSAPlaceholder1}
                                     alt={'Textile Waste PSA Slide 1'}
-                                    className='w-100 my-2'
+                                    wrapperClassName='stats-project-img'
+                                    className='w-100'
                                 />
                                 <LazyLoadImage
                                     src={PSA2}
                                     placeholderSrc={PSAPlaceholder2}
                                     alt={'Textile Waste PSA Slide 2'}
-                                    className='w-100 my-2'
+                                    wrapperClassName='stats-project-img'
+                                    className='w-100'
                                 />
                                 <LazyLoadImage
                                     src={PSA3}
                                     placeholderSrc={PSAPlaceholder3}
                                     alt={'Textile Waste PSA Slide 3'}
-                                    className='w-100 my-2'
+                                    wrapperClassName='stats-project-img'
+                                    className='w-100'
                                 />
                                 <LazyLoadImage
                                     src={PSA4}
                                     placeholderSrc={PSAPlaceholder4}
                                     alt={'Textile Waste PSA Slide 4'}
-                                    className='w-100 my-2'
+                                    wrapperClassName='stats-project-img'
+                                    className='w-100'
                                 />
                                 <LazyLoadImage
                                     src={PSA5}
                                     placeholderSrc={PSAPlaceholder5}
                                     alt={'Textile Waste PSA Slide 5'}
-                                    className='w-100 my-2'
+                                    wrapperClassName='stats-project-img'
+                                    className='w-100'
                                 />
                                 <LazyLoadImage
                                     src={PSA6}
                                     placeholderSrc={PSAPlaceholder6}
                                     alt={'Textile Waste PSA Slide 6'}
-                                    className='w-100 my-2'
+                                    wrapperClassName='stats-project-img'
+                                    className='w-100'
                                 />
                             </div>
                         </Col>
