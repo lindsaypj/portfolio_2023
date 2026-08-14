@@ -39,7 +39,7 @@ const SECTIONS = [
         subsections: []
     },
     {
-        id: 'ref5', title: 'Project 3',
+        id: 'ref5', title: 'Project 3: Greenhouse Gases',
         subsections: []
     },
     {
@@ -102,6 +102,7 @@ export default function Statistics({ mobileMode }) {
     const project2Part2Ref = useRef();
     const project2Part3Ref = useRef();
     const project2ReflectionRef = useRef();
+    const project3Ref = useRef();
 
     const scrollRefs = useMemo(() => [
         project2Ref,
@@ -109,6 +110,7 @@ export default function Statistics({ mobileMode }) {
         project2Part2Ref,
         project2Part3Ref,
         project2ReflectionRef,
+        project3Ref,
     ], []);
 
 
@@ -491,11 +493,18 @@ export default function Statistics({ mobileMode }) {
                                     I was amazed to learn how much textile is made and wasted. I have been telling my friends about it and noticing some of their questionable online shopping habits. I have noticed that statistics can be easily misinterpreted and must be framed in the right context to avoid confusion. For example we used the following statistics without the underlined parts first, and corrected it later: 
                                 </p>
                                 <ul className='stats-ms-4 fst-italic'>
-                                    <li>American households bought on average 25 articles of clothing in 1960</li>
-                                    <li>Today it’s an average of 60.5 per individual</li>
+                                    <li>American <u>households</u> bought on average 25 articles of clothing in 1960</li>
+                                    <li>Today it’s an average of 60.5 <u>per individual</u></li>
                                 </ul>
                             </>}
                         />
+                    </div>
+
+
+                    {/* PROJECT 3: GREENHOUSE GASES */}
+
+                    <div ref={project3Ref} id='ref5'>
+                        <h3 className='mt-5 pt-5'>Project 3 – Greenhouse Gas Emissions Math 146</h3>
                     </div>
                 </Col>
             </Row>
