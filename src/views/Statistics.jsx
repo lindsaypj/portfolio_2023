@@ -152,8 +152,8 @@ export default function Statistics({ mobileMode }) {
         <Container fluid className='p-0'>
 
             {/* Cover */}
-            <Row className={'stats-cover-row'  + (headersTyped.name ? '' : ' outline-black') }>
-                <Col className='p-0 text-center bg-black'>
+            <Row className={'stats-cover-row' + (headersTyped.name ? '' : ' outline-black') }>
+                <Col className={'p-0 text-center' + (headersTyped.name ? ' cover-bg-img' : ' bg-black') }>
                     <h1 className='cover-title'>
                         <TypingText
                             text='PORTFOLIO'

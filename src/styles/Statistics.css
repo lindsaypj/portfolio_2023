@@ -51,6 +51,9 @@
     height: 100vh;
     outline: solid 1.1rem white;
     outline-offset: -1rem;
+    background-image: url('../resources/images/Statistics/Mountains.webp');
+    background-position: center;
+    background-size: cover;
 
     transition: outline-color 1s;
 }
@@ -59,10 +62,12 @@
     font-size: 10vw;
     font-family: Hepta Slab;
     margin-top: 20vh;
+    text-shadow: 0.2rem 0.2rem 0.7rem rgba(0, 0, 0, 0.371);
 }
 
 .cover-course {
     color: rgb(130, 130, 130);
+    text-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.371);
 }
 
 .cover-name {
@@ -71,8 +76,13 @@
     padding: 0.4rem 0.8rem;
     display: inline-block;
     border: solid 0.3rem white;
+    text-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.371);
     
     transition: border-color 1s;
+}
+
+.stats-cover-row .cover-bg-img {
+    transition: background 2s;
 }
 
 
