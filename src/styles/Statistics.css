@@ -82,7 +82,7 @@
 }
 
 .stats-cover-row .cover-bg-img {
-    transition: background 2s;
+    transition: background 2s ease-in;
 }
 
 
@@ -104,8 +104,20 @@
 .stats-toc {
     padding: Clamp(2rem, 3vw, 3rem);
     font-size: Clamp(0.75rem, 1vw, 1rem);
-    background-color: black;
+    background: black;
+
+    transition: background 2s ease-in;
 }
+.stats-toc-row.visible .stats-toc {
+    background: linear-gradient(90deg, black, transparent);
+}
+.stats-toc-img {
+    background-color: black;
+    background-image: url('../resources/images/Statistics/TOCBackground.webp');
+    background-position: center;
+    background-size: cover;
+ }
+
 .stats-toc button {
     padding: 0.2rem 0.5rem;
 

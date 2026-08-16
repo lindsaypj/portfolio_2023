@@ -194,7 +194,7 @@ export default function Statistics({ mobileMode }) {
             <Row className='stats-toc-row' ref={tableOfContenstRef}>
                 <Col className='stats-margins d-flex flex-column'>
                     <h2 className='stats-h2'>TABLE OF CONTENTS</h2>
-                    <Row className='bg-black'>
+                    <Row className={'stats-toc-img'}>
                         <Col className='stats-toc'>
                             {SECTIONS.map(section => 
                             <div key={section.id}>
