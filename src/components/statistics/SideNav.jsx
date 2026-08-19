@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import MenuIcon from "../../resources/icons/MenuIcon";
 import { Button, Offcanvas } from "react-bootstrap";
 
-export default function SideNav({ sections = [{id: 'undefined'}], scrollToSection, scrollRefs = [], isScrolling, mobileMode }) {
+export default function SideNav({ sections = [{startID: 'undefined'}], scrollToSection, pageRefs = [], isScrolling, tocRef, mobileMode }) {
 
     ////    INITIALIZATION    ////
 
@@ -17,30 +17,35 @@ export default function SideNav({ sections = [{id: 'undefined'}], scrollToSectio
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !(isScrolling.current)) {
-                    setActiveContent(entry.target.id);
+                    setActiveContent(entry.target.id.slice(6));
                 }
             });
         }, {
-            threshold: 0.1,
+            threshold: 0.5,
         });
 
-        scrollRefs.forEach(section => {
+        pageRefs.forEach(section => {
             if (section) {
                 observer.observe(section.current);
             }
         });
 
         return () => observer.disconnect();
-    }, [scrollRefs, isScrolling]);
+    }, [pageRefs, isScrolling]);
 
     const handleNavSelect = (sectionID) => {
-        setActiveContent(sectionID);
+        setActiveContent(sectionID.slice(6));
         scrollToSection(sectionID);
         setShowMobileSideNav(false);
     }
 
+    const handleTOCSelect = () => {
+        tocRef.current.scrollIntoView({ behavior: 'smooth' });
+        setShowMobileSideNav(false);
+    }
+
     const getActiveClass = useCallback((id) => {
-        return activeContent === id ? ' active': '';
+        return activeContent === id.slice(6) ? ' active': '';
     }, [activeContent]);
 
     const handleShowMenu = () => {
@@ -57,19 +62,19 @@ export default function SideNav({ sections = [{id: 'undefined'}], scrollToSectio
     const getContents = () => {
         return (
             sections.map(section => 
-            <div key={section.id}>
+            <div key={section.startID}>
                 <button
-                    className={'stats-toc-hoverable' + getActiveClass(section.id)}
-                    onClick={() => handleNavSelect(section.id)}
+                    className={'stats-toc-hoverable' + getActiveClass(section.startID)}
+                    onClick={() => handleNavSelect(section.startID)}
                 >
                     {section.title}
                 </button>
                 {section.subsections.length > 0 &&
                     section.subsections.map(subsetion => 
                         <button
-                            key={subsetion.id}
-                            className={'stats-toc-hoverable stats-toc-indent' + getActiveClass(subsetion.id)}
-                            onClick={() => handleNavSelect(subsetion.id)}
+                            key={subsetion.startID}
+                            className={'stats-toc-hoverable stats-toc-indent' + getActiveClass(subsetion.startID)}
+                            onClick={() => handleNavSelect(subsetion.startID)}
                         >
                             {subsetion.title}
                         </button>
@@ -89,7 +94,14 @@ export default function SideNav({ sections = [{id: 'undefined'}], scrollToSectio
 
                 <Offcanvas show={showMobileSideNav} onHide={handleCloseMenu} className='stats-mobile-side-nav'>
                     <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Table Of Contents</Offcanvas.Title>
+                    <Offcanvas.Title>
+                        <button
+                            className={'stats-toc-hoverable fs-4'}
+                            onClick={() => handleTOCSelect()}
+                        >
+                            Table of Contents
+                        </button>
+                    </Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         {getContents()}
@@ -101,6 +113,14 @@ export default function SideNav({ sections = [{id: 'undefined'}], scrollToSectio
     else {
         return (
         <div>
+            <div>
+                <button
+                    className={'stats-toc-hoverable'}
+                    onClick={() => handleTOCSelect()}
+                >
+                    Table of Contents
+                </button>
+            </div>
             {getContents()}
         </div>
         )

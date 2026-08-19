@@ -40,43 +40,36 @@ import Project3ScatterPlotPlaceholder from '../resources/images/Statistics/Proje
 
 const SECTIONS = [
     {
-        id: 'ref0', title: 'Project 2: Textile Waste',
+        startID: 'strRef0', endID: 'endRef0', title: 'Project 2: Textile Waste',
         subsections: [
-            {id: 'ref1', title: 'Part 1: Fast Fashion Videos'},
-            {id: 'ref2', title: 'Part 2: Clircular Economy and Sustainability'},
-            {id: 'ref3', title: 'Part 3: Textile Waste PSA'}
+            {startID: 'strRef1', endID: 'endRef1', title: 'Part 1: Fast Fashion Videos'},
+            {startID: 'strRef2', endID: 'endRef2', title: 'Part 2: Clircular Economy and Sustainability'},
+            {startID: 'strRef3', endID: 'endRef3', title: 'Part 3: Textile Waste PSA'},
+            {startID: 'strRef4', endID: 'endRef4', title: 'Reflection'},
         ]
     },
     {
-        id: 'ref4', title: 'Project 2 Reflection',
+        startID: 'strRef5', endID: 'endRef5', title: 'Project 3: Greenhouse Gases',
+        subsections: [
+            {startID: 'strRef6', endID: 'endRef6', title: 'Reflection'},
+        ]
+    },
+    {
+        startID: 'strRef7', endID: 'endRef7', title: 'Project 4: Expected Value',
+        subsections: [
+            {startID: 'strRef8', endID: 'endRef8', title: 'Reflection'},
+        ]
+    },
+    {
+        startID: 'strRef9', endID: 'endRef9', title: 'MyOpenMath Reflection Assessment',
         subsections: []
     },
     {
-        id: 'ref5', title: 'Project 3: Greenhouse Gases',
+        startID: 'strRef10', endID: 'endRef10', title: 'Weekly Videos Reflection Assessment',
         subsections: []
     },
     {
-        id: 'ref6', title: 'Project 3 Reflection',
-        subsections: []
-    },
-    {
-        id: 'ref7', title: 'Project 4',
-        subsections: []
-    },
-    {
-        id: 'ref8', title: 'Project 4 Reflection',
-        subsections: []
-    },
-    {
-        id: 'ref9', title: 'MyOpenMath Reflection Assessment',
-        subsections: []
-    },
-    {
-        id: 'ref10', title: 'Weekly Videos Reflection Assessment',
-        subsections: []
-    },
-    {
-        id: 'ref11', title: 'Overall Course Self-Reflection',
+        startID: 'strRef11', endID: 'endRef11', title: 'Overall Course Self-Reflection',
         subsections: []
     },
 ]
@@ -110,13 +103,36 @@ export default function Statistics({ mobileMode }) {
     const isScrolling = useRef(false);
 
     const tableOfContenstRef = useRef();
+    const tableOfContenstEndRef = useRef();
     const project2Ref = useRef();
     const project2Part1Ref = useRef();
+    const project2Part1EndRef = useRef();
     const project2Part2Ref = useRef();
+    const project2Part2EndRef = useRef();
     const project2Part3Ref = useRef();
+    const project2Part3EndRef = useRef();
     const project2ReflectionRef = useRef();
+    const project2ReflectionEndRef = useRef();
     const project3Ref = useRef();
+    const project3EndRef = useRef();
     const project3ReflectionRef = useRef();
+    const project3ReflectionEndRef = useRef();
+
+    const allRefs = useMemo(() => [
+        project2Ref,
+        project2Part1Ref,
+        project2Part1EndRef,
+        project2Part2Ref,
+        project2Part2EndRef,
+        project2Part3Ref,
+        project2Part3EndRef,
+        project2ReflectionRef,
+        project2ReflectionEndRef,
+        project3Ref,
+        project3EndRef,
+        project3ReflectionRef,
+        project3ReflectionEndRef,
+    ], []);
 
     const scrollRefs = useMemo(() => [
         project2Ref,
@@ -151,7 +167,7 @@ export default function Statistics({ mobileMode }) {
     ////    STATE MANGMENT    ////
 
     const scrollToSection = (sectionID) => {
-        const id = Number(sectionID.slice(3));
+        const id = Number(sectionID.slice(6));
         scrollRefs[id]?.current.scrollIntoView({ behavior: 'smooth' });
 
         isScrolling.current = true;
@@ -212,12 +228,12 @@ export default function Statistics({ mobileMode }) {
                     <Row className={'stats-toc-img'}>
                         <Col className='stats-toc'>
                             {SECTIONS.map(section => 
-                            <div key={section.id}>
+                            <div key={section.startID}>
                                 <div className='stats-h3'>
-                                    <span className={'toc-anim toc' + section.id.slice(3)}>
+                                    <span className={'toc-anim toc' + section.startID.slice(6)}>
                                         <button
                                             className={'stats-toc-hoverable'}
-                                            onClick={() => scrollToSection(section.id)}
+                                            onClick={() => scrollToSection(section.startID)}
                                         >
                                             {section.title}
                                         </button>
@@ -226,11 +242,11 @@ export default function Statistics({ mobileMode }) {
                                 
                                 {section.subsections.length > 0 &&
                                     section.subsections.map(subsetion => 
-                                        <div key={subsetion.id} className='stats-toc-indent'>
-                                            <span className={'toc-anim toc' + subsetion.id.slice(3)}>
+                                        <div key={subsetion.startID} className='stats-toc-indent'>
+                                            <span className={'toc-anim toc' + subsetion.startID.slice(6)}>
                                                 <button
                                                     className={'stats-toc-hoverable'}
-                                                    onClick={() => scrollToSection(subsetion.id)}
+                                                    onClick={() => scrollToSection(subsetion.startID)}
                                                 >
                                                     {subsetion.title}
                                                 </button>
@@ -251,8 +267,9 @@ export default function Statistics({ mobileMode }) {
                     <SideNav
                         sections={SECTIONS}
                         scrollToSection={scrollToSection}
-                        scrollRefs={scrollRefs}
+                        pageRefs={allRefs}
                         isScrolling={isScrolling}
+                        tocRef={tableOfContenstRef}
                         mobileMode={mobileMode}
                     />
                 </Col>
@@ -265,13 +282,16 @@ export default function Statistics({ mobileMode }) {
                     <Row className='stats-project2 mb-5 pb-5'>
                         <Col className='mb-5 pb-5'>
 
-                            {/* PART 1 */}
-                            
-                            <div ref={project2Ref} id='ref0'>
+                            <div ref={project2Ref} id='strRef0'>
                                 <h3>Project 2 – Textile Waste</h3>
                                 <p className='mt-3 mb-5'>Patrick Lindsay, Nick Walker, Cameron Price 3 points</p>
                             </div>
-                            <div ref={project2Part1Ref} id='ref1'>
+                            
+
+                            {/* PART 1 */}
+
+                            <div>
+                                <div ref={project2Part1Ref} id='strRef1' className='stats-ref-start'></div>
                                 <h4>Part 1 – Watch and discuss the following Videos: 12 points</h4>
                                 <ol type='1' className='stats-ms-5'>
                                     <li>
@@ -324,12 +344,15 @@ export default function Statistics({ mobileMode }) {
                                 <p className='fst-italic'>
                                     In short, my teammates noticed that while organizations like FABSCRAP and Liz Ricket’s nonprofit help to offset the damage fast fashion causes, the overall best (and most difficult) solution would be to stop the trend of fast fashion altogether. Patrick Lindsay said that it would be helpful if there was an easier way to see whether products are fast fashion or not, so that customers could make a more informed decision. Nick Walker said that it would be incredibly fortunate if people stopped scrolling and worrying about trends altogether. I wholeheartedly agree with both of these sentiments.
                                 </p>
+
+                                <div ref={project2Part1EndRef} id='endRef1' className='stats-ref-end'></div>
                             </div>
 
 
                             {/* PART 2 */}
 
-                            <div ref={project2Part2Ref} id='ref2'>
+                            <div>
+                                <div ref={project2Part2Ref} id='strRef2' className='stats-ref-start'></div>
                                 <h4 className='mt-5 pt-5'>
                                     Part 2 - Questions to answer from the textile article: 26 points
                                 </h4>
@@ -411,12 +434,15 @@ export default function Statistics({ mobileMode }) {
                                         'a': ['It seems like there are some untraceable, yet nonbiodegradable fibers that could cause issues, however, “Concerns about the small, untraceable fiber plastics can be solved by using biodegradable fibers. Also, efforts and policies should be made to ensure all staple fibers are made from biodegradable materials, and filaments that can be easily collected from the environment can either be made degradable or biodegradable”. ']
                                     }]}
                                 />
+
+                                <div ref={project2Part2EndRef} id='endRef2' className='stats-ref-end'></div>
                             </div>
 
 
                             {/* PART 3 */}
                             
-                            <div ref={project2Part3Ref} id='ref3'>
+                            <div>
+                                <div ref={project2Part3Ref} id='strRef3' className='stats-ref-start'></div>
                                 <h4 className='mt-5 pt-5'>
                                     Part 3 – Create a Public Service Announcement (PSA) 30 points
                                 </h4>
@@ -477,6 +503,8 @@ export default function Statistics({ mobileMode }) {
                                     wrapperClassName='stats-project2-img'
                                     className='w-100'
                                 />
+
+                                <div ref={project2Part3EndRef} id='endRef3' className='stats-ref-end'></div>
                             </div>
                         </Col>
                     </Row>
@@ -484,7 +512,8 @@ export default function Statistics({ mobileMode }) {
 
                     {/* PROJECT 2 REFLECTION */}
 
-                    <div ref={project2ReflectionRef} id='ref4' className='mb-5 pb-5'>
+                    <div className='mb-5 pb-5'>
+                        <div ref={project2ReflectionRef} id='strRef4' className='stats-ref-start'></div>
                         <GroupReflection
                             projectTitle={'Project 2: Textile Waste'}
                             groupNumber={1}
@@ -513,12 +542,16 @@ export default function Statistics({ mobileMode }) {
                                 </ul>
                             </>}
                         />
+
+                        <div ref={project2ReflectionEndRef} id='endRef4' className='stats-ref-end'></div>
                     </div>
 
 
                     {/* PROJECT 3: GREENHOUSE GASES */}
 
-                    <div ref={project3Ref} id='ref5' className='mb-5 pb-5'>
+                    <div className='mb-5 pb-5'>
+                        <div ref={project3Ref} id='strRef5' className='stats-ref-start'></div>
+
                         <h3 className='mt-5 pt-5'>Project 3 – Greenhouse Gas Emissions Math 146</h3>
                         <p className='mt-3 mb-5'><b>Group Members:</b> Patrick Lindsay, Juan Aguilar, Ashley Guel, Nick Walker</p>
                     
@@ -753,12 +786,16 @@ export default function Statistics({ mobileMode }) {
                                 I think with a movement of climate activists, we could begin to lobby and push for societal changes. For example, Ashley brought up public transportation and how we could build more efficient systems. We think it is important to start at the grass roots level, building personal connections, rather than allowing our message to be filtered out by an algorithm. To summarize, our plan is to start with friends and family, expand locally at spaces like our local farmer’s market, and then organize the collective interest towards meaningful societal change.
                             </p>
                         </div>
+
+                        <div ref={project3EndRef} id='endRef5' className='stats-ref-end'></div>
                     </div>
 
 
                     {/* PROJECT 3 REFLECTION */}
 
-                    <div ref={project3ReflectionRef} id='ref6' className='mb-5 pb-5'>
+                    <div className='mb-5 pb-5'>
+                        <div ref={project3ReflectionRef} id='strRef6' className='stats-ref-start'></div>
+
                         <GroupReflection
                             projectTitle={'Project 3: Greenhouse Gasses'}
                             groupNumber={1}
@@ -783,6 +820,8 @@ export default function Statistics({ mobileMode }) {
                                 </p>
                             </>}
                         />
+
+                        <div ref={project3ReflectionEndRef} id='endRef6' className='stats-ref-end'></div>
                     </div>
                 </Col>
             </Row>

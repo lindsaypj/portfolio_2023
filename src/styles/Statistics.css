@@ -38,6 +38,18 @@
     margin-left: 1.5vw;
 }
 
+.stats-ref-start {
+    position: absolute;
+    width: 100px;
+    height: 90vh;
+}
+
+.stats-ref-end {
+    position: relative;
+    width: 100px;
+    bottom: 50vh;
+}
+
 
 /* COVER ROW */
 
