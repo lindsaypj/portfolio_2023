@@ -38,6 +38,7 @@ import Project4Game from '../resources/images/Statistics/Project4/project4Game.w
 import Project4GamePlaceholder from '../resources/images/Statistics/Project4/Placeholders/project4Game.webp';
 import Project4Caclulations from '../resources/images/Statistics/Project4/project4Calculations.webp';
 import Project4CalculationsPlaceholder from '../resources/images/Statistics/Project4/Placeholders/project4Calculations.webp';
+import IndividualReflection from '../components/statistics/IndividualReflection';
 
 
 ////    CONSTANTS    ////
@@ -60,18 +61,20 @@ const SECTIONS = [
     },
     {
         startID: 'strRef7', endID: 'endRef7', title: 'Project 4: Expected Value Games',
+        subsections: [
+            {startID: 'strRef8', endID: 'endRef8', title: 'Reflection'},
+        ]
+    },
+    {
+        startID: 'strRef9', endID: 'endRef9', title: 'MyOpenMath Reflection Assessment',
         subsections: []
     },
     {
-        startID: 'strRef8', endID: 'endRef8', title: 'MyOpenMath Reflection Assessment',
+        startID: 'strRef10', endID: 'endRef10', title: 'Weekly Videos Reflection Assessment',
         subsections: []
     },
     {
-        startID: 'strRef9', endID: 'endRef9', title: 'Weekly Videos Reflection Assessment',
-        subsections: []
-    },
-    {
-        startID: 'strRef10', endID: 'endRef10', title: 'Overall Course Self-Reflection',
+        startID: 'strRef11', endID: 'endRef11', title: 'Overall Course Self-Reflection',
         subsections: []
     },
 ]
@@ -120,6 +123,8 @@ export default function Statistics({ mobileMode }) {
     const project3ReflectionEndRef = useRef();
     const project4Ref = useRef();
     const project4EndRef = useRef();
+    const project4ReflectionRef = useRef();
+    const project4ReflectionEndRef = useRef();
     const myOpenMathRef = useRef();
     const myOpenMathEndRef = useRef();
     const weeklyVideosRef = useRef();
@@ -141,6 +146,8 @@ export default function Statistics({ mobileMode }) {
         project3ReflectionEndRef,
         project4Ref,
         project4EndRef,
+        project4ReflectionRef,
+        project4ReflectionEndRef,
         myOpenMathRef,
         myOpenMathEndRef,
         weeklyVideosRef,
@@ -156,6 +163,7 @@ export default function Statistics({ mobileMode }) {
         project3Ref,
         project3ReflectionRef,
         project4Ref,
+        project4ReflectionRef,
         myOpenMathRef,
         weeklyVideosRef,
     ], []);
@@ -1059,12 +1067,47 @@ export default function Statistics({ mobileMode }) {
                         
                         <div ref={project4EndRef} id='endRef7' className='stats-ref-end'></div>
                     </div>
+                    
+                    
+                    {/* PROJECT 4 REFLECTION */}
+
+                    <div className='mb-5 pb-5'>
+                        <div ref={project4ReflectionRef} id='strRef8' className='stats-ref-start'></div>
+                            
+                        <IndividualReflection
+                            projectTitle={'Project 4: Expected Value Games'}
+                            timeSpent={3}
+                            highlighted={[
+                                {'a': 1, 'other': ''},
+                                {'a': 4, 'other': ''},
+                                {'a': 2, 'other': ''},
+                                {'a': 4, 'other': ''},
+                                {'a': 3, 'other': ''},
+                                {'a': 2, 'other': ''},
+                            ]}
+                            reflection={<>
+                                <p className='fst-italic'>
+                                    I enjoyed seeing what games other people came up with. I was very stressed with the
+                                    time to complete because the due dates left very little time to receive/give feedback.
+                                    I am not happy with how many of my peers wait until the last minute to complete assignments.
+                                </p>
+                                <p className='fst-italic'>
+                                    I did come away with a positive experience because crafting my own game forced me to
+                                    apply the probability concepts we learned to find the expected value. I feel like many
+                                    assignments this quarter were procedural and did not require critical thinking. This project
+                                    was the exception and it felt very beneficial.
+                                </p>
+                            </>}
+                        />
+
+                        <div ref={project4ReflectionEndRef} id='endRef8' className='stats-ref-end'></div>
+                    </div>
 
 
                     {/* MYOPENMATH REFLECTION */}
 
                     <div className='mb-5 pb-5'>
-                        <div ref={myOpenMathRef} id='strRef8' className='stats-ref-start'></div>
+                        <div ref={myOpenMathRef} id='strRef9' className='stats-ref-start'></div>
                         
                         <Row>
                             <Col xs={'auto'} className='p-0'>
@@ -1104,14 +1147,14 @@ export default function Statistics({ mobileMode }) {
                             <li>If you liked another program better, what is the name of the program? <b><u>&nbsp;N/A&nbsp;</u></b></li>
                         </ol>
 
-                        <div ref={myOpenMathEndRef} id='endRef8' className='stats-ref-end'></div>
+                        <div ref={myOpenMathEndRef} id='endRef9' className='stats-ref-end'></div>
                     </div>
 
 
                     {/* WEEKLY VIDEOS REFLECTION */}
 
                     <div className='mb-5 pb-5'>
-                        <div ref={weeklyVideosRef} id='strRef9' className='stats-ref-start'></div>
+                        <div ref={weeklyVideosRef} id='strRef10' className='stats-ref-start'></div>
 
                         <h3>Weekly Videos Reflection/Assessment Math 146</h3>
                         <p>
@@ -1175,7 +1218,7 @@ export default function Statistics({ mobileMode }) {
                             add more, but if it's at the expense of the projects and activities I don't think it would be worth it.
                         </p>
 
-                        <div ref={weeklyVideosEndRef} id='endRef9' className='stats-ref-end'></div>
+                        <div ref={weeklyVideosEndRef} id='endRef10' className='stats-ref-end'></div>
                     </div>
                 </Col>
             </Row>
