@@ -295,6 +295,7 @@
     padding: 4vw 4vw;
     background-color: white;
     color: black;
+    overflow: hidden;
 }
 .stats-content h4, .stats-content p, .stats-content li, .stats-content a {
     font-size: Max(10px, calc(9px + 1vmin));
@@ -356,3 +357,41 @@
     width: 100%;
     aspect-ratio: 2458/1806;
 }
+
+
+/* PROJECT 4 */
+
+.stats-project4-img-game {
+    margin-block: 1rem;
+    width: Clamp(40vw, 50rem, 100%);
+    overflow: hidden;
+    aspect-ratio: 2110/776;
+}
+.stats-project4-img-calculations {
+    margin-bottom: 1rem;
+    width: Clamp(40vw, 50rem, 100%);
+    aspect-ratio: 2050/758;
+}
+
+.stats-project4-table-payout td {
+    padding-inline-end: 2rem;
+    font-size: Max(10px, calc(9px + 1vmin));
+}
+
+.stats-project4-table-results tbody td:nth-child(2), .stats-project4-table-results tbody td:nth-child(4), .stats-project4-table-results tbody td:nth-child(6) {
+    background-color: #f7caac;
+}
+.stats-project4-table-results thead th:nth-child(2), .stats-project4-table-results thead th:nth-child(4), .stats-project4-table-results thead th:nth-child(6) {
+    background-color: #f7caac;
+}
+.stats-project4-table-results thead td {
+    color: #2f5496;
+}
+
+.stats-project4-table-results td, th {
+    padding: 0.2rem;
+    padding-inline-end: 2vw;
+    border: 1px solid black;
+    font-size: Max(10px, calc(9px + 1vmin));
+}
+

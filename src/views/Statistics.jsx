@@ -34,6 +34,10 @@ import Project3BoxPlot from '../resources/images/Statistics/Project3/BoxPlot.web
 import Project3BoxPlotPlaceholder from '../resources/images/Statistics/Project3/Placeholders/BoxPlot.webp';
 import Project3ScatterPlot from '../resources/images/Statistics/Project3/ScatterPlot.webp';
 import Project3ScatterPlotPlaceholder from '../resources/images/Statistics/Project3/Placeholders/ScatterPlot.webp';
+import Project4Game from '../resources/images/Statistics/Project4/project4Game.webp';
+import Project4GamePlaceholder from '../resources/images/Statistics/Project4/Placeholders/project4Game.webp';
+import Project4Caclulations from '../resources/images/Statistics/Project4/project4Calculations.webp';
+import Project4CalculationsPlaceholder from '../resources/images/Statistics/Project4/Placeholders/project4Calculations.webp';
 
 
 ////    CONSTANTS    ////
@@ -55,9 +59,9 @@ const SECTIONS = [
         ]
     },
     {
-        startID: 'strRef7', endID: 'endRef7', title: 'Project 4: Expected Value',
+        startID: 'strRef7', endID: 'endRef7', title: 'Project 4: Expected Value Games',
         subsections: [
-            {startID: 'strRef8', endID: 'endRef8', title: 'Reflection'},
+            // {startID: 'strRef8', endID: 'endRef8', title: 'Reflection'},
         ]
     },
     {
@@ -103,7 +107,6 @@ export default function Statistics({ mobileMode }) {
     const isScrolling = useRef(false);
 
     const tableOfContenstRef = useRef();
-    const tableOfContenstEndRef = useRef();
     const project2Ref = useRef();
     const project2Part1Ref = useRef();
     const project2Part1EndRef = useRef();
@@ -117,6 +120,8 @@ export default function Statistics({ mobileMode }) {
     const project3EndRef = useRef();
     const project3ReflectionRef = useRef();
     const project3ReflectionEndRef = useRef();
+    const project4Ref = useRef();
+    const project4EndRef = useRef();
 
     const allRefs = useMemo(() => [
         project2Ref,
@@ -132,6 +137,8 @@ export default function Statistics({ mobileMode }) {
         project3EndRef,
         project3ReflectionRef,
         project3ReflectionEndRef,
+        project4Ref,
+        project4EndRef,
     ], []);
 
     const scrollRefs = useMemo(() => [
@@ -142,6 +149,7 @@ export default function Statistics({ mobileMode }) {
         project2ReflectionRef,
         project3Ref,
         project3ReflectionRef,
+        project4Ref,
     ], []);
 
 
@@ -822,6 +830,226 @@ export default function Statistics({ mobileMode }) {
                         />
 
                         <div ref={project3ReflectionEndRef} id='endRef6' className='stats-ref-end'></div>
+                    </div>
+
+
+                    {/* PROJECT 4: EXPECTED VALUE */}
+
+                    <div className='mb-5 pb-5'>
+                        <div ref={project4Ref} id='strRef7' className='stats-ref-start'></div>
+                        
+                        <Row>
+                            <Col className='p-0' xs={'auto'}>
+                                <h3 className='stats-h3'>Project 4 – Expected Value Games</h3>
+                            </Col>
+                            <Col className='text-md-end p-0' sm={'12'} md>
+                                <h3 className='stats-h3 text-nowrap'>Patrick Lindsay</h3>
+                            </Col>
+                        </Row>
+                        
+                        <LazyLoadImage
+                            src={Project4Game}
+                            placeholderSrc={Project4GamePlaceholder}
+                            alt={'Roll of 4 dice on Random.org website'}
+                            wrapperClassName='stats-project4-img-game'
+                            className='w-100'
+                        />
+
+                        <h4 className='fw-bold m-0'>Payout Pairs</h4>
+                        <p className='m-0'>“Play Payout Pairs for pure profit”</p>
+                        <p>The player will roll 4 6-sided dice. It will cost $11 to play.</p>
+
+                        <h4 className='fw-bold m-0'>Here are the payouts:</h4>
+                        <p className='m-0'>You get paid based on how many matching dice you roll.</p>
+                        
+                        <table className='stats-project4-table-payout mb-4'>
+                            <tbody>
+                                <tr>
+                                    <td>0</td>
+                                    <td>Ex: 1234</td>
+                                    <td>You lose</td>
+                                </tr>
+                                <tr>
+                                    <td>1 Pair</td>
+                                    <td>Ex: <span className='text-danger'>11</span>23</td>
+                                    <td>You win $10</td>
+                                </tr>
+                                <tr>
+                                    <td>2 Pairs</td>
+                                    <td>Ex: <span className='text-danger'>11</span><span className='text-primary'>22</span></td>
+                                    <td>You win $20</td>
+                                </tr>
+                                <tr>
+                                    <td>A Tripple</td>
+                                    <td>Ex: <span className='text-danger'>111</span>2</td>
+                                    <td>You win $30</td>
+                                </tr>
+                                <tr>
+                                    <td>A Quadruple</td>
+                                    <td>Ex: <span className='text-danger'>1111</span></td>
+                                    <td>You win $60</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4 className='fw-bold m-0'>The expected payout and percent profit:</h4>
+                        <p>
+                            There are 1296 ways to roll 4 dice, but only a few unique ways to order the matching numbers.
+                            Each letter represents any number 1-6. Below are all the unique ways to roll 4 dice:
+                        </p>
+
+                        <LazyLoadImage
+                            src={Project4Caclulations}
+                            placeholderSrc={Project4CalculationsPlaceholder}
+                            alt={'Probability calculations for Payout Pairs show a $10 expected payout per game'}
+                            wrapperClassName='stats-project4-img-calculations'
+                            className='w-100'
+                        />
+
+                        <p className='m-0'>I can expect to win $11 - $10 = <b>$1</b> for each game played.</p>
+                        <p>Profit  = 1/11 = <b>9.1%</b> of the buy in cost.</p>
+
+                        <p className='mt-5'>My Three Players:</p>
+                        <table className='stats-project4-table-results'>
+                            <thead>
+                                <tr>
+                                    <td className='border-0'></td>
+                                    <td colSpan={2} className='border-0'>Malyssa Sisson - Paid $110</td>
+                                    <td colSpan={2} className='border-0'>Simon Kim - Paid $110</td>
+                                    <td colSpan={2} className='border-0'>Nicholas Walker - Paid $110</td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th>Roll</th>
+                                    <th>Payout</th>
+                                    <th>Roll</th>
+                                    <th>Payout</th>
+                                    <th>Roll</th>
+                                    <th>Payout</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td className='text-nowrap'>Game 1:</td>
+                                    <td>2 6 4 3</td>
+                                    <td className='text-center'>$0</td>
+                                    <td>6 1 6 4</td>
+                                    <td className='text-center'>$10</td>
+                                    <td>3 1 5 4</td>
+                                    <td className='text-center'>$0</td>
+                                </tr>
+                                <tr>
+                                    <td className='text-nowrap'>Game 2:</td>
+                                    <td>4 6 3 3</td>
+                                    <td className='text-center'>$10</td>
+                                    <td>6 4 6 1</td>
+                                    <td className='text-center'>$10</td>
+                                    <td>4 2 4 6</td>
+                                    <td className='text-center'>$10</td>
+                                </tr>
+                                <tr>
+                                    <td className='text-nowrap'>Game 3:</td>
+                                    <td>4 5 1 1</td>
+                                    <td className='text-center'>$10</td>
+                                    <td>3 4 2 3</td>
+                                    <td className='text-center'>$10</td>
+                                    <td>3 3 3 5</td>
+                                    <td className='text-center'>$30</td>
+                                </tr>
+                                <tr>
+                                    <td className='text-nowrap'>Game 4:</td>
+                                    <td>3 3 3 6</td>
+                                    <td className='text-center'>$30</td>
+                                    <td>4 3 3 1</td>
+                                    <td className='text-center'>$10</td>
+                                    <td>4 5 1 4</td>
+                                    <td className='text-center'>$10</td>
+                                </tr>
+                                <tr>
+                                    <td className='text-nowrap'>Game 5:</td>
+                                    <td>3 1 2 5</td>
+                                    <td className='text-center'>$0</td>
+                                    <td>2 4 6 2</td>
+                                    <td className='text-center'>$10</td>
+                                    <td>5 6 2 2</td>
+                                    <td className='text-center'>$10</td>
+                                </tr>
+                                <tr>
+                                    <td className='text-nowrap'>Game 6:</td>
+                                    <td>5 3 5 3</td>
+                                    <td className='text-center'>$20</td>
+                                    <td>5 2 2 4</td>
+                                    <td className='text-center'>$10</td>
+                                    <td>3 5 1 1</td>
+                                    <td className='text-center'>$10</td>
+                                </tr>
+                                <tr>
+                                    <td className='text-nowrap'>Game 7:</td>
+                                    <td>3 3 6 5</td>
+                                    <td className='text-center'>$10</td>
+                                    <td>1 4 6 1</td>
+                                    <td className='text-center'>$10</td>
+                                    <td>3 4 1 3</td>
+                                    <td className='text-center'>$10</td>
+                                </tr>
+                                <tr>
+                                    <td className='text-nowrap'>Game 8:</td>
+                                    <td>3 3 4 4</td>
+                                    <td className='text-center'>$20</td>
+                                    <td>2 4 4 3</td>
+                                    <td className='text-center'>$10</td>
+                                    <td>6 6 2 2</td>
+                                    <td className='text-center'>$20</td>
+                                </tr>
+                                <tr>
+                                    <td className='text-nowrap'>Game 9:</td>
+                                    <td>1 4 6 5</td>
+                                    <td className='text-center'>$0</td>
+                                    <td>6 4 1 5</td>
+                                    <td className='text-center'>$0</td>
+                                    <td>3 2 5 1</td>
+                                    <td className='text-center'>$0</td>
+                                </tr>
+                                <tr>
+                                    <td className='text-nowrap'>Game 10:</td>
+                                    <td>6 4 6 5</td>
+                                    <td className='text-center'>$10</td>
+                                    <td>5 6 6 5</td>
+                                    <td className='text-center'>$20</td>
+                                    <td>1 1 3 4</td>
+                                    <td className='text-center'>$10</td>
+                                </tr>
+                                <tr>
+                                    <th className='text-nowrap'>TOTAL:</th>
+                                    <td></td>
+                                    <th className='text-center'>$110</th>
+                                    <td></td>
+                                    <th className='text-center'>$100</th>
+                                    <td></td>
+                                    <th className='text-center'>$110</th>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p className='mt-2'>On 30 games I should have made $1 x 30 = $30, but I only made $10.</p>
+
+                        <h4 className='fw-bold mb-0 mt-4'>Reflection:</h4>
+                        <p>I am really happy with my game. I think in hindsight, I might have shifted the odds further in favor of the house. Two people broke even on my game and the other only lost $10. It’s the difference of one roll, but I am curious how many games would it take to get close to the expected profit.</p>
+                        <p>Outside of profitability, it was fun to reroll hoping for a bigger win. I like that there is a 72% chance to get most of your money back, it really keeps you playing. I was surprised how unlucky my rolls were in other people’s games. I’m not particularly interested in gambling, this project just cemented that for me.</p>
+                        <p>I particularly enjoyed applying the probability concepts we learned earlier this quarter to create my game. I had to reference my notes, but it turned the abstract process into something real for me. That is something I don’t think I would have gotten from making another spinner game.</p>
+
+                        
+                        <h4 className='fw-bold mt-4 mb-0'>Games I played (and amount I won/lost) from other members of my group:</h4>
+                        <p className='m-0'>Game 1: Malyssa’s <i>M&M’s wheel of probability</i>.</p>
+                        <p>I spent $50 and walked away with $15. I lost $35.</p>
+
+                        <p className='m-0'>Game 2: Simon’s <i>Spin O' Rama</i>.</p>
+                        <p>I spent $50 and walked away with $34. I lost $16.</p>
+
+                        <p className='m-0'>Game 3: Nick’s <i>Heads Up 5</i>.</p>
+                        <p>I spent $100 and walked away with $56. I lost $44.</p>
+                        
+                        <div ref={project4EndRef} id='endRef7' className='stats-ref-end'></div>
                     </div>
                 </Col>
             </Row>
