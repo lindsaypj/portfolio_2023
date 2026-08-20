@@ -60,20 +60,18 @@ const SECTIONS = [
     },
     {
         startID: 'strRef7', endID: 'endRef7', title: 'Project 4: Expected Value Games',
-        subsections: [
-            // {startID: 'strRef8', endID: 'endRef8', title: 'Reflection'},
-        ]
-    },
-    {
-        startID: 'strRef9', endID: 'endRef9', title: 'MyOpenMath Reflection Assessment',
         subsections: []
     },
     {
-        startID: 'strRef10', endID: 'endRef10', title: 'Weekly Videos Reflection Assessment',
+        startID: 'strRef8', endID: 'endRef8', title: 'MyOpenMath Reflection Assessment',
         subsections: []
     },
     {
-        startID: 'strRef11', endID: 'endRef11', title: 'Overall Course Self-Reflection',
+        startID: 'strRef9', endID: 'endRef9', title: 'Weekly Videos Reflection Assessment',
+        subsections: []
+    },
+    {
+        startID: 'strRef10', endID: 'endRef10', title: 'Overall Course Self-Reflection',
         subsections: []
     },
 ]
@@ -122,6 +120,8 @@ export default function Statistics({ mobileMode }) {
     const project3ReflectionEndRef = useRef();
     const project4Ref = useRef();
     const project4EndRef = useRef();
+    const myOpenMathRef = useRef();
+    const myOpenMathEndRef = useRef();
 
     const allRefs = useMemo(() => [
         project2Ref,
@@ -139,6 +139,8 @@ export default function Statistics({ mobileMode }) {
         project3ReflectionEndRef,
         project4Ref,
         project4EndRef,
+        myOpenMathRef,
+        myOpenMathEndRef,
     ], []);
 
     const scrollRefs = useMemo(() => [
@@ -150,6 +152,7 @@ export default function Statistics({ mobileMode }) {
         project3Ref,
         project3ReflectionRef,
         project4Ref,
+        myOpenMathRef,
     ], []);
 
 
@@ -1050,6 +1053,53 @@ export default function Statistics({ mobileMode }) {
                         <p>I spent $100 and walked away with $56. I lost $44.</p>
                         
                         <div ref={project4EndRef} id='endRef7' className='stats-ref-end'></div>
+                    </div>
+
+
+                    {/* MYOPENMATH REFLECTION */}
+
+                    <div className='mb-5 pb-5'>
+                        <div ref={myOpenMathRef} id='strRef8' className='stats-ref-start'></div>
+                        
+                        <Row>
+                            <Col xs={'auto'} className='p-0'>
+                                <h3 className='stats-h3'>MyOpenMath Reflection Math 146</h3>
+                            </Col>
+                            <Col className='text-md-end' sm={'12'} md>
+                                <h3 className='stats-h3 p-0'>Name: <u>Patrick Lindsay</u></h3>
+                            </Col>
+                        </Row>
+
+                        <p>
+                            Use a scale of 1 to 5 (1 being the lowest score meaning you do not agree with
+                            the statement) to rate these different aspects of MATHXL. If you did not use
+                            something, put N/A.
+                        </p>
+                        <ol className='ms-4'>
+                            <li>Overall, I found MOM to be easy to navigate. <b><u>&nbsp;&nbsp;5&nbsp;&nbsp;</u></b></li>
+                            <li>The additional video links in MOM questions were helpful in completing the assignments. <b><u>&nbsp;&nbsp;4&nbsp;&nbsp;</u></b></li>
+                            <li>The videos posted in Canvas were helpful in completing the assignments. <b><u>&nbsp;&nbsp;5&nbsp;&nbsp;</u></b></li>
+                            <li>The textbook links provided in Canvas were helpful in completing the assignments. <b><u>&nbsp;N/A&nbsp;</u></b></li>
+                            <li>A calculator was helpful in completing the assignments. <b><u>&nbsp;&nbsp;5&nbsp;&nbsp;</u></b></li>
+                            <li>GeoGebra was helpful in completing the assignments. <b><u>&nbsp;&nbsp;5&nbsp;&nbsp;</u></b></li>
+                            <li>Desmos was helpful in completing the assignments. <b><u>&nbsp;N/A&nbsp;</u></b></li>
+                            <li>I searched for my own videos to help complete the assignment. <b><u>&nbsp;&nbsp;1&nbsp;&nbsp;</u></b></li>
+                            <li>Having more than 1 chance per question was helpful while completing the assignments. <b><u>&nbsp;&nbsp;5&nbsp;&nbsp;</u></b></li>
+                            <li>I had to seek help outside the aids posted in MyOpenMath and Canvas. <b><u>&nbsp;&nbsp;1&nbsp;&nbsp;</u></b></li>
+                            <li>I got help at the LSS-EAST (math center building 22) at least once during the quarter. <b><u>&nbsp;&nbsp;1&nbsp;&nbsp;</u></b></li>
+                            <li>Having late passes in MyOpenMath made it easier for me to do well in the class. <b><u>&nbsp;N/A&nbsp;</u></b></li>
+                            <li>Understanding how to enter answers in MyOpenMath was easy. <b><u>&nbsp;&nbsp;4&nbsp;&nbsp;</u></b></li>
+                            <li>The way things are worded in MyOpenMath is sometimes confusing. <b><u>&nbsp;&nbsp;5&nbsp;&nbsp;</u></b></li>
+                            <li>I felt like I had enough time to complete quizzes and/or tests. <b><u>&nbsp;&nbsp;5&nbsp;&nbsp;</u></b></li>
+                            <li>Overall, the number of assignments due throughout the quarter was reasonable. <b><u>&nbsp;&nbsp;5&nbsp;&nbsp;</u></b></li>
+                            <li>The homework assignments in MyOpenMath helped me understand the material. <b><u>&nbsp;&nbsp;5&nbsp;&nbsp;</u></b></li>
+                            <li>I would have rather done more group projects and less homework in MyOpenMath. <b><u>&nbsp;&nbsp;2&nbsp;&nbsp;</u></b></li>
+                            <li>I would recommend classes that use MyOpenMath to other students. <b><u>&nbsp;&nbsp;4&nbsp;&nbsp;</u></b></li>
+                            <li>I have used other on-line homework programs that were easier to use. <b><u>&nbsp;N/A&nbsp;</u></b></li>
+                            <li>If you liked another program better, what is the name of the program? <b><u>&nbsp;N/A&nbsp;</u></b></li>
+                        </ol>
+
+                        <div ref={myOpenMathEndRef} id='endRef8' className='stats-ref-end'></div>
                     </div>
                 </Col>
             </Row>
