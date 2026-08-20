@@ -122,6 +122,8 @@ export default function Statistics({ mobileMode }) {
     const project4EndRef = useRef();
     const myOpenMathRef = useRef();
     const myOpenMathEndRef = useRef();
+    const weeklyVideosRef = useRef();
+    const weeklyVideosEndRef = useRef();
 
     const allRefs = useMemo(() => [
         project2Ref,
@@ -141,6 +143,8 @@ export default function Statistics({ mobileMode }) {
         project4EndRef,
         myOpenMathRef,
         myOpenMathEndRef,
+        weeklyVideosRef,
+        weeklyVideosEndRef,
     ], []);
 
     const scrollRefs = useMemo(() => [
@@ -153,6 +157,7 @@ export default function Statistics({ mobileMode }) {
         project3ReflectionRef,
         project4Ref,
         myOpenMathRef,
+        weeklyVideosRef,
     ], []);
 
 
@@ -1100,6 +1105,77 @@ export default function Statistics({ mobileMode }) {
                         </ol>
 
                         <div ref={myOpenMathEndRef} id='endRef8' className='stats-ref-end'></div>
+                    </div>
+
+
+                    {/* WEEKLY VIDEOS REFLECTION */}
+
+                    <div className='mb-5 pb-5'>
+                        <div ref={weeklyVideosRef} id='strRef9' className='stats-ref-start'></div>
+
+                        <h3>Weekly Videos Reflection/Assessment Math 146</h3>
+                        <p>
+                            There were 5 or 6 weekly videos please keep them in mind as you answer the
+                            following questions. Yes/No answers are fine, except when I ask “Why or Why
+                            not”. You are welcome to add a comment to any question.
+                        </p>
+                        <ol className='ms-5 mb-5'>
+                            <li>Intro to your Probability and Statistics Class</li>
+                            <li>That’s Just so Cool</li>
+                            <li>Information Graphics</li>
+                            <li>Counter-Intuitive Solutions</li>
+                            <li>200 Countries in 200 Years</li>
+                            <li>Is a College Education a Good Value?</li>
+                        </ol>
+
+                        <p className='m-2'>
+                            1. Which of these videos did you find the most interesting?
+                        </p>
+                        <p className='fst-italic ps-5 mb-5'>
+                            4. I think it's the couter-intuitive facts that highlight the importance of statistics.
+                        </p>
+
+                        <p className='m-2'>
+                            2. Did you think the length of the videos was reasonable?
+                        </p>
+                        <p className='fst-italic ps-5 mb-5'>Yes.</p>
+
+                        <p className='m-2'>
+                            3. These videos are in the course to help make the course more interesting and provide you with insights
+                            into statistics that you can’t get from working out of a textbook. Would you recommend leaving
+                            them in for future classes? Why or why not?
+                        </p>
+                        <p className='fst-italic ps-5 mb-5'>
+                            Yes. I think they are serving their purpose. I personally get very little from textbooks. I didn’t read
+                            it at all this quarter. I think the younger generations are more likely to be receptive to the video format
+                            over a textbook as time goes on. I think it's best to have both so people can find what works best for them.
+                        </p>
+
+                        <p className='m-2'>
+                            4. If these videos were not a part of your grade, do you think you would have watched them?
+                        </p>
+                        <p className='fst-italic ps-5 mb-5'>
+                            No.
+                        </p>
+
+                        <p className='m-2'>
+                            5. Did you share anything you learned in these videos with a friend or family member?
+                        </p>
+                        <p className='fst-italic ps-5 mb-5'>
+                            No.
+                        </p>
+
+                        <p className='m-2'>
+                            6. Would you suggest adding more weekly videos and fewer projects and activities? Why or why not?
+                        </p>
+                        <p className='fst-italic ps-5 mb-5'>
+                            No. I think the weekly videos are beneficial because they show practical applications of statistics in a
+                            low stress way. But I think the projects and activities that force us to apply learned concepts are more important.
+                            I think there is room for both, the videos are a quick assignment and don't get in the way of other assignments. You could
+                            add more, but if it's at the expense of the projects and activities I don't think it would be worth it.
+                        </p>
+
+                        <div ref={weeklyVideosEndRef} id='endRef9' className='stats-ref-end'></div>
                     </div>
                 </Col>
             </Row>
