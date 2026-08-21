@@ -129,6 +129,7 @@ export default function Statistics({ mobileMode }) {
     const myOpenMathEndRef = useRef();
     const weeklyVideosRef = useRef();
     const weeklyVideosEndRef = useRef();
+    const courseRefectionRef = useRef();
 
     const allRefs = useMemo(() => [
         project2Ref,
@@ -152,6 +153,7 @@ export default function Statistics({ mobileMode }) {
         myOpenMathEndRef,
         weeklyVideosRef,
         weeklyVideosEndRef,
+        courseRefectionRef
     ], []);
 
     const scrollRefs = useMemo(() => [
@@ -166,6 +168,7 @@ export default function Statistics({ mobileMode }) {
         project4ReflectionRef,
         myOpenMathRef,
         weeklyVideosRef,
+        courseRefectionRef
     ], []);
 
 
@@ -1220,6 +1223,140 @@ export default function Statistics({ mobileMode }) {
 
                         <div ref={weeklyVideosEndRef} id='endRef10' className='stats-ref-end'></div>
                     </div>
+
+
+                    {/* COURSE SELF RELFECTION */}
+
+                    <div>
+                        <div ref={courseRefectionRef} id='strRef11' className='stats-ref-start'></div>
+
+                        <Row>
+                            <Col className='p-0' xs={'auto'}>
+                                <h3 className='stats-h3'>Course Self-Reflection Math 146</h3>
+                            </Col>
+                            <Col className='text-md-end p-0' sm={'12'} md>
+                                <h3 className='stats-h3 text-nowrap'>Name: Patrick Lindsay</h3>
+                            </Col>
+                        </Row>
+                        
+                        <p className='stats-course-reflection-question'>
+                            Please rank these items from 1 (liked the least) to 8 (liked the most) Use each
+                            number one time.
+                        </p>
+
+                        <Row className='mb-4'>
+                            <Col className='p-0 stats-course-reflection-rank-item' sm={'12'} md>
+                                <Row>
+                                    <Col className='p-0' xs={'auto'}>
+                                        <span><b><u>&nbsp;&nbsp;3&nbsp;&nbsp;</u></b></span>
+                                    </Col>
+                                    <Col>
+                                        <p>MyOpenMath homework and quizzes</p>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className='p-0' xs={'auto'}>
+                                        <span><b><u>&nbsp;&nbsp;4&nbsp;&nbsp;</u></b></span>
+                                    </Col>
+                                    <Col>
+                                        <p>Weekly Videos in CANVAS</p>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className='p-0' xs={'auto'}>
+                                        <span><b><u>&nbsp;&nbsp;5&nbsp;&nbsp;</u></b></span>
+                                    </Col>
+                                    <Col>
+                                        <p>Group Project – Greenhouse Gasses</p>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className='p-0' xs={'auto'}>
+                                        <span><b><u>&nbsp;&nbsp;2&nbsp;&nbsp;</u></b></span>
+                                    </Col>
+                                    <Col>
+                                        <p>Group Project – Scatter Plots</p>
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col className='p-0 stats-course-reflection-rank-item' sm={'12'} md>
+                                <Row>
+                                    <Col className='p-0' xs={'auto'}>
+                                        <span><b><u>&nbsp;&nbsp;6&nbsp;&nbsp;</u></b></span>
+                                    </Col>
+                                    <Col>
+                                        <p>Solo Project – Expected Value Games</p>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className='p-0' xs={'auto'}>
+                                        <span><b><u>&nbsp;&nbsp;1&nbsp;&nbsp;</u></b></span>
+                                    </Col>
+                                    <Col>
+                                        <p>Solo Project – Read an article</p>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className='p-0' xs={'auto'}>
+                                        <span><b><u>&nbsp;&nbsp;7&nbsp;&nbsp;</u></b></span>
+                                    </Col>
+                                    <Col>
+                                        <p>Midterm exam was taken at home</p>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className='p-0' xs={'auto'}>
+                                        <span><b><u>&nbsp;&nbsp;8&nbsp;&nbsp;</u></b></span>
+                                    </Col>
+                                    <Col>
+                                        <p>Final exam was replaced by a final portfolio</p>
+                                    </Col>
+                                </Row>
+                            </Col>
+                        </Row>
+
+                        <p className='stats-course-reflection-question'>
+                            Rate each question on a 1 to 5 scale. 1 indicates that you do not agree with
+                            the statement.
+                        </p>
+
+                        <ol className='ms-4 mb-5'>
+                            <li>This class required more effort than the average class I have taken.<b><u>&nbsp;&nbsp;1&nbsp;&nbsp;</u></b></li>
+                            <li>The material in this class was more difficult than the average class.<b><u>&nbsp;&nbsp;2&nbsp;&nbsp;</u></b></li>
+                            <li>The learning aids provided were enough for me to complete the work.<b><u>&nbsp;&nbsp;5&nbsp;&nbsp;</u></b></li>
+                            <li>This class improved my ability to work with a group.<b><u>&nbsp;&nbsp;1&nbsp;&nbsp;</u></b></li>
+                            <li>This class required me to think critically to solve problems.<b><u>&nbsp;&nbsp;2&nbsp;&nbsp;</u></b></li>
+                            <li>This class improved my knowledge of technology.<b><u>&nbsp;&nbsp;3&nbsp;&nbsp;</u></b></li>
+                            <li>This class increased my understanding of CANVAS.<b><u>&nbsp;&nbsp;1&nbsp;&nbsp;</u></b></li>
+                            <li>I felt this class had a lot of busy work that did not help me understand the material.<b><u>&nbsp;&nbsp;2&nbsp;&nbsp;</u></b></li>
+                            <li>I liked this class more than I thought I would.<b><u>&nbsp;&nbsp;4&nbsp;&nbsp;</u></b></li>
+                            <li>I am going to pass this class with the grade I deserve.<b><u>&nbsp;&nbsp;4&nbsp;&nbsp;</u></b></li>
+                            <li>I would recommend this class to other students.<b><u>&nbsp;&nbsp;3&nbsp;&nbsp;</u></b></li>
+                            <li>I have a clear understanding of Statistics and how it is used in society.<b><u>&nbsp;&nbsp;4&nbsp;&nbsp;</u></b></li>
+                        </ol>
+                    </div>
+
+                    <p className='stats-course-reflection-question'>
+                        On another piece of paper, please write two or three well-formed paragraphs
+                        describing your experience, or something you are taking away from the class. You
+                        can choose your own topics, or you can speak to one or two of the following
+                        prompts given below. This is not an evaluation of your instructor, but a reflection of
+                        your feelings and performance as you leave the class.
+                    </p>
+
+                    <ul className='ms-4 mb-5'>
+                        <li>The most interesting thing I learned in this class was …</li>
+                        <li>Something I did not expect when I signed up for this class was…</li>
+                        <li>My effort in this class was …</li>
+                        <li>My feelings about probability and statistics…</li>
+                        <li>I wish that this class was more/less like …</li>
+                        <li>I had no idea that…</li>
+                        <li>My sense of accomplishment upon completing this class is…</li>
+                    </ul>
+                    
+                    <p>
+                        
+                    </p>
                 </Col>
             </Row>
             
