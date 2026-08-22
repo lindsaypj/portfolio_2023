@@ -37,7 +37,8 @@ export default function IndividualReflection({
     projectTitle,
     timeSpent,
     highlighted = [{'a': '', 'other': ''}],
-    reflection
+    reflection,
+    mobileMode
 }) {
     
     ////    INITIALIZATION    ////
@@ -48,10 +49,10 @@ export default function IndividualReflection({
     return (
         <div className='stats-group-reflection mt-5 pt-5'>
             <Row>
-                <Col xs={'auto'}>
-                    <h3 className='stats-h3'>Individual Project Reflection Math 146</h3>
+                <Col className={mobileMode ? '' : 'text-nowrap'} xs={mobileMode ? '12' : ''}>
+                    <h3>Individual Project Reflection Math 146</h3>
                 </Col>
-                <Col className='text-md-end' sm={'12'} md>
+                <Col className='text-nowrap' xs={'auto'}>
                     <h3 className='stats-h3'>Name: <u>Patrick Lindsay</u></h3>
                 </Col>
             </Row>

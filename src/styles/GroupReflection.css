@@ -5,9 +5,9 @@
     padding-left: 1rem;
 }
 
-.stats-group-reflection h3 {
-    font-size: Clamp(0.9rem, 1.75vw, 1.75rem);
-}
+/* .stats-group-reflection h3 {
+    font-size: calc(10px + 1.5vmin);
+} */
 
 .group-reflection-table {
     width: 100%;

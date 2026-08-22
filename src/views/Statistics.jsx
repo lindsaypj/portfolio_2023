@@ -542,6 +542,7 @@ export default function Statistics({ mobileMode }) {
                     <div className='mb-5 pb-5'>
                         <div ref={project2ReflectionRef} id='strRef4' className='stats-ref-start'></div>
                         <GroupReflection
+                            mobileMode={mobileMode}
                             projectTitle={'Project 2: Textile Waste'}
                             groupNumber={1}
                             timeSpent={3.5}
@@ -824,6 +825,7 @@ export default function Statistics({ mobileMode }) {
                         <div ref={project3ReflectionRef} id='strRef6' className='stats-ref-start'></div>
 
                         <GroupReflection
+                            mobileMode={mobileMode}
                             projectTitle={'Project 3: Greenhouse Gasses'}
                             groupNumber={1}
                             timeSpent={4}
@@ -858,11 +860,11 @@ export default function Statistics({ mobileMode }) {
                         <div ref={project4Ref} id='strRef7' className='stats-ref-start'></div>
                         
                         <Row>
-                            <Col className='p-0' xs={'auto'}>
-                                <h3 className='stats-h3'>Project 4 – Expected Value Games</h3>
+                            <Col className={mobileMode ? '' : 'text-nowrap'} xs={mobileMode ? '12' : ''}>
+                                <h3 className=''>Project 4 – Expected Value Games</h3>
                             </Col>
-                            <Col className='text-md-end p-0' sm={'12'} md>
-                                <h3 className='stats-h3 text-nowrap'>Patrick Lindsay</h3>
+                            <Col className='text-nowrap' xs={'auto'}>
+                                <h3 className='stats-h3'>Name: <u>Patrick Lindsay</u></h3>
                             </Col>
                         </Row>
                         
@@ -1078,6 +1080,7 @@ export default function Statistics({ mobileMode }) {
                         <div ref={project4ReflectionRef} id='strRef8' className='stats-ref-start'></div>
                             
                         <IndividualReflection
+                        mobileMode={mobileMode}
                             projectTitle={'Project 4: Expected Value Games'}
                             timeSpent={3}
                             highlighted={[
@@ -1113,10 +1116,10 @@ export default function Statistics({ mobileMode }) {
                         <div ref={myOpenMathRef} id='strRef9' className='stats-ref-start'></div>
                         
                         <Row>
-                            <Col xs={'auto'} className='p-0'>
+                            <Col className={'p-0 me-3' + (mobileMode ? '' : ' text-nowrap')} xs={mobileMode ? '12' : ''}>
                                 <h3 className='stats-h3'>MyOpenMath Reflection Math 146</h3>
                             </Col>
-                            <Col className='text-md-end' sm={'12'} md>
+                            <Col className='p-0 text-nowrap' xs={'auto'}>
                                 <h3 className='stats-h3 p-0'>Name: <u>Patrick Lindsay</u></h3>
                             </Col>
                         </Row>
@@ -1231,11 +1234,11 @@ export default function Statistics({ mobileMode }) {
                         <div ref={courseRefectionRef} id='strRef11' className='stats-ref-start'></div>
 
                         <Row>
-                            <Col className='p-0' xs={'auto'}>
-                                <h3 className='stats-h3'>Course Self-Reflection Math 146</h3>
+                            <Col className={'p-0 me-3' + (mobileMode ? '' : ' text-nowrap')} xs={mobileMode ? '12' : ''}>
+                                <h3 className=''>Course Self-Reflection Math 146</h3>
                             </Col>
-                            <Col className='text-md-end p-0' sm={'12'} md>
-                                <h3 className='stats-h3 text-nowrap'>Name: Patrick Lindsay</h3>
+                            <Col className='text-nowrap p-0' xs={'auto'}>
+                                <h3 className='stats-h3'>Name: <u>Patrick Lindsay</u></h3>
                             </Col>
                         </Row>
                         
@@ -1334,29 +1337,29 @@ export default function Statistics({ mobileMode }) {
                             <li>I would recommend this class to other students.<b><u>&nbsp;&nbsp;3&nbsp;&nbsp;</u></b></li>
                             <li>I have a clear understanding of Statistics and how it is used in society.<b><u>&nbsp;&nbsp;4&nbsp;&nbsp;</u></b></li>
                         </ol>
-                    </div>
 
-                    <p className='stats-course-reflection-question'>
-                        On another piece of paper, please write two or three well-formed paragraphs
-                        describing your experience, or something you are taking away from the class. You
-                        can choose your own topics, or you can speak to one or two of the following
-                        prompts given below. This is not an evaluation of your instructor, but a reflection of
-                        your feelings and performance as you leave the class.
-                    </p>
+                        <p className='stats-course-reflection-question'>
+                            On another piece of paper, please write two or three well-formed paragraphs
+                            describing your experience, or something you are taking away from the class. You
+                            can choose your own topics, or you can speak to one or two of the following
+                            prompts given below. This is not an evaluation of your instructor, but a reflection of
+                            your feelings and performance as you leave the class.
+                        </p>
 
-                    <ul className='ms-4 mb-5'>
-                        <li>The most interesting thing I learned in this class was …</li>
-                        <li>Something I did not expect when I signed up for this class was…</li>
-                        <li>My effort in this class was …</li>
-                        <li>My feelings about probability and statistics…</li>
-                        <li>I wish that this class was more/less like …</li>
-                        <li>I had no idea that…</li>
-                        <li>My sense of accomplishment upon completing this class is…</li>
-                    </ul>
-                    
-                    <p>
+                        <ul className='ms-4 mb-5'>
+                            <li>The most interesting thing I learned in this class was …</li>
+                            <li>Something I did not expect when I signed up for this class was…</li>
+                            <li>My effort in this class was …</li>
+                            <li>My feelings about probability and statistics…</li>
+                            <li>I wish that this class was more/less like …</li>
+                            <li>I had no idea that…</li>
+                            <li>My sense of accomplishment upon completing this class is…</li>
+                        </ul>
                         
-                    </p>
+                        <p>
+                            
+                        </p>
+                    </div>
                 </Col>
             </Row>
             

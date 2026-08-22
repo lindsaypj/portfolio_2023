@@ -8,7 +8,7 @@
 }
 
 .stats-h3 {
-    font-size: Clamp(1rem, 1.75vw, 1.75rem);
+    font-size: calc(10px + 1.5vmin);
 }
 
 .stats-p {
@@ -72,8 +72,8 @@
 }
 
 .cover-course {
-    color: rgb(130, 130, 130);
-    text-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.371);
+    color: rgb(154, 154, 154);
+    text-shadow: 2px 2px 0.2rem black;
 }
 
 .cover-name {
@@ -395,3 +395,15 @@
     font-size: Max(10px, calc(9px + 1vmin));
 }
 
+
+/* COURSE SELF REFLECTION */
+
+p.stats-course-reflection-question {
+    font-size: Max(14px, calc(12px + 1vmin));
+    color: #2f5496;
+    font-weight: 500;
+}
+
+.stats-course-reflection-rank-item {
+    min-width: 300px;
+}

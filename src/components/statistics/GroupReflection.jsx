@@ -38,7 +38,8 @@ export default function GroupReflection({
     groupNumber,
     timeSpent,
     highlighted = [{'a': '', 'other': ''}],
-    reflection
+    reflection,
+    mobileMode
 }) {
     
     ////    INITIALIZATION    ////
@@ -49,18 +50,18 @@ export default function GroupReflection({
     return (
         <div className='stats-group-reflection mt-5 pt-5'>
             <Row>
-                <Col xs={'auto'}>
-                    <h3 className='stats-h3'>Group Project Reflection Math 146</h3>
+                <Col className={mobileMode ? '' : 'text-nowrap'} xs={mobileMode ? '12' : ''}>
+                    <h3 className=''>Group Project Reflection Math 146</h3>
                 </Col>
-                <Col className='text-md-end' sm={'12'} md>
+                <Col className='text-nowrap' xs={'auto'}>
                     <h3 className='stats-h3'>Name: <u>Patrick Lindsay</u></h3>
                 </Col>
             </Row>
-            <Row className='mt-3'>
-                <Col xs='auto'>
+            <Row className='mt-3 text-nowrap'>
+                <Col xs>
                     <h4>Project: <u>{projectTitle}</u></h4>
                 </Col>
-                <Col className='text-md-end' sm={'12'} md>
+                <Col className='text-nowrap' xs={'auto'}>
                     <h4 className={'stats-h4'}>Group Number: <u>{groupNumber}</u></h4>
                 </Col>
             </Row>
