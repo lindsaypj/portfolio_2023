@@ -51,7 +51,7 @@ export default function GroupReflection({
         <div className='stats-group-reflection mt-5 pt-5'>
             <Row>
                 <Col className={mobileMode ? '' : 'text-nowrap'} xs={mobileMode ? '12' : ''}>
-                    <h3 className=''>Group Project Reflection Math 146</h3>
+                    <h3>Group Project Reflection Math 146</h3>
                 </Col>
                 <Col className='text-nowrap' xs={'auto'}>
                     <h3 className='stats-h3'>Name: <u>Patrick Lindsay</u></h3>

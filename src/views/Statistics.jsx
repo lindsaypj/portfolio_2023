@@ -861,7 +861,7 @@ export default function Statistics({ mobileMode }) {
                         
                         <Row>
                             <Col className={mobileMode ? '' : 'text-nowrap'} xs={mobileMode ? '12' : ''}>
-                                <h3 className=''>Project 4 – Expected Value Games</h3>
+                                <h3>Project 4 – Expected Value Games</h3>
                             </Col>
                             <Col className='text-nowrap' xs={'auto'}>
                                 <h3 className='stats-h3'>Name: <u>Patrick Lindsay</u></h3>
@@ -1117,10 +1117,10 @@ export default function Statistics({ mobileMode }) {
                         
                         <Row>
                             <Col className={'p-0 me-3' + (mobileMode ? '' : ' text-nowrap')} xs={mobileMode ? '12' : ''}>
-                                <h3 className='stats-h3'>MyOpenMath Reflection Math 146</h3>
+                                <h3>MyOpenMath Reflection Math 146</h3>
                             </Col>
-                            <Col className='p-0 text-nowrap' xs={'auto'}>
-                                <h3 className='stats-h3 p-0'>Name: <u>Patrick Lindsay</u></h3>
+                            <Col className='text-nowrap p-0' xs={'auto'}>
+                                <h3 className='stats-h3'>Name: <u>Patrick Lindsay</u></h3>
                             </Col>
                         </Row>
 
@@ -1235,7 +1235,7 @@ export default function Statistics({ mobileMode }) {
 
                         <Row>
                             <Col className={'p-0 me-3' + (mobileMode ? '' : ' text-nowrap')} xs={mobileMode ? '12' : ''}>
-                                <h3 className=''>Course Self-Reflection Math 146</h3>
+                                <h3>Course Self-Reflection Math 146</h3>
                             </Col>
                             <Col className='text-nowrap p-0' xs={'auto'}>
                                 <h3 className='stats-h3'>Name: <u>Patrick Lindsay</u></h3>
