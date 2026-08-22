@@ -1357,7 +1357,29 @@ export default function Statistics({ mobileMode }) {
                         </ul>
                         
                         <p>
-                            
+                            Overall, I am very happy with this class. Since I’ve taken most of Calculus this class was not difficult,
+                            but it filled in some missing pieces. Learning the vocabulary and understanding standard deviations will
+                            be helpful in deciphering studies going forward. I think misinformation is one of the biggest challenges
+                            we are facing today and this class has given me some confidence in interpreting what studies actually say
+                            rather than what I might want it to say.
+                        </p>
+                        <p>
+                            One thing that I didn’t like was the group projects. Not because they were bad or unhelpful (I think they
+                            were good), but because the communication and collaboration was terrible. I’ve been out of school for a
+                            few years. I’ve never had so much difficulty getting a response from teammates. Two people on the same
+                            project never even introduced themselves. On top of that everyone waits until the last minute to complete
+                            assignments. I can’t tell if it was just because you had a gracious late policy, but I’m not sure when
+                            procrastination became the norm. This was the first quarter back for me so I’ll see how it goes in
+                            future classes.
+                        </p>
+                        <p>
+                            I liked the asynchronous instruction mode and the reduced reliance on textbooks. The shorter videos made
+                            refreshing on specific topics easy. One critique I have is that there are discrepancies with the course
+                            content in Canvas. All of the MOM homework was consistent, but some lecture assignments were in Canvas
+                            and some in MOM. Also there was no direct link to the notes in each module. I found that some modules
+                            had differently formatted notes depending on whether you click the calendar link from the To Do list vs
+                            the notes link in a lecture assignment. The substance is all there, but I think small discrepancies have
+                            accumulated over the years.
                         </p>
                     </div>
                 </Col>
