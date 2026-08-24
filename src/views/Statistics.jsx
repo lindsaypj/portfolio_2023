@@ -79,6 +79,9 @@ const SECTIONS = [
     },
 ]
 
+const INCLUDE_LINKS = false;
+
+
 function typedReducer(state, action) {
   const nextState = {...state}
   switch(action.text) {
@@ -322,19 +325,46 @@ export default function Statistics({ mobileMode }) {
                                 <h4>Part 1 – Watch and discuss the following Videos: 12 points</h4>
                                 <ol type='1' className='stats-ms-5'>
                                     <li>
-                                        <a href='https://www.youtube.com/watch?v=uou_223HFns' target='_blank' rel='noreferrer'>
-                                            Ghana becomes dumping ground for the world’s unwanted used clothes
-                                        </a>
+                                        {
+                                            INCLUDE_LINKS && 
+                                            <a href='https://www.youtube.com/watch?v=uou_223HFns' target='_blank' rel='noreferrer'>
+                                                Ghana becomes dumping ground for the world’s unwanted used clothes
+                                            </a>
+                                        }
+                                        {
+                                            !INCLUDE_LINKS &&
+                                            <p className='m-0'>
+                                                Ghana becomes dumping ground for the world’s unwanted used clothes
+                                            </p>
+                                        }
                                     </li>
                                     <li>
-                                        <a href='https://www.youtube.com/watch?v=2RPq_v8WEkA' target='_blank' rel='noreferrer'>
-                                            FABSCRAP Helps Fashion Brands Recycle Textile Waste/ One Small Step
-                                        </a>
+                                        {
+                                            INCLUDE_LINKS && 
+                                            <a href='https://www.youtube.com/watch?v=2RPq_v8WEkA' target='_blank' rel='noreferrer'>
+                                                FABSCRAP Helps Fashion Brands Recycle Textile Waste/ One Small Step
+                                            </a>
+                                        }
+                                        {
+                                            !INCLUDE_LINKS &&
+                                            <p className='m-0'>
+                                                FABSCRAP Helps Fashion Brands Recycle Textile Waste/ One Small Step
+                                            </p>
+                                        }
                                     </li>
                                     <li>
-                                        <a href='https://www.youtube.com/watch?v=F6R_WTDdx7I' target='_blank' rel='noreferrer'>
-                                            Fast Fashion is hot garbage
-                                        </a>
+                                        {
+                                            INCLUDE_LINKS && 
+                                            <a href='https://www.youtube.com/watch?v=F6R_WTDdx7I' target='_blank' rel='noreferrer'>
+                                                Fast Fashion is hot garbage
+                                            </a>
+                                        }
+                                        {
+                                            !INCLUDE_LINKS &&
+                                            <p className='m-0'>
+                                                Fast Fashion is hot garbage
+                                            </p>
+                                        }
                                     </li>
                                 </ol>
                                 <p>
@@ -383,9 +413,18 @@ export default function Statistics({ mobileMode }) {
                                 <h4 className='mt-5 pt-5'>
                                     Part 2 - Questions to answer from the textile article: 26 points
                                 </h4>
-                                <a className='d-inline-block mb-2' href='https://pmc.ncbi.nlm.nih.gov/articles/PMC8257395/pdf/42824_2021_Article_26.pdf' target='_blank' rel='noreferrer'>
-                                    Circular Economy and Sustainability of the Clothing and Textile Industry
-                                </a>
+                                {
+                                    INCLUDE_LINKS && 
+                                    <a className='d-inline-block mb-2' href='https://pmc.ncbi.nlm.nih.gov/articles/PMC8257395/pdf/42824_2021_Article_26.pdf' target='_blank' rel='noreferrer'>
+                                        Circular Economy and Sustainability of the Clothing and Textile Industry
+                                    </a>
+                                }
+                                {
+                                    !INCLUDE_LINKS &&
+                                    <p className='d-inline-block mb-2'>
+                                        "Circular Economy and Sustainability of the Clothing and Textile Industry"
+                                    </p>
+                                }
                                 <p>
                                     By Xuandong Chen, Hifza Memon, Yuanhoa Wang, Ifra Marriam, and Mike Tebyetekerwa. 
                                 </p>
@@ -721,9 +760,18 @@ export default function Statistics({ mobileMode }) {
                         <div className='mb-5'>
                             <p>9. Read the article linked below and have a group discussion about at least 3 items that you found the most interesting or compelling.  Summarize the thoughts of your group in 3 to 4 paragraphs. (10 points)</p>
                             <p>
-                                <a href='https://theroundup.org/co2-greenhouse-gas-emission-statistics/' target='_blank' rel='noreferrer'>
-                                    45 Carbon Dioxide, Greenhouse Gas & Climate Change Statistics
-                                </a>
+                                {
+                                    INCLUDE_LINKS && 
+                                    <a href='https://theroundup.org/co2-greenhouse-gas-emission-statistics/' target='_blank' rel='noreferrer'>
+                                        45 Carbon Dioxide, Greenhouse Gas & Climate Change Statistics
+                                    </a>
+                                }
+                                {
+                                    !INCLUDE_LINKS &&
+                                    <p>
+                                        "45 Carbon Dioxide, Greenhouse Gas & Climate Change Statistics" by Arabella Ruiz
+                                    </p>
+                                }
                             </p>
                             <p>Thoughts from <b>Patrick</b>:</p>
                             <p className='text-danger fst-italic'>
