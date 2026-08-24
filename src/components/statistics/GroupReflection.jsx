@@ -108,18 +108,15 @@ export default function GroupReflection({
                 </div>
             ))}
 
-            <Row className='mt-5'>
-                <Col>
-                    <p className='stats-ms-5 mb-0'>
-                        8. <b>Describe the project in your own words</b>, and briefly explain the process your group went through to complete the work.  Explain any positive or negative experiences you had while completing the assignment and something that you learned from the experience.  To receive full credit, please answer in 3 to 7 complete, well-formed sentences.
-                    </p>
-                </Col>
-            </Row>
-            <Row className='mt-4'>
-                <Col>
-                    {reflection}
-                </Col>
-            </Row>
+            <div className='stats-ms-5 mt-5'>
+                <p className='mb-0'>
+                    8. <b>Describe the project in your own words</b>, and briefly explain the process your group went through to complete the work.  Explain any positive or negative experiences you had while completing the assignment and something that you learned from the experience.  To receive full credit, please answer in 3 to 7 complete, well-formed sentences.
+                </p>
+
+                <div className='mt-4'>
+                    {reflection} 
+                </div>
+            </div>
         </div>
     )
 }

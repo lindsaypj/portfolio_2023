@@ -104,19 +104,16 @@ export default function IndividualReflection({
                 </div>
             ))}
 
-            <Row className='mt-5'>
-                <Col>
-                    <p className='stats-ms-5 mb-0'>
-                        8. Explain any positive or negative experiences you had while completing the assignment and something that you
-                        learned from the experience. To receive full credit, please answer in 2 to 3 complete, well-formed sentences.
-                    </p>
-                </Col>
-            </Row>
-            <Row className='mt-4'>
-                <Col>
-                    {reflection}
-                </Col>
-            </Row>
+            <div className='stats-ms-5 mt-5'>
+                <p className='mb-0'>
+                    8. Explain any positive or negative experiences you had while completing the assignment and something that you
+                    learned from the experience. To receive full credit, please answer in 2 to 3 complete, well-formed sentences.
+                </p>
+
+                <div className='mt-4'>
+                    {reflection} 
+                </div>
+            </div>
         </div>
     )
 }
