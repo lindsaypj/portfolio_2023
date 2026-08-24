@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 
 
-export default function ProjectQuestion({ questionNum = '0', credit = ['',''], questions = [{q: '', a: ['']}] }) {
+export default function ProjectQuestion({ questionNum = '0', credit, questions = [{q: '', a: ['']}] }) {
 
     const getQuestionChar = (index) => {
         return (String.fromCharCode('a'.charCodeAt(0) + index) + '.')
@@ -55,12 +55,14 @@ export default function ProjectQuestion({ questionNum = '0', credit = ['',''], q
     return (
         <Row className='ps-4 my-4'>
             <Col xs='auto' className='p-0'>
-                <span>{questionNum}.</span>
+                <span className='stats-default-font-size'>{questionNum}.</span>
             </Col>
             <Col>
-                <p className='stats-p'>
-                    Student who completed the work: <span className='stats-credit'>{credit[0]}</span> Student who checked it: <span className='stats-credit'>{credit[1]}</span>
-                </p>
+                {credit &&
+                    <p className='stats-p'>
+                        Student who completed the work: <span className='stats-credit'>{credit[0]}</span> Student who checked it: <span className='stats-credit'>{credit[1]}</span>
+                    </p>
+                }
                 {formatQustions()}
             </Col>
         </Row>

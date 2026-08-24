@@ -50,6 +50,11 @@
     bottom: 50vh;
 }
 
+.stats-default-font-size {
+    font-size: Max(10px, calc(9px + 1vmin));
+    line-height: 30px;
+}
+
 
 /* COVER ROW */
 
