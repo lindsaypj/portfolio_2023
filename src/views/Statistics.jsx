@@ -1255,7 +1255,7 @@ export default function Statistics({ mobileMode }) {
                                 </Row>
                                 <Row>
                                     <Col className='p-0' xs={'auto'}>
-                                        <span><b><u>&nbsp;&nbsp;4&nbsp;&nbsp;</u></b></span>
+                                        <span><b><u>&nbsp;&nbsp;5&nbsp;&nbsp;</u></b></span>
                                     </Col>
                                     <Col>
                                         <p>Weekly Videos in CANVAS</p>
@@ -1263,7 +1263,7 @@ export default function Statistics({ mobileMode }) {
                                 </Row>
                                 <Row>
                                     <Col className='p-0' xs={'auto'}>
-                                        <span><b><u>&nbsp;&nbsp;5&nbsp;&nbsp;</u></b></span>
+                                        <span><b><u>&nbsp;&nbsp;4&nbsp;&nbsp;</u></b></span>
                                     </Col>
                                     <Col>
                                         <p>Group Project – Greenhouse Gasses</p>
@@ -1271,7 +1271,7 @@ export default function Statistics({ mobileMode }) {
                                 </Row>
                                 <Row>
                                     <Col className='p-0' xs={'auto'}>
-                                        <span><b><u>&nbsp;&nbsp;2&nbsp;&nbsp;</u></b></span>
+                                        <span><b><u>&nbsp;N/A&nbsp;</u></b></span>
                                     </Col>
                                     <Col>
                                         <p>Group Project – Scatter Plots</p>
@@ -1289,7 +1289,7 @@ export default function Statistics({ mobileMode }) {
                                 </Row>
                                 <Row>
                                     <Col className='p-0' xs={'auto'}>
-                                        <span><b><u>&nbsp;&nbsp;1&nbsp;&nbsp;</u></b></span>
+                                        <span><b><u>&nbsp;N/A&nbsp;</u></b></span>
                                     </Col>
                                     <Col>
                                         <p>Solo Project – Read an article</p>
