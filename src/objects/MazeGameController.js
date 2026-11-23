@@ -21,17 +21,15 @@ export class MazeGameController {
     }
   }
 
-  // Method to get the current maze
   getMaze() {
     return this.graph.cellMap()
   }
   
-  // Method to solve the maze, returning a path from cell '0' to cell 'cellCount'
+  // Solve the maze, returning a path from cell '0' to cell 'cellCount'
   solveMaze() {
     return this.graph.depthFirstSearch()
   }
   
-  // Method to validate a potential maze state
   validateMazeParams(width, height, mazeData = null) {
     if (width < 4 || width > MAX_MAZE_DIMENTION) {
       return "Invalid maze width. 4 <= WIDTH <= "+MAX_MAZE_DIMENTION
@@ -44,7 +42,6 @@ export class MazeGameController {
     }
   }
 
-  // Method to generate the maze
   generate() {
     const generatedCells = Array.from({length: this.cellCount}, (v, i) => i)
 
@@ -75,7 +72,7 @@ export class MazeGameController {
     }
   }
 
-  // Method to populate a the MazeGraph with an existing maze to be solved
+  // Populate a the MazeGraph with an existing maze to be solved
   loadMazeData(mazeData) {
     for (const [cell, doors] of Object.entries(mazeData)) {
       for (let door = 0; door < doors.length; door++) {

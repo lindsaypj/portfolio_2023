@@ -17,7 +17,7 @@ export class MazeGraph {
     return this.adjacencyLists.has(search)
   }
   
-  // Method to add an edge between two cells in the graph, indicating a path from one to the other
+  // Add an edge between two cells in the graph, indicating a path from one to the other
   addEdge(first, second) {
     if (this.containsEdge(first, second)) {
       return
@@ -50,7 +50,7 @@ export class MazeGraph {
     return false
   }
 
-  // Method to create an exportable list of cells and their traversable directions
+  // Create an exportable list of cells and their traversable directions
   cellMap() {
     const cells = {}
     this.adjacencyLists.forEach((node, key) => {
