@@ -3,6 +3,8 @@ import { randomInt } from "../scripts/utils"
 import { DisjointSets } from "./DisjointSets"
 import { MazeGraph } from "./MazeGraph"
 
+const MAX_MAZE_DIMENTION = 100;
+
 export class MazeGameController {
   constructor(width, height, mazeData = null) {
     this.width = width
@@ -31,11 +33,11 @@ export class MazeGameController {
   
   // Method to validate a potential maze state
   validateMazeParams(width, height, mazeData = null) {
-    if (width < 4 || width > 100) {
-      return "Invalid maze width. 4 <= WIDTH <= 100"
+    if (width < 4 || width > MAX_MAZE_DIMENTION) {
+      return "Invalid maze width. 4 <= WIDTH <= "+MAX_MAZE_DIMENTION
     }
-    if (height < 4 || height > 100) {
-      return "Invalid maze height. 4 <= HEIGHT <= 100"
+    if (height < 4 || height > MAX_MAZE_DIMENTION) {
+      return "Invalid maze height. 4 <= HEIGHT <= "+MAX_MAZE_DIMENTION
     }
     if (mazeData !== null && mazeData.length !== width * height) {
       return "Size mismath. Maze must be width * height."
